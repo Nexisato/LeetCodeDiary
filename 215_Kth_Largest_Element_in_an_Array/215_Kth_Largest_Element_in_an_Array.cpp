@@ -9,6 +9,7 @@ You may assume k is always valid, 1 ≤ k ≤ array's length.
 #include<iostream>
 #include<vector>
 #include<algorithm>
+#include <queue>
 using namespace std;
 
     /*
@@ -21,6 +22,32 @@ public:
     int findKthLargest(vector<int>& nums, int k) {
         return sort(nums.begin(),nums.end(),greater<int>()),nums[k-1];
     }
+};
+/*
+思路：创建一个容量为K的最小堆，遇到数组中有大于堆顶的元素，则出堆入堆一次
+*/
+class Solution_heap {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        if (k == 0) return {};
+        priority_queue<int, vector<int>, greater<int>> minHeap;
+        int n = nums.size();
+        int heap_size = 0;
+        for (int i = 0; i < n; ++i) {
+            if (heap_size < k) {
+                minHeap.push(nums[i]);
+                heap_size++;
+            }
+            else {
+                if (nums[i] > minHeap.top()) {
+                    minHeap.pop();
+                    minHeap.push(nums[i]);
+                }
+            }
+        }
+        return minHeap.top();
+    }
+
 };
 int main(){
 
