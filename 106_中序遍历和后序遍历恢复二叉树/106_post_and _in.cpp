@@ -34,7 +34,28 @@ public:
         return traversal(postorder, inorder, 0, n - 1, 0, n - 1);
     }
 };
-
+/*
+思路：参数中多引入几个标记索引
+*/
+class Solution {
+private:
+    TreeNode* rebuild(vector<int>& inorder, vector<int>& postorder, int inL, int inR, int postL, int postR) {
+        if (inL > inR)
+            return nullptr;
+        TreeNode* node = new TreeNode(postorder[postR]);
+        for (int i = inL; i <= inR; ++i)
+            if (inorder[i] == postorder[postR]) {
+                node->left = rebuild(inorder, postorder, inL, i - 1, postL, postL + i - 1 - inL);
+                node->right = rebuild(inorder, postorder, i + 1, inR, postL + i - inL, postR - 1);
+                break;
+            }
+        return node;
+    }
+public:
+    TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
+        return rebuild(inorder, postorder, 0, inorder.size() - 1, 0, postorder.size() - 1);
+    }
+};
 int main()
 {
 
