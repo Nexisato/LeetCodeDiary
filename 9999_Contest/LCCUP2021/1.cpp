@@ -8,7 +8,10 @@ LeetCode
 */
 #include <bits/stdc++.h>
 using namespace std;
-
+/*
+思路：典型的双指针
+要累计区间和
+*/
 class Solution {
 public:
     int purchasePlans(vector<int>& nums, int target) {
