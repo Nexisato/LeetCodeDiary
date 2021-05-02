@@ -29,10 +29,14 @@ class Solution {
 private:
     int binarySearch(vector<int>& nums, int low, int high, int target) {
         int mid = (low + high) / 2;
-        if (nums[mid] == target) return mid;
-        else if (target >= nums[mid] && target <= nums[mid+1]) return mid + 1;
-        else if (nums[mid] <= target) return binarySearch(nums, mid + 1, high, target);
-        else return binarySearch(nums, low, mid - 1, target);
+        if (nums[mid] == target) 
+            return mid;
+        else if (target >= nums[mid] && target <= nums[mid+1]) 
+            return mid + 1;
+        else if (nums[mid] <= target) 
+            return binarySearch(nums, mid + 1, high, target);
+        else 
+            return binarySearch(nums, low, mid - 1, target);
         return -1;
     }
 public:
