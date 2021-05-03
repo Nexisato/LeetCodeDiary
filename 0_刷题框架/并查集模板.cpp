@@ -51,23 +51,20 @@ bool isSame(int i, int j) {
 }
 
 //常规
-class Djset {
+class UnionFind {
 private:
-    vector<int> parent;  // 记录节点的根
-    vector<int> rank;  // 记录根节点的深度（用于优化）
+    vector<int> parent;
+    vector<int> rank;
     int count;
 public:
-    Djset(int n): parent(vector<int>(n)), rank(vector<int>(n)), count(n) {
-        for (int i = 0; i < n; i++) {
+    UnionFind(int n): parent(vector<int>(n)), rank(vector<int>(n)), count(0){
+        for (int i = 0; i < n; ++i)
             parent[i] = i;
-        }
     }
 
     int find(int x) {
-        // 压缩方式：直接指向根节点
-        if (x != parent[x]) {
+        if (x != parent[x])
             parent[x] = find(parent[x]);
-        }
         return parent[x];
     }
 
@@ -75,10 +72,11 @@ public:
         int rootx = find(x);
         int rooty = find(y);
         if (rootx != rooty) {
-            if (rank[rootx] < rank[rooty]) 
+            if (rank[rootx] < rank[rooty])
                 swap(rootx, rooty);
-            parent[rooty] = rootx;
-            if (rank[rootx] == rank[rooty]) rank[rootx] += 1;
+            parent[rooty] = rootx; //high rank node is the parent of low rank node
+            if (rank[rootx] == rank[rooty])
+                rank[rootx] += 1;
             count--;
         }
     }
@@ -88,44 +86,6 @@ public:
     }
 
     bool isMerged(int x, int y) {
-        return find(x) == find(y);
-    }
-};
-
-//需要计算连通图的
-class Djset {
-public:
-    unordered_map<int, int> parent, rank;
-    int count;
-    Djset(int n): count(0){}
-    
-    int find(int x) {
-        //未加入并查集
-        if (parent.find(x) == parent.end()) {
-            parent[x] = x;
-            count++;
-        }
-        //路径压缩，父节点作为根节点
-        if (x != parent[x]) {
-            parent[x] = find(parent[x]);
-        }
-        return parent[x];
-    }
-
-    inline void merge(int x, int y) {// y->x; 低秩并到高秩
-        int rootx = find(x);
-        int rooty = find(y);
-        if (rootx != rooty) {
-            if (rank[rootx] < rank[rooty])
-                swap(rootx, rooty);
-            parent[rooty] = rootx;
-            if (rootx == rooty) 
-                rank[rootx] += 1;
-            count--;
-        }
-
-    }
-    int get_count() {
-        return count;
+        return (find(x) == find(y));
     }
 };
