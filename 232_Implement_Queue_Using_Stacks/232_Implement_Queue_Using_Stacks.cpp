@@ -29,44 +29,43 @@ All the calls to pop and peek are valid.
 using namespace std;
 /*
 思路：双栈模拟
-一个栈用于入队，另一个栈用于调用pop()时出队
+一个栈用于入队存储元素，另一个栈用于调用pop()/top()时出队
 */
 class MyQueue {
 private:
-    vector<int> nums;
-    vector<int> q;
-    void remov() {
+    stack<int> nums, q;
+    void move() {
         while (!nums.empty()) {
-            q.emplace_back(nums.back());
-            nums.pop_back();
+            q.push(nums.top());
+            nums.pop();
         }
     }
 public:
     /** Initialize your data structure here. */
     MyQueue() {
-        nums.clear();
-        q.clear();
+        this->nums = stack<int>();
+        this->q = stack<int>();
     }
     
     /** Push element x to the back of queue. */
     void push(int x) {
-        nums.emplace_back(x);
+        nums.push(x);
     }
     
     /** Removes the element from in front of queue and returns that element. */
     int pop() {
-        if  (q.empty()) 
-            remov();
-        int res = q.back();
-        q.pop_back();
-        return res;
+        if (q.empty())
+            move();
+        int elem = q.top();
+        q.pop();
+        return elem;
     }
     
     /** Get the front element. */
     int peek() {
         if (q.empty())
-            remov();
-        return q.back();
+            move();
+        return q.top();
     }
     
     /** Returns whether the queue is empty. */
