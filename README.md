@@ -1,4 +1,6 @@
 # LeetCodeDiary
+> 主页：https://leetcode-cn.com/u/nexisato/
+>
 > 本Repo记录了我的LeetCode艰难刷题之旅
 >
 > Flag：漏卡一天直播xx
