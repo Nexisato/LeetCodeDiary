@@ -1,5 +1,24 @@
-# LeetCodeDiary（漏卡一天直播xx)
+# LeetCodeDiary
 > 本Repo记录了我的LeetCode艰难刷题之旅
+>
+> Flag：漏卡一天直播xx
+
+### 目录说明
+
+- Activities：LeetCode官方的不定期打卡活动，如2020年末的《程序员的算法趣题》
+- Contest：包括周赛、双周赛、LCCUP等竞赛
+- InterViewee：以面试题编号出现的题目，如17.21
+- LCOffer：《剑指Offer》LC特供版
+
+- LeetCode：官方编号的题目，包括常规算法、Shell、数据库、多线程
+
+---
+
+### 日期记录
+
+> 以下为每次commit的阶段性记录(我的心态是如何一步步炸掉的orz..)
+
+
 
 #### 2021-05-11
 
