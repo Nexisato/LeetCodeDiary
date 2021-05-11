@@ -5,12 +5,12 @@
 
 ### 目录说明
 
-- Activities：LeetCode官方的不定期打卡活动，如2020年末的《程序员的算法趣题》
-- Contest：包括周赛、双周赛、LCCUP等竞赛
-- InterViewee：以面试题编号出现的题目，如17.21
-- LCOffer：《剑指Offer》LC特供版
+- [Activities](https://github.com/Nexisato/LeetCodeDiary/tree/master/Activities)：LeetCode官方的不定期打卡活动，如2020年末的《程序员的算法趣题》
+- [Contest](https://github.com/Nexisato/LeetCodeDiary/tree/master/Contest)：包括周赛、双周赛、LCCUP等竞赛
+- [InterViews](https://github.com/Nexisato/LeetCodeDiary/tree/master/InterViews)：以面试题编号出现的题目，如17.21
+- [LCOffer](https://github.com/Nexisato/LeetCodeDiary/tree/master/LCOffer)：《剑指Offer》LC特供版
 
-- LeetCode：官方编号的题目，包括常规算法、Shell、数据库、多线程
+- [LeetCode](https://github.com/Nexisato/LeetCodeDiary/tree/master/LeetCode)：官方编号的题目，包括常规算法、Shell、数据库、多线程
 
 ---
 
