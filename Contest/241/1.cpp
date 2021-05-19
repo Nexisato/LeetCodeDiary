@@ -1,7 +1,5 @@
 /*
 LeetCode 5759:  Sum of All Subset XOR Totals
-@Description:
-
 */
 #include <bits/stdc++.h>
 using namespace std;
