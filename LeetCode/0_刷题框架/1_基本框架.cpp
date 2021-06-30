@@ -34,12 +34,13 @@ void traverse(LNode *head){
 
 //3.二叉树遍历框架
 /*基本二叉树节点——链式存储*/ 
-typedef struct TreeNode *BinTree;
-struct TreeNode{
-    int Data;
-    BinTree Left;
-    BinTree Right;
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
+
 
 void PreOrderTraversal(BinTree BT){
     if(BT){
