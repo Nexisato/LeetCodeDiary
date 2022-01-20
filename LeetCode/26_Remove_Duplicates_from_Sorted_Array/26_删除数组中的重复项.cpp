@@ -21,13 +21,16 @@ public:
         }
     }
     int removeDuplicates_faster(vector<int>& nums){
-        if(nums.empty()) return 0;
-        int slowPtr=0;
-        for(vector<int>::size_type fastPtr=0;fastPtr<(nums.size()-1);fastPtr++){
-            if(nums[fastPtr]!=nums[fastPtr+1])
-                nums[++slowPtr]=nums[fastPtr+1];
+        if (nums.empty())
+            return 0;
+        int slowPtr = 0, fastPtr = 0, n = nums.size();
+        for (; fastPtr < n - 1; ++fastPtr) {
+            if (nums[fastPtr] != nums[fastPtr + 1]) {
+                ++slowPtr;
+                nums[slowPtr] = nums[fastPtr + 1];
+            }
         }
-        return slowPtr+1;
+        return slowPtr + 1;
     }
 
 };

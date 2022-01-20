@@ -34,8 +34,6 @@ class Solution {
 public:
     int search(vector<int>& nums, int target) {
         int n = (int)nums.size();
-        if (!n)
-            return -1;
         if (n == 1)
             return nums[0] == target ? 0 : -1;
         int low = 0, high = n - 1, mid = (low + high) / 2;

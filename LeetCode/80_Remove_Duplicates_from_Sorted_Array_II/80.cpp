@@ -49,6 +49,20 @@ public:
         nums.erase(nums.begin() + n, nums.end());
         return n;
     }
+
+    int removeDuplicates_2(vector<int>& nums) {
+        int n = nums.size();
+        if (n <= 2)
+            return n;
+        int slowPtr = 2;
+        for (int fastPtr = 2; fastPtr < n; ++fastPtr) {
+            if (nums[fastPtr] != nums[slowPtr - 2]) {
+                nums[slowPtr] = nums[fastPtr];
+                ++slowPtr;
+            }
+        }
+        return slowPtr;
+    }
 };
 int main() {
     Solution ss;
