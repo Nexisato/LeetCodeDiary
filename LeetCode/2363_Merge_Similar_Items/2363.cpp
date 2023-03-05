@@ -35,9 +35,9 @@ public:
     vector<vector<int>> mergeSimilarItems(vector<vector<int>>& items1, vector<vector<int>>& items2) {
         map<int, int> table;
         for (auto &item : items1)
-            table[item[0]] += table[item[1]];
+            table[item[0]] += item[1];
         for (auto &item : items2)
-            table[item[0]] += table[item[1]];
+            table[item[0]] += item[1];
         vector<vector<int>> ret;
         for (auto &[k, v] : table) {
             ret.push_back({k, v});

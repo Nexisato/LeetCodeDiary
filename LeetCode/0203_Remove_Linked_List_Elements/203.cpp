@@ -21,6 +21,7 @@ struct ListNode{
 };
 /*
 思路：签到题
+update: 为了防止内存泄漏，C++ 养成随时 delete 的习惯
 */
 class Solution {
 public:
@@ -30,16 +31,19 @@ public:
         ListNode *node = virnode;
         while (node->next != nullptr) {
             if (node->next->val == val) {
-                ListNode *tmp = node;
+                ListNode *tmp = node->next;
+                /* 这一步其实多此一举
                 while (node->next && node->next->val == 1)
                     node = node->next;
-                tmp->next = node->next;
-            }
-            else {
+                */
+                node->next = node->next->next;
+                delete tmp; //C++ 记得删
+            } else 
                 node = node->next;
-            }
         }
-        return virnode->next;
+        head = virnode->next;
+        delete virnode;
+        return head;
     }
 };
 

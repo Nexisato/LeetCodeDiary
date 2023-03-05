@@ -3,8 +3,8 @@ Chapter 0：学习算法和刷题的框架思维
 */
 
 // 1. 数组遍历框架
-void traverse(int arr[],int size){
-    for(int i=0;i<size;i++){
+void traverse(int arr[], int size){
+    for(int i = 0; i < size; i++){
         //迭代访问 arr[i]
     }
 }
@@ -20,7 +20,7 @@ struct ListNode{
 };
 
 void traverse(LNode *head){
-    for(LNode *p=head;p!=nullptr;p=p->Next){
+    for(LNode *p = head; p! = nullptr; p = p->Next){
         //迭代访问 p->Data
     }
 }

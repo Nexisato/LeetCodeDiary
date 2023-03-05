@@ -35,7 +35,10 @@ using namespace std;
 思路：
 如何不按照顺序移除元素？
 双指针yyds
+有通向 和 相向 两种方向
+相向的话，注意左边是寻找第一个等于的，右边是寻找第一个不等于的
 */
+
 class Solution {
 public:
     int removeElement(vector<int>& nums, int val) {
@@ -46,6 +49,24 @@ public:
         return slowPtr;
     }
 };
+/*
+这种方法会使得 elements order 被改变
+*/
+class Solution_oppsite {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        int n = nums.size();
+        int left = 0, right = n - 1;
+        while (left <= right) {
+            while (left <= right && nums[left] != val) ++left;
+            while (left <= right && nums[right] == val) --right;
+            if (left < right)
+                nums[left++] = nums[right--];
+        }
+        return left;
+    }
+};
+
 
 int main() {
     vector<int> nums = {3,2,2,3};
