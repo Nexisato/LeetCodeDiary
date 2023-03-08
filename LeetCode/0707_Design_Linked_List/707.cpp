@@ -1,6 +1,71 @@
 #include <bits/stdc++.h>
 using namespace std;
+//2023-03-06：新解
+struct MyListNode {
+    int val;
+    MyListNode *next;
+    MyListNode(int _val) : val(_val), next(nullptr) {}
+};
+class MyLinkedList {
+private:
+    int _size;
+    MyListNode* virnode;
+public:
+    MyLinkedList() {
+        virnode = new MyListNode(-1);
+        _size = 0;
+    }
+    
+    int get(int index) {
+        if (index > (_size - 1) || index < 0)
+            return -1;
+        MyListNode *cur = virnode->next;
+        while (index--) {
+            cur = cur->next;
+        }
+        return cur->val;
+    }
+    
+    void addAtHead(int val) {
+        addAtIndex(0, val);
+    }
+    
+    void addAtTail(int val) {
+        addAtIndex(_size, val);
+    }
+    
+    void addAtIndex(int index, int val) {
+        if (index > _size) return;
+        if (index < 0) index = 0;
 
+        MyListNode *node = new MyListNode(val), *cur = virnode;
+        while (index--) cur = cur->next;
+        node->next = cur->next;;
+        cur->next = node;
+        _size++;
+    }
+    
+    void deleteAtIndex(int index) {
+        if (index < 0 || index >= _size) return;
+        MyListNode *cur = virnode;
+        while (index--) cur = cur->next;
+        MyListNode *tmp = cur->next;
+        cur->next = cur->next->next;
+        delete tmp;
+        _size--;
+    }
+};
+
+/**
+ * Your MyLinkedList object will be instantiated and called as such:
+ * MyLinkedList* obj = new MyLinkedList();
+ * int param_1 = obj->get(index);
+ * obj->addAtHead(val);
+ * obj->addAtTail(val);
+ * obj->addAtIndex(index,val);
+ * obj->deleteAtIndex(index);
+ */
+/*
 struct DListNode {
     int val;
     DListNode *prev, *next;
@@ -92,7 +157,7 @@ public:
 
     }
 };
-
+*/
 /**
  * Your MyLinkedList object will be instantiated and called as such:
  * MyLinkedList* obj = new MyLinkedList();
@@ -113,5 +178,4 @@ int main() {
 
     return 0;
 }
-
 

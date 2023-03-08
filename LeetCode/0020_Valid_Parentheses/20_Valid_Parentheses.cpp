@@ -40,6 +40,7 @@ public:
             }
         }
         return left.empty();
+    }
 };
 int main() {
 

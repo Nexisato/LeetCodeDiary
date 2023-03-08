@@ -21,34 +21,62 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next) {}
  };
  
+// class Solution {
+//     /*
+//     思路：
+//     1. 递归： 确定参数和返回值；确定终止条件；确定单层递归逻辑
+//     2. 若链表前两个节点中任一项为空，返回
+//     3. 交换链表的前两个节点，即 head 和 head->next
+//     4. 调用函数自身，入口参数设置为第三个节点，即 head->next->next
+//     */
+// private:
+//     void swap(ListNode* head) {
+//         if (!head || !head->next) return;
+//         int temp = head->val;
+//         ListNode* postnode = head->next;
+//         head->val = postnode->val;
+//         postnode->val = temp;
+//         swap(postnode->next);
+//     }
+// public:
+//     ListNode* swapPairs(ListNode* head) {
+//         swap(head);
+//         return head;
+//     }
+//     void Print(ListNode* head){
+//         ListNode *p=head;
+//         while(p){
+//             cout<<p->val<<" ";
+//             p=p->next;
+//         }
+//     }
+// };
+/*
+思路：有点绕，画图辅助
+1. postnode囊括一对
+2. 记录 + 反转 + 移动
+*/
 class Solution {
-    /*
-    思路：
-    1. 递归： 确定参数和返回值；确定终止条件；确定单层递归逻辑
-    2. 若链表前两个节点中任一项为空，返回
-    3. 交换链表的前两个节点，即 head 和 head->next
-    4. 调用函数自身，入口参数设置为第三个节点，即 head->next->next
-    */
-private:
-    void swap(ListNode* head) {
-        if (!head || !head->next) return;
-        int temp = head->val;
-        ListNode* postnode = head->next;
-        head->val = postnode->val;
-        postnode->val = temp;
-        swap(postnode->next);
-    }
 public:
     ListNode* swapPairs(ListNode* head) {
-        swap(head);
-        return head;
-    }
-    void Print(ListNode* head){
-        ListNode *p=head;
-        while(p){
-            cout<<p->val<<" ";
-            p=p->next;
+        ListNode *virnode = new ListNode(-1);
+        virnode->next = head;
+        ListNode *curnode = virnode, *postnode = head;
+
+        while (postnode!= nullptr && postnode->next != nullptr) {
+            ListNode *tmp = postnode->next->next;
+            
+            curnode->next = postnode->next;
+            postnode->next->next = postnode;
+            postnode->next = tmp;
+            
+            curnode = postnode;
+            postnode = tmp;
         }
+        ListNode *node = virnode->next;
+        delete virnode;
+        return node;
+
     }
 };
 
