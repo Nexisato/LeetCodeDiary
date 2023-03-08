@@ -53,7 +53,7 @@ struct ListNode {
 // };
 /*
 思路：有点绕，画图辅助
-1. postnode囊括一对
+1. 设置virtual node辅助，postnode囊括一对
 2. 记录 + 反转 + 移动
 */
 class Solution {
@@ -64,13 +64,13 @@ public:
         ListNode *curnode = virnode, *postnode = head;
 
         while (postnode!= nullptr && postnode->next != nullptr) {
-            ListNode *tmp = postnode->next->next;
+            ListNode *tmp = postnode->next->next; //记录下一对起点
             
-            curnode->next = postnode->next;
-            postnode->next->next = postnode;
-            postnode->next = tmp;
+            curnode->next = postnode->next;   //curnode标记 反转后的node对起点
+            postnode->next->next = postnode;  //反转
+            postnode->next = tmp;             // node对终点指向下一对起点
             
-            curnode = postnode;
+            curnode = postnode;               //移动
             postnode = tmp;
         }
         ListNode *node = virnode->next;
