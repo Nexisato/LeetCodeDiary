@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//快速排序，不稳定
-//时间复杂度：平均O(nlogn)，最坏O(n^2)
-//空间复杂度：平均O(logn)，最坏O(n)
+// 快速排序，不稳定
+// 时间复杂度：平均O(nlogn)，最坏O(n^2)
+// 空间复杂度：平均O(logn)，最坏O(n)
 
 void quickSort(vector<int>& nums, int start, int end) {
     if (start >= end)
@@ -15,7 +15,7 @@ void quickSort(vector<int>& nums, int start, int end) {
             --r;
         while (l < r && nums[l] <= pivot)
             ++l;
-        if (l < r) 
+        if (l < r)
             swap(nums[l], nums[r]);
     }
     swap(nums[start], nums[l]);
@@ -23,9 +23,6 @@ void quickSort(vector<int>& nums, int start, int end) {
     quickSort(nums, l + 1, end);
 }
 
-
-
 int main() {
-
     return 0;
 }

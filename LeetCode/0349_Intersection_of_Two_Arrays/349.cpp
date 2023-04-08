@@ -16,18 +16,28 @@ using namespace std;
 class Solution {
 public:
     vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        // int n1 = nums1.size(), n2 = nums2.size();
+        // vector<int> res;
+        // unordered_map<int, int> table;
+        // set<int> appear;
+        // for (auto num  : nums1)
+        //     appear.insert(num);
+        // for (auto num : nums2)
+        //     if (appear.count(num) && table[num] == 0) {
+        //         res.emplace_back(num);
+        //         ++table[num];
+        //     }
+        // return res;
+
+        // 两个 unordered_set 即可
         int n1 = nums1.size(), n2 = nums2.size();
-        vector<int> res;
-        unordered_map<int, int> table;
-        set<int> appear;
-        for (auto num  : nums1)
-            appear.insert(num);
-        for (auto num : nums2)
-            if (appear.count(num) && table[num] == 0) {
-                res.emplace_back(num);
-                ++table[num];
-            }
-        return res;
+        unordered_set<int> res_set;
+        unordered_set<int> table(nums1.begin(), nums1.end());
+        for (auto num : nums2) {
+            if (table.count(num))
+                res_set.insert(num);
+        }
+        return vector<int>(res_set.begin(), res_set.end());
     }
 };
 int main() {

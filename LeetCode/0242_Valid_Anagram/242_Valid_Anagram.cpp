@@ -16,12 +16,22 @@ using namespace std;
 class Solution {
 public:
     bool isAnagram(string s, string t) {
-        int hash_1[26]={0},hash_2[26]={0};
-        for(char c:s) hash_1[c-'a']++;
-        for(char c:t) hash_2[c-'a']++;
-        for(int i=0;i<26;i++)
-            if(hash_1[i]!=hash_2[i]) return false;
-        return true;
+        // int hash_1[26]={0},hash_2[26]={0};
+        // for(char c:s) hash_1[c-'a']++;
+        // for(char c:t) hash_2[c-'a']++;
+        // for(int i=0;i<26;i++)
+        //     if(hash_1[i]!=hash_2[i]) return false;
+        // return true; 
+        //只用一个 array 就够
+        int table[26] = {0};
+        for (auto c : s)
+            table[c - 'a']++;
+        for (auto c : t)
+            table[c - 'a']--;
+        for (int i = 0; i < 26; i++)
+            if (table[i] != 0)
+                return false;
+        return true; 
     }
 };
 

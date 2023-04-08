@@ -60,6 +60,30 @@ public:
         return st.top();
     }
 };
+
+class Solution_simplified {
+public:
+    int evalRPN(vector<string>& tokens) {
+        using ll = long long;
+        stack<ll> st;
+        for (auto token : tokens) {
+            if (token == "+" || token == "-" || token == "*" || token == "/") {
+                ll num1 = st.top();
+                st.pop();
+                ll num2 = st.top();
+                st.pop();
+                if (token == "+") st.push(num2 + num1);
+                else if (token == "-") st.push(num2 - num1);
+                else if (token == "*") st.push(num2 * num1);
+                else if (token == "/") st.push(num2 / num1);
+            }
+            else {
+                st.push(stoll(token));
+            }
+        }
+        return st.top();
+    }
+};
 int main() {
 
     return 0;

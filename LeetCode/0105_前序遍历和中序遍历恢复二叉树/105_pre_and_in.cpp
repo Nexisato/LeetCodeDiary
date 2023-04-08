@@ -30,7 +30,7 @@ private:
     }
 public:
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-        return traversal(preorder, inorder);
+        return traversal(preorder, inorder,  0, preorder.size() - 1, 0, inorder.size() - 1);
     }
 
 };

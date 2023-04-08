@@ -74,22 +74,23 @@ void InOrderTraversal(BinTree BT){
     }
 }
 vector<int> inorderTraversal(TreeNode* root) {
-        stack<TreeNode*> tmp;
-        vector<int> outputs;
-        TreeNode* node=root;
-        while(node!=nullptr||!tmp.empty()){
-            if(node!=nullptr){
-                tmp.push(node);
-                node=node->left;
-            }else{
-                node=tmp.top();
-                tmp.pop();
-                outputs.push_back(node->val);
-                //tmp.push(node->right);
-                node=node->right;
-            }
+    stack<TreeNode*> tmp;
+    vector<int> outputs;
+    TreeNode* node=root;
+    while(node!=nullptr||!tmp.empty()){
+        if(node!=nullptr){
+            tmp.push(node);
+            node=node->left;
+        }else{
+            node=tmp.top();
+            tmp.pop();
+             outputs.push_back(node->val);
+            //tmp.push(node->right);
+            node=node->right;
         }
-        return outputs;
+    }
+    return outputs;
+}
 //后序遍历
 void PostOrderTraversal(BinTree BT){
     if(BT){

@@ -41,6 +41,15 @@ public:
             depth = min(1 + minDepth(root->right), depth);
         return depth;
     }
+    int minDepth_second(TreeNode* root) {
+        if (!root) return 0;
+        int depthL = minDepth(root->left), depthR = minDepth(root->right);
+        if (!root->left && root->right)
+            return 1 + depthR;
+        if (root->left && !root->right)
+            return 1 + depthL;
+        return 1 + min(depthL, depthR);
+    }
 };
 int main() {
 

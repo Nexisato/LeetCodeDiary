@@ -14,4 +14,20 @@ public:
         if(root->left==NULL&&root->right==NULL) return (sum==root->val)?true:false;
         return hasPathSum(root->left,sum-root->val)||hasPathSum(root->right,sum-root->val);
     }
+    bool hasPathSum_full(TreeNode* root, int targetSum) {
+        if (!root) return false;
+        if (!root->left && !root->right) return (targetSum == root->val) ? true : false;
+        
+        if (root->left) {
+            targetSum -= root->val;
+            if (hasPathSum(root->left, targetSum)) return true;
+            targetSum += root->val;
+        }
+        if (root->right) {
+            targetSum -= root->val;
+            if (hasPathSum(root->right, targetSum)) return true;
+            targetSum += root->val;
+        }
+        return false;
+    }
 };

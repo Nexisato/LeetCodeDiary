@@ -99,7 +99,7 @@ public:
     
     /** Get the top element. */
     int top() {
-        return q1.front();
+        return q1.back();
     }
     
     /** Returns whether the stack is empty. */

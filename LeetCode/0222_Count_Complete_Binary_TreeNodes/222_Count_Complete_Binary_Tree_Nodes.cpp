@@ -51,7 +51,7 @@ public:
             hr++;
         }
         if (hl == hr)
-            return (int)pow(2,hl) - 1;
+            return (int)pow(2,hl) - 1; // (2 << h1) - 1
         else
             return 1 + countNodes(root->left) + countNodes(root->right);
     }
