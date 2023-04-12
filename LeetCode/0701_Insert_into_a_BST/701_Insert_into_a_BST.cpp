@@ -41,6 +41,28 @@ public:
             root->right = insertIntoBST(root->right, val);
         return root;
     }
+
+    TreeNode* insertIntoBST_iter(TreeNode* root, int val) {
+        if (!root) {
+            TreeNode* node = new TreeNode(val);
+            return node;
+        }
+        TreeNode* parent = nullptr, *cur = root;
+        while (cur) {
+            parent = cur;
+            if (cur->val > val)
+                cur = cur->left;
+            else
+                cur = cur->right;
+        }
+        TreeNode *node = new TreeNode(val);
+        if (val < parent->val)
+            parent->left = node;
+        else
+            parent->right = node;
+
+        return root;
+    }
 };
 int main() {
 

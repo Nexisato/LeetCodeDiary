@@ -22,7 +22,7 @@ class Solution {
 private:
     TreeNode* traversal(vector<int>& nums, int l, int r) {
         if (!nums.size() || l > r) return nullptr;
-        int mid = (l + r) / 2;
+        int mid = (l + r) / 2; // int mid = l + ((r - l) / 2);
         TreeNode* root = new TreeNode(nums[mid]);
         root->left = traversal(nums, l, mid - 1);
         root->right = traversal(nums, mid + 1, r);

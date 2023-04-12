@@ -87,6 +87,48 @@ public:
         return root;         
     }
 };
+
+class Solution_singlefunc {
+public:
+    TreeNode* deleteNode(TreeNode* root, int key) {
+        if (!root) return nullptr;
+        if (root->val == key) {
+            TreeNode *lnode = root->left, *rnode = root->right;
+
+            // 1. 左右均为空
+            if (!lnode && !rnode) {
+                delete root;
+                return nullptr;
+            }
+            // 2.3. 左右其中一个不为空，返回非空的节点
+            else if (lnode && !rnode) {
+                TreeNode *resNode = root->left;
+                delete root;
+                return resNode;
+            }
+            else if (!lnode && rnode) {
+                TreeNode *resNode = root->right;
+                delete root;
+                return resNode;
+            }
+            // 4. 左右非空，将 root 的左子树 搬到 右子树 的最左侧
+            else {
+                TreeNode *node = root->right;
+                while (node->left) 
+                    node = node->left;
+                node->left = root->left;
+                TreeNode *tmp = root;
+                root = root->right;
+                delete tmp;
+                return root;
+            }
+        }
+        if (root->val > key) root->left = deleteNode(root->left, key);
+        if (root->val < key) root->right = deleteNode(root->right, key);
+        return root;
+    }
+
+};
 int main() {
     TreeNode *root = new TreeNode(2);
     root->left = new TreeNode(1);

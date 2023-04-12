@@ -69,6 +69,20 @@ public:
         return true;
     }
 };
+// 中序遍历，记录 Pre 节点，大于等于 cur 节点就return false
+class Solution_3 {
+private:
+    TreeNode* pre;
+public:
+    bool isValidBST(TreeNode* root) {
+        if (!root) return true;
+        bool left = isValidBST(root->left);
+        if (pre && pre->val >= root->val) return false;
+        pre = root;
+        bool right = isValidBST(root->right);
+        return left && right;
+    }
+};
 int main() {
 
     return 0;

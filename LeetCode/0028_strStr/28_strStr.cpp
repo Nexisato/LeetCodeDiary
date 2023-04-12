@@ -5,7 +5,7 @@ Return the index of the first occurrence of needle in haystack, or -1 if needle 
 
 Clarification:
 What should we return when needle is an empty string? This is a great question to ask during an interview.
-For the purpose of this problem, we will return 0 when needle is an empty string. 
+For the purpose of this problem, we will return 0 when needle is an empty string.
 This is consistent to C's strstr() and Java's indexOf().
 
 Constraints:
@@ -13,14 +13,14 @@ Constraints:
 haystack and needle consist of only lower-case English characters.
 
 */
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 using namespace std;
 
-//思路：模式匹配，可用KMP :先构建next数组，再利用next数组做匹配
+// 思路：模式匹配，可用KMP :先构建next数组，再利用next数组做匹配
 class Solution {
-private:
-    //构建next数组，记录【模式串】最长相同前后缀子串长度
+   private:
+    // 构建next数组，记录【模式串】最长相同前后缀子串长度
     void getNext(vector<int>& next, const string& s) {
         int j = -1;
         next[0] = j;
@@ -32,29 +32,31 @@ private:
             next[i] = j;
         }
     }
-public:
-    //利用模式串的next数组匹配文本串
+
+   public:
+    // 利用模式串的next数组匹配文本串
     int strStr(string haystack, string needle) {
-        if(needle.size() == 0) return 0;
+        if (needle.size() == 0)
+            return 0;
         int j = -1;
         vector<int> next(needle.length(), 0);
         getNext(next, needle);
-        for(int i = 0; i < haystack.size(); ++i){
-            while(j >= 0 && haystack[i] != needle[j + 1])
+        for (int i = 0; i < haystack.size(); ++i) {
+            while (j >= 0 && haystack[i] != needle[j + 1])
                 j = next[j];
-            if(haystack[i] == needle[j + 1]) 
+            if (haystack[i] == needle[j + 1])
                 ++j;
-            if(j == needle.size() - 1) return i - j;
+            if (j == needle.size() - 1)
+                return i - j;
         }
         return -1;
     }
 };
 
-int main(){
-
+int main() {
     Solution ss;
-    string haystack="a";
-    string needle="a";
-    cout<<ss.strStr(haystack,needle);
+    string haystack = "a";
+    string needle = "a";
+    cout << ss.strStr(haystack, needle);
     return 0;
 }

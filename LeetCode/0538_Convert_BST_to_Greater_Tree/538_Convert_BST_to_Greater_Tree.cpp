@@ -38,6 +38,7 @@ struct TreeNode {
 class Solution {
 private:
     int pre = 0;
+    int preVal = 0;
 public:
     TreeNode* convertBST(TreeNode* root) {
         if (root != nullptr) {
@@ -45,6 +46,26 @@ public:
             pre += root->val;
             root->val = pre;
             convertBST(root->left);
+        }
+        return root;
+    }
+
+    TreeNode* convertBST_iter(TreeNode* root) {
+        if (!root) return nullptr;
+        preVal = 0;
+        TreeNode *node = root;
+        vector<TreeNode*> st;
+        while (node || !st.empty()) {
+            if (node) {
+                st.push_back(node);
+                node = node->right;
+            } else {
+                node = st.back();
+                st.pop_back();
+                node->val += preVal;
+                preVal = node->val;
+                node = node->left;
+            }
         }
         return root;
     }
