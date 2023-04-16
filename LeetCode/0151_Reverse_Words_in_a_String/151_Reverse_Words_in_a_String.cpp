@@ -57,6 +57,34 @@ public:
             res.erase(res.length() - 1, 1);
         return res;
     }
+
+    string reverseWords_no_extra(string s) {
+        auto reverse = [&](int l, int r) {
+            for (int i = l, j = r; i < j; ++i, --j) 
+                swap(s[i], s[j]);
+        };
+        auto removeExtraSpaces = [&]() {
+            int slow = 0;
+            for (int i = 0; i < s.size(); ++i) {
+                if (s[i] != ' ') {
+                    if (slow != 0) s[slow++] += ' ';
+                    while (i < s.size() && s[i] != ' ')
+                        s[slow++] = s[i++];
+                }
+            }
+            s.resize(slow);
+        };
+        removeExtraSpaces();
+        reverse(0, s.length() - 1);
+        int start = 0;
+        for (int i = 0; i <= s.size(); ++i) {
+            if (i == s.size() || s[i] == ' ') {
+                reverse(start, i - 1);
+                start = i + 1;
+            }
+        }
+        return s;
+    }
 };
 int main() {
     string s = "  ";
