@@ -12,7 +12,10 @@ The number of nodes in each linked list is in the range [1, 100].
 0 <= Node.val <= 9
 It is guaranteed that the list represents a number that does not have leading zeros.
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+
+
 using namespace std;
 struct ListNode{
     int val;
@@ -62,7 +65,7 @@ public:
             head = nullptr;
         return node;
     }
-    //简化版
+    //简化版：从下一个 node 节点开始 push 值
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
         ListNode *head = nullptr, *node = nullptr;
         int sum = 0, c = 0;

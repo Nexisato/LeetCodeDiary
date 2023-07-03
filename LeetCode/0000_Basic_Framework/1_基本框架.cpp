@@ -11,15 +11,13 @@ void traverse(int arr[], int size) {
 
 // 2. 链表遍历框架
 /*基本单链表节点*/
+/*基本单链表节点*/
 struct ListNode {
     int val;
     ListNode* next;
-    ListNode()
-        : val(0), next(nullptr) {}
-    ListNode(int x)
-        : val(x), next(nullptr) {}
-    ListNode(int x, ListNode* next)
-        : val(x), next(next) {}
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode* next) : val(x), next(next) {}
 };
 
 void traverse(LNode* head) {
