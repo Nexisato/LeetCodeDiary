@@ -3,7 +3,7 @@
  * @param {string} needle
  * @return {number}
  */
-var strStr = function(haystack, needle) {
+var strStr = function (haystack, needle) {
     const getNext = (needle) => {
         let next = Array(needle.length).fill(0);
         let j = -1;
@@ -17,7 +17,7 @@ var strStr = function(haystack, needle) {
         }
         return next;
     };
-    
+
     let next = getNext(needle);
     let j = -1;
     for (let i = 0; i < haystack.length; i++) {
