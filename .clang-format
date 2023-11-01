@@ -1,7 +1,7 @@
 ---
 # 语言: None, Cpp, Java, JavaScript, ObjC, Proto, TableGen, TextProto
 Language:        Cpp
-# BasedOnStyle:  LLVM
+BasedOnStyle:  Google
 # 访问说明符(public、private等)的偏移
 AccessModifierOffset: -4
 # 开括号(开圆括号、开尖括号、开方括号)后的对齐: Align, DontAlign, AlwaysBreak(总是在开括号后换行)
@@ -85,7 +85,7 @@ BreakConstructorInitializers: BeforeComma
 # 在java字段的注释后换行
 BreakAfterJavaFieldAnnotations: false
 # 每行字符的限制，0表示没有限制
-ColumnLimit:     80
+ColumnLimit:     120
 # 描述具有特殊意义的注释的正则表达式，它不应该被分割为多行或以其它方式改变
 CommentPragmas:  '^ IWYU pragma:'
 # 在新行上声明每个命名空间

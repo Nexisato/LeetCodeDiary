@@ -1,7 +1,7 @@
 /**
  * @file redbook_2.cpp
  * @Question: 小红的回文串
- * @Description: 
+ * @Description:
 小红有一个字符串，她可以进行以下操作:
 -拆分。把’w'拆成2个’v'，’m’拆成 2个'n’。
 -轴堆成。把’b’轴对称成’d’，’p’轴对称成’q’，反之亦然。
@@ -19,10 +19,10 @@
 */
 
 #include <iostream>
-#include <vector>
 #include <string>
 #include <unordered_map>
 #include <unordered_set>
+#include <vector>
 using namespace std;
 
 /**
@@ -33,10 +33,7 @@ using namespace std;
  * w 全部变成 v v
  * m 全部变成 u u
  * n 全部变成 u
-*/
-
-
-
+ */
 
 bool isPalindrome(string& s) {
     int n = s.size();
@@ -55,11 +52,9 @@ bool isPalindrome(string& s) {
     }
     int n_transfer = s_transfer.size();
     for (int l = 0, r = n_transfer - 1; l < r; ++l, --r)
-        if (s_transfer[l] != s_transfer[r])
-            return false;
+        if (s_transfer[l] != s_transfer[r]) return false;
     return true;
 }
-
 
 int main() {
     int queryTime;
@@ -72,11 +67,8 @@ int main() {
             answer[i] = "YES";
         else
             answer[i] = "NO";
-
     }
-    for (const auto& ans : answer)
-        cout << ans << endl;
-
+    for (const auto& ans : answer) cout << ans << endl;
 
     return 0;
 }
