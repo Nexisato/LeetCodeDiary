@@ -47,7 +47,7 @@ int main() {
         cin >> a[i];
     for (int i = 0; i < n; ++i)
         cin >> h[i];
-    vector<vector<int>> cost(n, vector<int>(n, INF));
+    vector<vector<int> > cost(n, vector<int>(n, INF));
     for (int i = 0; i < m; ++i) {
         int u, v, w;
         cin >> u >> v >> w;
@@ -56,7 +56,7 @@ int main() {
     }
 
     // dp[i][j]前 i 个城市选择 j 个的最大价值，并记录时间 
-    vector<vector<Node>> dp(n + 1, vector<Node>(4, {0, 0}));
+    vector<vector<Node> > dp(n + 1, vector<Node>(4, {0, 0}));
     for (int i = 0; i < n; ++i) {
         dp[i][0].value = 0;
         dp[i][0].time = 0;
