@@ -3,7 +3,9 @@
         "vector": "cpp",
         "iostream": "cpp",
         "algorithm": "cpp",
-        "unordered_map": "cpp"
+        "unordered_map": "cpp",
+        "numeric": "cpp",
+        "cmath": "cpp"
     },
     "[dockercompose]": {
         "editor.tabSize": 4
