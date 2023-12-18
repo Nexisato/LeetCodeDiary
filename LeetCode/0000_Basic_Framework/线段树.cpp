@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 /*
@@ -7,10 +8,10 @@ using namespace std;
 */
 
 /*可以区间加、求和的线段树模板*/
-template <typename T>
+template <typename T> 
 class SegTreeLazyRangeAdd {
     vector<T> tree, lazy;
-    vector<T>* arr;
+    vector<T> *arr;
     int n, root, n4, end;
 
     void maintain(int cl, int cr, int p) {
@@ -63,7 +64,7 @@ class SegTreeLazyRangeAdd {
         tree[p] = tree[p * 2] + tree[p * 2 + 1];
     }
 
-   public:
+public:
     explicit SegTreeLazyRangeAdd<T>(vector<T> v) {
         n = v.size();
         n4 = n * 4;
@@ -88,17 +89,16 @@ class SegTreeLazyRangeAdd {
 
     T range_sum(int l, int r) { return range_sum(l, r, 0, end, root); }
 
-    void range_add(int l, int r, int val) { range_add(l, r, val, 0, end, root); }
+    void range_add(int l, int r, int val) {
+        range_add(l, r, val, 0, end, root);
+    }
 };
 
 /*可以区间修改的线段树模板*/
-#include <bits/stdc++.h>
-using namespace std;
-
-template <typename T>
+template <typename T> 
 class SegTreeLazyRangeSet {
     vector<T> tree, lazy;
-    vector<T>* arr;
+    vector<T> *arr;
     int n, root, n4, end;
 
     void maintain(int cl, int cr, int p) {
@@ -151,7 +151,7 @@ class SegTreeLazyRangeSet {
         tree[p] = tree[p * 2] + tree[p * 2 + 1];
     }
 
-   public:
+public:
     explicit SegTreeLazyRangeSet<T>(vector<T> v) {
         n = v.size();
         n4 = n * 4;
@@ -176,5 +176,7 @@ class SegTreeLazyRangeSet {
 
     T range_sum(int l, int r) { return range_sum(l, r, 0, end, root); }
 
-    void range_set(int l, int r, int val) { range_set(l, r, val, 0, end, root); }
+    void range_set(int l, int r, int val) {
+        range_set(l, r, val, 0, end, root);
+    }
 };
