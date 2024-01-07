@@ -6,7 +6,8 @@
         "unordered_map": "cpp",
         "numeric": "cpp",
         "cmath": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "unordered_set": "cpp"
     },
     "[dockercompose]": {
         "editor.tabSize": 4
