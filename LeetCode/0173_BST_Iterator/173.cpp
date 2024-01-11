@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0173_BST_Iterator/173.cpp
+ * @Description: 
+ */
+/*
 LeetCode 173: Binart Search Tree Iterator
 @Description:
 Implement the BSTIterator class that represents an iterator over the in-order traversal of a 
@@ -24,7 +30,8 @@ Follow up:
 Could you implement next() and hasNext() to run in average O(1) time and 
 use O(h) memory, where h is the height of the tree?
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 //  Definition for a binary tree node.
 struct TreeNode {

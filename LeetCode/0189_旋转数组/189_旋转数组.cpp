@@ -1,3 +1,9 @@
+/*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0189_旋转数组/189_旋转数组.cpp
+ * @Description: 
+ */
 #include<iostream>
 #include<vector>
 #include<algorithm>
@@ -16,11 +22,12 @@ public:
             
     }
     void rotate(vector<int>& nums,int k){
-        //3次反转！
-        k=k%nums.size();
-        reverse(nums.begin(),nums.end());
-        reverse(nums.begin(),nums.begin()+k);
-        reverse(nums.begin()+k,nums.end());
+        const int n = nums.size();
+        if (n == 1) return;
+        k = k % n;
+        reverse(nums.begin(), nums.end());
+        reverse(nums.begin(), nums.begin() + k);
+        reverse(nums.begin() + k, nums.end());
     }
     void Print(vector<int> &nums){
         for(vector<int>::iterator it=nums.begin();it!=nums.end();it+=1){

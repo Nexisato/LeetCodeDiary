@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0322_Coin_Change/322_Coin_Change.cpp
+ * @Description: 
+ */
+/*
 LeetCode: 322 Coin Change
 Description:
 You are given coins of different denominations and a total amount of money amount. 
@@ -12,7 +18,9 @@ Constraints:
 1 <= coins[i] <= 2^31 - 1
 0 <= amount <= 10^4
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <string>
 using namespace std;
 /*
 思路：

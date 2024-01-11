@@ -11,7 +11,7 @@ Constraints:
 The number of elements of the BST is between 1 to 10^4.
 You may assume k is always valid, 1 ≤ k ≤ BST's total elements
 */
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 //  Definition for a binary tree node.
 struct TreeNode {

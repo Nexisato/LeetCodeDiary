@@ -1,4 +1,12 @@
-#include <bits/stdc++.h>
+/*
+ * @Date: 2023-12-10 01:13:32
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/1157_Online_Majority_Element_in_Subarray/1157.cpp
+ * @Description: 
+ */
+#include <iostream>
+#include <vector>
+#include <unordered_map>
 using namespace std;
 
 /**
