@@ -10,7 +10,9 @@ of the board are not flipped to 'X'. Any 'O' that is not on the border
 and it is not connected to an 'O' on the border will be flipped to 'X'. 
 Two cells are connected if they are adjacent cells connected horizontally or vertically.
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <string>
 using namespace std;
 /*
 思路：并查集

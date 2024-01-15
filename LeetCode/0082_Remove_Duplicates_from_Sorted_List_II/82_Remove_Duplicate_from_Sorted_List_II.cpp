@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0082_Remove_Duplicates_from_Sorted_List_II/82_Remove_Duplicate_from_Sorted_List_II.cpp
+ * @Description: 
+ */
+/*
 LeetCode 82: Remove Duplicate Elements from Sorted List II
 @Description:
 Given the head of a sorted linked list, delete all nodes that have duplicate numbers, 
@@ -9,7 +15,9 @@ The number of nodes in the list is in the range [0, 300].
 -100 <= Node.val <= 100
 The list is guaranteed to be sorted in ascending order.
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <string>
 using namespace std;
 struct ListNode{
     int val;
