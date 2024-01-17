@@ -48,6 +48,7 @@ public:
         }
     }
     // 中心扩散的冗余计算较多，可以使用动态规划来优化
+    // dp[i][j] 表示 s[i:j] 是否为回文串
     string longestPalindrome_dp(string s) {
         const int n = s.length();
         if (n < 2) return s;
