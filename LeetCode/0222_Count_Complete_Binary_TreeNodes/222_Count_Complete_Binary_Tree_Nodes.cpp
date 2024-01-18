@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0222_Count_Complete_Binary_TreeNodes/222_Count_Complete_Binary_Tree_Nodes.cpp
+ * @Description: 
+ */
+/*
 LeetCode: 222 Count Complete Binary Tree Nodes
 Description:
 Given the root of a complete binary tree, return the number of the nodes in the tree.
@@ -13,7 +19,8 @@ The number of nodes in the tree is in the range [0, 5 * 10^4].
 0 <= Node.val <= 5 * 10^4
 The tree is guaranteed to be complete.
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 /*
 思路：递归
