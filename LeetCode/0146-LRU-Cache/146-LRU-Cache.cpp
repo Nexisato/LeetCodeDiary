@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0146-LRU-Cache/146-LRU-Cache.cpp
+ * @Description: 
+ */
+/*
 LeetCode 146: LRU Cache
 @Description:
 Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.
@@ -18,11 +24,14 @@ Constraints:
 0 <= value <= 10^4
 At most 3 * 10^4 calls will be made to get and put
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <unordered_map>
+#include <list>
 using namespace std;
 /*
 思路：
 LeastRecentlyUsed特性：快速CRUD，有顺序之分
+ list + hash
 构建新数据结构：hash双向链表
 */
 class LRUCache {

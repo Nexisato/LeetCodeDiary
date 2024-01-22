@@ -1,4 +1,12 @@
-#include <bits/stdc++.h>
+/*
+ * @Date: 2023-12-10 01:13:32
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0670-Maximum-Swap/670.cpp
+ * @Description: 
+ */
+#include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 class Solution {

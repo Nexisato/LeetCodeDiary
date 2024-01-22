@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0061-Rotate-List/61-Rotate-List.cpp
+ * @Description: 
+ */
+/*
 LeetCode 61: Rotate List
 @Description:
 Given the head of a linked list, rotate the list to the right by k places.
@@ -8,7 +14,8 @@ The number of nodes in the list is in the range [0, 500].
 -100 <= Node.val <= 100
 0 <= k <= 2 * 10^9
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 struct ListNode{
     int val;

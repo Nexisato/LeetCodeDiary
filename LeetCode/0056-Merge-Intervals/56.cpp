@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0056-Merge-Intervals/56.cpp
+ * @Description: 
+ */
+/*
 LeetCode 56: Merge Intervals
 @Description:
 Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals, 
@@ -9,7 +15,8 @@ Constraints:
 intervals[i].length == 2
 0 <= starti <= endi <= 10^4
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 /*
 思路：排序即可

@@ -10,7 +10,9 @@ Constraints:
 0 <= nums.length <= 3000
 -105 <= nums[i] <= 105
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 /*
 思路：
@@ -76,6 +78,7 @@ public:
 
 class Solution_new {
 public:
+    // 双指针，固定住 left, 移动 mid 和 right
     vector<vector<int>> threeSum(vector<int>& nums) {
         vector<vector<int>> res;
         sort(nums.begin(), nums.end());

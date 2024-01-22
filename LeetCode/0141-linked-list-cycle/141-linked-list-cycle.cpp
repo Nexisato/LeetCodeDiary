@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0141-linked-list-cycle/141-linked-list-cycle.cpp
+ * @Description: 
+ */
+/*
 Description:
 LeetCode: 141
 Given head, the head of a linked list, determine if the linked list has a cycle in it.
@@ -17,7 +23,7 @@ pos is -1 or a valid index in the linked-list.
 
 Follow up: Can you solve it using O(1) (i.e. constant) memory?
 */
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
 
 struct ListNode {

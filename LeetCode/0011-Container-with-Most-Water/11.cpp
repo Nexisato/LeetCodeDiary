@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0011-Container-with-Most-Water/11.cpp
+ * @Description: 
+ */
+/*
 LeetCode 11: Container With Most Water
 @Description:
 Given n non-negative integers a1, a2, ..., an , where each represents a point at coordinate 
@@ -13,10 +19,13 @@ n == height.length
 2 <= n <= 10^5
 0 <= height[i] <= 10^4
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 /*
 思路：双指针
+- 向内移动长板，面积一定变小
+- 向内移动短板，面积可能变大
 */
 class Solution {
 public:

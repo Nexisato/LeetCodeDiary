@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0167-Two-SumII/167-Two-SumII.cpp
+ * @Description: 
+ */
+/*
 LeetCode 167: TwoSum II - Input Array is Sorted
 @Description:
 Given an array of integers numbers that is already sorted in ascending order, 
@@ -16,7 +22,8 @@ numbers is sorted in increasing order.
 -1000 <= target <= 1000
 Only one valid answer exists.
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 /*
 思路：
