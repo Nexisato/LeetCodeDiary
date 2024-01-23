@@ -1,10 +1,17 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0530-Mininmum-Absolute-Difference-in-BST/530.cpp
+ * @Description: 
+ */
+/*
 LeetCode 539: Minimum Absolute Difference in BST
 @Description:
 Given a binary search tree with non-negative values, find the minimum absolute 
 difference between values of any two nodes.
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 //  Definition for a binary tree node.
 struct TreeNode {

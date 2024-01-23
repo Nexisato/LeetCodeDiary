@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0098-Validate-Binary-Search-Tree/98-Validate-Binary-Search-Tree.cpp
+ * @Description: 
+ */
+/*
 LeetCode: 98 Validate Binary Search Tree
 Description:
 Given the root of a binary tree, determine if it is a valid binary search tree (BST).
@@ -12,7 +18,8 @@ Constraints:
 The number of nodes in the tree is in the range [1, 10^4].
 -2^31 <= Node.val <= 2^31 - 1
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 //  Definition for a binary tree node.
 struct TreeNode {
