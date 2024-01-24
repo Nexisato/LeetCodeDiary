@@ -1,5 +1,14 @@
-#include <bits/stdc++.h>
+/*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0000-Basic-Framework/排序算法/选择排序.cpp
+ * @Description: 
+ */
+#include <iostream>
+#include <vector>
 using namespace std;
+
+//【选择】
 
 //选择排序:O(n^2)，空间复杂度O(1)
 //将第i个最小值放在第i轮循环的最前面

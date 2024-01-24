@@ -1,6 +1,14 @@
-#include <bits/stdc++.h>
+/*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0000-Basic-Framework/排序算法/冒泡排序.cpp
+ * @Description: 
+ */
+#include <iostream>
+#include <vector>
 using namespace std;
 
+// 【交换】
 //稳定
 //第一种写法： O(n^2)，
 void bubbleSort_1(vector<int>& nums) {
