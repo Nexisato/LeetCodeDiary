@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0080-Remove-Duplicates-from-Sorted-Array-II/80.cpp
+ * @Description: 
+ */
+/*
 LeetCode 80: Remove Duplicates from Sorted Array
 @Description:
 Given a sorted array nums, remove the duplicates in-place such that duplicates appeared 
@@ -18,7 +24,8 @@ Constraints:
 -10^4 <= nums[i] <= 10^4
 nums is sorted in ascending order.
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 /*
 思路：双指针
@@ -49,7 +56,18 @@ public:
         nums.erase(nums.begin() + n, nums.end());
         return n;
     }
-
+    // 保留 k 项，依然是双指针
+    int work(vector<int>& nums, int k) {
+        const int n = nums.size();
+        if (n <= k)
+            return n;
+        int len = 0;
+        for (auto num : nums) {
+            if (len < k || nums[len - k] != num)
+                nums[len++] = num;
+        }
+        return len;
+    }
     int removeDuplicates_2(vector<int>& nums) {
         int n = nums.size();
         if (n <= 2)

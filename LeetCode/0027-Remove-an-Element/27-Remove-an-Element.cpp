@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0027-Remove-an-Element/27-Remove-an-Element.cpp
+ * @Description: 
+ */
+/*
 Description:
 Given an array nums and a value val, 
 remove all instances of that value in-place and return the new length.
@@ -29,7 +35,8 @@ Constraints:
 0 <= nums[i] <= 50
 0 <= val <= 100
 */
-#include<bits/stdc++.h>
+#include<iostream>
+#include<vector>
 using namespace std;
 /*
 思路：
