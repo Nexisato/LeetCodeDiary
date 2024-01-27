@@ -20,6 +20,13 @@
 
 > 以下为每次commit的阶段性记录(我的心态是如何一步步炸掉的orz..)
 
+#### 2024-01-27
+
+这次选了几个难点的题，但是有点意思，堆优化Dijkstra + DP 的有限路径，倍增法寻找LCA，挺重要的多复习几遍。
+[#1483](https://leetcode.cn/problems/kth-ancestor-of-a-tree-node/description/), 
+[#2846](https://leetcode.cn/problems/minimum-edge-weight-equilibrium-queries-in-a-tree/description/), 
+[面试重点-#1786](https://leetcode.cn/problems/number-of-restricted-paths-from-first-to-last-node/description/) 这几个题都挺顶的。
+
 #### 2024-01-22
 
 回家了，k神再带我们冲一次吧😭！
