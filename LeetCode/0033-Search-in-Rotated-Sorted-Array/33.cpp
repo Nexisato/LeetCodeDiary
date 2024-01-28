@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0033-Search-in-Rotated-Sorted-Array/33.cpp
+ * @Description: 
+ */
+/*
 LeetCode 33: Search in Rotated Sorted Array
 @Description:
 
@@ -21,7 +27,8 @@ nums is guaranteed to be rotated at some pivot.
  
 Follow up: Can you achieve this in O(log n) time complexity?
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 /*
 思路：二分查找

@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0153-Find-Minimum-in-Rotated-Sorted-Array/153.cpp
+ * @Description: 
+ */
+/*
 LeetCode 153: Find Minimum in Rotated Sorted Array
 @Description:
 Suppose an array of length n sorted in ascending order is rotated between 1 and n times. 
@@ -18,28 +24,30 @@ n == nums.length
 All the integers of nums are unique.
 nums is sorted and rotated between 1 and n times.
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 /*
-思路：我摊牌了，我直接遍历
+思路：二分查找
+// 思考一下旋转数组的特性
 */
 class Solution {
 public:
     int findMin(vector<int>& nums) {
-        int n = nums.size();
-        int low = 0, high = n - 1, mid = 0;
-        int res = nums[0];
-        while (low <= high) {
-            mid = (low + high) / 2;
-            //[0, mid]有序
-            if (nums[0] <= nums[mid]) {
-                
-            }
-            else {
-
+        const int n = nums.size();
+        int l = 0, r = n - 1;
+        int res = INT_MAX;
+        while (l < r) {
+            int mid = l + (r - l) / 2;
+            // 收缩右边界
+            if (nums[mid] < nums[r]) {
+                r = mid;
+            } else {
+                // 收缩左边界
+                l = mid + 1;
             }
         }
-        return res;
+        return nums[l];
     }
 };
 int main() {

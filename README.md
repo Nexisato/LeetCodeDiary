@@ -12,7 +12,11 @@
 - [InterViews](https://github.com/Nexisato/LeetCodeDiary/tree/master/InterViews)：以面试题编号出现的题目，如17.21
 - [LCOffer](https://github.com/Nexisato/LeetCodeDiary/tree/master/LCOffer)：《剑指Offer》LC特供版
 
-- [LeetCode](https://github.com/Nexisato/LeetCodeDiary/tree/master/LeetCode)：官方编号的题目，包括常规算法、Shell、数据库、多线程
+- [LeetCode](https://github.com/Nexisato/LeetCodeDiary/tree/master/LeetCode)：官方编号的题目
+
+- [Multi-Threads](https://github.com/Nexisato/LeetCodeDiary/tree/master/Multi-Threads): 多线程编程
+
+- [SQL](https://github.com/Nexisato/LeetCodeDiary/tree/master/SQL): SQL 查询语句
 
 ---
 
