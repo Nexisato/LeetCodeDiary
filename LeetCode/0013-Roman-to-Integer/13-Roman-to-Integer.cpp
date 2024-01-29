@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0013-Roman-to-Integer/13-Roman-to-Integer.cpp
+ * @Description: 
+ */
+/*
 LeetCode: 13 Roman to Integer
 Description:
 Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
@@ -27,7 +33,9 @@ Constraints:
 -s contains only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M').
 -It is guaranteed that s is a valid roman numeral in the range [1, 3999].
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <unordered_map>
+#include <string>
 using namespace std;
 /*
 思路：
@@ -39,7 +47,7 @@ class Solution {
 public:
     int romanToInt(string s) {
         int res = 0;
-        map<char, int> romanAlphabet = {
+        unordered_map<char, int> romanAlphabet = {
             {'I', 1},
             {'V', 5},
             {'X', 10},

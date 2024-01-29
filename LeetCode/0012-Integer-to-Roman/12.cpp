@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0012-Integer-to-Roman/12.cpp
+ * @Description: 
+ */
+/*
 LeetCode 12: Integer to Roman
 @Description:
 Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
@@ -26,7 +32,10 @@ Given an integer, convert it to a roman numeral.
 Constraints:
 1 <= num <= 3999
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <unordered_map>
 using namespace std;
 /*
 思路：不同于13——Roman to Integer，这并不是一个简单的逆过程
