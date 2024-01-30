@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0150-Evaluate-Reverse-Polish-Notation/150.cpp
+ * @Description: 
+ */
+/*
 LeetCode 150: Evaluate Reverse Polish Notation
 
 Evaluate the value of an arithmetic expression in Reverse Polish Notation.
@@ -15,7 +21,10 @@ Constraints:
 1 <= tokens.length <= 10^4
 tokens[i] is either an operator: "+", "-", "*", or "/", or an integer in the range [-200, 200].
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <stack>
+#include <string>
+#include <vector>
 using namespace std;
 /*
 思路：RPN，操作数入栈，遇到操作符连弹2次栈，注意底层的元素为被减（除）数
