@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0021-merge-two-sorted-lists/21-merge-two-sorted-lists.cpp
+ * @Description: 
+ */
+/*
 Description:
 Merge two sorted linked lists and return it as a new sorted list. 
 The new list should be made by splicing together the nodes of the first two lists.
@@ -8,7 +14,7 @@ The number of nodes in both lists is in the range [0, 50].
 -100 <= Node.val <= 100
 Both l1 and l2 are sorted in non-decreasing order.
 */
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
 
 // Definition for singly-linked list.

@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0024-Swap-node-in-pairs/24-Swap-node-in-pairs.cpp
+ * @Description: 
+ */
+/*
 Description:
 Given a linked list, swap every two adjacent nodes and return its head.
 You may not modify the values in the list's nodes. Only nodes itself may be changed.
@@ -78,6 +84,27 @@ public:
         return node;
 
     }
+    ListNode* swapPairs_group(ListNode* head) {
+        if (!head || !head->next) return head;
+        ListNode *virNode = new ListNode(-1, head);
+        ListNode *cur = head, *post = nullptr;
+        ListNode *prev = virNode;
+        ListNode *tail = cur, *concat = prev;
+        while (tail && tail->next) {
+            for (int i = 0; i < 2; ++i) {
+                post = cur->next;
+                cur->next = prev;
+                prev = cur;
+                cur = post;
+            }
+            tail->next = cur;
+            concat->next = prev;
+            concat = tail;
+            tail = cur;
+        }
+        return virNode->next;
+
+    }
 };
 
 int main(){
@@ -90,9 +117,9 @@ int main(){
     }
     p->next=nullptr;
     Solution ss;
-    ss.Print(head);
-    cout<<"\n-----------"<<endl;
-    p=ss.swapPairs(head);
-    ss.Print(p);
+    // ss.Print(head);
+    // cout<<"\n-----------"<<endl;
+    // p=ss.swapPairs(head);
+    // ss.Print(p);
     return 0;
 }
