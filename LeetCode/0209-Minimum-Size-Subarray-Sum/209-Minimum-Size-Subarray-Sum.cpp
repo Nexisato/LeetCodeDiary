@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0209-Minimum-Size-Subarray-Sum/209-Minimum-Size-Subarray-Sum.cpp
+ * @Description: 
+ */
+/*
 LeetCode :209
 Description:
 Given an array of n positive integers and a positive integer s, 
@@ -9,7 +15,8 @@ Follow up:
 If you have figured out the O(n) solution, try coding another solution 
 of which the time complexity is O(n log n). 
 */
-#include<bits/stdc++.h>
+#include<iostream>
+#include<vector>
 using namespace std;
 /*
 思路：双指针法/滑动窗口法

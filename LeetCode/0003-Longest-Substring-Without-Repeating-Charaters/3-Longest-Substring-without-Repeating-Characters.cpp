@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0003-Longest-Substring-Without-Repeating-Charaters/3-Longest-Substring-without-Repeating-Characters.cpp
+ * @Description: 
+ */
+/*
 LeetCode 3: Longest Substring without Repeating Characters
 Description:
 Given a string s, find the length of the longest substring without repeating characters.
@@ -7,7 +13,9 @@ Constraints:
 0 <= s.length <= 5 * 10^4
 s consists of English letters, digits, symbols and spaces.
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <unordered_set>
+#include <vector>
 using namespace std;
 /*
 思路：滑动窗口
