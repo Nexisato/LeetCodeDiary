@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0076-Minimum-Windows-String/76-Minimum-Window-String.cpp
+ * @Description: 
+ */
+/*
 LeetCode 76: Minimum Window String
 @Description:
 Given two strings s and t, return the minimum window in s which will contain all the characters in t. 
@@ -11,7 +17,9 @@ Constraints:
 1 <= s.length, t.length <= 10^5
 s and t consist of English letters.
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <unordered_map>
+#include <string>
 using namespace std;
 /*
 思路：滑动窗口

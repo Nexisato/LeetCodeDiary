@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0202-Happy-Number/202.cpp
+ * @Description: 
+ */
+/*
 LeetCode 202: Happy Number
 @Description:
 Write an algorithm to determine if a number n is happy.
@@ -12,7 +18,8 @@ A happy number is a number defined by the following process:
 Constraints:
 1 <= n <= 2^31 - 1
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <unordered_set>
 using namespace std;
 /*
 思路：
