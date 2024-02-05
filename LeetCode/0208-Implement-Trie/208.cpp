@@ -18,20 +18,26 @@ Constraints:
 word and prefix consist only of lowercase English letters.
 At most 3 * 10^4 calls in total will be made to insert, search, and startsWith.
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <cstring>
+#include <unordered_map>
 using namespace std;
 /*
-思路：
+思路：这个比较占空间
 */
 class Trie {
 private:
     bool isEnd;
     Trie* next[26]; //字母映射表 
+    unordered_map<char, Trie*> children;
 public:
     /** Initialize your data structure here. */
     Trie() {
         isEnd = false;
         memset(next, 0, sizeof(next));
+        children.clear();
     }
     
     /** Inserts a word into the trie. 
@@ -86,6 +92,46 @@ public:
         return true;
     }
 };
+class Trie {
+private:
+    bool isEnd;
+    unordered_map<char, Trie*> next;
+public:
+    Trie() {
+        this->isEnd = false;
+        this->next.clear();
+    }
+    
+    void insert(string word) {
+        Trie *node = this;
+        for (auto& c : word) {
+            if (!node->next.count(c))
+                node->next[c] = new Trie();
+            node = node->next[c];
+        }
+        node->isEnd = true;
+    }
+    
+    bool search(string word) const {
+        const Trie *node = this;
+        for (auto& c : word) {
+            if (!node->next.count(c))
+                return false;
+            node = node->next.at(c);
+        }
+        return node->isEnd == true;
+    }
+    
+    bool startsWith(string prefix) const {
+        const Trie *node = this;
+        for (auto& c : prefix) {
+            if (!node->next.count(c))
+                return false;
+            node = node->next.at(c);
+        }
+        return true;
+    }
+};
 
 /**
  * Your Trie object will be instantiated and called as such:
@@ -94,6 +140,95 @@ public:
  * bool param_2 = obj->search(word);
  * bool param_3 = obj->startsWith(prefix);
  */
+
+/**
+ * 优化：使用哈希表 + 内存池
+*/
+
+// class Trie {
+// private:
+//     bool isEnd;
+//     unordered_map<char, Trie*> next;
+    
+//     static std::vector<Trie*> pool;
+// public:
+//     Trie() : isEnd(false) {}
+//     /*
+//     * 重载运算符 new 和 delete，实现内存池
+//     * new 就是从内存池中取出一个节点，如果内存池为空，则调用系统的 new
+//     * 从内存池取出节点时，需要手动初始化
+//     */
+//     void* operator new(size_t size) {
+//         if (!pool.empty()) {
+//             Trie* node = pool.back();
+//             pool.pop_back();
+//             node->isEnd = false;
+//             node->next.clear();
+//             return node;
+//         }
+//         return ::operator new(size);
+//     }
+
+//     // delete 就是将节点放回内存池
+//     void operator delete(void* p) {
+//         pool.push_back(static_cast<Trie*>(p));
+//     }
+
+//     static void clearPool() {
+//         for (auto& p : pool) {
+//             ::operator delete(p);
+//         }
+//         pool.clear();
+//     }
+
+//     ~Trie() {
+//         for (auto& p : next) {
+//             delete p.second;
+//         }
+//     }
+    
+//     void insert(string word) {
+//         Trie *node = this;
+//         for (auto& c : word) {
+//             if (!node->next.count(c))
+//                 node->next[c] = new Trie();
+//             node = node->next[c];
+//         }
+//         node->isEnd = true;
+//     }
+    
+//     bool search(string word) const {
+//         const Trie *node = this;
+//         for (auto& c : word) {
+//             if (!node->next.count(c))
+//                 return false;
+//             node = node->next.at(c);
+//         }
+//         return node->isEnd == true;
+//     }
+    
+//     bool startsWith(string prefix) const {
+//         const Trie *node = this;
+//         for (auto& c : prefix) {
+//             if (!node->next.count(c))
+//                 return false;
+//             node = node->next.at(c);
+//         }
+//         return true;
+//     }
+// };
+// std::vector<Trie*> Trie::pool;
+
+/**
+ * Your Trie object will be instantiated and called as such:
+ * Trie* obj = new Trie();
+ * obj->insert(word);
+ * bool param_2 = obj->search(word);
+ * bool param_3 = obj->startsWith(prefix);
+ */
+
+
+
 int main() {
 
     return 0;
