@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0151-Reverse-Words-in-a-String/151-Reverse-Words-in-a-String.cpp
+ * @Description: 
+ */
+/*
 LeetCode: 151 Reverse Words in a String
 Description:
 Given an input string s, reverse the order of the words.
@@ -18,7 +24,9 @@ There is at least one word in s.
 Follow up:
 Could you solve it in-place with O(1) extra space?
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
 using namespace std;
 /*
 思路：
