@@ -56,7 +56,7 @@ public:
                     node->right->val = sum - other; 
             }
             // 转移所有权
-            q = move(tmp);
+            q = std::move(tmp);
         }
 
         return root;

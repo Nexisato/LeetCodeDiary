@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0155-MinStack/155-MinStack.cpp
+ * @Description: 
+ */
+/*
 LeetCode: 155 MinStack
 Description:
 Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
@@ -10,7 +16,9 @@ Design a stack that supports push, pop, top, and retrieving the minimum element 
 Constraints:
 Methods pop, top and getMin operations will always be called on non-empty stacks.
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <stack>
 using namespace std;
 /*
 思路：
