@@ -1,4 +1,11 @@
-#include <bits/stdc++.h>
+/*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0000-Basic-Framework/快速幂.cpp
+ * @Description: 
+ */
+#include <iostream>
+
 using namespace std;
 
 // a ^ b, 可以在O(logN)的时间复杂度内求快速幂
