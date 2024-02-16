@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0054-Spiral-Matrix/54.cpp
+ * @Description: 
+ */
+/*
 LeetCode 54: Spiral Matrix
 @Description:
 Given an m x n matrix, return all elements of the matrix in spiral order.
@@ -9,7 +15,8 @@ n == matrix[i].length
 1 <= m, n <= 10
 -100 <= matrix[i][j] <= 100
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 /*
 思路：直接模拟
@@ -26,6 +33,7 @@ public:
                 res.emplace_back(matrix[up][j]);
             for (int i = up + 1; i <= down; ++i) 
                 res.emplace_back(matrix[i][r]);
+            // 确保不会重复添加
             if (l < r && up < down) {//ensure no extra element in vector arr
                 for (int j = r - 1; j >= l; --j) 
                     res.emplace_back(matrix[down][j]);

@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0191-Number-of-1-Bits/191-Number-of-1-Bits.cpp
+ * @Description: 
+ */
+/*
 LeetCode : 191 Number of 1 Bits
 Description:
 Write a function that takes an unsigned integer and returns the number of '1' bits 
@@ -15,7 +21,7 @@ Follow up: If this function is called many times, how would you optimize it?
 Constraints:
 The input must be a binary string of length 32
 */
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 /*
 思路：

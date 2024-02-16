@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0190-Reverse-Bits/190-Reverse-Bits.cpp
+ * @Description: 
+ */
+/*
 LeetCode: 190 Reverse Bits
 Description:
 Reverse bits of a given 32 bits unsigned integer.
@@ -14,7 +20,7 @@ the signed integer -1073741825.
 Follow up:
 If this function is called many times, how would you optimize it?
 */
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 /*
 思路：
