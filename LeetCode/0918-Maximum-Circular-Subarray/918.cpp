@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:32
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0918-Maximum-Circular-Subarray/918.cpp
+ * @Description: 
+ */
+/*
 LeetCode 918: Maximum Circular Subarray
 @Description:
 Given a circular array C of integers represented by A, find the maximum possible sum 
@@ -15,7 +21,8 @@ Note:
 -30000 <= A[i] <= 30000
 1 <= A.length <= 30000
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 /*
 【思路】：Kadane算法

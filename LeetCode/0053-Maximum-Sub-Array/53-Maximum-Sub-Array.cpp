@@ -1,4 +1,10 @@
 /*
+ * @Date: 2023-12-10 01:13:31
+ * @Author: nexisato
+ * @FilePath: /LeetCodeDiary/LeetCode/0053-Maximum-Sub-Array/53-Maximum-Sub-Array.cpp
+ * @Description: 
+ */
+/*
 LeetCode 53: Maximum Subarray
 Description:
 Given an integer array nums, find the contiguous subarray (containing at least one number) 
@@ -11,7 +17,8 @@ Constraints:
 1 <= nums.length <= 2 * 10^4
 -2^31 <= nums[i] <= 2^31 - 1
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 /*
 思路：
