@@ -67,6 +67,20 @@ public:
         }
         return res;
     }
+
+    vector<vector<string>> groupAnagrams_table(vector<string>& strs) {
+        vector<vector<string>> res;
+        unordered_map<string, vector<string>> table;
+        for (auto&& str : strs) {
+            string s = str;
+            sort(s.begin(), s.end());
+            table[s].push_back(s);
+        }
+        for (auto&& kv : table) {
+            res.push_back(kv.second);
+        }
+        return res;
+    }
 };
 
 int main() { return 0; }
