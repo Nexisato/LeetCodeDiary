@@ -2,8 +2,8 @@
     "tasks": [
         {
             "type": "process",
-            "label": "C/C++: g++-9 compile",
-            "command": "/usr/bin/g++-9",
+            "label": "C/C++: g++ compile",
+            "command": "/usr/bin/g++",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",

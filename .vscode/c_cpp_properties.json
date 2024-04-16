@@ -1,18 +1,39 @@
 {
     "configurations": [
         {
-            "name": "Mac",
+            "name": "WSL2",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${CPLUS_INCLUDE_PATH}",
+                "${C_INCLUDE_PATH}"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "/usr/bin/g++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "${default}",
+            "compilerArgs": [
+                "-g",
+                "-std=c++17",
+                "${file}",
+                "-o",
+                "${fileDirname}\\\\${fileBasenameNoExtension}"
+            ]
+        },
+        {
+            "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**"
             ],
             "defines": [],
-            "macFrameworkPath": [
-                "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"
-            ],
-            "compilerPath": "/usr/bin/clang++",
-            "intelliSenseMode": "macos-clang-arm64",
+            "compilerPath": "/usr/bin/g++",
             "cStandard": "c17",
-            "cppStandard": "c++17"
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "linux-gcc-x64"
         }
     ],
     "version": 4
