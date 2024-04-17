@@ -1,2 +1,29 @@
-.vscode
+# IDE
+.vscode/
+.idea/
+.DS_Stores
+
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+# Precompiled Headers
+*.gch
+*.pch
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+# Compiled Static libraries
+*.lib
+*.a
+# Executables
+*.exe
 *.out
+*.app
+
+# build directory
+build/
+
