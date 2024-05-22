@@ -23,16 +23,16 @@ config:
 # 定义工作目录，默认为当前目录
 WORK_DIR ?= .
 
-# 定义格式化命令
+# 定义shell命令
 FORMAT_CMD = ./scripts/format.sh $(WORK_DIR) format_name
 DELBIN_CMD = ./scripts/format.sh $(WORK_DIR) delete_bin
 
-# 定义格式化目标
-format:
+# 定义规范化目标
+normal:
 	chmod +x ./scripts/format.sh
 	$(FORMAT_CMD)
 
-.PHONY: format
+.PHONY: normal
 
 
 delbin:
