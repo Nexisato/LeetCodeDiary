@@ -2,7 +2,7 @@
  * @Date: 2023-12-10 01:13:31
  * @Author: nexisato
  * @FilePath: /LeetCodeDiary/LeetCode/0098-Validate-Binary-Search-Tree/98-Validate-Binary-Search-Tree.cpp
- * @Description: 
+ * @Description:
  */
 /*
 LeetCode: 98 Validate Binary Search Tree
@@ -23,12 +23,12 @@ The number of nodes in the tree is in the range [1, 10^4].
 using namespace std;
 //  Definition for a binary tree node.
 struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+	int val;
+	TreeNode* left;
+	TreeNode* right;
+	TreeNode() : val(0), left(nullptr), right(nullptr) {}
+	TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+	TreeNode(int x, TreeNode* left, TreeNode* right) : val(x), left(left), right(right) {}
 };
 
 /*
@@ -43,15 +43,16 @@ struct TreeNode {
 */
 class Solution {
 public:
-    bool isValidBST(TreeNode* root) {
-        return isValidBST(root, nullptr, nullptr);
-    }
-    bool isValidBST(TreeNode* node, TreeNode* lower, TreeNode* upper) { //max->val > root->val > min->val
-        if (!node) return true;
-        if (lower != nullptr && node->val <= lower->val) return false;
-        if (upper != nullptr && node->val >= upper->val) return false;
-        return isValidBST(node->left, lower, node) && isValidBST(node->right, node, upper);
-    }
+	bool isValidBST(TreeNode* root) { return isValidBST(root, nullptr, nullptr); }
+	bool isValidBST(TreeNode* node, TreeNode* lower, TreeNode* upper) { // max->val > root->val > min->val
+		if (!node)
+			return true;
+		if (lower != nullptr && node->val <= lower->val)
+			return false;
+		if (upper != nullptr && node->val >= upper->val)
+			return false;
+		return isValidBST(node->left, lower, node) && isValidBST(node->right, node, upper);
+	}
 };
 /*
 思路：
@@ -59,38 +60,40 @@ public:
 */
 class Solution2 {
 private:
-    vector<int> node;
-    void traversal(TreeNode* root) {
-        if (!root) return;
-        traversal(root->left);
-        node.push_back(root->val);
-        traversal(root->right);
-    }
+	vector<int> node;
+	void traversal(TreeNode* root) {
+		if (!root)
+			return;
+		traversal(root->left);
+		node.push_back(root->val);
+		traversal(root->right);
+	}
+
 public:
-   
-    bool isValidBST(TreeNode* root) {
-        node.clear();
-        traversal(root);
-        for(int i = 1; i < node.size(); i++)
-            if (node[i] <= node[i-1]) return false;
-        return true;
-    }
+	bool isValidBST(TreeNode* root) {
+		node.clear();
+		traversal(root);
+		for (int i = 1; i < node.size(); i++)
+			if (node[i] <= node[i - 1])
+				return false;
+		return true;
+	}
 };
 // 中序遍历，记录 Pre 节点，大于等于 cur 节点就return false
 class Solution_3 {
 private:
-    TreeNode* pre;
-public:
-    bool isValidBST(TreeNode* root) {
-        if (!root) return true;
-        bool left = isValidBST(root->left);
-        if (pre && pre->val >= root->val) return false;
-        pre = root;
-        bool right = isValidBST(root->right);
-        return left && right;
-    }
-};
-int main() {
+	TreeNode* pre;
 
-    return 0;
-}
+public:
+	bool isValidBST(TreeNode* root) {
+		if (!root)
+			return true;
+		bool left = isValidBST(root->left);
+		if (pre && pre->val >= root->val)
+			return false;
+		pre = root;
+		bool right = isValidBST(root->right);
+		return left && right;
+	}
+};
+int main() { return 0; }

@@ -2,7 +2,7 @@
  * @Date: 2023-12-10 01:13:31
  * @Author: nexisato
  * @FilePath: /LeetCodeDiary/LeetCode/0136-Single-Number/136-Single-Number.cpp
- * @Description: 
+ * @Description:
  */
 #include <algorithm>
 #include <iostream>

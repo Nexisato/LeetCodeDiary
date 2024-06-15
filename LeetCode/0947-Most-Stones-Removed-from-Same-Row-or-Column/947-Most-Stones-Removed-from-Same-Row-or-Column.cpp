@@ -1,13 +1,13 @@
 /*
 LeetCode: 947 Most Stones Removed from Same Row or Column
 Description:
-On a 2D plane, we place n stones at some integer coordinate points. 
+On a 2D plane, we place n stones at some integer coordinate points.
 Each coordinate point may have at most one stone.
 
-A stone can be removed if it shares either the same row or the same column as another stone 
+A stone can be removed if it shares either the same row or the same column as another stone
 that has not been removed.
 
-Given an array stones of length n where stones[i] = [xi, yi] represents the location of the ith stone, 
+Given an array stones of length n where stones[i] = [xi, yi] represents the location of the ith stone,
 return the largest possible number of stones that can be removed.
 
 Constraints:
@@ -28,29 +28,29 @@ using namespace std;
 */
 class Solution {
 public:
-    void dfs(int x, vector<vector<int>> &edge, vector<bool> &visited) {
-        visited[x] = true;
-        for (auto &y : edge[x])
-            if (!visited[y])
-                dfs(y, edge, visited);
-    }
-    int removeStones(vector<vector<int>>& stones) {
-        int N = stones.size();
-        vector<vector<int>> edges(N);
-        for (int i = 0; i < N; i++)
-            for (int j = 0; j < N; j++)
-                if (stones[i][0] == stones[j][0] || stones[i][1] == stones[j][1])
-                    edges[i].push_back(j);
-        vector<bool> visited(N, false);
-        int num = 0;
-        for (int i = 0; i < N; i++) {
-            if (!visited[i]) {
-                num++;
-                dfs(i, edges, visited);
-            }
-        }
-        return N - num;
-    }
+	void dfs(int x, vector<vector<int>>& edge, vector<bool>& visited) {
+		visited[x] = true;
+		for (auto& y : edge[x])
+			if (!visited[y])
+				dfs(y, edge, visited);
+	}
+	int removeStones(vector<vector<int>>& stones) {
+		int N = stones.size();
+		vector<vector<int>> edges(N);
+		for (int i = 0; i < N; i++)
+			for (int j = 0; j < N; j++)
+				if (stones[i][0] == stones[j][0] || stones[i][1] == stones[j][1])
+					edges[i].push_back(j);
+		vector<bool> visited(N, false);
+		int num = 0;
+		for (int i = 0; i < N; i++) {
+			if (!visited[i]) {
+				num++;
+				dfs(i, edges, visited);
+			}
+		}
+		return N - num;
+	}
 };
 /*
 思路：并查集
@@ -67,53 +67,46 @@ public:
 */
 class Djset {
 public:
-    unordered_map<int, int> parent, rank;
-    int count;
-    Djset(int n): count(0){}
-    
-    int find(int x) {
-        //未加入并查集
-        if (parent.find(x) == parent.end()) {
-            parent[x] = x;
-            count++;
-        }
-        //路径压缩，父节点作为根节点
-        if (x != parent[x]) {
-            parent[x] = find(parent[x]);
-        }
-        return parent[x];
-    }
+	unordered_map<int, int> parent, rank;
+	int count;
+	Djset(int n) : count(0) {}
 
-    inline void merge(int x, int y) {// y->x; 低秩并到高秩
-        int rootx = find(x);
-        int rooty = find(y);
-        if (rootx != rooty) {
-            if (rank[rootx] < rank[rooty])
-                swap(rootx, rooty);
-            parent[rooty] = rootx;
-            if (rootx == rooty) 
-                rank[rootx] += 1;
-            count--;
-        }
+	int find(int x) {
+		//未加入并查集
+		if (parent.find(x) == parent.end()) {
+			parent[x] = x;
+			count++;
+		}
+		//路径压缩，父节点作为根节点
+		if (x != parent[x]) {
+			parent[x] = find(parent[x]);
+		}
+		return parent[x];
+	}
 
-    }
-    int get_count() {
-        return count;
-    }
+	inline void merge(int x, int y) { // y->x; 低秩并到高秩
+		int rootx = find(x);
+		int rooty = find(y);
+		if (rootx != rooty) {
+			if (rank[rootx] < rank[rooty])
+				swap(rootx, rooty);
+			parent[rooty] = rootx;
+			if (rootx == rooty)
+				rank[rootx] += 1;
+			count--;
+		}
+	}
+	int get_count() { return count; }
 };
 class Solution_uf {
 public:
-    int removeStones(vector<vector<int>>& stones) {
-        int N = stones.size();
-        Djset DS(N);
-        for (auto& e : stones) {
-            DS.merge(e[0] + 10001, e[1]);
-        }
-        return N - DS.get_count();       
-    }
-
+	int removeStones(vector<vector<int>>& stones) {
+		int N = stones.size();
+		Djset DS(N);
+		for (auto& e : stones) {
+			DS.merge(e[0] + 10001, e[1]);
+		}
+		return N - DS.get_count();
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

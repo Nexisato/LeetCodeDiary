@@ -8,54 +8,49 @@ using namespace std;
 */
 class Solution {
 public:
-    int uniqueLetterString(string s) {
-        vector<int> lastIndex(26, -1), curIndex(26, -1);
-        int res = 0, n = s.length();
+	int uniqueLetterString(string s) {
+		vector<int> lastIndex(26, -1), curIndex(26, -1);
+		int res = 0, n = s.length();
 
-        for (int i = 0; i < n; ++i) {
-            int letter = s[i] - 'A';
+		for (int i = 0; i < n; ++i) {
+			int letter = s[i] - 'A';
 
-            if (curIndex[letter] > -1) {
-                res += (i - curIndex[letter]) * (curIndex[letter] - lastIndex[letter]);
-            }
+			if (curIndex[letter] > -1) {
+				res += (i - curIndex[letter]) * (curIndex[letter] - lastIndex[letter]);
+			}
 
-            lastIndex[letter] = curIndex[letter];
-            curIndex[letter] = i;
-        }
-        //最后是 next 字符
-        for (int letter = 0; letter < 26; ++letter)
-            if (curIndex[letter] > - 1)
-                res += (curIndex[letter] - lastIndex[letter]) * (n - curIndex[letter]);
+			lastIndex[letter] = curIndex[letter];
+			curIndex[letter] = i;
+		}
+		//最后是 next 字符
+		for (int letter = 0; letter < 26; ++letter)
+			if (curIndex[letter] > -1)
+				res += (curIndex[letter] - lastIndex[letter]) * (n - curIndex[letter]);
 
+		return res;
+	}
 
+	/*
+	int uniqueLetterString(string s) {
+	    int res = 0, n = s.length();
+	    for (int i = 0; i < n; ++i)
+	        for (int j = i + 1; j <= n; ++j)
+	            res += countUniqueChars(s.substr(i, j - i));
 
-        return res;
-    }
-    
-    /*
-    int uniqueLetterString(string s) {
-        int res = 0, n = s.length();
-        for (int i = 0; i < n; ++i)
-            for (int j = i + 1; j <= n; ++j)
-                res += countUniqueChars(s.substr(i, j - i));
+	    return res;
+	}
 
-        return res;
-    }
-
-    int countUniqueChars(string s) {
-        vector<char> table(26, 0);
-        for (const auto& a : s) {
-            ++table[a - 'A'];
-        }
-        int sum = 0;
-        for (const auto& count : table)
-            if (count == 1)
-                ++sum;
-        return sum;
-    }*/
+	int countUniqueChars(string s) {
+	    vector<char> table(26, 0);
+	    for (const auto& a : s) {
+	        ++table[a - 'A'];
+	    }
+	    int sum = 0;
+	    for (const auto& count : table)
+	        if (count == 1)
+	            ++sum;
+	    return sum;
+	}*/
 };
 
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

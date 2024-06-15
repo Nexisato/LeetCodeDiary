@@ -1,7 +1,7 @@
 /**
  * @file redbook_1.cpp
  * @Question: 小红背单词
- * @Description: 
+ * @Description:
 小红每天都要背单词，然后她会把每天记住了多少单词记录下来，并在小红书上打卡。
 当小红背单词时，如果她已经记住了i个单词，且背了一个没有记住的新单词i+1次，则她就会记住这个新单词。
 
@@ -16,10 +16,10 @@
 */
 
 #include <iostream>
-#include <vector>
 #include <string>
 #include <unordered_map>
 #include <unordered_set>
+#include <vector>
 using namespace std;
 
 /**
@@ -30,33 +30,30 @@ using namespace std;
  *  - 若遇到已经记住的字符串，则跳过
  *  - 遇到未记住的字符串，根据 map 的背诵次数判断是否记住
  *      - 若大于 res，则此字符串记住，res++，下次需要记住的字符串需要遇到的次数加1
-*/
+ */
 int main() {
-    int n;
-    cin >> n;
-    vector<string> words;
-    for (int i = 0; i < n; ++i) {
-        string word;
-        cin >> word;
-        words.push_back(word);
-    }
-    int res = 0;
-    unordered_set<string> word_membered;
-    unordered_map<string, int> table;
-    for (int i = 0; i < n; ++i) {
-        if (word_membered.count(words[i]))
-            continue;
-        ++table[words[i]];
-        if (table[words[i]] > res) {
-            ++res;
-            word_membered.insert(words[i]);
-        }
+	int n;
+	cin >> n;
+	vector<string> words;
+	for (int i = 0; i < n; ++i) {
+		string word;
+		cin >> word;
+		words.push_back(word);
+	}
+	int res = 0;
+	unordered_set<string> word_membered;
+	unordered_map<string, int> table;
+	for (int i = 0; i < n; ++i) {
+		if (word_membered.count(words[i]))
+			continue;
+		++table[words[i]];
+		if (table[words[i]] > res) {
+			++res;
+			word_membered.insert(words[i]);
+		}
+	}
 
-    }    
+	cout << res << endl;
 
-    cout << res << endl;
-
-
-
-    return 0;
+	return 0;
 }

@@ -8,8 +8,8 @@ Follow up: Do not use any built-in library function such as sqrt.
 Constraints:
 1 <= num <= 2^31 - 1
 */
-#include <iostream>
 #include <algorithm>
+#include <iostream>
 #include <vector>
 using namespace std;
 /*
@@ -17,29 +17,28 @@ using namespace std;
 */
 class Solution {
 public:
-    bool isPerfectSquare(int num) {
-        int l = 1, r = num;
-        while (l <= r) {
-            int mid = l + (r - l) >> 1;
-            if ((long long) mid * mid > INT32_MAX)
-                r = mid - 1;
-            else {
-                if (mid * mid < num)
-                    l = mid + 1;
-                else if (mid * mid > num)
-                    r = mid - 1;
-                else
-                    return true;                
-            }
-        }
-        return false;
-    }
+	bool isPerfectSquare(int num) {
+		int l = 1, r = num;
+		while (l <= r) {
+			int mid = l + (r - l) >> 1;
+			if ((long long)mid * mid > INT32_MAX)
+				r = mid - 1;
+			else {
+				if (mid * mid < num)
+					l = mid + 1;
+				else if (mid * mid > num)
+					r = mid - 1;
+				else
+					return true;
+			}
+		}
+		return false;
+	}
 };
 int main() {
-    Solution *ss = new Solution();
-    int num = 99;
-    bool ans = ss->isPerfectSquare(num);
+	Solution* ss = new Solution();
+	int num = 99;
+	bool ans = ss->isPerfectSquare(num);
 
-
-    return 0;
+	return 0;
 }

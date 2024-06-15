@@ -2,7 +2,7 @@
  * @Date: 2023-12-10 01:13:31
  * @Author: nexisato
  * @FilePath: /LeetCodeDiary/LeetCode/0094-BinaryTree-Inorder-Traversal/94-BinaryTree-Inorder-Traversal.cpp
- * @Description: 
+ * @Description:
  */
 /*
 Description:

@@ -1,7 +1,7 @@
 /*
 LeetCode: 20 Valid Parentheses
 Description:
-Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', 
+Given a string s containing just the characters '(', ')', '{', '}', '[' and ']',
 determine if the input string is valid.
 
 An input string is valid if:
@@ -18,31 +18,25 @@ using namespace std;
     若不是相同类型 或 栈中没有左括号，判定字符串无效
 3. 利用哈希表存储映射关系，键为右括号，值为相同类型的左括号
 4. 若栈中没有左括号，返回True，否则返回False
-5. 由左右括号的成对匹配关系，字符串长度为奇数时，直接返回False    
+5. 由左右括号的成对匹配关系，字符串长度为奇数时，直接返回False
 */
 class Solution {
 public:
-    bool isValid(string s) {
-        if (s.size() % 2 == 1) return false;
-        unordered_map<char, char> bracketPair = {
-            {'}', '{'},
-            {']', '['},
-            {')', '('}
-        };
-        vector<char> left;
-        for (char c : s) {
-            if (bracketPair.count(c)) {
-                if (left.empty() || left.back() != bracketPair[c])
-                    return false;
-                left.pop_back();
-            } else {
-                left.emplace_back(c);
-            }
-        }
-        return left.empty();
-    }
+	bool isValid(string s) {
+		if (s.size() % 2 == 1)
+			return false;
+		unordered_map<char, char> bracketPair = {{'}', '{'}, {']', '['}, {')', '('}};
+		vector<char> left;
+		for (char c : s) {
+			if (bracketPair.count(c)) {
+				if (left.empty() || left.back() != bracketPair[c])
+					return false;
+				left.pop_back();
+			} else {
+				left.emplace_back(c);
+			}
+		}
+		return left.empty();
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

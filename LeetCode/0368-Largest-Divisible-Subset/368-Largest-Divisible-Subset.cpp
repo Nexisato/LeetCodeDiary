@@ -1,7 +1,7 @@
 /*
 LeetCode 368: Largest Divisible Subset
 @Description:
-Given a set of distinct positive integers nums, return the largest subset answer 
+Given a set of distinct positive integers nums, return the largest subset answer
 such that every pair (answer[i], answer[j]) of elements in this subset satisfies:
 - answer[i] % answer[j] == 0, or
 - answer[j] % answer[i] == 0
@@ -26,34 +26,30 @@ using namespace std;
 */
 class Solution {
 public:
-    vector<int> largestDivisibleSubset(vector<int>& nums) {
-        int n = nums.size();
-        sort(nums.begin(), nums.end());
-        vector<int> dp(n, 0), g(n, 0);
-        for (int i = 0; i < n; ++i) {
-            int len = 1, prevState = i;
-            for (int j = 0; j < i; ++j) 
-                if (nums[i] % nums[j] == 0)
-                    if (dp[j] + 1 > len) {
-                        len = dp[j] + 1;
-                        prevState = j;
-                    }
-            dp[i] = len;
-            g[i] = prevState;
-        }
-        //To get the index of the max element from dp[n]
-        int idx = max_element(dp.begin(), dp.end()) - dp.begin();
-        int maxL = dp[idx];
-        vector<int> res;
-        for (int i = 0; i < maxL; ++i) {
-            res.emplace_back(nums[idx]);
-            idx = g[idx];
-        }
-        return res;
-    }
+	vector<int> largestDivisibleSubset(vector<int>& nums) {
+		int n = nums.size();
+		sort(nums.begin(), nums.end());
+		vector<int> dp(n, 0), g(n, 0);
+		for (int i = 0; i < n; ++i) {
+			int len = 1, prevState = i;
+			for (int j = 0; j < i; ++j)
+				if (nums[i] % nums[j] == 0)
+					if (dp[j] + 1 > len) {
+						len = dp[j] + 1;
+						prevState = j;
+					}
+			dp[i] = len;
+			g[i] = prevState;
+		}
+		// To get the index of the max element from dp[n]
+		int idx = max_element(dp.begin(), dp.end()) - dp.begin();
+		int maxL = dp[idx];
+		vector<int> res;
+		for (int i = 0; i < maxL; ++i) {
+			res.emplace_back(nums[idx]);
+			idx = g[idx];
+		}
+		return res;
+	}
 };
-int main() {
-
-
-    return 0;
-}
+int main() { return 0; }

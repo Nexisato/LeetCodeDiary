@@ -1,10 +1,10 @@
 /*
 LeetCode 697: Degree of Array
 @Description:
-Given a non-empty array of non-negative integers nums, the degree of this array is defined 
+Given a non-empty array of non-negative integers nums, the degree of this array is defined
 as the maximum frequency of any one of its elements.
 
-Your task is to find the smallest possible length of a (contiguous) subarray of nums, 
+Your task is to find the smallest possible length of a (contiguous) subarray of nums,
 that has the same degree as nums.
 
 Constraints:
@@ -21,31 +21,29 @@ using namespace std;
 */
 class Solution {
 public:
-    int findShortestSubArray(vector<int>& nums) {
-        unordered_map<int, vector<int>> table;
-        for (int i = 0; i < nums.size(); ++i) {
-            if (table.count(nums[i])) {
-                table[nums[i]][0]++;
-                table[nums[i]][2] = i;
-            }
-            else
-                table[nums[i]] = {1, i, i};
-        }
-        int maxCount = 0, minLen = nums.size();
-        for (auto it = table.begin(); it != table.end(); ++it) {
-            if (maxCount < it->second[0]) { 
-                maxCount = it->second[0];
-                minLen = it->second[2] - it->second[1] + 1;
-            }
-            else if (maxCount == it->second[0])
-                minLen = min(minLen, it->second[2] - it->second[1] + 1);
-        }
-        return minLen;
-    }
+	int findShortestSubArray(vector<int>& nums) {
+		unordered_map<int, vector<int>> table;
+		for (int i = 0; i < nums.size(); ++i) {
+			if (table.count(nums[i])) {
+				table[nums[i]][0]++;
+				table[nums[i]][2] = i;
+			} else
+				table[nums[i]] = {1, i, i};
+		}
+		int maxCount = 0, minLen = nums.size();
+		for (auto it = table.begin(); it != table.end(); ++it) {
+			if (maxCount < it->second[0]) {
+				maxCount = it->second[0];
+				minLen = it->second[2] - it->second[1] + 1;
+			} else if (maxCount == it->second[0])
+				minLen = min(minLen, it->second[2] - it->second[1] + 1);
+		}
+		return minLen;
+	}
 };
 int main() {
-    Solution ss;
-    vector<int> nums = {1, 2, 2, 3, 1};
-    cout << ss.findShortestSubArray(nums) << endl;
-    return 0;
+	Solution ss;
+	vector<int> nums = {1, 2, 2, 3, 1};
+	cout << ss.findShortestSubArray(nums) << endl;
+	return 0;
 }

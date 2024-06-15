@@ -2,7 +2,7 @@
  * @Date: 2023-12-10 01:13:31
  * @Author: nexisato
  * @FilePath: /LeetCodeDiary/LeetCode/0215-Kth-Largest-Element-in-an-Array/215-Kth-Largest-Element-in-an-Array.cpp
- * @Description: 
+ * @Description:
  */
 /*
 Description:

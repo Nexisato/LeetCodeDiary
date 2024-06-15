@@ -1,7 +1,7 @@
 /*
 LeetCode 5677: Count the Number of Homogenous Substrings
 @Description:
-Given a string s, return the number of homogenous substrings of s. 
+Given a string s, return the number of homogenous substrings of s.
 Since the answer may be too large, return it modulo 10^9 + 7.
 
 A string is homogenous if all the characters of the string are the same.
@@ -20,11 +20,6 @@ using namespace std;
 */
 class Solution {
 public:
-    int countHomogenous(string s) {
-        const int FLAG = pow(10, 9) + 7;
-    }
+	int countHomogenous(string s) { const int FLAG = pow(10, 9) + 7; }
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

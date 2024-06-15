@@ -1,7 +1,7 @@
 /*
 LeetCode 1438 : Longest Continuous Subarray with Absolute Diff Less Than or Equal to Limit
 @Description:
-Given an array of integers nums and an integer limit, return the size of the longest non-empty subarray 
+Given an array of integers nums and an integer limit, return the size of the longest non-empty subarray
 such that the absolute difference between any two elements of this subarray is less than or equal to limit.
 
 Constraints:
@@ -21,28 +21,28 @@ using namespace std;
 */
 class Solution {
 public:
-    int longestSubarray(vector<int>& nums, int limit) {
-        int left = 0, right = 0;
-        map<int, int> table;
-        int maxL = 0;
-        while (right < nums.size()) {
-            table[nums[right]]++;
-            right++;
-            if (table.rbegin()->first - table.begin()->first <= limit) {
-                maxL = max(maxL, right - left);
-                continue;
-            }
-            if (--table[nums[left]] == 0)
-                table.erase(nums[left]);
-            left++;
-        }
-        return maxL;
-    }
+	int longestSubarray(vector<int>& nums, int limit) {
+		int left = 0, right = 0;
+		map<int, int> table;
+		int maxL = 0;
+		while (right < nums.size()) {
+			table[nums[right]]++;
+			right++;
+			if (table.rbegin()->first - table.begin()->first <= limit) {
+				maxL = max(maxL, right - left);
+				continue;
+			}
+			if (--table[nums[left]] == 0)
+				table.erase(nums[left]);
+			left++;
+		}
+		return maxL;
+	}
 };
 int main() {
-    vector<int> nums = {2,2,2,4,4,2,2,2,2};
-    int limit = 0;
-    Solution ss;
-    cout << ss.longestSubarray(nums, limit) << endl;
-    return 0;
+	vector<int> nums = {2, 2, 2, 4, 4, 2, 2, 2, 2};
+	int limit = 0;
+	Solution ss;
+	cout << ss.longestSubarray(nums, limit) << endl;
+	return 0;
 }

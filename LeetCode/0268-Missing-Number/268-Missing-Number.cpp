@@ -1,10 +1,10 @@
 /*
 LeetCode: 268 Missing Number
 Description:
-Given an array nums containing n distinct numbers in the range [0, n], 
+Given an array nums containing n distinct numbers in the range [0, n],
 return [the only number] in the range that is missing from the array.
 
-Follow up: Could you implement a solution using only O(1) extra space complexity 
+Follow up: Could you implement a solution using only O(1) extra space complexity
 and O(n) runtime complexity?
 */
 #include <bits/stdc++.h>
@@ -19,23 +19,20 @@ using namespace std;
 */
 class Solution {
 public:
-    int missingNumber(vector<int>& nums) {
-        int N = nums.size();
-        int sum = 0;
-        for (int i = 0; i < N; i++)
-            sum += nums[i];
-        int res = N * (N + 1) / 2;
-        return res - sum; 
-    }
-    int missingNumber_xor(vector<int> &nums) {
-        int res = nums.size();
-        for (int i = 0; i < nums.size(); i++)
-            res ^= i ^ nums[i];
-        return res;
-    }
+	int missingNumber(vector<int>& nums) {
+		int N = nums.size();
+		int sum = 0;
+		for (int i = 0; i < N; i++)
+			sum += nums[i];
+		int res = N * (N + 1) / 2;
+		return res - sum;
+	}
+	int missingNumber_xor(vector<int>& nums) {
+		int res = nums.size();
+		for (int i = 0; i < nums.size(); i++)
+			res ^= i ^ nums[i];
+		return res;
+	}
 };
 
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

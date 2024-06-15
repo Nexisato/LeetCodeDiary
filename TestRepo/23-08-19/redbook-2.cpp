@@ -36,39 +36,41 @@ using namespace std;
  */
 
 bool isPalindrome(string& s) {
-    int n = s.size();
-    string s_transfer = "";
-    for (int i = 0; i < n; ++i) {
-        if (s[i] == 'b' || s[i] == 'd' || s[i] == 'q' || s[i] == 'p')
-            s_transfer += 'b';
-        else if (s[i] == 'w')
-            s_transfer += "vv";
-        else if (s[i] == 'm')
-            s_transfer += "uu";
-        else if (s[i] == 'n')
-            s_transfer += 'u';
-        else
-            s_transfer += s[i];
-    }
-    int n_transfer = s_transfer.size();
-    for (int l = 0, r = n_transfer - 1; l < r; ++l, --r)
-        if (s_transfer[l] != s_transfer[r]) return false;
-    return true;
+	int n = s.size();
+	string s_transfer = "";
+	for (int i = 0; i < n; ++i) {
+		if (s[i] == 'b' || s[i] == 'd' || s[i] == 'q' || s[i] == 'p')
+			s_transfer += 'b';
+		else if (s[i] == 'w')
+			s_transfer += "vv";
+		else if (s[i] == 'm')
+			s_transfer += "uu";
+		else if (s[i] == 'n')
+			s_transfer += 'u';
+		else
+			s_transfer += s[i];
+	}
+	int n_transfer = s_transfer.size();
+	for (int l = 0, r = n_transfer - 1; l < r; ++l, --r)
+		if (s_transfer[l] != s_transfer[r])
+			return false;
+	return true;
 }
 
 int main() {
-    int queryTime;
-    cin >> queryTime;
-    string answer[queryTime];
-    for (int i = 0; i < queryTime; ++i) {
-        string s;
-        cin >> s;
-        if (isPalindrome(s))
-            answer[i] = "YES";
-        else
-            answer[i] = "NO";
-    }
-    for (const auto& ans : answer) cout << ans << endl;
+	int queryTime;
+	cin >> queryTime;
+	string answer[queryTime];
+	for (int i = 0; i < queryTime; ++i) {
+		string s;
+		cin >> s;
+		if (isPalindrome(s))
+			answer[i] = "YES";
+		else
+			answer[i] = "NO";
+	}
+	for (const auto& ans : answer)
+		cout << ans << endl;
 
-    return 0;
+	return 0;
 }

@@ -2,7 +2,7 @@
  * @Date: 2023-12-10 01:13:31
  * @Author: nexisato
  * @FilePath: /LeetCodeDiary/LeetCode/0033-Search-in-Rotated-Sorted-Array/33.cpp
- * @Description: 
+ * @Description:
  */
 /*
 LeetCode 33: Search in Rotated Sorted Array
@@ -10,12 +10,12 @@ LeetCode 33: Search in Rotated Sorted Array
 
 There is an integer array nums sorted in ascending order (with distinct values).
 
-Prior to being passed to your function, nums is rotated at an unknown pivot 
-index k (0 <= k < nums.length) such that the resulting array is [nums[k], nums[k+1], ..., 
-nums[n-1], nums[0], nums[1], ..., nums[k-1]] (0-indexed). For example, [0,1,2,4,5,6,7] 
+Prior to being passed to your function, nums is rotated at an unknown pivot
+index k (0 <= k < nums.length) such that the resulting array is [nums[k], nums[k+1], ...,
+nums[n-1], nums[0], nums[1], ..., nums[k-1]] (0-indexed). For example, [0,1,2,4,5,6,7]
 might be rotated at pivot index 3 and become [4,5,6,7,0,1,2].
 
-Given the array nums after the rotation and an integer target, 
+Given the array nums after the rotation and an integer target,
 return the index of target if it is in nums, or -1 if it is not in nums.
 
 Constraints:
@@ -39,35 +39,32 @@ using namespace std;
 */
 class Solution {
 public:
-    int search(vector<int>& nums, int target) {
-        int n = (int)nums.size();
-        if (n == 1)
-            return nums[0] == target ? 0 : -1;
-        int low = 0, high = n - 1, mid = (low + high) / 2;
-        while (low <= high) {
-            mid = (low + high) / 2;
-            if (nums[mid] == target)
-                return mid;
-            /*分区间讨论*/
-            //[0,mid]有序
-            if (nums[0] <= nums[mid]) {
-                if (nums[0] <= target && target < nums[mid])
-                    high = mid - 1;
-                else
-                    low = mid + 1;
-            }
-            //[0, mid]无序
-            else {
-                if (nums[mid] < target && target <= nums[n - 1])
-                    low = mid + 1;
-                else
-                    high = mid - 1;
-            }
-        }
-        return -1;
-    }
+	int search(vector<int>& nums, int target) {
+		int n = (int)nums.size();
+		if (n == 1)
+			return nums[0] == target ? 0 : -1;
+		int low = 0, high = n - 1, mid = (low + high) / 2;
+		while (low <= high) {
+			mid = (low + high) / 2;
+			if (nums[mid] == target)
+				return mid;
+			/*分区间讨论*/
+			//[0,mid]有序
+			if (nums[0] <= nums[mid]) {
+				if (nums[0] <= target && target < nums[mid])
+					high = mid - 1;
+				else
+					low = mid + 1;
+			}
+			//[0, mid]无序
+			else {
+				if (nums[mid] < target && target <= nums[n - 1])
+					low = mid + 1;
+				else
+					high = mid - 1;
+			}
+		}
+		return -1;
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

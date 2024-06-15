@@ -1,7 +1,7 @@
 /*
 LeetCode 567: Permutation in String
 @Description:
-Given two strings s1 and s2, write a function to return true if s2 contains the permutation of s1. 
+Given two strings s1 and s2, write a function to return true if s2 contains the permutation of s1.
 In other words, one of the first string's permutations is the substring of the second string.
 
 Constraints:
@@ -22,24 +22,21 @@ using namespace std;
 */
 class Solution {
 public:
-    bool checkInclusion(string s1, string s2) {
-        unordered_map<char, int> table;
-        for (char c : s1)
-            table[c]++;
-        int count = s1.length();
-        int left = 0, right = 0, valid = 0;
-        while (right < s2.size()) {
-            if (table[s2[right++]]-- > 0)
-                --count;
-            if (count == 0) 
-                return true;
-            if (right - left == s1.length() && ++table[s2[left++]] > 0)
-                ++count;
-        }
-        return false;
-    }
+	bool checkInclusion(string s1, string s2) {
+		unordered_map<char, int> table;
+		for (char c : s1)
+			table[c]++;
+		int count = s1.length();
+		int left = 0, right = 0, valid = 0;
+		while (right < s2.size()) {
+			if (table[s2[right++]]-- > 0)
+				--count;
+			if (count == 0)
+				return true;
+			if (right - left == s1.length() && ++table[s2[left++]] > 0)
+				++count;
+		}
+		return false;
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

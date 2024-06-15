@@ -1,10 +1,10 @@
 /*
 LeetCode 665: Non-Decreasing Array
 @Description:
-Given an array nums with n integers, your task is to check if it could 
+Given an array nums with n integers, your task is to check if it could
 become non-decreasing by modifying at most one element.
 
-We define an array is non-decreasing if nums[i] <= nums[i + 1] holds 
+We define an array is non-decreasing if nums[i] <= nums[i + 1] holds
 for every i (0-based) such that (0 <= i <= n - 2).
 
 Constraints:
@@ -24,23 +24,21 @@ using namespace std;
 */
 class Solution {
 public:
-    bool checkPossibility(vector<int>& nums) {
-        if (nums.size() == 1) return true;
-        for (int i = 0; i < nums.size() - 1; i++) {
-            int x = nums[i], y = nums[i + 1];
-            if (x > y) {
-                nums[i] = y;
-                if (is_sorted(nums.begin(), nums.end()))
-                    return true;
-                nums[i] = x;
-                nums[i + 1] = x;
-                return is_sorted(nums.begin(), nums.end());
-            }
-        }
-        return true;
-    }
+	bool checkPossibility(vector<int>& nums) {
+		if (nums.size() == 1)
+			return true;
+		for (int i = 0; i < nums.size() - 1; i++) {
+			int x = nums[i], y = nums[i + 1];
+			if (x > y) {
+				nums[i] = y;
+				if (is_sorted(nums.begin(), nums.end()))
+					return true;
+				nums[i] = x;
+				nums[i + 1] = x;
+				return is_sorted(nums.begin(), nums.end());
+			}
+		}
+		return true;
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

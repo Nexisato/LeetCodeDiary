@@ -2,21 +2,21 @@
  * @Date: 2023-12-10 01:13:31
  * @Author: nexisato
  * @FilePath: /LeetCodeDiary/LeetCode/0209-Minimum-Size-Subarray-Sum/209-Minimum-Size-Subarray-Sum.cpp
- * @Description: 
+ * @Description:
  */
 /*
 LeetCode :209
 Description:
-Given an array of n positive integers and a positive integer s, 
-find the minimal length of a contiguous subarray of which the sum ≥ s. 
+Given an array of n positive integers and a positive integer s,
+find the minimal length of a contiguous subarray of which the sum ≥ s.
 If there isn't one, return 0 instead.
 
 Follow up:
-If you have figured out the O(n) solution, try coding another solution 
+If you have figured out the O(n) solution, try coding another solution
 of which the time complexity is O(n log n). 
 */
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 using namespace std;
 /*
 思路：双指针法/滑动窗口法
@@ -32,26 +32,26 @@ notes:
 */
 class Solution {
 public:
-    int minSubArrayLen(int s, vector<int>& nums) {
-        int result = INT32_MAX;
-        int slowPtr = 0;
-        int sum = 0;
-        int curLength = 0;
-        for (int fastPtr = 0; fastPtr < nums.size(); fastPtr++) {
-            sum += nums[fastPtr];
-            while (sum >= s) {
-                curLength = fastPtr - slowPtr + 1;
-                result = curLength <= result ? curLength : result;
-                sum -= nums[slowPtr++];
-            }
-        }
-        return result == INT32_MAX ? 0 : result;
-    }
+	int minSubArrayLen(int s, vector<int>& nums) {
+		int result = INT32_MAX;
+		int slowPtr = 0;
+		int sum = 0;
+		int curLength = 0;
+		for (int fastPtr = 0; fastPtr < nums.size(); fastPtr++) {
+			sum += nums[fastPtr];
+			while (sum >= s) {
+				curLength = fastPtr - slowPtr + 1;
+				result = curLength <= result ? curLength : result;
+				sum -= nums[slowPtr++];
+			}
+		}
+		return result == INT32_MAX ? 0 : result;
+	}
 };
 
 int main() {
-    Solution ss;
-    vector<int> nums = {2, 3, 1, 2, 4, 3};
-    cout << ss.minSubArrayLen(7, nums) << endl;
-    return 0;
+	Solution ss;
+	vector<int> nums = {2, 3, 1, 2, 4, 3};
+	cout << ss.minSubArrayLen(7, nums) << endl;
+	return 0;
 }

@@ -1,8 +1,8 @@
 /*
 LeetCode 561: Array Partition I
 @Description:
-Given an integer array nums of 2n integers, group these integers into n pairs 
-(a1, b1), (a2, b2), ..., (an, bn) such that the sum of min(ai, bi) for all i is maximized. 
+Given an integer array nums of 2n integers, group these integers into n pairs
+(a1, b1), (a2, b2), ..., (an, bn) such that the sum of min(ai, bi) for all i is maximized.
 Return the maximized sum.
 
 Constraints:
@@ -20,18 +20,18 @@ using namespace std;
 */
 class Solution {
 public:
-    int arrayPairSum(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
-        int sum = 0;
-        for (int i = 0; i < nums.size(); i += 2){
-            sum += nums[i];
-        }
-        return sum;
-    }
+	int arrayPairSum(vector<int>& nums) {
+		sort(nums.begin(), nums.end());
+		int sum = 0;
+		for (int i = 0; i < nums.size(); i += 2) {
+			sum += nums[i];
+		}
+		return sum;
+	}
 };
 int main() {
-    vector<int> nums = {6,2,6,5,1,2}; // 1 2 2  5 6 6
-    Solution ss;
-    cout << ss.arrayPairSum(nums) << endl;
-    return 0;
+	vector<int> nums = {6, 2, 6, 5, 1, 2}; // 1 2 2  5 6 6
+	Solution ss;
+	cout << ss.arrayPairSum(nums) << endl;
+	return 0;
 }

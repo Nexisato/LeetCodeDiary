@@ -1,7 +1,7 @@
 /*
 LeetCode 456: 132 Pattern
 @Description:
-Given an array of n integers nums, a 132 pattern is a subsequence of three integers 
+Given an array of n integers nums, a 132 pattern is a subsequence of three integers
 nums[i], nums[j] and nums[k] such that i < j < k and nums[i] < nums[k] < nums[j].
 
 Return true if there is a 132 pattern in nums, otherwise, return false.
@@ -26,26 +26,26 @@ using namespace std;
 */
 class Solution {
 public:
-    bool find132pattern(vector<int>& nums) {
-        stack<int> st;
-        int n = nums.size(), numK = INT32_MIN;
-        for (int i = n - 1; i >= 0; --i) {
-            if (nums[i] < numK)
-                return true;
-            //有弹出，说明从后往前遍历有上凸元素，且弹出值为132模式中下标最右侧的
-            while (!st.empty() && st.top() < nums[i]) {
-                numK = max(numK, st.top());
-                st.pop();
-            }
-            st.push(nums[i]);
-        }
-        return false;
-    }
+	bool find132pattern(vector<int>& nums) {
+		stack<int> st;
+		int n = nums.size(), numK = INT32_MIN;
+		for (int i = n - 1; i >= 0; --i) {
+			if (nums[i] < numK)
+				return true;
+			//有弹出，说明从后往前遍历有上凸元素，且弹出值为132模式中下标最右侧的
+			while (!st.empty() && st.top() < nums[i]) {
+				numK = max(numK, st.top());
+				st.pop();
+			}
+			st.push(nums[i]);
+		}
+		return false;
+	}
 };
 int main() {
 
-    vector<int> nums = {9, 7, 8, 4, 5, 2, 0, 9, 6};
-    Solution ss;
-    ss.find132pattern(nums);
-    return 0;
+	vector<int> nums = {9, 7, 8, 4, 5, 2, 0, 9, 6};
+	Solution ss;
+	ss.find132pattern(nums);
+	return 0;
 }

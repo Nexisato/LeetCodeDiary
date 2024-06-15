@@ -7,21 +7,21 @@ using namespace std;
 */
 class Solution {
 public:
-    int minCostToMoveChips(vector<int>& position) {
-        int modOne = 0, modZero = 0;
-        for (auto &pos : position) {
-            if (pos % 2 == 1)
-                ++modOne;
-            else
-                ++modZero;
-        }
-        return min(modZero, modOne);
-    }
+	int minCostToMoveChips(vector<int>& position) {
+		int modOne = 0, modZero = 0;
+		for (auto& pos : position) {
+			if (pos % 2 == 1)
+				++modOne;
+			else
+				++modZero;
+		}
+		return min(modZero, modOne);
+	}
 };
 
 int main() {
 
-    std::cout << "Hello World" << std::endl;
+	std::cout << "Hello World" << std::endl;
 
-    return 0;
+	return 0;
 }

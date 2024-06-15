@@ -1,7 +1,7 @@
 /*
 LeetCode 395: Longest Substring At Least K Repeat Characters
 @Description:
-Given a string s and an integer k, return the length of the longest substring of s 
+Given a string s and an integer k, return the length of the longest substring of s
 such that the frequency of each character in this substring is greater than or equal to k.
 
 Constraints:
@@ -20,39 +20,39 @@ using namespace std;
 */
 class Solution {
 public:
-    int longestSubstring(string s, int k) {
-        int maxL = 0;
-        int n = s.length();
-        for (int t = 1; t <= 26; ++t) {
-            int left = 0, right = 0;
-            vector<int> table(26, 0);
-            int less = 0;
-            int tot = 0;
-            while (right < n) {
-                table[s[right] - 'a']++;
-                if (table[s[right] - 'a'] == 1) {
-                    less++;
-                    tot++;
-                }
-                if (table[s[right] - 'a'] == k)
-                    less--;
-                while (tot > t) {
-                    table[s[left] - 'a']--;
-                    if (table[s[left] - 'a'] == k - 1)
-                        less++;
-                    if (table[s[left] - 'a'] == 0) {
-                        tot--;
-                        less--;
-                    }
-                    left++;
-                }
-                if (less == 0)
-                    maxL = max(maxL, right - left + 1);
-                right++;
-            }
-        }
-        return maxL;
-    }
+	int longestSubstring(string s, int k) {
+		int maxL = 0;
+		int n = s.length();
+		for (int t = 1; t <= 26; ++t) {
+			int left = 0, right = 0;
+			vector<int> table(26, 0);
+			int less = 0;
+			int tot = 0;
+			while (right < n) {
+				table[s[right] - 'a']++;
+				if (table[s[right] - 'a'] == 1) {
+					less++;
+					tot++;
+				}
+				if (table[s[right] - 'a'] == k)
+					less--;
+				while (tot > t) {
+					table[s[left] - 'a']--;
+					if (table[s[left] - 'a'] == k - 1)
+						less++;
+					if (table[s[left] - 'a'] == 0) {
+						tot--;
+						less--;
+					}
+					left++;
+				}
+				if (less == 0)
+					maxL = max(maxL, right - left + 1);
+				right++;
+			}
+		}
+		return maxL;
+	}
 };
 /*
 思路： 分治法
@@ -63,31 +63,28 @@ public:
 */
 class Solution_dc {
 public:
-    int longestSubstring(string s, int k) {
-        unordered_map<char, int> table;
-        for (auto& c : s)
-            table[c]++;
-        vector<int> splits;
-        int n = s.length();
-        for (int i = 0; i < n; ++i)
-            if (table[s[i]] < k)
-                splits.emplace_back(i);
-        if (splits.size() == 0)
-            return n;
-        int maxL = 0;
-        int left = 0;
-        for (int i = 0; i < splits.size(); ++i) {
-            int len = splits[i] - left;
-            if (len >= k && len > maxL)
-                maxL = max(maxL, longestSubstring(s.substr(left, len), k));
-            left = splits[i] + 1;
-        }
-        if (left < n - 1)
-            maxL = max(maxL, longestSubstring(s.substr(left, n - 1 - left + 1), k));
-        return maxL;
-    } 
+	int longestSubstring(string s, int k) {
+		unordered_map<char, int> table;
+		for (auto& c : s)
+			table[c]++;
+		vector<int> splits;
+		int n = s.length();
+		for (int i = 0; i < n; ++i)
+			if (table[s[i]] < k)
+				splits.emplace_back(i);
+		if (splits.size() == 0)
+			return n;
+		int maxL = 0;
+		int left = 0;
+		for (int i = 0; i < splits.size(); ++i) {
+			int len = splits[i] - left;
+			if (len >= k && len > maxL)
+				maxL = max(maxL, longestSubstring(s.substr(left, len), k));
+			left = splits[i] + 1;
+		}
+		if (left < n - 1)
+			maxL = max(maxL, longestSubstring(s.substr(left, n - 1 - left + 1), k));
+		return maxL;
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

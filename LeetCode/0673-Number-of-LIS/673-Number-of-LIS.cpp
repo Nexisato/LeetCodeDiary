@@ -20,33 +20,30 @@ using namespace std;
 */
 class Solution {
 public:
-    int findNumberOfLIS(vector<int>& nums) {
-        int n = nums.size();
-        if (n <= 1) return n;
-        vector<int> dp(n, 1), counts(n, 1);
-        int maxL = 0;
-        for (int i = 1; i < n; ++i) {
-            for (int j = 0; j < i; ++j) 
-                if (nums[i] > nums[j]) {
-                    //---keypoint
-                    if (dp[j] + 1 > dp[i])
-                        counts[i] = counts[j];
-                    else if (dp[j] + 1 == dp[i])
-                        counts[i] += counts[j];
-                    //--keypoint
-                    dp[i] = max(dp[i], dp[j] + 1);
-                }
-            maxL = max(maxL, dp[i]);
-        }
-        int res = 0;
-        for (int i = 0; i < n; ++i)
-            if (dp[i] == maxL)
-                res += counts[i];
-        return res;   
-    }
+	int findNumberOfLIS(vector<int>& nums) {
+		int n = nums.size();
+		if (n <= 1)
+			return n;
+		vector<int> dp(n, 1), counts(n, 1);
+		int maxL = 0;
+		for (int i = 1; i < n; ++i) {
+			for (int j = 0; j < i; ++j)
+				if (nums[i] > nums[j]) {
+					//---keypoint
+					if (dp[j] + 1 > dp[i])
+						counts[i] = counts[j];
+					else if (dp[j] + 1 == dp[i])
+						counts[i] += counts[j];
+					//--keypoint
+					dp[i] = max(dp[i], dp[j] + 1);
+				}
+			maxL = max(maxL, dp[i]);
+		}
+		int res = 0;
+		for (int i = 0; i < n; ++i)
+			if (dp[i] == maxL)
+				res += counts[i];
+		return res;
+	}
 };
-int main() {
-
-
-    return 0;
-}
+int main() { return 0; }

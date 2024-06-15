@@ -6,7 +6,7 @@
  # @Description: 删除 *.exe 和 *.out 等二进制文件，并格式化目录
  # @usage ./scripts/format.sh ${WORK_DIR} ${COMMAND}
  #   ${WORK_DIR} 为工作目录
- #   ${COMMAND} 为命令，可选值为 [delete_bin/format_name]
+ #   ${COMMAND} 为命令，可选值为 [delete_bin/format_name/clang_format]
 ### 
 
 WORK_DIR=$1
@@ -41,11 +41,24 @@ function format_name() {
     done
 }
 
+declare -a CPP_FILES=('*.cpp' '*.h' '*.hpp' '*.cc' '*.c')
+
+# 使用 clang-format 格式化代码
+function clang_format() {
+    for ext in "${CPP_FILES[@]}"; do
+        find "${WORK_DIR}" -name "${ext}" -type f -exec clang-format --style=file -i {} \;
+        echo "clang-format with ext: ${ext} done"
+    done
+}
+
+
 # 执行命令
 if [ "$2" = "delete_bin" ]; then
     delete_bin
 elif [ "$2" = "format_name" ]; then
     format_name
+elif [ "$2" = "clang_format" ]; then
+    clang_format    
 else
     echo "Error: Unknown command or no command provided."
     exit 1

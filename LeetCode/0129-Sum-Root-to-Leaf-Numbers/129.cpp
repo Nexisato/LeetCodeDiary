@@ -2,7 +2,7 @@
  * @Date: 2023-12-10 01:13:31
  * @Author: nexisato
  * @FilePath: /LeetCodeDiary/LeetCode/0129_Sum_Root_to_Leaf_Numbers/129.cpp
- * @Description: 
+ * @Description:
  */
 /*
 LeetCode 129: Sum Root to Leaf Numbers
@@ -22,17 +22,17 @@ The number of nodes in the tree is in the range [1, 1000].
 The depth of the tree will not exceed 10.
 */
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 using namespace std;
 //  Definition for a binary tree node.
 struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+	int val;
+	TreeNode* left;
+	TreeNode* right;
+	TreeNode() : val(0), left(nullptr), right(nullptr) {}
+	TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+	TreeNode(int x, TreeNode* left, TreeNode* right) : val(x), left(left), right(right) {}
 };
 /*
 思路：DFS
@@ -41,32 +41,33 @@ struct TreeNode {
 */
 class Solution {
 private:
-    int res = 0, tmp = 0;
-    void dfs(TreeNode* node) {
-        if (!node)
-            return;
-        tmp = tmp * 10 + node->val;
-        if (!node->left && !node->right) {
-            res += tmp;
-            tmp /= 10;
-            return;
-        }
-        dfs(node->left);
-        dfs(node->right);
-        tmp /= 10;
-    }
+	int res = 0, tmp = 0;
+	void dfs(TreeNode* node) {
+		if (!node)
+			return;
+		tmp = tmp * 10 + node->val;
+		if (!node->left && !node->right) {
+			res += tmp;
+			tmp /= 10;
+			return;
+		}
+		dfs(node->left);
+		dfs(node->right);
+		tmp /= 10;
+	}
+
 public:
-    int sumNumbers(TreeNode* root) {
-        dfs(root);
-        return res;
-    }
+	int sumNumbers(TreeNode* root) {
+		dfs(root);
+		return res;
+	}
 };
 int main() {
-    TreeNode* root = new TreeNode(4, new TreeNode(9), new TreeNode(0));
-    TreeNode* l = root->left;
-    l->left = new TreeNode(5);
-    l->right = new TreeNode(1);
-    Solution ss;
-    cout << ss.sumNumbers(root) << endl;
-    return 0;
+	TreeNode* root = new TreeNode(4, new TreeNode(9), new TreeNode(0));
+	TreeNode* l = root->left;
+	l->left = new TreeNode(5);
+	l->right = new TreeNode(1);
+	Solution ss;
+	cout << ss.sumNumbers(root) << endl;
+	return 0;
 }

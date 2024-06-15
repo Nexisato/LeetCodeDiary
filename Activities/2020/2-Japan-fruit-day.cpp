@@ -13,7 +13,7 @@ Description:
 notes:如果将日语的 15 拆为 1 和 5 发音，则与日语“草莓”一词发音相同，而水果酥饼中最为著名的就是草莓酥饼。
 同时，日历中 15 总在 22 的上面，故有此说法。 ——译者注。
 */
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 /*
 思路：Hamiltonian Cycle + DFS
@@ -30,86 +30,91 @@ using namespace std;
 */
 class Solution {
 private:
-    const int MAX_N = 999;
-    //记录无向图
-    vector<vector<int>> edges;
-    //记录搜索过程中每个数是否被使用过
-    vector<bool> flags;
-    //记录搜索过程中找到的序列
-    vector<int> ans;
-    //是否找到答案
-    bool isFound = false;
+	const int MAX_N = 999;
+	//记录无向图
+	vector<vector<int>> edges;
+	//记录搜索过程中每个数是否被使用过
+	vector<bool> flags;
+	//记录搜索过程中找到的序列
+	vector<int> ans;
+	//是否找到答案
+	bool isFound = false;
+
 private:
-    void dfs(int pos, int n) {
-        if (pos == n) {
-            //判断序列首尾之和是否为完全平方数
-            int sum = ans[0] + ans.back();
-            int root = sqrt(sum);
-            if (root * root == sum) isFound = true;
-        }else if (pos == 0) {   //循环数组，可以指定第一个数为1
-            flags[1] = true;
-            ans.push_back(1);
-            dfs(pos + 1, n);
-            if (isFound) return;
-            flags[1] = false;   //搜索失败，原条件复位回溯
-            ans.pop_back();
-        }else{
-            //选择 与上一个位置的数可形成完全平方数 且 未被选择 的数
-            for (int num : edges[ans.back()]) {
-                if (!flags[num]) {
-                    flags[num] = true;
-                    ans.push_back(num);
-                    dfs(pos + 1, n);
-                    if (isFound) return;
-                    flags[num] = false;
-                    ans.pop_back();
-                }
-            }
-        }
-    }
+	void dfs(int pos, int n) {
+		if (pos == n) {
+			//判断序列首尾之和是否为完全平方数
+			int sum = ans[0] + ans.back();
+			int root = sqrt(sum);
+			if (root * root == sum)
+				isFound = true;
+		} else if (pos == 0) { //循环数组，可以指定第一个数为1
+			flags[1] = true;
+			ans.push_back(1);
+			dfs(pos + 1, n);
+			if (isFound)
+				return;
+			flags[1] = false; //搜索失败，原条件复位回溯
+			ans.pop_back();
+		} else {
+			//选择 与上一个位置的数可形成完全平方数 且 未被选择 的数
+			for (int num : edges[ans.back()]) {
+				if (!flags[num]) {
+					flags[num] = true;
+					ans.push_back(num);
+					dfs(pos + 1, n);
+					if (isFound)
+						return;
+					flags[num] = false;
+					ans.pop_back();
+				}
+			}
+		}
+	}
+
 public:
-    int MAX_NUM(vector<int> arr){
-        int max = arr[0];
-        for(int num : arr){
-            if (num > max) 
-                max = num;
-        }
-        return max;
-    }
-    vector<int> minimalFruitPie() {
-        //枚举n
-        for (int n = 2; n < MAX_N; ++n) {
-            edges.assign(n+1, vector<int>{});
-            //建立无向图
-            for (int i = 1; i <= n; ++i){
-                //枚举平方数
-                for (int root = 1; root * root <= i + n; ++root) {//平方数最大不超过 n + (n-1)
-                    int j = root * root - i;
-                    if (j > i) {
-                        edges[i].push_back(j);
-                        edges[j].push_back(i);
-                    }
-                }
-            }
-            flags.assign(n + 1, 0);
-            dfs(0, n);
-            if (isFound)
-                return ans;
-        }
-    }
+	int MAX_NUM(vector<int> arr) {
+		int max = arr[0];
+		for (int num : arr) {
+			if (num > max)
+				max = num;
+		}
+		return max;
+	}
+	vector<int> minimalFruitPie() {
+		//枚举n
+		for (int n = 2; n < MAX_N; ++n) {
+			edges.assign(n + 1, vector<int>{});
+			//建立无向图
+			for (int i = 1; i <= n; ++i) {
+				//枚举平方数
+				for (int root = 1; root * root <= i + n; ++root) { //平方数最大不超过 n + (n-1)
+					int j = root * root - i;
+					if (j > i) {
+						edges[i].push_back(j);
+						edges[j].push_back(i);
+					}
+				}
+			}
+			flags.assign(n + 1, 0);
+			dfs(0, n);
+			if (isFound)
+				return ans;
+		}
+	}
 };
 
 int main() {
-    Solution ss;
-    vector<int> res = ss.minimalFruitPie();
-    cout << "n: " << ss.MAX_NUM(res) << endl;
-    cout << "[ ";
-    for (vector<int>::iterator it = res.begin(); it != res.end(); it++)
-        cout << *(it) << " ";
-    cout << "]" << endl;
-    cout << "[ ";
-    for (int i = 0; i < res.size() - 1; i++)
-        cout << res[i] + res[i + 1] << " ";
-    cout << "]" << endl;
-    return 0;
+	Solution ss;
+	vector<int> res = ss.minimalFruitPie();
+	cout << "n: " << ss.MAX_NUM(res) << endl;
+	cout << "[ ";
+	for (vector<int>::iterator it = res.begin(); it != res.end(); it++)
+		cout << *(it) << " ";
+	cout << "]" << endl;
+	cout << "[ ";
+	for (int i = 0; i < res.size() - 1; i++)
+		cout << res[i] + res[i + 1] << " ";
+	cout << "]" << endl;
+	return 0;
 }

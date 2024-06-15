@@ -1,13 +1,13 @@
 /*
 LeetCode 1866: Number of Ways to Rearrange Sticks With K Sticks Visible
 @Description:
-There are n uniquely-sized sticks whose lengths are integers from 1 to n. 
-You want to arrange the sticks such that exactly k sticks are visible from the left. 
+There are n uniquely-sized sticks whose lengths are integers from 1 to n.
+You want to arrange the sticks such that exactly k sticks are visible from the left.
 A stick is visible from the left if there are no longer sticks to the left of it.
 
-For example, if the sticks are arranged [1,3,2,5,4], then the sticks with lengths 1, 3, and 5 
+For example, if the sticks are arranged [1,3,2,5,4], then the sticks with lengths 1, 3, and 5
 are visible from the left.
-Given n and k, return the number of such arrangements. Since the answer may be large, 
+Given n and k, return the number of such arrangements. Since the answer may be large,
 return it modulo 1e9 + 7.
 
 Constraints:
@@ -28,23 +28,20 @@ using namespace std;
 */
 class Solution {
 private:
-    static constexpr int mode = 1e9 + 7;
+	static constexpr int mode = 1e9 + 7;
+
 public:
-    int rearrangeSticks(int n, int k) {
-        vector<int> dp(k + 1);
-        dp[0] = 1;
-        for (int i = 1; i <= n; ++i) {
-            vector<int> pre(k + 1);
-            for (int j = 1; j <= k; ++j) {
-                pre[j] = ((long long)dp[j] * (i - 1) % mode + dp[j - 1]) % mode;
-            }
-            dp = move(pre);
-        }
-        return dp[k];
-    }
+	int rearrangeSticks(int n, int k) {
+		vector<int> dp(k + 1);
+		dp[0] = 1;
+		for (int i = 1; i <= n; ++i) {
+			vector<int> pre(k + 1);
+			for (int j = 1; j <= k; ++j) {
+				pre[j] = ((long long)dp[j] * (i - 1) % mode + dp[j - 1]) % mode;
+			}
+			dp = move(pre);
+		}
+		return dp[k];
+	}
 };
-int main() {
-
-
-    return 0;
-}
+int main() { return 0; }

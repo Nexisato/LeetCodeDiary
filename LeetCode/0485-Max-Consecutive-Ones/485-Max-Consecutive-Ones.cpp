@@ -15,19 +15,16 @@ using namespace std;
 */
 class Solution {
 public:
-    int findMaxConsecutiveOnes(vector<int>& nums) {
-        int res = 0, record = 0;
-        for (int i = 0; i < nums.size(); i++) {
-            if (nums[i] == 1)
-                ++record;
-            else 
-                record = 0;
-            res = max(res, record);
-        }
-        return res;
-    }
+	int findMaxConsecutiveOnes(vector<int>& nums) {
+		int res = 0, record = 0;
+		for (int i = 0; i < nums.size(); i++) {
+			if (nums[i] == 1)
+				++record;
+			else
+				record = 0;
+			res = max(res, record);
+		}
+		return res;
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

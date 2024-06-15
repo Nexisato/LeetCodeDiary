@@ -5,7 +5,7 @@ Invert a binary tree.
 
 Trivia:
 This problem was inspired by this original tweet by Max Howell:
-Google: 90% of our engineers use the software you wrote (Homebrew), 
+Google: 90% of our engineers use the software you wrote (Homebrew),
 but you can’t invert a binary tree on a whiteboard so f*** off.
 */
 #include <bits/stdc++.h>
@@ -17,22 +17,20 @@ using namespace std;
 */
 // Definition for a binary tree node.
 struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- };
+	int val;
+	TreeNode* left;
+	TreeNode* right;
+	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
 class Solution {
 public:
-    TreeNode* invertTree(TreeNode* root) {
-        if (!root) return nullptr;
-        swap(root->left, root->right);
-        invertTree(root->left);
-        invertTree(root->right);
-        return root;
-    }
+	TreeNode* invertTree(TreeNode* root) {
+		if (!root)
+			return nullptr;
+		swap(root->left, root->right);
+		invertTree(root->left);
+		invertTree(root->right);
+		return root;
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

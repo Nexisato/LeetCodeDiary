@@ -12,20 +12,17 @@ using namespace std;
 
 class Solution {
 public:
-    bool findNumberIn2DArray(vector<vector<int>>& matrix, int target) {
-        if (matrix.size() == 0)
-            return false;
-        int n = matrix.size(), m = matrix[0].size();
-        
-    }
+	bool findNumberIn2DArray(vector<vector<int>>& matrix, int target) {
+		if (matrix.size() == 0)
+			return false;
+		int n = matrix.size(), m = matrix[0].size();
+	}
 };
 int main() {
-    vector<vector<int>> matrix{
-        {-1, 3}
-    };
-    int target = 3;
-    Solution *ss = new Solution();
-    bool flag = ss->findNumberIn2DArray(matrix, target);
-    cout << flag << endl;
-    return 0;
+	vector<vector<int>> matrix{{-1, 3}};
+	int target = 3;
+	Solution* ss = new Solution();
+	bool flag = ss->findNumberIn2DArray(matrix, target);
+	cout << flag << endl;
+	return 0;
 }

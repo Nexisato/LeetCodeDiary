@@ -21,25 +21,25 @@ using namespace std;
 */
 class Solution {
 public:
-    string reverseParentheses(string s) {
-        int n = s.length();
-        vector<int> st;
-        string res = "";
-        int l = 0, r = 0;
-        for (int i = 0; i < n; ++i) {
-            st.push_back(i);
-            if (s[st.back()] == ')') {
-                int r = i, l = i;
-                while (s[st.back()] != '(')
-                    st.pop_back();
-                l = st.back() + 1;
-                st.pop_back();
-                reverse(s.begin() + l, s.begin() + r);
-            }
-        }
-        for (char c : s)
-            if (c != '(' && c != ')')
-                res += c;
-        return res;
-    }
+	string reverseParentheses(string s) {
+		int n = s.length();
+		vector<int> st;
+		string res = "";
+		int l = 0, r = 0;
+		for (int i = 0; i < n; ++i) {
+			st.push_back(i);
+			if (s[st.back()] == ')') {
+				int r = i, l = i;
+				while (s[st.back()] != '(')
+					st.pop_back();
+				l = st.back() + 1;
+				st.pop_back();
+				reverse(s.begin() + l, s.begin() + r);
+			}
+		}
+		for (char c : s)
+			if (c != '(' && c != ')')
+				res += c;
+		return res;
+	}
 };

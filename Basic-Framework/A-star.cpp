@@ -33,8 +33,8 @@ int aStarSearch(vector<vector<int>>& graph, pair<int, int> start, pair<int, int>
 	while (!pq.empty()) {
 		auto [f, cur] = pq.top();
 		pq.pop();
-        int x = cur.first, y = cur.second;
-        long long xy = ord_hash(x, y);
+		int x = cur.first, y = cur.second;
+		long long xy = ord_hash(x, y);
 		if (visited.count(xy))
 			continue;
 		visited.insert(xy);
@@ -43,7 +43,7 @@ int aStarSearch(vector<vector<int>>& graph, pair<int, int> start, pair<int, int>
 		for (int i = 0; i < 4; ++i) {
 			int nx = cur.first + dir[i][0];
 			int ny = cur.second + dir[i][1];
-            long long nxy = ord_hash(nx, ny);
+			long long nxy = ord_hash(nx, ny);
 			if (nx < 0 || nx >= m || ny < 0 || ny >= n || graph[nx][ny] == 1 || visited.count(nxy))
 				continue;
 			int g = f + 1;
@@ -54,8 +54,4 @@ int aStarSearch(vector<vector<int>>& graph, pair<int, int> start, pair<int, int>
 	return -1;
 }
 
-int main() { 
-
-    
-    return 0;
-}
+int main() { return 0; }

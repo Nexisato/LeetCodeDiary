@@ -9,15 +9,11 @@ struct TreeNode {
 	int val;
 	TreeNode* left;
 	TreeNode* right;
-	TreeNode(int x)
-	    : val(x)
-	    , left(NULL)
-	    , right(NULL) {}
+	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 class Solution {
 private:
-	TreeNode* traversal(vector<int>& pre, vector<int>& in, int preL, int preR,
-	                    int inL, int inR) {
+	TreeNode* traversal(vector<int>& pre, vector<int>& in, int preL, int preR, int inL, int inR) {
 		if (preL > preR || inL > inR)
 			return nullptr;
 		int n = pre.size();
@@ -29,10 +25,8 @@ private:
 				index = i;
 				break;
 			}
-		node->left =
-		    traversal(pre, in, preL + 1, preL + index - inL, inL, index - 1);
-		node->right =
-		    traversal(pre, in, preL + index - inL + 1, preR, index + 1, inR);
+		node->left = traversal(pre, in, preL + 1, preL + index - inL, inL, index - 1);
+		node->right = traversal(pre, in, preL + index - inL + 1, preR, index + 1, inR);
 		return node;
 	}
 
@@ -42,6 +36,4 @@ public:
 		return traversal(preorder, inorder, 0, n - 1, 0, n - 1);
 	}
 };
-int main() {
-	return 0;
-}
+int main() { return 0; }

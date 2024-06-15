@@ -1,10 +1,10 @@
 /*
 LeetCode 503: Next Greater Element II
 @Description:
-Given a circular array (the next element of the last element is the first element of the array), 
-print the Next Greater Number for every element. The Next Greater Number of a number x 
-is the first greater number to its traversing-order next in the array, 
-which means you could search circularly to find its next greater number. 
+Given a circular array (the next element of the last element is the first element of the array),
+print the Next Greater Number for every element. The Next Greater Number of a number x
+is the first greater number to its traversing-order next in the array,
+which means you could search circularly to find its next greater number.
 If it doesn't exist, output -1 for this number.
 
 Note: The length of given array won't exceed 10000.
@@ -20,21 +20,17 @@ using namespace std;
 */
 class Solution {
 public:
-    vector<int> nextGreaterElements(vector<int>& nums) {
-        int N = nums.size();
-        vector<int> st, res(N, -1);
-        for (int i = 0; i < 2 * N - 1; ++i) {
-            while (!st.empty() && nums[st.back()] < nums[i % N]) {
-                res[st.back()] = nums[i % N];
-                st.pop_back();
-            }
-            st.emplace_back(i % N);
-        }
-        return res;
-    }
+	vector<int> nextGreaterElements(vector<int>& nums) {
+		int N = nums.size();
+		vector<int> st, res(N, -1);
+		for (int i = 0; i < 2 * N - 1; ++i) {
+			while (!st.empty() && nums[st.back()] < nums[i % N]) {
+				res[st.back()] = nums[i % N];
+				st.pop_back();
+			}
+			st.emplace_back(i % N);
+		}
+		return res;
+	}
 };
-int main() {
-
-
-    return 0;
-}
+int main() { return 0; }

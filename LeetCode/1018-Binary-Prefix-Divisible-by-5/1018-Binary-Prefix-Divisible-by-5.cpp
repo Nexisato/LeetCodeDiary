@@ -22,24 +22,21 @@ using namespace std;
 */
 class Solution {
 public:
-    vector<bool> prefixesDivBy5(vector<int>& A) {
-        vector<bool> flags;
-        int res = 0;
-        int N = A.size();
-        for (int i = 0; i < N; i++) {
-            /*
-            res = res * 2 + A[i];
-            if (res % 5 == 0)
-                flag = true;
-            */
-            res = ((res << 1) + A[i]) % 5;
-            flags.push_back(res == 0);
-        }
-        return flags;
-    }
+	vector<bool> prefixesDivBy5(vector<int>& A) {
+		vector<bool> flags;
+		int res = 0;
+		int N = A.size();
+		for (int i = 0; i < N; i++) {
+			/*
+			res = res * 2 + A[i];
+			if (res % 5 == 0)
+			    flag = true;
+			*/
+			res = ((res << 1) + A[i]) % 5;
+			flags.push_back(res == 0);
+		}
+		return flags;
+	}
 };
 
-int main() {
-    
-    return 0;
-}
+int main() { return 0; }

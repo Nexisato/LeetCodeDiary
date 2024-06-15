@@ -1,8 +1,8 @@
 /*
 LeetCode: 538 Convert BST to Greater Tree
 Description:
-Given the root of a Binary Search Tree (BST), convert it to a Greater Sum Tree such that 
-every key of the original BST is changed to the original key plus 
+Given the root of a Binary Search Tree (BST), convert it to a Greater Sum Tree such that
+every key of the original BST is changed to the original key plus
 sum of all keys greater than the original key in BST.
 
 As a reminder, a binary search tree is a tree that satisfies these constraints:
@@ -23,12 +23,12 @@ root is guaranteed to be a valid binary search tree.
 using namespace std;
 //  Definition for a binary tree node.
 struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+	int val;
+	TreeNode* left;
+	TreeNode* right;
+	TreeNode() : val(0), left(nullptr), right(nullptr) {}
+	TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+	TreeNode(int x, TreeNode* left, TreeNode* right) : val(x), left(left), right(right) {}
 };
 /*
 思路：
@@ -37,40 +37,39 @@ struct TreeNode {
 */
 class Solution {
 private:
-    int pre = 0;
-    int preVal = 0;
+	int pre = 0;
+	int preVal = 0;
+
 public:
-    TreeNode* convertBST(TreeNode* root) {
-        if (root != nullptr) {
-            convertBST(root->right);
-            pre += root->val;
-            root->val = pre;
-            convertBST(root->left);
-        }
-        return root;
-    }
+	TreeNode* convertBST(TreeNode* root) {
+		if (root != nullptr) {
+			convertBST(root->right);
+			pre += root->val;
+			root->val = pre;
+			convertBST(root->left);
+		}
+		return root;
+	}
 
-    TreeNode* convertBST_iter(TreeNode* root) {
-        if (!root) return nullptr;
-        preVal = 0;
-        TreeNode *node = root;
-        vector<TreeNode*> st;
-        while (node || !st.empty()) {
-            if (node) {
-                st.push_back(node);
-                node = node->right;
-            } else {
-                node = st.back();
-                st.pop_back();
-                node->val += preVal;
-                preVal = node->val;
-                node = node->left;
-            }
-        }
-        return root;
-    }
+	TreeNode* convertBST_iter(TreeNode* root) {
+		if (!root)
+			return nullptr;
+		preVal = 0;
+		TreeNode* node = root;
+		vector<TreeNode*> st;
+		while (node || !st.empty()) {
+			if (node) {
+				st.push_back(node);
+				node = node->right;
+			} else {
+				node = st.back();
+				st.pop_back();
+				node->val += preVal;
+				preVal = node->val;
+				node = node->left;
+			}
+		}
+		return root;
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

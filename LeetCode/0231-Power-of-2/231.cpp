@@ -17,11 +17,6 @@ n & (n - 1)可以将n的最低位1移除，因此可直接判断
 */
 class Solution {
 public:
-    bool isPowerOfTwo(int n) {
-        return n > 0 && (n & (n - 1)) == 0;
-    }
+	bool isPowerOfTwo(int n) { return n > 0 && (n & (n - 1)) == 0; }
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

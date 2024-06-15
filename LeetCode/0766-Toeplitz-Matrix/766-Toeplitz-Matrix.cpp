@@ -12,8 +12,9 @@ n == matrix[i].length
 0 <= matrix[i][j] <= 99
 
 Follow up:
-What if the matrix is stored on disk, and the memory is limited such that you can only load at most one row of the matrix into the memory at once?
-What if the matrix is so large that you can only load up a partial row into the memory at once?
+What if the matrix is stored on disk, and the memory is limited such that you can only load at most one row of the
+matrix into the memory at once? What if the matrix is so large that you can only load up a partial row into the memory
+at once?
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -22,20 +23,17 @@ using namespace std;
 */
 class Solution {
 public:
-    bool isToeplitzMatrix(vector<vector<int>>& matrix) {
-        int m = matrix.size(), n = matrix[0].size();
-        for (int i = 0; i < m + n - 1; i++) {
-            int row = (i > m - 1) ? 0 : i;
-            int col = (i > m - 1) ? (i - m + 1) : 0;
-            int num = matrix[row][col];
-            while (row <= m && col <= n)
-                if (matrix[row++][col++] != num)
-                    return false;
-        }
-        return true;
-    }
+	bool isToeplitzMatrix(vector<vector<int>>& matrix) {
+		int m = matrix.size(), n = matrix[0].size();
+		for (int i = 0; i < m + n - 1; i++) {
+			int row = (i > m - 1) ? 0 : i;
+			int col = (i > m - 1) ? (i - m + 1) : 0;
+			int num = matrix[row][col];
+			while (row <= m && col <= n)
+				if (matrix[row++][col++] != num)
+					return false;
+		}
+		return true;
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

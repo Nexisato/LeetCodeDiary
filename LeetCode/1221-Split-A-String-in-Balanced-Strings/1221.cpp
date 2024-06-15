@@ -22,19 +22,16 @@ using namespace std;
 */
 class Solution {
 public:
-    int balancedStringSplit(string s) {
-        int n = s.length();
-        int res = 0, count = 0;
-        for (char c : s) {
-            c == 'L' ? ++count : --count;
-            if (count == 0)
-                ++res;
-        }
-        return res;
-    }
+	int balancedStringSplit(string s) {
+		int n = s.length();
+		int res = 0, count = 0;
+		for (char c : s) {
+			c == 'L' ? ++count : --count;
+			if (count == 0)
+				++res;
+		}
+		return res;
+	}
 };
 
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

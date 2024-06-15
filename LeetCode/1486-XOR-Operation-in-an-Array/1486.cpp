@@ -19,14 +19,11 @@ using namespace std;
 */
 class Solution {
 public:
-    int xorOperation(int n, int start) {
-        int res = 0;
-        for (int i = 0; i < n; ++i)
-            res ^= (start + i * 2);
-        return res;
-    }
+	int xorOperation(int n, int start) {
+		int res = 0;
+		for (int i = 0; i < n; ++i)
+			res ^= (start + i * 2);
+		return res;
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

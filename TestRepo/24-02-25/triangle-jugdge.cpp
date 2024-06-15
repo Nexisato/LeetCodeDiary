@@ -28,7 +28,4 @@ bool isInTriangle(const Point& p1, const Point& p2, const Point& p3, const Point
 	return (c1 > 0 && c2 > 0 && c3 > 0) || (c1 < 0 && c2 < 0 && c3 < 0);
 }
 
-int main() { 
-	
-	return 0;
-}
+int main() { return 0; }

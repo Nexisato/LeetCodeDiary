@@ -2,10 +2,10 @@
 LeetCode: 1128 Number of Equivalent Domino Pairs
 Description:
 Given a list of dominoes, dominoes[i] = [a, b] is equivalent to dominoes[j] = [c, d] 
-if and only if either (a==c and b==d), or (a==d and b==c) 
+if and only if either (a==c and b==d), or (a==d and b==c)
 - that is, one domino can be rotated to be equal to another domino.
 
-Return the number of pairs (i, j) for which 0 <= i < j < dominoes.length, 
+Return the number of pairs (i, j) for which 0 <= i < j < dominoes.length,
 and dominoes[i] is equivalent to dominoes[j].
 
 Constraints:
@@ -25,20 +25,16 @@ using namespace std;
 */
 class Solution {
 public:
-    int numEquivDominoPairs(vector<vector<int>>& dominoes) {
-        vector<int> sum(100, 0);
-        int count = 0;
-        int N = dominoes.size();
-        for (auto& arr : dominoes) {
-            int val = (arr[0] <= arr[1]) ? (arr[0] * 10 + arr[1]) : (arr[0] + arr[1] * 10);
-            count += sum[val];//顺序不可替换，即 val 第二次出现时才开始计数
-            sum[val]++;
-        }
-        return count;
-        
-    }
+	int numEquivDominoPairs(vector<vector<int>>& dominoes) {
+		vector<int> sum(100, 0);
+		int count = 0;
+		int N = dominoes.size();
+		for (auto& arr : dominoes) {
+			int val = (arr[0] <= arr[1]) ? (arr[0] * 10 + arr[1]) : (arr[0] + arr[1] * 10);
+			count += sum[val]; //顺序不可替换，即 val 第二次出现时才开始计数
+			sum[val]++;
+		}
+		return count;
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

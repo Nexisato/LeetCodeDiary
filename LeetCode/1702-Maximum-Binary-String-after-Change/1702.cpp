@@ -6,27 +6,23 @@ using namespace std;
 // 字符串最多只有一个 0
 class Solution {
 public:
-    string maximumBinaryString(string binary) {
-        const int n = binary.length();
-        int j = 0;
+	string maximumBinaryString(string binary) {
+		const int n = binary.length();
+		int j = 0;
 
-        for (int i = 0; i < n; ++i) {
-            if (binary[i] == '0') {
-                while (j <= i || (j < n && binary[j] == '1')) ++j;
-                if (j < n) {
-                    binary[j] = '1';
-                    binary[i] = '1';
-                    binary[i + 1] = '0';
-                }
+		for (int i = 0; i < n; ++i) {
+			if (binary[i] == '0') {
+				while (j <= i || (j < n && binary[j] == '1'))
+					++j;
+				if (j < n) {
+					binary[j] = '1';
+					binary[i] = '1';
+					binary[i + 1] = '0';
+				}
+			}
+		}
 
-            }
-        }
-
-        return binary;
-    }
+		return binary;
+	}
 };
-int main() {
-
-
-    return 0;
-}
+int main() { return 0; }

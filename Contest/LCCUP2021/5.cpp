@@ -1,7 +1,7 @@
 /*
-LeetCode 
+LeetCode
 @Description:
-某实验室计算机待处理任务以 [start,end,period] 格式记于二维数组 tasks，表示完成该任务的时间范围为起始时间 
+某实验室计算机待处理任务以 [start,end,period] 格式记于二维数组 tasks，表示完成该任务的时间范围为起始时间
 start 至结束时间 end 之间，需要计算机投入 period 的时长，
 
 注意：
@@ -22,11 +22,6 @@ using namespace std;
 */
 class Solution {
 public:
-    int processTasks(vector<vector<int>>& tasks) {
-
-    }
+	int processTasks(vector<vector<int>>& tasks) {}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

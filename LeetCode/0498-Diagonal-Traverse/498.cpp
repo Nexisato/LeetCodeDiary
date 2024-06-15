@@ -23,31 +23,27 @@ using namespace std;
 */
 class Solution {
 public:
-    vector<int> findDiagonalOrder(vector<vector<int>>& mat) {
-        int m = mat.size(), n = mat[0].size();
-        vector<int> res;
-        for (int i = 0; i < m * n; ++i) {
-            vector<int> tmp;        
-            //RightUp to LeftBottom
-            int r = (i < n) ? 0 : (i - n + 1);
-            int c = (i < n) ? i : n - 1;
-            while (r < m && c > -1) {
-                tmp.emplace_back(mat[r][c]);
-                ++r;
-                --c;
-            }
-            //第奇数条对角线，对应i为偶数
-            if (i % 2 == 0)
-                reverse(tmp.begin(), tmp.end());
+	vector<int> findDiagonalOrder(vector<vector<int>>& mat) {
+		int m = mat.size(), n = mat[0].size();
+		vector<int> res;
+		for (int i = 0; i < m * n; ++i) {
+			vector<int> tmp;
+			// RightUp to LeftBottom
+			int r = (i < n) ? 0 : (i - n + 1);
+			int c = (i < n) ? i : n - 1;
+			while (r < m && c > -1) {
+				tmp.emplace_back(mat[r][c]);
+				++r;
+				--c;
+			}
+			//第奇数条对角线，对应i为偶数
+			if (i % 2 == 0)
+				reverse(tmp.begin(), tmp.end());
 
-            for (auto& num : tmp)
-                res.emplace_back(num);
-        }
-        return res;
-    }
+			for (auto& num : tmp)
+				res.emplace_back(num);
+		}
+		return res;
+	}
 };
-int main() {
-
-
-    return 0;
-}
+int main() { return 0; }

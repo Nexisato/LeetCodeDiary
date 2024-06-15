@@ -24,16 +24,11 @@ using namespace std;
 
 class Solution {
 public:
-    bool escapeMaze(vector<vector<string>>& maze) {
-        int N = maze[0].size(), M = maze[0][0].length(), n = maze.size();
-        
-        for (int i = 0; i < n - 1; ++i) {
-            
-        }
-    }
+	bool escapeMaze(vector<vector<string>>& maze) {
+		int N = maze[0].size(), M = maze[0][0].length(), n = maze.size();
+
+		for (int i = 0; i < n - 1; ++i) {
+		}
+	}
 };
-int main() {
-
-
-    return 0;
-}
+int main() { return 0; }

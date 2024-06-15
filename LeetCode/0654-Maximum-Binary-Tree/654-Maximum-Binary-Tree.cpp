@@ -1,7 +1,7 @@
 /*
 LeetCode: 654 Maximum Binary Tree
 Description:
-You are given an integer array nums with no duplicates. 
+You are given an integer array nums with no duplicates.
 A maximum binary tree can be built recursively from nums using the following algorithm:
 
 Create a root node whose value is the maximum value in nums.
@@ -17,15 +17,14 @@ All integers in nums are unique.
 #include <bits/stdc++.h>
 using namespace std;
 
-
 //  Definition for a binary tree node.
 struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+	int val;
+	TreeNode* left;
+	TreeNode* right;
+	TreeNode() : val(0), left(nullptr), right(nullptr) {}
+	TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+	TreeNode(int x, TreeNode* left, TreeNode* right) : val(x), left(left), right(right) {}
 };
 /*
 思路：递归
@@ -35,24 +34,20 @@ struct TreeNode {
 
 class Solution {
 public:
-    TreeNode* constructMaximumBinaryTree(vector<int>& nums) {
-        return build(nums, 0, nums.size() - 1);
-    }
-    TreeNode* build(vector<int>& nums, int l, int r) {
-        if (l > r) return nullptr;
-        int max_val = INT32_MIN, max_index = -1;
-        for (int i = l; i <= r; i++) 
-            if (nums[i] > max_val) {
-                max_val = nums[i];
-                max_index = i;
-            }
-        TreeNode* node = new TreeNode(max_val);
-        node->left = build(nums, l, max_index - 1);
-        node->right = build(nums, max_index + 1, r);
-        return node;
-    }
-    
+	TreeNode* constructMaximumBinaryTree(vector<int>& nums) { return build(nums, 0, nums.size() - 1); }
+	TreeNode* build(vector<int>& nums, int l, int r) {
+		if (l > r)
+			return nullptr;
+		int max_val = INT32_MIN, max_index = -1;
+		for (int i = l; i <= r; i++)
+			if (nums[i] > max_val) {
+				max_val = nums[i];
+				max_index = i;
+			}
+		TreeNode* node = new TreeNode(max_val);
+		node->left = build(nums, l, max_index - 1);
+		node->right = build(nums, max_index + 1, r);
+		return node;
+	}
 };
-int main() {
-    return 0;
-}
+int main() { return 0; }

@@ -22,22 +22,19 @@ using namespace std;
 */
 class Solution {
 public:
-    bool isPowerOfThree(int n) {
-        if (n <= 0) return false;
-        while(n % 3 == 0)
-            n /= 3;
-        return (n == 1) ? true : false;
-    }
-    bool isPowerOfThree_2(int n) {
-        if (n <= 0) return false;
-        double p = log10(n) / log10(3);
-        return (p == floor(p)) ? true : false;
-    }
-    bool isPowerOfThree_3(int n) {
-        return (n > 0) && (1162261467 % n == 0);
-    }
+	bool isPowerOfThree(int n) {
+		if (n <= 0)
+			return false;
+		while (n % 3 == 0)
+			n /= 3;
+		return (n == 1) ? true : false;
+	}
+	bool isPowerOfThree_2(int n) {
+		if (n <= 0)
+			return false;
+		double p = log10(n) / log10(3);
+		return (p == floor(p)) ? true : false;
+	}
+	bool isPowerOfThree_3(int n) { return (n > 0) && (1162261467 % n == 0); }
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

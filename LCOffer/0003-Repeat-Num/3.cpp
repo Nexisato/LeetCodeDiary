@@ -12,17 +12,14 @@ using namespace std;
 
 class Solution {
 public:
-    int findRepeatNumber(vector<int>& nums) {
-        unordered_set<int> record;
-        for (auto& num : nums) {
-            if (record.count(num))
-                return num;
-            record.insert(num);
-        }
-        return -1;
-    }
+	int findRepeatNumber(vector<int>& nums) {
+		unordered_set<int> record;
+		for (auto& num : nums) {
+			if (record.count(num))
+				return num;
+			record.insert(num);
+		}
+		return -1;
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

@@ -1,12 +1,12 @@
 /*
 LeetCode: 198 House Robber
 Description:
-You are a professional robber planning to rob houses along a street. 
-Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them 
-is that adjacent houses have security system connected and it will automatically contact the police 
+You are a professional robber planning to rob houses along a street.
+Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them
+is that adjacent houses have security system connected and it will automatically contact the police
 if two adjacent houses were broken into on the same night.
 
-Given a list of non-negative integers representing the amount of money of each house, 
+Given a list of non-negative integers representing the amount of money of each house,
 determine the maximum amount of money you can rob tonight without alerting the police.
 
 Constraints:
@@ -25,28 +25,25 @@ using namespace std;
 */
 class Solution {
 public:
-    int rob(vector<int>& nums) {
-        int N = nums.size();
-        vector<int> dp(N + 1, 0);
-        dp[0] = 0;
-        dp[1] = nums[0];
-        for (int i = 2; i <= N; i++) {
-            dp[i] = max(dp[i - 1], dp[i - 2] + nums[i-1]);
-        }
-        return dp[N];
-    }
-    int rob_spaceOpt(vector<int>& nums) {
-        int cur = 0, pre = 0;
-        int res = cur;
-        for(int num : nums) {
-            res = max(cur, pre + num);
-            pre = cur;
-            cur = res;
-        }
-        return res;
-    }
+	int rob(vector<int>& nums) {
+		int N = nums.size();
+		vector<int> dp(N + 1, 0);
+		dp[0] = 0;
+		dp[1] = nums[0];
+		for (int i = 2; i <= N; i++) {
+			dp[i] = max(dp[i - 1], dp[i - 2] + nums[i - 1]);
+		}
+		return dp[N];
+	}
+	int rob_spaceOpt(vector<int>& nums) {
+		int cur = 0, pre = 0;
+		int res = cur;
+		for (int num : nums) {
+			res = max(cur, pre + num);
+			pre = cur;
+			cur = res;
+		}
+		return res;
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

@@ -1,7 +1,7 @@
 /*
 LeetCode 220: Contains Duplicate III
 @Description:
-Given an integer array nums and two integers k and t, return true if there 
+Given an integer array nums and two integers k and t, return true if there
 are two distinct indices i and j in the array such that abs(nums[i] - nums[j]) <= t and abs(i - j) <= k.
 
 Constraints:
@@ -22,22 +22,18 @@ using namespace std;
 */
 class Solution {
 public:
-    bool containsNearbyAlmostDuplicate(vector<int>& nums, int k, int t) {
-        set<int> appear;
-        int n = nums.size();
-        for (int i = 0; i < n; ++i) {
-            auto iter = appear.lower_bound(max(nums[i], INT32_MIN + t) - t);
-            if (iter != appear.end() && *iter <= min(nums[i], INT32_MAX - t) + t)
-                return true;
-            appear.insert(nums[i]);
-            if (i >= k)
-                appear.erase(nums[i - k]);
-        }
-        return false;
-    }
+	bool containsNearbyAlmostDuplicate(vector<int>& nums, int k, int t) {
+		set<int> appear;
+		int n = nums.size();
+		for (int i = 0; i < n; ++i) {
+			auto iter = appear.lower_bound(max(nums[i], INT32_MIN + t) - t);
+			if (iter != appear.end() && *iter <= min(nums[i], INT32_MAX - t) + t)
+				return true;
+			appear.insert(nums[i]);
+			if (i >= k)
+				appear.erase(nums[i - k]);
+		}
+		return false;
+	}
 };
-int main() {
-
-
-    return 0;
-}
+int main() { return 0; }

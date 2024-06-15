@@ -12,7 +12,7 @@ using namespace std;
 class Solution {
 private:
 	const int N = 1e6;
-    const int MAX_BLOCKED = 200 * 200;
+	const int MAX_BLOCKED = 200 * 200;
 	long long hash(int x, int y) { return (long long)x * N + y; }
 	pair<int, int> unhash(long long h) { return make_pair(h / N, h % N); }
 
@@ -38,16 +38,15 @@ public:
 				for (int i = 0; i < 4; ++i) {
 					int nx = x + dir[i][0];
 					int ny = y + dir[i][1];
-					if (nx < 0 || nx >= N || ny < 0 || ny >= N || 
-                        st.count(hash(nx, ny)) 
-                        || visited.count(hash(nx, ny)))
+					if (nx < 0 || nx >= N || ny < 0 || ny >= N || st.count(hash(nx, ny)) || visited.count(hash(nx, ny)))
 						continue;
 					if (nx == dst[0] && ny == dst[1])
 						return true;
-                    visited.insert(hash(nx, ny));
-                    q.push(make_pair(nx, ny));
+					visited.insert(hash(nx, ny));
+					q.push(make_pair(nx, ny));
 				}
-                if (visited.size() >= MAX_BLOCKED) return true;
+				if (visited.size() >= MAX_BLOCKED)
+					return true;
 			}
 			return false;
 		};

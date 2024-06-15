@@ -2,13 +2,13 @@
 LeetCode 424: Longest Repeating Character Replacement
 @author: Nexisato
 @Description:
-Given a string s that consists of only uppercase English letters, you can perform at most k 
+Given a string s that consists of only uppercase English letters, you can perform at most k
 operations on that string.
 
-In one operation, you can choose any character of the string and change it to any other 
+In one operation, you can choose any character of the string and change it to any other
 uppercase English character.
 
-Find the length of the longest sub-string containing all repeating letters you can get 
+Find the length of the longest sub-string containing all repeating letters you can get
 after performing the above operations.
 
 Note:
@@ -23,23 +23,20 @@ using namespace std;
 */
 class Solution {
 public:
-    int characterReplacement(string s, int k) {
-        unordered_map<char, int> table;
-        int left = 0, right = 0;
-        int maxAppear = 0, maxL = 0;
-        for (;right < s.size(); right++) {
-            table[s[right]]++;
-            maxAppear = max(maxAppear, table[s[right]]);
-            if (right - left >= maxAppear + k) { 
-                table[s[left]]--;
-                left++;
-            }
-            maxL = max(maxL, right - left + 1);
-        }
-        return maxL;
-    }
+	int characterReplacement(string s, int k) {
+		unordered_map<char, int> table;
+		int left = 0, right = 0;
+		int maxAppear = 0, maxL = 0;
+		for (; right < s.size(); right++) {
+			table[s[right]]++;
+			maxAppear = max(maxAppear, table[s[right]]);
+			if (right - left >= maxAppear + k) {
+				table[s[left]]--;
+				left++;
+			}
+			maxL = max(maxL, right - left + 1);
+		}
+		return maxL;
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

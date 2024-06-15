@@ -26,29 +26,25 @@ using namespace std;
 */
 class Solution {
 public:
-    int maxTurbulenceSize(vector<int>& arr) {
-        int left = 0, right = 0;
-        int maxL = 1;
-        while (right < arr.size() - 1) {
-            if (left == right) {
-                if (arr[left] == arr[left + 1])
-                    left++;
-                right++;
-            }
-            else {
-                if (arr[right - 1] < arr[right] && arr[right] > arr[right + 1])
-                    right++;
-                else if (arr[right - 1] > arr[right] && arr[right] < arr[right + 1])
-                    right++;
-                else
-                    left = right;
-            }
-            maxL = (maxL > right - left + 1) ? maxL : right - left + 1;
-        }
-        return maxL;
-    }
+	int maxTurbulenceSize(vector<int>& arr) {
+		int left = 0, right = 0;
+		int maxL = 1;
+		while (right < arr.size() - 1) {
+			if (left == right) {
+				if (arr[left] == arr[left + 1])
+					left++;
+				right++;
+			} else {
+				if (arr[right - 1] < arr[right] && arr[right] > arr[right + 1])
+					right++;
+				else if (arr[right - 1] > arr[right] && arr[right] < arr[right + 1])
+					right++;
+				else
+					left = right;
+			}
+			maxL = (maxL > right - left + 1) ? maxL : right - left + 1;
+		}
+		return maxL;
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

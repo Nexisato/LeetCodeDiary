@@ -4,10 +4,10 @@
  * @FilePath: /LeetCodeDiary/LeetCode/0000-Basic-Framework/Prim.cpp
  * @Description: 基于优先队列 实现Prim算法，适合边稀疏的图
  */
-#include <iostream>
-#include <vector>
-#include <queue>
 #include <climits>
+#include <iostream>
+#include <queue>
+#include <vector>
 using namespace std;
 // Prim
 // 1. 从任意一个顶点开始，将其加入到最小生成树中
@@ -17,36 +17,34 @@ using namespace std;
 // 时间复杂度：O(n^2)
 // 空间复杂度：O(n)
 int prim(vector<vector<int>>& graph, int start) {
-    int n = graph.size();
-    int min_cost = 0;
-    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> minHeap;
-    vector<bool> visited(n, false);
-    minHeap.push({0, start});
-    while (!minHeap.empty()) {
-        auto [weight, u] = minHeap.top();
-        minHeap.pop();
-        if (visited[u]) {
-            continue;
-        }
-        visited[u] = true;
-        min_cost += weight;
-        for (int v = 0; v < n; ++v) {
-            if (!visited[v] && graph[u][v] != INT_MAX) {
-                minHeap.push({graph[u][v], v});
-            }
-        }
-    }
-    return min_cost;
+	int n = graph.size();
+	int min_cost = 0;
+	priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> minHeap;
+	vector<bool> visited(n, false);
+	minHeap.push({0, start});
+	while (!minHeap.empty()) {
+		auto [weight, u] = minHeap.top();
+		minHeap.pop();
+		if (visited[u]) {
+			continue;
+		}
+		visited[u] = true;
+		min_cost += weight;
+		for (int v = 0; v < n; ++v) {
+			if (!visited[v] && graph[u][v] != INT_MAX) {
+				minHeap.push({graph[u][v], v});
+			}
+		}
+	}
+	return min_cost;
 }
 int main() {
-    vector<vector<int>> graph = {
-        {0, 2, 4, 1, INT_MAX},
-        {2, 0, INT_MAX, 3, INT_MAX},
-        {4, INT_MAX, 0, INT_MAX, 3},
-        {1, 3, INT_MAX, 0, 4},
-        {INT_MAX, INT_MAX, 3, 4, 0}
-    };
-    int start = 0;
-    cout << prim(graph, start) << endl;
-    return 0;
+	vector<vector<int>> graph = {{0, 2, 4, 1, INT_MAX},
+	                             {2, 0, INT_MAX, 3, INT_MAX},
+	                             {4, INT_MAX, 0, INT_MAX, 3},
+	                             {1, 3, INT_MAX, 0, 4},
+	                             {INT_MAX, INT_MAX, 3, 4, 0}};
+	int start = 0;
+	cout << prim(graph, start) << endl;
+	return 0;
 }

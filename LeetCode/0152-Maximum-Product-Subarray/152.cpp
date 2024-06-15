@@ -1,7 +1,7 @@
 /*
 LeetCode 152: Maximum Product Subarray
 @Description:
-Given an integer array nums, find a contiguous non-empty subarray within the array that 
+Given an integer array nums, find a contiguous non-empty subarray within the array that
 has the largest product, and return the product.
 
 It is guaranteed that the answer will fit in a 32-bit integer.
@@ -23,19 +23,15 @@ using namespace std;
 */
 class Solution {
 public:
-    int maxProduct(vector<int>& nums) {
-        int n = nums.size();
-        vector<int> dpMin(nums), dpMax(nums);
-        for (int i = 1; i < n; ++i) {
-            int curMax = dpMax[i - 1] * nums[i], curMin = dpMin[i - 1] * nums[i];
-            dpMax[i] = max(nums[i], max(curMax, curMin));
-            dpMin[i] = min(nums[i], min(curMax, curMin));
-        }
-        return *max_element(dpMax.begin(), dpMax.end());
-    }
+	int maxProduct(vector<int>& nums) {
+		int n = nums.size();
+		vector<int> dpMin(nums), dpMax(nums);
+		for (int i = 1; i < n; ++i) {
+			int curMax = dpMax[i - 1] * nums[i], curMin = dpMin[i - 1] * nums[i];
+			dpMax[i] = max(nums[i], max(curMax, curMin));
+			dpMin[i] = min(nums[i], min(curMax, curMin));
+		}
+		return *max_element(dpMax.begin(), dpMax.end());
+	}
 };
-int main() {
-
-
-    return 0;
-}
+int main() { return 0; }

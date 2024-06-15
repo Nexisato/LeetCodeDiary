@@ -44,7 +44,7 @@ public:
 			}
 		return L[text1.size()][text2.size()];
 	}
-	//int longsestCommonSubsequence(string text1, string text2) {}
+	// int longsestCommonSubsequence(string text1, string text2) {}
 };
 
 int main() {

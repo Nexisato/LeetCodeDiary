@@ -2,7 +2,7 @@
  * @Date: 2023-12-10 01:13:31
  * @Author: nexisato
  * @FilePath: /LeetCodeDiary/LeetCode/0051-nQueens/nQueens.cpp
- * @Description: 
+ * @Description:
  */
 /*
 Description:
@@ -68,43 +68,42 @@ public:
 };
 class Solution_lambda {
 public:
-    vector<vector<string>> solveNQueens(int n) {
-        vector<vector<string>> res;
-        vector<string> board(n, string(n, '.'));
+	vector<vector<string>> solveNQueens(int n) {
+		vector<vector<string>> res;
+		vector<string> board(n, string(n, '.'));
 
-        auto isValid = [&](int row, int col) {
-            // col
-            for (int i = 0; i < row; ++i) 
-                if (board[i][col] == 'Q')
-                    return false;
-            // main diagonal
-            // for 循环里面的条件判断需要加 && ，不要逗号
-            for (int i = row - 1, j = col - 1; i >= 0 && j>= 0; --i, --j) 
-                if (board[i][j] == 'Q')
-                    return false;
-            // post diagonal
-            for (int i = row - 1, j = col + 1; i >= 0 && j < n; --i, ++j)
-                if (board[i][j] == 'Q')
-                    return false;
-            return true;
-        };
-        function<void(int)> dfs = [&](int row) {
-            if (row == n) {
-                res.push_back(board);
-                return;
-            }
-            for (int col = 0; col < n; ++col)
-                if (isValid(row, col)) {
-                    board[row][col] = 'Q';
-                    dfs(row + 1);
-                    board[row][col] = '.';
-                }
-        };
-        dfs(0);
+		auto isValid = [&](int row, int col) {
+			// col
+			for (int i = 0; i < row; ++i)
+				if (board[i][col] == 'Q')
+					return false;
+			// main diagonal
+			// for 循环里面的条件判断需要加 && ，不要逗号
+			for (int i = row - 1, j = col - 1; i >= 0 && j >= 0; --i, --j)
+				if (board[i][j] == 'Q')
+					return false;
+			// post diagonal
+			for (int i = row - 1, j = col + 1; i >= 0 && j < n; --i, ++j)
+				if (board[i][j] == 'Q')
+					return false;
+			return true;
+		};
+		function<void(int)> dfs = [&](int row) {
+			if (row == n) {
+				res.push_back(board);
+				return;
+			}
+			for (int col = 0; col < n; ++col)
+				if (isValid(row, col)) {
+					board[row][col] = 'Q';
+					dfs(row + 1);
+					board[row][col] = '.';
+				}
+		};
+		dfs(0);
 
-        return res;
-    }
-
+		return res;
+	}
 };
 
 int main() { return 0; }

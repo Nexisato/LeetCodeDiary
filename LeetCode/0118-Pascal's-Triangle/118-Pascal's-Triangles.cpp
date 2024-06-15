@@ -12,49 +12,53 @@ using namespace std;
 */
 class Solution {
 public:
-    vector<int> binomialCoef(int n) {
-        if (n <= 0) return {};
-        else if (n == 1) return {1};
-        else if (n == 2) return {1,1};
-        else {
-            vector<int> pre = binomialCoef(n - 1);
-            pre.insert(pre.begin(),0);
-            pre.insert(pre.end(),0);
-            vector<int> res;
-            int N = pre.size();
-            for (int i = 0; i < N - 1; i++) {
-                res.push_back(pre[i] + pre[i + 1]);
-            }
-            return res;
-        }
-    }
-    vector<vector<int>> generate(int numRows) {
-        vector<vector<int>> output;
-        if (numRows <= 0) return {};
-        for (int i = 1; i<= numRows; i++) {
-            vector<int> res = binomialCoef(i);
-            output.push_back(res);
-        }
-        return output;
-    }
-    vector<vector<int>> generate_loop(int numRows) {
-        vector<vector<int>> res(numRows);
-        for (int i = 0; i < numRows; numRows++) {
-            res[i].resize(i + 1);
-            res[i][0] = res[i][i] = 1;
-            for (int j = 1; j < i; ++j) {
-                res[i][j] = res[i - 1][j] + res[i - 1][j - 1];
-            }
-        }
-        return res;
-    }
+	vector<int> binomialCoef(int n) {
+		if (n <= 0)
+			return {};
+		else if (n == 1)
+			return {1};
+		else if (n == 2)
+			return {1, 1};
+		else {
+			vector<int> pre = binomialCoef(n - 1);
+			pre.insert(pre.begin(), 0);
+			pre.insert(pre.end(), 0);
+			vector<int> res;
+			int N = pre.size();
+			for (int i = 0; i < N - 1; i++) {
+				res.push_back(pre[i] + pre[i + 1]);
+			}
+			return res;
+		}
+	}
+	vector<vector<int>> generate(int numRows) {
+		vector<vector<int>> output;
+		if (numRows <= 0)
+			return {};
+		for (int i = 1; i <= numRows; i++) {
+			vector<int> res = binomialCoef(i);
+			output.push_back(res);
+		}
+		return output;
+	}
+	vector<vector<int>> generate_loop(int numRows) {
+		vector<vector<int>> res(numRows);
+		for (int i = 0; i < numRows; numRows++) {
+			res[i].resize(i + 1);
+			res[i][0] = res[i][i] = 1;
+			for (int j = 1; j < i; ++j) {
+				res[i][j] = res[i - 1][j] + res[i - 1][j - 1];
+			}
+		}
+		return res;
+	}
 };
 
 int main() {
-    Solution ss;
-    int n = 3;
-    vector<int> bin = ss.binomialCoef(n);
-    for (int i = 0; i < bin.size(); i++)
-        cout << bin[i] << "  ";
-    return 0;
+	Solution ss;
+	int n = 3;
+	vector<int> bin = ss.binomialCoef(n);
+	for (int i = 0; i < bin.size(); i++)
+		cout << bin[i] << "  ";
+	return 0;
 }

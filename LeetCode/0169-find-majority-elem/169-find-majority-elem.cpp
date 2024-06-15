@@ -14,25 +14,21 @@ using namespace std;
 // 思路：MooreVote法
 // 时间复杂度:O(n) 空间复杂度:O(1)
 class Solution {
-    int MooreVote(vector<int>& nums) {
-        int cand = nums[0];
-        int count = 1;
-        for (int i = 1; i < nums.size(); ++i) {
-            if (cand == nums[i])
-                ++count;
-            else if (--count == 0) {
-                cand = nums[i];
-                count = 1;
-            }
-        }
-        return cand;
-    }
+	int MooreVote(vector<int>& nums) {
+		int cand = nums[0];
+		int count = 1;
+		for (int i = 1; i < nums.size(); ++i) {
+			if (cand == nums[i])
+				++count;
+			else if (--count == 0) {
+				cand = nums[i];
+				count = 1;
+			}
+		}
+		return cand;
+	}
 
-   public:
-    int majorityElement(vector<int>& nums) {
-        return MooreVote(nums);
-    }
+public:
+	int majorityElement(vector<int>& nums) { return MooreVote(nums); }
 };
-int main() {
-    return 0;
-}
+int main() { return 0; }

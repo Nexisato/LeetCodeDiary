@@ -16,14 +16,11 @@ n = 4^x = 2 ^(2*x) = 2^x * 2^x
 */
 class Solution {
 public:
-    bool isPowerOfFour(int n) {
-        if (n <= 0)
-            return false;
-        int m = sqrt(n);
-        return (m * m == n) && (m & (m - 1)) == 0;
-    }
+	bool isPowerOfFour(int n) {
+		if (n <= 0)
+			return false;
+		int m = sqrt(n);
+		return (m * m == n) && (m & (m - 1)) == 0;
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

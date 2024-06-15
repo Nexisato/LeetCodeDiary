@@ -1,11 +1,11 @@
 /*
 LeetCode 995: Minimum Number of K Consecutive Flips
 @Description:
-In an array A containing only 0s and 1s, a K-bit flip consists of choosing a (contiguous) 
-subarray of length K and simultaneously changing every 0 in the subarray to 1, 
+In an array A containing only 0s and 1s, a K-bit flip consists of choosing a (contiguous)
+subarray of length K and simultaneously changing every 0 in the subarray to 1,
 and every 1 in the subarray to 0.
 
-Return the minimum number of K-bit flips required so that there is no 0 in the array.  
+Return the minimum number of K-bit flips required so that there is no 0 in the array. 
 If it is not possible, return -1.
 
 Note:
@@ -23,45 +23,43 @@ using namespace std;
 */
 class Solution {
 public:
-    int minKBitFlips(vector<int>& A, int K) {
-        vector<int> diff(A.size() + 1);
-        int res = 0, revCnt = 0;
-        for (int i = 0; i < A.size(); ++i) {
-            revCnt ^= diff[i];
-            if (A[i] == revCnt) {
-                if (i + K > A.size()) return -1;
-                ++res;
-                revCnt ^= 1;
-                diff[i + K] ^= 1;
-            }
-        }
-        return res;
-    }
+	int minKBitFlips(vector<int>& A, int K) {
+		vector<int> diff(A.size() + 1);
+		int res = 0, revCnt = 0;
+		for (int i = 0; i < A.size(); ++i) {
+			revCnt ^= diff[i];
+			if (A[i] == revCnt) {
+				if (i + K > A.size())
+					return -1;
+				++res;
+				revCnt ^= 1;
+				diff[i + K] ^= 1;
+			}
+		}
+		return res;
+	}
 };
 /*
 思路：滑动窗口
 */
 class Solution_windows {
 public:
-    int minKBitFlips(vector<int> &A, int K) {
-        int res = 0, revCnt = 0;
-        for (int i = 0; i < A.size(); ++i) {
-            if (i >= K && A[i - K] > 1) {
-                revCnt ^= 1;
-                A[i - K] -= 2;
-            }
-            if (A[i] == revCnt) {
-                if (i + K > A.size()) return -1;
-                ++res;
-                revCnt ^= 1;
-                A[i] += 2;
-            }
-        }
-        return res;
-    }
-
+	int minKBitFlips(vector<int>& A, int K) {
+		int res = 0, revCnt = 0;
+		for (int i = 0; i < A.size(); ++i) {
+			if (i >= K && A[i - K] > 1) {
+				revCnt ^= 1;
+				A[i - K] -= 2;
+			}
+			if (A[i] == revCnt) {
+				if (i + K > A.size())
+					return -1;
+				++res;
+				revCnt ^= 1;
+				A[i] += 2;
+			}
+		}
+		return res;
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

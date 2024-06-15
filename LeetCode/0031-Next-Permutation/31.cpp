@@ -2,12 +2,12 @@
  * @Date: 2024-02-23 11:44:50
  * @Author: nexisato
  * @FilePath: /LeetCodeDiary/LeetCode/0031-Next-Permutation/31.cpp
- * @Description: 
+ * @Description:
  */
+#include <algorithm>
+#include <functional>
 #include <iostream>
 #include <vector>
-#include <functional>
-#include <algorithm>
 using namespace std;
 
 // 思路：
@@ -18,26 +18,22 @@ using namespace std;
 // 时间复杂度：O(n)
 class Solution {
 public:
-    void nextPermutation(vector<int>& nums) {
-        const int n = nums.size();
-        // 从右向左找到第一个递减的
-        // 找到小数
-        int i = n - 2;
-        while (i >= 0 && nums[i] >= nums[i + 1]) {
-            --i;
-        }
-        // 找到大数
-        if (i >= 0) {
-            int j = n - 1;
-            while (j >= i && nums[j] <= nums[i])
-                --j;
-            swap(nums[i], nums[j]);            
-        }
-        reverse(nums.begin() + i + 1, nums.end());
-
-    }
+	void nextPermutation(vector<int>& nums) {
+		const int n = nums.size();
+		// 从右向左找到第一个递减的
+		// 找到小数
+		int i = n - 2;
+		while (i >= 0 && nums[i] >= nums[i + 1]) {
+			--i;
+		}
+		// 找到大数
+		if (i >= 0) {
+			int j = n - 1;
+			while (j >= i && nums[j] <= nums[i])
+				--j;
+			swap(nums[i], nums[j]);
+		}
+		reverse(nums.begin() + i + 1, nums.end());
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

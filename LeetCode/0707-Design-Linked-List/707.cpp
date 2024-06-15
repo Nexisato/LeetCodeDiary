@@ -1,59 +1,62 @@
 #include <bits/stdc++.h>
 using namespace std;
-//2023-03-06：新解
+// 2023-03-06：新解
 struct MyListNode {
-    int val;
-    MyListNode *next;
-    MyListNode(int _val) : val(_val), next(nullptr) {}
+	int val;
+	MyListNode* next;
+	MyListNode(int _val) : val(_val), next(nullptr) {}
 };
 class MyLinkedList {
 private:
-    int _size;
-    MyListNode* virnode;
-public:
-    MyLinkedList() {
-        virnode = new MyListNode(-1);
-        _size = 0;
-    }
-    
-    int get(int index) {
-        if (index > (_size - 1) || index < 0)
-            return -1;
-        MyListNode *cur = virnode->next;
-        while (index--) {
-            cur = cur->next;
-        }
-        return cur->val;
-    }
-    
-    void addAtHead(int val) {
-        addAtIndex(0, val);
-    }
-    
-    void addAtTail(int val) {
-        addAtIndex(_size, val);
-    }
-    
-    void addAtIndex(int index, int val) {
-        if (index > _size) return;
-        if (index < 0) index = 0;
+	int _size;
+	MyListNode* virnode;
 
-        MyListNode *node = new MyListNode(val), *cur = virnode;
-        while (index--) cur = cur->next;
-        node->next = cur->next;;
-        cur->next = node;
-        _size++;
-    }
-    
-    void deleteAtIndex(int index) {
-        if (index < 0 || index >= _size) return;
-        MyListNode *cur = virnode;
-        while (index--) cur = cur->next;
-        MyListNode *tmp = cur->next;
-        cur->next = cur->next->next;
-        delete tmp;
-        _size--;
-    }
+public:
+	MyLinkedList() {
+		virnode = new MyListNode(-1);
+		_size = 0;
+	}
+
+	int get(int index) {
+		if (index > (_size - 1) || index < 0)
+			return -1;
+		MyListNode* cur = virnode->next;
+		while (index--) {
+			cur = cur->next;
+		}
+		return cur->val;
+	}
+
+	void addAtHead(int val) { addAtIndex(0, val); }
+
+	void addAtTail(int val) { addAtIndex(_size, val); }
+
+	void addAtIndex(int index, int val) {
+		if (index > _size)
+			return;
+		if (index < 0)
+			index = 0;
+
+		MyListNode *node = new MyListNode(val), *cur = virnode;
+		while (index--)
+			cur = cur->next;
+		node->next = cur->next;
+		;
+		cur->next = node;
+		_size++;
+	}
+
+	void deleteAtIndex(int index) {
+		if (index < 0 || index >= _size)
+			return;
+		MyListNode* cur = virnode;
+		while (index--)
+			cur = cur->next;
+		MyListNode* tmp = cur->next;
+		cur->next = cur->next->next;
+		delete tmp;
+		_size--;
+	}
 };
 
 /**
@@ -85,7 +88,7 @@ public:
         head->next = tail;
         tail->prev = head;
     }
-    
+
     int get(int index) {
         if (index < 0 || index >= size)
             return -1;
@@ -101,15 +104,15 @@ public:
         }
         return node->val;
     }
-    
+
     void addAtHead(int val) {
         addAtIndex(0, val);
     }
-    
+
     void addAtTail(int val) {
         addAtIndex(size, val);
     }
-    
+
     void addAtIndex(int index, int val) {
         if (index > size)
             return;
@@ -133,7 +136,7 @@ public:
         pred->next = node;
         succ->prev = node;
     }
-    
+
     void deleteAtIndex(int index) {
         if (index >= size || index < 0)
             return;
@@ -168,14 +171,14 @@ public:
  * obj->deleteAtIndex(index);
  */
 int main() {
-    MyLinkedList *root = new MyLinkedList();
-    root->addAtHead(1);
-    root->addAtTail(3);
-    root->addAtIndex(1, 2);
-    cout << root->get(1) << endl;
-    root->deleteAtIndex(1);
-    cout << root->get(1) << endl;;
+	MyLinkedList* root = new MyLinkedList();
+	root->addAtHead(1);
+	root->addAtTail(3);
+	root->addAtIndex(1, 2);
+	cout << root->get(1) << endl;
+	root->deleteAtIndex(1);
+	cout << root->get(1) << endl;
+	;
 
-    return 0;
+	return 0;
 }
-

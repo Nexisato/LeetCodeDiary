@@ -19,30 +19,31 @@ using namespace std;
 */
 class MovingAverage {
 private:
-    queue<int> q;
-    int cap;
-    int sum;
+	queue<int> q;
+	int cap;
+	int sum;
+
 public:
-    /** Initialize your data structure here. */
-    MovingAverage(int size) {
-        while (!q.empty())
-            q.pop();
-        this->cap = size;
-        this->sum = 0;
-    }
-    
-    double next(int val) {
-        if (q.size() < cap) {
-            q.push(val);
-            sum += val;
-            return (double)sum / q.size();
-        }
-        sum -= q.front();
-        q.pop();
-        q.push(val);
-        sum += val;
-        return (double)sum / cap;
-    }
+	/** Initialize your data structure here. */
+	MovingAverage(int size) {
+		while (!q.empty())
+			q.pop();
+		this->cap = size;
+		this->sum = 0;
+	}
+
+	double next(int val) {
+		if (q.size() < cap) {
+			q.push(val);
+			sum += val;
+			return (double)sum / q.size();
+		}
+		sum -= q.front();
+		q.pop();
+		q.push(val);
+		sum += val;
+		return (double)sum / cap;
+	}
 };
 
 /**
@@ -51,12 +52,12 @@ public:
  * double param_1 = obj->next(val);
  */
 int main() {
-    int size = 3;
-    MovingAverage* obj = new MovingAverage(size);
-    double param_1 = obj->next(1);
-    double param_2 = obj->next(10);
-    double param_3 = obj->next(3);
-    double param_4 = obj->next(5);
+	int size = 3;
+	MovingAverage* obj = new MovingAverage(size);
+	double param_1 = obj->next(1);
+	double param_2 = obj->next(10);
+	double param_3 = obj->next(3);
+	double param_4 = obj->next(5);
 
-    return 0;
+	return 0;
 }

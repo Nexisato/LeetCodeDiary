@@ -1,6 +1,6 @@
 /*
-LeetCode 557: Remove Words in a String 
-Given a string s, reverse the order of characters in each word within 
+LeetCode 557: Remove Words in a String
+Given a string s, reverse the order of characters in each word within
 a sentence while still preserving whitespace and initial word order.
 
 Constraints:
@@ -19,28 +19,24 @@ res字符串添加空格后，再拼接翻转后的单词
 */
 class Solution {
 public:
-    string reverseWords(string s) {
-        int n = s.length();
-        string res = "", tmp = "";
-        for (int i = 0; i < n; ++i) {
-            if (s[i] == ' ' && !tmp.empty()) {
-                reverse(tmp.begin(), tmp.end());
-                res += tmp;
-                res += ' ';
-                tmp.clear();
-                continue;
-            }
-            tmp += s[i];
-        }
-        if (!tmp.empty()) {
-            reverse(tmp.begin(), tmp.end());
-            res += tmp;
-        }
-        return res;
-    }
+	string reverseWords(string s) {
+		int n = s.length();
+		string res = "", tmp = "";
+		for (int i = 0; i < n; ++i) {
+			if (s[i] == ' ' && !tmp.empty()) {
+				reverse(tmp.begin(), tmp.end());
+				res += tmp;
+				res += ' ';
+				tmp.clear();
+				continue;
+			}
+			tmp += s[i];
+		}
+		if (!tmp.empty()) {
+			reverse(tmp.begin(), tmp.end());
+			res += tmp;
+		}
+		return res;
+	}
 };
-int main() {
-
-
-    return 0;
-}
+int main() { return 0; }

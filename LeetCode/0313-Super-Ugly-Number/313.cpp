@@ -14,41 +14,38 @@ Constraints:
 primes[i] is guaranteed to be a prime number.
 All the values of primes are unique and sorted in ascending order.
 */
-#include <iostream>
-#include <vector>
 #include <algorithm>
+#include <iostream>
 #include <queue>
 #include <unordered_set>
+#include <vector>
 using namespace std;
 
 class Solution {
 public:
-    /*
-    思路：最小堆
-        1 是最小的丑数
-    */
-    int nthSuperUglyNumber(int n, vector<int>& primes) {
-        priority_queue<long long, vector<long long>, greater<long long>> minHeap;
-        unordered_set<long long> seen;
-        minHeap.push(1);
-        seen.insert(1);
-        int res = 1;
-        for (int i = 0; i < n; ++i) {
-            long long cur = minHeap.top();
-            res = (int)cur;
-            minHeap.pop();
-            for (int prime : primes) {
-                long long num = prime * cur;
-                if (seen.find(num) == seen.end()) {
-                    seen.insert(num);
-                    minHeap.push(num);
-                }
-            } 
-        }
-        return res;
-    }
+	/*
+	思路：最小堆
+	    1 是最小的丑数
+	*/
+	int nthSuperUglyNumber(int n, vector<int>& primes) {
+		priority_queue<long long, vector<long long>, greater<long long>> minHeap;
+		unordered_set<long long> seen;
+		minHeap.push(1);
+		seen.insert(1);
+		int res = 1;
+		for (int i = 0; i < n; ++i) {
+			long long cur = minHeap.top();
+			res = (int)cur;
+			minHeap.pop();
+			for (int prime : primes) {
+				long long num = prime * cur;
+				if (seen.find(num) == seen.end()) {
+					seen.insert(num);
+					minHeap.push(num);
+				}
+			}
+		}
+		return res;
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

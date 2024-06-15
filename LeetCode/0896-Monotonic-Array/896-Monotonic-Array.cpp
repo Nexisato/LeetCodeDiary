@@ -3,7 +3,7 @@ LeetCode 986: Monotonic Array
 @Description:
 An array is monotonic if it is either monotone increasing or monotone decreasing.
 
-An array A is monotone increasing if for all i <= j, A[i] <= A[j].  
+An array A is monotone increasing if for all i <= j, A[i] <= A[j]. 
 An array A is monotone decreasing if for all i <= j, A[i] >= A[j].
 
 Return true if and only if the given array A is monotonic.
@@ -20,21 +20,18 @@ using namespace std;
 */
 class Solution {
 public:
-    bool isMonotonic(vector<int>& A) {
-        if (A.size() == 1) return true;
-        int n = A.size();
-        bool inc = true, dec = true;
-        for (int i = 1; i < n; ++i) {
-            if (A[i] > A[i - 1])
-                dec = false;
-            if (A[i] < A[i - 1])
-                inc = false;
-        }     
-        return inc | dec;
-    }
+	bool isMonotonic(vector<int>& A) {
+		if (A.size() == 1)
+			return true;
+		int n = A.size();
+		bool inc = true, dec = true;
+		for (int i = 1; i < n; ++i) {
+			if (A[i] > A[i - 1])
+				dec = false;
+			if (A[i] < A[i - 1])
+				inc = false;
+		}
+		return inc | dec;
+	}
 };
-int main() {
-
-
-    return 0;
-}
+int main() { return 0; }

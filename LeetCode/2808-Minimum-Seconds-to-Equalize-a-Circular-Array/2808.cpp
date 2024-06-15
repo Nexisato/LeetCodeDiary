@@ -2,7 +2,7 @@
  * @Date: 2024-01-30 09:45:33
  * @Author: nexisato
  * @FilePath: /LeetCodeDiary/LeetCode/2808-Minimum-Seconds-to-Equalize-a-Circular-Array/2808.cpp
- * @Description: 
+ * @Description:
  */
 #include <iostream>
 #include <string>
@@ -17,27 +17,24 @@ using namespace std;
 // 最后还要除一下 2(可以相向)
 class Solution {
 public:
-    int minimumSeconds(vector<int>& nums) {
-        const int n = nums.size();
-        unordered_map<int, vector<int>> table;
-        for (int i = 0; i < n; ++i) {
-            table[nums[i]].push_back(i);
-        }
-        int res = INT_MAX;
-        for (auto& [num, pos] : table) {
-            // 最后一个位置到第一个位置的距离
-            int max_distance = pos[0] + n - pos.back();
-            for (int i = 1; i < pos.size(); ++i) {
-                max_distance = max(max_distance, pos[i] - pos[i - 1]);
-            }
-            // 这里一定要除以 2，因为可以相向而行
-            res = min(res, max_distance / 2);
-        }
-    
-        return res;
-    }
-};
-int main() {
+	int minimumSeconds(vector<int>& nums) {
+		const int n = nums.size();
+		unordered_map<int, vector<int>> table;
+		for (int i = 0; i < n; ++i) {
+			table[nums[i]].push_back(i);
+		}
+		int res = INT_MAX;
+		for (auto& [num, pos] : table) {
+			// 最后一个位置到第一个位置的距离
+			int max_distance = pos[0] + n - pos.back();
+			for (int i = 1; i < pos.size(); ++i) {
+				max_distance = max(max_distance, pos[i] - pos[i - 1]);
+			}
+			// 这里一定要除以 2，因为可以相向而行
+			res = min(res, max_distance / 2);
+		}
 
-    return 0;
-}
+		return res;
+	}
+};
+int main() { return 0; }

@@ -2,13 +2,13 @@
  * @Date: 2023-12-10 01:13:31
  * @Author: nexisato
  * @FilePath: /LeetCodeDiary/LeetCode/0322_Coin_Change/322_Coin_Change.cpp
- * @Description: 
+ * @Description:
  */
 /*
 LeetCode: 322 Coin Change
 Description:
-You are given coins of different denominations and a total amount of money amount. 
-Write a function to compute the fewest number of coins that you need to make up that amount. 
+You are given coins of different denominations and a total amount of money amount.
+Write a function to compute the fewest number of coins that you need to make up that amount.
 If that amount of money cannot be made up by any combination of the coins, return -1.
 
 You may assume that you have an infinite number of each kind of coin.
@@ -19,8 +19,8 @@ Constraints:
 0 <= amount <= 10^4
 */
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 using namespace std;
 /*
 思路：
@@ -31,21 +31,20 @@ using namespace std;
 */
 class Solution {
 public:
-    int coinChange(vector<int>& coins, int amount) {
-        if (amount == 0) return 0;
-        int N = amount;
-        vector<int> dp(N + 1, INT16_MAX);
-        dp[0] = 0;
-        for (int i = 1; i <= N; i++) {
-            for (int coin : coins) {
-                if (i - coin < 0) continue;
-                dp[i] = min(dp[i], 1 + dp[i - coin]);
-            }
-        }
-        return (dp[amount] == INT16_MAX) ? -1 : dp[amount];
-    }
+	int coinChange(vector<int>& coins, int amount) {
+		if (amount == 0)
+			return 0;
+		int N = amount;
+		vector<int> dp(N + 1, INT16_MAX);
+		dp[0] = 0;
+		for (int i = 1; i <= N; i++) {
+			for (int coin : coins) {
+				if (i - coin < 0)
+					continue;
+				dp[i] = min(dp[i], 1 + dp[i - coin]);
+			}
+		}
+		return (dp[amount] == INT16_MAX) ? -1 : dp[amount];
+	}
 };
-int main() {
-    
-    return 0;
-}
+int main() { return 0; }

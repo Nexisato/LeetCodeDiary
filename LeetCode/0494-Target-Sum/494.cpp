@@ -3,11 +3,11 @@ LeetCode 494: Target Sum
 @Description:
 You are given an integer array nums and an integer target.
 
-You want to build an expression out of nums by adding one of the symbols '+' and '-' before 
+You want to build an expression out of nums by adding one of the symbols '+' and '-' before
 each integer in nums and then concatenate all the integers.
 
-For example, if nums = [2, 1], you can add a '+' before 2 and a '-' before 1 and concatenate them to build the expression "+2-1".
-Return the number of different expressions that you can build, which evaluates to target.
+For example, if nums = [2, 1], you can add a '+' before 2 and a '-' before 1 and concatenate them to build the
+expression "+2-1". Return the number of different expressions that you can build, which evaluates to target.
 
 Constraints:
 1 <= nums.length <= 20
@@ -28,22 +28,19 @@ dp[i][j - nums[i] + 1000] += dp[i - 1][j + 1000]
 */
 class Solution {
 public:
-    int findTargetSumWays(vector<int>& nums, int target) {
-        int n = nums.size();
-        vector<vector<int>> dp(n, vector<int>(2001, 0));
-        dp[0][nums[0] + 1000] = 1;
-        dp[0][-nums[0] + 1000] += 1;
+	int findTargetSumWays(vector<int>& nums, int target) {
+		int n = nums.size();
+		vector<vector<int>> dp(n, vector<int>(2001, 0));
+		dp[0][nums[0] + 1000] = 1;
+		dp[0][-nums[0] + 1000] += 1;
 
-        for (int i = 1; i < n; ++i)
-            for (int sum = -1000; sum <= 1000; ++sum)
-                if (dp[i - 1][sum + 1000] > 0) {
-                    dp[i][sum + nums[i] + 1000] += dp[i - 1][sum + 1000];
-                    dp[i][sum - nums[i] + 1000] += dp[i - 1][sum + 1000];
-                }
-        return dp[n - 1][target + 1000];
-    }
+		for (int i = 1; i < n; ++i)
+			for (int sum = -1000; sum <= 1000; ++sum)
+				if (dp[i - 1][sum + 1000] > 0) {
+					dp[i][sum + nums[i] + 1000] += dp[i - 1][sum + 1000];
+					dp[i][sum - nums[i] + 1000] += dp[i - 1][sum + 1000];
+				}
+		return dp[n - 1][target + 1000];
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

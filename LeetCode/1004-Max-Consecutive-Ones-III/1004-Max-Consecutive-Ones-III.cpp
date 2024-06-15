@@ -8,7 +8,7 @@ Return the length of the longest (contiguous) subarray that contains only 1s. 
 Note:
 1 <= A.length <= 20000
 0 <= K <= A.length
-A[i] is 0 or 1 
+A[i] is 0 or 1
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -19,26 +19,26 @@ using namespace std;
 */
 class Solution {
 public:
-    int longestOnes(vector<int>& A, int K) {
-        int count = 0;
-        int left = 0, right = 0;
-        int maxL = 0;
-        for (; right < A.size(); right++) {
-            if (A[right])
-                ++count;
-            if (right - left + 1 > count + K) {
-                count = (A[left] == 1) ? (count - 1) : count;
-                left++;
-            }
-            maxL = max(maxL, right - left + 1);
-        }
-        return maxL;
-    }
+	int longestOnes(vector<int>& A, int K) {
+		int count = 0;
+		int left = 0, right = 0;
+		int maxL = 0;
+		for (; right < A.size(); right++) {
+			if (A[right])
+				++count;
+			if (right - left + 1 > count + K) {
+				count = (A[left] == 1) ? (count - 1) : count;
+				left++;
+			}
+			maxL = max(maxL, right - left + 1);
+		}
+		return maxL;
+	}
 };
 int main() {
-    vector<int> A = {0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1};
-    int K = 3;
-    Solution ss;
-    cout << ss.longestOnes(A, K) << endl;
-    return 0;
+	vector<int> A = {0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1};
+	int K = 3;
+	Solution ss;
+	cout << ss.longestOnes(A, K) << endl;
+	return 0;
 }

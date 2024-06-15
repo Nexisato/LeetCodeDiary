@@ -17,7 +17,7 @@ public:
             int idx = c - 'a';
             if (!node->next[idx])
                 node->next[idx] = new Trie();
-            node = node->next[idx]; 
+            node = node->next[idx];
         }
         node->isEnd = true;
     }
@@ -40,29 +40,25 @@ public:
 */
 class Solution {
 public:
-    int countSubstrings(string s, string t) {
-        int res = 0;
-        int m = s.length(), n = t.length();
-        int post[m + 1][n + 1], prefix[m + 1][n + 1];
-        memset(post, 0, sizeof(post));
-        memset(prefix, 0, sizeof(prefix));
-        for (int i = 0; i < m; ++i)
-            for (int j = 0; j < n; ++j)
-                if (s[i] == t[j])
-                    post[i + 1][j + 1] = post[i][j] + 1;
-        for (int i = m - 1; i >= 0; --i)
-            for (int j = n - 1; j >= 0; --j)
-                if (s[i] == t[j])
-                    prefix[i][j] = prefix[i + 1][j + 1] + 1;
-                else
-                    res += (post[i][j] + 1) * (prefix[i + 1][j + 1] + 1);
+	int countSubstrings(string s, string t) {
+		int res = 0;
+		int m = s.length(), n = t.length();
+		int post[m + 1][n + 1], prefix[m + 1][n + 1];
+		memset(post, 0, sizeof(post));
+		memset(prefix, 0, sizeof(prefix));
+		for (int i = 0; i < m; ++i)
+			for (int j = 0; j < n; ++j)
+				if (s[i] == t[j])
+					post[i + 1][j + 1] = post[i][j] + 1;
+		for (int i = m - 1; i >= 0; --i)
+			for (int j = n - 1; j >= 0; --j)
+				if (s[i] == t[j])
+					prefix[i][j] = prefix[i + 1][j + 1] + 1;
+				else
+					res += (post[i][j] + 1) * (prefix[i + 1][j + 1] + 1);
 
-        return res;
-    }
+		return res;
+	}
 };
 
-int main() {
-
-
-    return 0;
-}
+int main() { return 0; }

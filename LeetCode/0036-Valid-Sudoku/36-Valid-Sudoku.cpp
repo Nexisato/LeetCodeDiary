@@ -2,7 +2,7 @@
  * @Date: 2023-12-10 01:13:31
  * @Author: nexisato
  * @FilePath: /LeetCodeDiary/LeetCode/0036-Valid-Sudoku/36-Valid-Sudoku.cpp
- * @Description: 
+ * @Description:
  */
 /*
 Description:

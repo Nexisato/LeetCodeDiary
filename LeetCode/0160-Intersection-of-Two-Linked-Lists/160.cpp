@@ -1,7 +1,7 @@
 /*
 LeetCode 160: Intersection of Two Linked Lists
 @Description:
-Given the heads of two singly linked-lists headA and headB, return the node at which the two lists intersect. 
+Given the heads of two singly linked-lists headA and headB, return the node at which the two lists intersect.
 If the two linked lists have no intersection at all, return null.
 
 For example, the following two linked lists begin to intersect at node c1:
@@ -28,43 +28,40 @@ using namespace std;
 */
 // Definition for singly-linked list.
 struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
-}; 
+	int val;
+	ListNode* next;
+	ListNode(int x) : val(x), next(NULL) {}
+};
 class Solution {
 public:
-    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        ListNode *nodeA = headA, *nodeB = headB;
-        unordered_set<ListNode*> record;
-        while (nodeA != nullptr) {
-            record.insert(nodeA);
-            nodeA = nodeA->next;
-        }
-        while (nodeB != nullptr) {
-            if (record.count(nodeB))
-                return nodeB;
-            nodeB = nodeB->next;
-        }
-        return nullptr;
-    }
-    /*
-    双指针：设链表长度分别为m, n，公共部分长为c
-    m = a + c; n = b + c
-    两者最多移动a + c + b次，即可找到公共节点
-    */
-    ListNode *getIntersectionNode_doubleptr(ListNode *headA, ListNode *headB) {
-        ListNode *nodeA = headA, *nodeB = headB;
-        if (!nodeA || !nodeB)
-            return nullptr;
-        while (nodeA != nodeB) {
-            nodeA = (nodeA == nullptr) ? headB : nodeA->next;
-            nodeB = (nodeB == nullptr) ? headA : nodeB->next;
-        }
-        return nodeA;
-    }    
+	ListNode* getIntersectionNode(ListNode* headA, ListNode* headB) {
+		ListNode *nodeA = headA, *nodeB = headB;
+		unordered_set<ListNode*> record;
+		while (nodeA != nullptr) {
+			record.insert(nodeA);
+			nodeA = nodeA->next;
+		}
+		while (nodeB != nullptr) {
+			if (record.count(nodeB))
+				return nodeB;
+			nodeB = nodeB->next;
+		}
+		return nullptr;
+	}
+	/*
+	双指针：设链表长度分别为m, n，公共部分长为c
+	m = a + c; n = b + c
+	两者最多移动a + c + b次，即可找到公共节点
+	*/
+	ListNode* getIntersectionNode_doubleptr(ListNode* headA, ListNode* headB) {
+		ListNode *nodeA = headA, *nodeB = headB;
+		if (!nodeA || !nodeB)
+			return nullptr;
+		while (nodeA != nodeB) {
+			nodeA = (nodeA == nullptr) ? headB : nodeA->next;
+			nodeB = (nodeB == nullptr) ? headA : nodeB->next;
+		}
+		return nodeA;
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

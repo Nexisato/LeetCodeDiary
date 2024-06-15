@@ -1,7 +1,7 @@
 /*
 LeetCode 703: Kth Largest Element in a Stream
 @Description:
-Design a class to find the kth largest element in a stream. 
+Design a class to find the kth largest element in a stream.
 Note that it is the kth largest element in the sorted order, not the kth distinct element.
 
 Implement KthLargest class:
@@ -25,20 +25,21 @@ using namespace std;
     若此时优先队列大小大于k，则需要将优先队列队头弹出，以保证优先队列大小为k
 */
 class KthLargest {
-    int k;
-    priority_queue<int, vector<int>, greater<int>> minHeap;
+	int k;
+	priority_queue<int, vector<int>, greater<int>> minHeap;
+
 public:
-    KthLargest(int k, vector<int>& nums) {
-        this->k = k;
-        for (auto &num : nums)
-            add(num);
-    }
-    int add(int val) {
-        minHeap.push(val);
-        while (minHeap.size() > k)
-            minHeap.pop();
-        return minHeap.top();
-    }
+	KthLargest(int k, vector<int>& nums) {
+		this->k = k;
+		for (auto& num : nums)
+			add(num);
+	}
+	int add(int val) {
+		minHeap.push(val);
+		while (minHeap.size() > k)
+			minHeap.pop();
+		return minHeap.top();
+	}
 };
 
 /**
@@ -47,9 +48,9 @@ public:
  * int param_1 = obj->add(val);
  */
 int main() {
-    int k = 0;
-    vector<int> nums = {};
-    KthLargest ss(k, nums);
+	int k = 0;
+	vector<int> nums = {};
+	KthLargest ss(k, nums);
 
-    return 0;
+	return 0;
 }

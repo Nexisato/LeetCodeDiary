@@ -1,7 +1,7 @@
 /*
 LeetCode 781: Rabbits in Forest
 @Description:
-In a forest, each rabbit has some color. Some subset of rabbits (possibly all of them) 
+In a forest, each rabbit has some color. Some subset of rabbits (possibly all of them)
 tell you how many other rabbits have the same color as them. Those answers are placed in an array.
 
 Return the minimum number of rabbits that could be in the forest.
@@ -19,21 +19,18 @@ using namespace std;
 */
 class Solution {
 public:
-    int numRabbits(vector<int>& answers) {
-        int n = answers.size();
-        if (n == 0)
-            return 0;
-        int res = 0;
-        unordered_map<int, int> table;
-        for (const auto& answer : answers)
-            table[answer]++;
-        for (auto it = table.begin(); it != table.end(); ++it) {
-            res += ((it->first + it->second) / (it->first + 1)) * (it->first + 1);
-        }
-        return res;
-    }
+	int numRabbits(vector<int>& answers) {
+		int n = answers.size();
+		if (n == 0)
+			return 0;
+		int res = 0;
+		unordered_map<int, int> table;
+		for (const auto& answer : answers)
+			table[answer]++;
+		for (auto it = table.begin(); it != table.end(); ++it) {
+			res += ((it->first + it->second) / (it->first + 1)) * (it->first + 1);
+		}
+		return res;
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

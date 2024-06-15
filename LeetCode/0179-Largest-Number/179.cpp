@@ -18,35 +18,29 @@ using namespace std;
 */
 class Solution {
 public:
-    string largestNumber(vector<int>& nums) {
-        vector<string> strs;
-        for (auto num : nums)
-            strs.emplace_back(to_string(num));
+	string largestNumber(vector<int>& nums) {
+		vector<string> strs;
+		for (auto num : nums)
+			strs.emplace_back(to_string(num));
 
-        //lambda function: cmp as dict order
-        auto cmp = [](string a, string b) {
-            return a + b > b + a;
-        };
+		// lambda function: cmp as dict order
+		auto cmp = [](string a, string b) { return a + b > b + a; };
 
-        sort(strs.begin(), strs.end(), cmp);
-        /*
-        string res = "";
-        for (auto& c : strs)
-            res += c;
-        */
-        // stringstream 格式
-        stringstream ss;
-        for (auto c : strs)
-            ss << c;
-        string res= ss.str();
-        //
-        if (res[0] == '0')
-            return "0";
-        return res;
-    }
+		sort(strs.begin(), strs.end(), cmp);
+		/*
+		string res = "";
+		for (auto& c : strs)
+		    res += c;
+		*/
+		// stringstream 格式
+		stringstream ss;
+		for (auto c : strs)
+			ss << c;
+		string res = ss.str();
+		//
+		if (res[0] == '0')
+			return "0";
+		return res;
+	}
 };
-int main() {
-
-
-    return 0;
-}
+int main() { return 0; }

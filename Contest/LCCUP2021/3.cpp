@@ -19,20 +19,16 @@ using namespace std;
 */
 class Solution {
 public:
-    int magicTower(vector<int>& nums) {
-        int res = -1;
-        int n = nums.size();
-        long long checkSum = accumulate(nums.begin(), nums.end(), 0);
-        if (checkSum < 0)
-            return -1;
-        long long tmpSum = 0;
-        for (int i = 0; i < n; ++i) {
-            tmpSum += nums[i];
-            
-        }
-    }
+	int magicTower(vector<int>& nums) {
+		int res = -1;
+		int n = nums.size();
+		long long checkSum = accumulate(nums.begin(), nums.end(), 0);
+		if (checkSum < 0)
+			return -1;
+		long long tmpSum = 0;
+		for (int i = 0; i < n; ++i) {
+			tmpSum += nums[i];
+		}
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

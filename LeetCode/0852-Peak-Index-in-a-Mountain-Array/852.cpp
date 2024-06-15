@@ -25,24 +25,22 @@ using namespace std;
 */
 class Solution {
 private:
-    int maxInterval(vector<int>& arr, int l, int r) {
-        if (l >= r)
-            return l;
-        int mid = l + (r - l) / 2;
-        int lMax = maxInterval(arr, l, mid - 1), rMax = maxInterval(arr, mid + 1, r);
-        int res = (arr[mid] >= arr[lMax]) ? mid : lMax;
-        res = (arr[res] >= arr[rMax]) ? res : rMax;
-        return res; 
-    }
-public:
-    int peakIndexInMountainArray(vector<int>& arr) {
-        int n = arr.size();
-        int l = 0, r = n - 1;
-        int mid = -1, maxElem = -1;
-        return maxInterval(arr, l, r);
-    }
-};
-int main() {
+	int maxInterval(vector<int>& arr, int l, int r) {
+		if (l >= r)
+			return l;
+		int mid = l + (r - l) / 2;
+		int lMax = maxInterval(arr, l, mid - 1), rMax = maxInterval(arr, mid + 1, r);
+		int res = (arr[mid] >= arr[lMax]) ? mid : lMax;
+		res = (arr[res] >= arr[rMax]) ? res : rMax;
+		return res;
+	}
 
-    return 0;
-}
+public:
+	int peakIndexInMountainArray(vector<int>& arr) {
+		int n = arr.size();
+		int l = 0, r = n - 1;
+		int mid = -1, maxElem = -1;
+		return maxInterval(arr, l, r);
+	}
+};
+int main() { return 0; }

@@ -2,15 +2,15 @@
  * @Date: 2023-12-10 01:13:31
  * @Author: nexisato
  * @FilePath: /LeetCodeDiary/LeetCode/0053-Maximum-Sub-Array/53-Maximum-Sub-Array.cpp
- * @Description: 
+ * @Description:
  */
 /*
 LeetCode 53: Maximum Subarray
 Description:
-Given an integer array nums, find the contiguous subarray (containing at least one number) 
+Given an integer array nums, find the contiguous subarray (containing at least one number)
 which has the largest sum and return its sum.
 
-Follow up: If you have figured out the O(n) solution, try coding another solution 
+Follow up: If you have figured out the O(n) solution, try coding another solution
 using the divide and conquer approach, which is more subtle.
 
 Constraints:
@@ -49,48 +49,45 @@ mSum考虑如下几种情况：
 */
 class Solution {
 public:
-    /*
-    DP:
-    int maxSubArray(vector<int>& nums) {
-        int res = INT32_MIN;
-        vector<int> sub(nums.size());
-        sub[0] = nums[0];
-        res = nums[0];
-        for (int i = 1; i < nums.size(); i++) {
-            sub[i] = max(sub[i-1] + nums[i], nums[i]);
-            res = max(sub[i], res);
-        }
-        return res;
-    }
-    */
+	/*
+	DP:
+	int maxSubArray(vector<int>& nums) {
+	    int res = INT32_MIN;
+	    vector<int> sub(nums.size());
+	    sub[0] = nums[0];
+	    res = nums[0];
+	    for (int i = 1; i < nums.size(); i++) {
+	        sub[i] = max(sub[i-1] + nums[i], nums[i]);
+	        res = max(sub[i], res);
+	    }
+	    return res;
+	}
+	*/
 
-    struct Status {
-        int lSum, rSum, mSum, iSum;
-    };
-    Status pushUp(Status l, Status r) {
-        int iSum = l.iSum + r.iSum;
-        int lSum = max(l.lSum, l.iSum + r.lSum);
-        int rSum = max(l.rSum + r.iSum, r.rSum);
-        int mSum = max(max(l.mSum, r.mSum), l.rSum + r.lSum);
-        return (Status){lSum, rSum, mSum, iSum};
-    }
-    Status get(vector<int>& a, int l, int r) {
-        if(l==r) {
-            return (Status){a[l],a[l],a[l],a[l]};
-        }
-        int m = (l + r) >> 1;
-        Status lSub = get(a, l, m);
-        Status rSub = get(a, m + 1, r);
-        return pushUp(lSub, rSub);
-    }
-    int maxSubArray(vector<int>& nums) {
-        return get(nums, 0, nums.size() - 1).mSum;
-    }
-    
+	struct Status {
+		int lSum, rSum, mSum, iSum;
+	};
+	Status pushUp(Status l, Status r) {
+		int iSum = l.iSum + r.iSum;
+		int lSum = max(l.lSum, l.iSum + r.lSum);
+		int rSum = max(l.rSum + r.iSum, r.rSum);
+		int mSum = max(max(l.mSum, r.mSum), l.rSum + r.lSum);
+		return (Status){lSum, rSum, mSum, iSum};
+	}
+	Status get(vector<int>& a, int l, int r) {
+		if (l == r) {
+			return (Status){a[l], a[l], a[l], a[l]};
+		}
+		int m = (l + r) >> 1;
+		Status lSub = get(a, l, m);
+		Status rSub = get(a, m + 1, r);
+		return pushUp(lSub, rSub);
+	}
+	int maxSubArray(vector<int>& nums) { return get(nums, 0, nums.size() - 1).mSum; }
 };
 int main() {
-    Solution ss;
-    vector<int> nums = {-1, 0, -2};
-    cout << ss.maxSubArray(nums) << endl;
-    return 0;
+	Solution ss;
+	vector<int> nums = {-1, 0, -2};
+	cout << ss.maxSubArray(nums) << endl;
+	return 0;
 }

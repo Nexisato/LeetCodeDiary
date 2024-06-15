@@ -2,14 +2,14 @@
  * @Date: 2023-12-10 01:13:31
  * @Author: nexisato
  * @FilePath: /LeetCodeDiary/LeetCode/0027-Remove-an-Element/27-Remove-an-Element.cpp
- * @Description: 
+ * @Description:
  */
 /*
 Description:
-Given an array nums and a value val, 
+Given an array nums and a value val,
 remove all instances of that value in-place and return the new length.
 
-Do not allocate extra space for another array, you must do this 
+Do not allocate extra space for another array, you must do this
 by modifying the input array in-place with O(1) extra memory.
 
 The order of elements can be changed. It doesn't matter what you leave beyond the new length.
@@ -17,7 +17,7 @@ The order of elements can be changed. It doesn't matter what you leave beyond th
 Clarification:
 Confused why the returned value is an integer but your answer is an array?
 
-Note that the input array is passed in by reference, 
+Note that the input array is passed in by reference,
 which means a modification to the input array will be known to the caller as well.
 
 Internally you can think of this:
@@ -35,8 +35,8 @@ Constraints:
 0 <= nums[i] <= 50
 0 <= val <= 100
 */
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 using namespace std;
 /*
 思路：
@@ -48,37 +48,38 @@ using namespace std;
 
 class Solution {
 public:
-    int removeElement(vector<int>& nums, int val) {
-        int fastPtr = 0, slowPtr = 0;
-        for (;fastPtr < nums.size(); fastPtr++) 
-            if (nums[fastPtr] != val)
-                nums[slowPtr++] = nums[fastPtr];
-        return slowPtr;
-    }
+	int removeElement(vector<int>& nums, int val) {
+		int fastPtr = 0, slowPtr = 0;
+		for (; fastPtr < nums.size(); fastPtr++)
+			if (nums[fastPtr] != val)
+				nums[slowPtr++] = nums[fastPtr];
+		return slowPtr;
+	}
 };
 /*
 这种方法会使得 elements order 被改变
 */
 class Solution_oppsite {
 public:
-    int removeElement(vector<int>& nums, int val) {
-        int n = nums.size();
-        int left = 0, right = n - 1;
-        while (left <= right) {
-            while (left <= right && nums[left] != val) ++left;
-            while (left <= right && nums[right] == val) --right;
-            if (left < right)
-                nums[left++] = nums[right--];
-        }
-        return left;
-    }
+	int removeElement(vector<int>& nums, int val) {
+		int n = nums.size();
+		int left = 0, right = n - 1;
+		while (left <= right) {
+			while (left <= right && nums[left] != val)
+				++left;
+			while (left <= right && nums[right] == val)
+				--right;
+			if (left < right)
+				nums[left++] = nums[right--];
+		}
+		return left;
+	}
 };
 
-
 int main() {
-    vector<int> nums = {3,2,2,3};
-    int val = 3;
-    Solution ss;
-    cout << ss.removeElement(nums, val) << endl;
-    return 0;
+	vector<int> nums = {3, 2, 2, 3};
+	int val = 3;
+	Solution ss;
+	cout << ss.removeElement(nums, val) << endl;
+	return 0;
 }

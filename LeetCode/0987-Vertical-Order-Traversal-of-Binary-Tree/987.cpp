@@ -36,8 +36,7 @@ public:
 		};
 		dfs(root, 0, 0);
 		for (int i = minCol; i <= maxCol; ++i) {
-			sort(table[i].begin(), table[i].end(), 
-                    [](const pair<int, int>& a, const pair<int, int>& b) {
+			sort(table[i].begin(), table[i].end(), [](const pair<int, int>& a, const pair<int, int>& b) {
 				return a.first == b.first ? a.second < b.second : a.first < b.first;
 			});
 

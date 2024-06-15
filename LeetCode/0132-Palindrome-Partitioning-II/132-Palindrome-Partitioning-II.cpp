@@ -15,11 +15,6 @@ using namespace std;
 
 class Solution {
 public:
-    int minCut(string s) {
-        int n = s.length();
-    }
+	int minCut(string s) { int n = s.length(); }
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

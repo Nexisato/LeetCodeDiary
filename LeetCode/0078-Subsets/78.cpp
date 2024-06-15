@@ -18,27 +18,25 @@ using namespace std;
 */
 class Solution {
 private:
-    vector<vector<int>> res;
-    void backtracking(vector<int>& nums) {
-        res.push_back({});
-        vector<int> tmp;
-        int n = nums.size();
-        for (int i = 0; i < n; ++i) {
-            int count = res.size();
-            for (int j = 0; j < count; ++j) {
-                tmp = res[j];
-                tmp.push_back(nums[i]);
-                res.push_back(tmp);
-            }
-        }
-    }
-public:
-    vector<vector<int>> subsets(vector<int>& nums) {
-        backtracking(nums);
-        return res;
-    }
-};
-int main() {
+	vector<vector<int>> res;
+	void backtracking(vector<int>& nums) {
+		res.push_back({});
+		vector<int> tmp;
+		int n = nums.size();
+		for (int i = 0; i < n; ++i) {
+			int count = res.size();
+			for (int j = 0; j < count; ++j) {
+				tmp = res[j];
+				tmp.push_back(nums[i]);
+				res.push_back(tmp);
+			}
+		}
+	}
 
-    return 0;
-}
+public:
+	vector<vector<int>> subsets(vector<int>& nums) {
+		backtracking(nums);
+		return res;
+	}
+};
+int main() { return 0; }

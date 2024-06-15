@@ -24,42 +24,33 @@ using namespace std;
 */
 class Solution {
 public:
-    int KthLargestValue(vector<vector<int>>& matrix, int k) {
-        int m = matrix.size();
-        int n = matrix[0].size();
-        vector<vector<int>> value(m, vector<int>(n));
-        vector<int> res;
-        for (int i = 0; i < m; i++)
-            for (int j = 0; j < n; j++) {
-                value[i][j] = matrix[i][j];
-                if (i - 1 >= 0 && j - 1 >= 0)
-                    value[i][j] ^= value[i - 1][j - 1];
-                if (i - 1 >= 0)
-                    value[i][j] ^= value[i - 1][j];
-                if (j - 1 >= 0)
-                    value[i][j] ^= value[i][j - 1];
-                res.push_back(value[i][j]);
-            }
-        nth_element(res.begin(), res.begin() + res.size() - k, res.end());
-        return res[res.size() - k];//第k大即为顺序第N-k个元素
-    }
+	int KthLargestValue(vector<vector<int>>& matrix, int k) {
+		int m = matrix.size();
+		int n = matrix[0].size();
+		vector<vector<int>> value(m, vector<int>(n));
+		vector<int> res;
+		for (int i = 0; i < m; i++)
+			for (int j = 0; j < n; j++) {
+				value[i][j] = matrix[i][j];
+				if (i - 1 >= 0 && j - 1 >= 0)
+					value[i][j] ^= value[i - 1][j - 1];
+				if (i - 1 >= 0)
+					value[i][j] ^= value[i - 1][j];
+				if (j - 1 >= 0)
+					value[i][j] ^= value[i][j - 1];
+				res.push_back(value[i][j]);
+			}
+		nth_element(res.begin(), res.begin() + res.size() - k, res.end());
+		return res[res.size() - k]; //第k大即为顺序第N-k个元素
+	}
 };
 
-
 int main() {
-    Solution ss;
-    vector<vector<int>> matrix{
-        {10, 9, 5},
-        {2, 0, 4},
-        {1, 0, 9},
-        {3, 4, 8}
-    };
-    vector<vector<int>> tmp{
-        {5, 2},
-        {1, 6}
-    };
-    int K = 3;
-    cout << ss.KthLargestValue(tmp, K);
-    
-    return 0;
+	Solution ss;
+	vector<vector<int>> matrix{{10, 9, 5}, {2, 0, 4}, {1, 0, 9}, {3, 4, 8}};
+	vector<vector<int>> tmp{{5, 2}, {1, 6}};
+	int K = 3;
+	cout << ss.KthLargestValue(tmp, K);
+
+	return 0;
 }

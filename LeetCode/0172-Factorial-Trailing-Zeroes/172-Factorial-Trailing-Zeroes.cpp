@@ -2,7 +2,7 @@
  * @Date: 2023-12-10 01:13:31
  * @Author: nexisato
  * @FilePath: /LeetCodeDiary/LeetCode/0172-Factorial-Trailing-Zeroes/172-Factorial-Trailing-Zeroes.cpp
- * @Description: 
+ * @Description:
  */
 /*
 LeetCode 172: Factorial Trailing Zeros
@@ -22,21 +22,19 @@ using namespace std;
 */
 class Solution {
 public:
-    int trailingZeroes(int n) {
-        int count = 0;
-        int num = 5;;
-        while (num <= n) {
-            int temp = num;
-            while (temp % 5 == false) {
-                count++;
-                temp /= 5;
-            }
-            num += 5;
-        }
-        return count;
-    }
+	int trailingZeroes(int n) {
+		int count = 0;
+		int num = 5;
+		;
+		while (num <= n) {
+			int temp = num;
+			while (temp % 5 == false) {
+				count++;
+				temp /= 5;
+			}
+			num += 5;
+		}
+		return count;
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

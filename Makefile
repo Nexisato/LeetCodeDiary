@@ -26,6 +26,7 @@ WORK_DIR ?= .
 # 定义shell命令
 FORMAT_CMD = ./scripts/format.sh $(WORK_DIR) format_name
 DELBIN_CMD = ./scripts/format.sh $(WORK_DIR) delete_bin
+CLANG_FORMAT_CMD = ./scripts/format.sh $(WORK_DIR) clang_format
 
 # 定义规范化目标
 normal:
@@ -40,3 +41,9 @@ delbin:
 	$(DELBIN_CMD)
 
 .PHONY: delbin
+
+
+clang-format-all:
+	chmod +x ./scripts/format.sh
+	$(CLANG_FORMAT_CMD)
+.PHONY: clang-format-all

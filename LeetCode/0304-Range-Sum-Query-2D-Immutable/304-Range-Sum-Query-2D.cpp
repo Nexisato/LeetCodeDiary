@@ -1,10 +1,10 @@
 /*
 LeetCode 304: Range Sum Query 2D - Immutable
 @Description:
-Given a 2D matrix matrix, find the sum of the elements inside the rectangle defined 
+Given a 2D matrix matrix, find the sum of the elements inside the rectangle defined
 by its upper left corner (row1, col1) and lower right corner (row2, col2).
 
-The above rectangle (with the red border) is defined by (row1, col1) = 
+The above rectangle (with the red border) is defined by (row1, col1) =
 (2, 1) and (row2, col2) = (4, 3), which contains sum = 8.
 
 Note:
@@ -20,13 +20,9 @@ using namespace std;
 */
 class NumMatrix {
 public:
-    NumMatrix(vector<vector<int>>& matrix) {
+	NumMatrix(vector<vector<int>>& matrix) {}
 
-    }
-    
-    int sumRegion(int row1, int col1, int row2, int col2) {
-
-    }
+	int sumRegion(int row1, int col1, int row2, int col2) {}
 };
 /**
  * Your NumMatrix object will be instantiated and called as such:
@@ -35,6 +31,6 @@ public:
  */
 int main() {
 
-    cout << "test000" << endl;
-    return 0;
+	cout << "test000" << endl;
+	return 0;
 }

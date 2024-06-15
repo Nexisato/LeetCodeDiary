@@ -2,15 +2,15 @@
  * @Date: 2023-12-10 01:13:31
  * @Author: nexisato
  * @FilePath: /LeetCodeDiary/LeetCode/0141-linked-list-cycle/141-linked-list-cycle.cpp
- * @Description: 
+ * @Description:
  */
 /*
 Description:
 LeetCode: 141
 Given head, the head of a linked list, determine if the linked list has a cycle in it.
 
-There is a cycle in a linked list if there is some node in the list 
-that can be reached again by continuously following the next pointer. 
+There is a cycle in a linked list if there is some node in the list
+that can be reached again by continuously following the next pointer.
 Internally, pos is used to denote the index of the node that tail's next pointer is connected to. 
 Note that pos is not passed as a parameter.
 
@@ -23,13 +23,13 @@ pos is -1 or a valid index in the linked-list.
 
 Follow up: Can you solve it using O(1) (i.e. constant) memory?
 */
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode(int x) : val(x), next(nullptr) {}
+	int val;
+	ListNode* next;
+	ListNode(int x) : val(x), next(nullptr) {}
 };
 /*
 思路：双指针，Floyd判圈算法
@@ -39,18 +39,17 @@ struct ListNode {
 */
 class Solution {
 public:
-    bool hasCycle(ListNode *head) {
-        if (!head || !head->next) return false;
-        ListNode *slowPtr = head, *fastPtr = head->next;
-        while (slowPtr != fastPtr) {
-            if (!fastPtr || !fastPtr->next) return false;
-            slowPtr = slowPtr->next;
-            fastPtr = fastPtr->next->next;
-        }
-        return true;
-    } 
+	bool hasCycle(ListNode* head) {
+		if (!head || !head->next)
+			return false;
+		ListNode *slowPtr = head, *fastPtr = head->next;
+		while (slowPtr != fastPtr) {
+			if (!fastPtr || !fastPtr->next)
+				return false;
+			slowPtr = slowPtr->next;
+			fastPtr = fastPtr->next->next;
+		}
+		return true;
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

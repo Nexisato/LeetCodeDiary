@@ -1,8 +1,9 @@
 /*
  * @Date: 2023-12-10 01:13:31
  * @Author: nexisato
- * @FilePath: /LeetCodeDiary/LeetCode/0003-Longest-Substring-Without-Repeating-Charaters/3-Longest-Substring-without-Repeating-Characters.cpp
- * @Description: 
+ * @FilePath:
+ * /LeetCodeDiary/LeetCode/0003-Longest-Substring-Without-Repeating-Charaters/3-Longest-Substring-without-Repeating-Characters.cpp
+ * @Description:
  */
 /*
 LeetCode 3: Longest Substring without Repeating Characters
@@ -29,43 +30,44 @@ using namespace std;
 */
 class Solution {
 public:
-/*
-    int lengthOfLongestSubstring(string s) {
-        if (s.length() == 0) return 0;
-        unordered_map<char, int> table;
-        int maxL = 0, cur = 0;
-        for (int i = 0; i < s.length(); i++) {
-            ++cur;
-            if (++table[s[i]] > 1) {
-                --cur;
-                maxL = max(maxL, cur);
-                int j = i - 1;
-                while (j >=0 && s[j] != s[i])
-                    j--;
-                cur = i - j;
-               // memset(table, 0, 26 * sizeof(int));
-               table[s[i]] = 1;
-            }
-        }
-        maxL = max(maxL, cur);
-        return maxL;
-    }*/
-    int lengthOfLongestSubstring(string s) {
-        int length = s.length();
-        if (length == 0) return 0;
-        unordered_set<char> table;
-        int rPtr = -1, maxL = 0;
-        for (int i = 0; i < length; i++) {
-            if (i != 0) 
-                table.erase(s[i - 1]);
-            while (rPtr + 1 < length && !table.count(s[rPtr + 1])) {
-                table.insert(s[rPtr + 1]);
-                ++rPtr;
-            }
-            maxL = max(maxL, rPtr - i + 1);
-        }
-        return maxL;
-    }
+	/*
+	    int lengthOfLongestSubstring(string s) {
+	        if (s.length() == 0) return 0;
+	        unordered_map<char, int> table;
+	        int maxL = 0, cur = 0;
+	        for (int i = 0; i < s.length(); i++) {
+	            ++cur;
+	            if (++table[s[i]] > 1) {
+	                --cur;
+	                maxL = max(maxL, cur);
+	                int j = i - 1;
+	                while (j >=0 && s[j] != s[i])
+	                    j--;
+	                cur = i - j;
+	               // memset(table, 0, 26 * sizeof(int));
+	               table[s[i]] = 1;
+	            }
+	        }
+	        maxL = max(maxL, cur);
+	        return maxL;
+	    }*/
+	int lengthOfLongestSubstring(string s) {
+		int length = s.length();
+		if (length == 0)
+			return 0;
+		unordered_set<char> table;
+		int rPtr = -1, maxL = 0;
+		for (int i = 0; i < length; i++) {
+			if (i != 0)
+				table.erase(s[i - 1]);
+			while (rPtr + 1 < length && !table.count(s[rPtr + 1])) {
+				table.insert(s[rPtr + 1]);
+				++rPtr;
+			}
+			maxL = max(maxL, rPtr - i + 1);
+		}
+		return maxL;
+	}
 };
 /*
 思路：滑动窗口
@@ -76,24 +78,25 @@ public:
 */
 class Solution_2 {
 public:
-    int lengthOfLongestSubstring(string s) {
-        if (s.length() < 2) return s.length();
-        vector<int> table(128, 0);//记录字符出现次数
-        int maxL = 0;
-        for (int left = 0, right = 0; right < s.length(); right++) {
-            table[(int)s[right]]++;
-            while (table[(int)s[right]] > 1) {
-                table[(int)s[left]]--;
-                left++;
-            }
-            maxL = max(maxL, right - left + 1);
-        }
-        return maxL;
-    }
+	int lengthOfLongestSubstring(string s) {
+		if (s.length() < 2)
+			return s.length();
+		vector<int> table(128, 0); //记录字符出现次数
+		int maxL = 0;
+		for (int left = 0, right = 0; right < s.length(); right++) {
+			table[(int)s[right]]++;
+			while (table[(int)s[right]] > 1) {
+				table[(int)s[left]]--;
+				left++;
+			}
+			maxL = max(maxL, right - left + 1);
+		}
+		return maxL;
+	}
 };
 int main() {
-    string s = "abba";
-    Solution ss;
-    cout << ss.lengthOfLongestSubstring(s) << endl;
-    return 0;
+	string s = "abba";
+	Solution ss;
+	cout << ss.lengthOfLongestSubstring(s) << endl;
+	return 0;
 }

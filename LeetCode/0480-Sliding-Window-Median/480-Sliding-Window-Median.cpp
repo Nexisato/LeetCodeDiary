@@ -1,16 +1,16 @@
 /*
 LeetCode 480 : Siliding Windows Median
 @Description:
-Median is the middle value in an ordered integer list. If the size of the list is even, 
+Median is the middle value in an ordered integer list. If the size of the list is even,
 there is no middle value. So the median is the mean of the two middle value.
 
 Examples:
 [2,3,4] , the median is 3
 [2,3], the median is (2 + 3) / 2 = 2.5
 
-Given an array nums, there is a sliding window of size k which is moving from 
-the very left of the array to the very right. You can only see the k numbers in the window. 
-Each time the sliding window moves right by one position. 
+Given an array nums, there is a sliding window of size k which is moving from
+the very left of the array to the very right. You can only see the k numbers in the window.
+Each time the sliding window moves right by one position.
 Your job is to output the median array for each window in the original array.
 
 For example,
@@ -30,27 +30,28 @@ using namespace std;
 */
 class Solution {
 public:
-    vector<double> medianSlidingWindow(vector<int>& nums, int k) {
-        if (nums.size() == 0 || k == 0) return {};
-        int left = 0;
-        int right = left + k - 1;
-        vector<double> res;
-        while (right < nums.size()) {
-            vector<int> arr(nums.begin()+ left, nums.begin() + right + 1);
-            sort(arr.begin(), arr.end());
-            res.emplace_back(medianCal(arr));
-            ++left;
-            ++right;
-        }
-        return res;
-    }
-    double medianCal(vector<int>& nums) {
-        if (nums.size() % 2 == 1)
-            return (double) nums[nums.size() / 2];
-        else {
-            return (double) (nums[nums.size() / 2] + nums[nums.size() / 2 - 1]) / 2;
-        }
-    }
+	vector<double> medianSlidingWindow(vector<int>& nums, int k) {
+		if (nums.size() == 0 || k == 0)
+			return {};
+		int left = 0;
+		int right = left + k - 1;
+		vector<double> res;
+		while (right < nums.size()) {
+			vector<int> arr(nums.begin() + left, nums.begin() + right + 1);
+			sort(arr.begin(), arr.end());
+			res.emplace_back(medianCal(arr));
+			++left;
+			++right;
+		}
+		return res;
+	}
+	double medianCal(vector<int>& nums) {
+		if (nums.size() % 2 == 1)
+			return (double)nums[nums.size() / 2];
+		else {
+			return (double)(nums[nums.size() / 2] + nums[nums.size() / 2 - 1]) / 2;
+		}
+	}
 };
 /*
 思路：
@@ -62,20 +63,21 @@ public:
 */
 class Solution_multiset {
 public:
-    vector<double> medianSlidingWindow(vector<int>& nums, int k) {
-        vector<double> res;
-        multiset<double> st;
-        for (int i = 0; i < nums.size(); ++i) {
-            if (st.size() >= k) st.erase(st.find(nums[i - k]));
-            st.insert(nums[i]);
-            if (i >= k - 1) {
-                auto mid = st.begin();
-                std::advance(mid, k / 2);
-                res.emplace_back((*mid + *prev(mid, (1 - k % 2))) / 2);
-            }
-        }
-        return res;
-    }
+	vector<double> medianSlidingWindow(vector<int>& nums, int k) {
+		vector<double> res;
+		multiset<double> st;
+		for (int i = 0; i < nums.size(); ++i) {
+			if (st.size() >= k)
+				st.erase(st.find(nums[i - k]));
+			st.insert(nums[i]);
+			if (i >= k - 1) {
+				auto mid = st.begin();
+				std::advance(mid, k / 2);
+				res.emplace_back((*mid + *prev(mid, (1 - k % 2))) / 2);
+			}
+		}
+		return res;
+	}
 };
 /*
 思路：对顶堆
@@ -88,7 +90,7 @@ public:
     - 设置当前滑动时balance = 0
     - 删除窗口左侧元素
         · 由于堆无法删除指定元素，因此先标记这个元素，note[left]++
-        · 假设左侧元素已经删除掉（实际未删），堆的平衡下发生变化，因而 
+        · 假设左侧元素已经删除掉（实际未删），堆的平衡下发生变化，因而
             若nums[left] <= maxHeap.top()，说明删掉的元素在 maxHeap，balance--；从minHeap删除，否则balance++
     - 添加窗口右侧元素
         · 若 nums[right] <= maxHeap.top()，放入maxHeap，balance++；否则放入minHeap，balance--
@@ -100,66 +102,63 @@ public:
 */
 class Solution {
 private:
-    priority_queue<int, vector<int>, less<int>> maxHeap;
-    priority_queue<int ,vector<int>, greater<int>> minHeap;
-    unordered_map<int, int> note;
-    double getMedian(int& k) {
-        if (k % 2) return (double) maxHeap.top();
-        else return  (long long) (maxHeap.top() + minHeap.top()) / (double) 2;
-    }
+	priority_queue<int, vector<int>, less<int>> maxHeap;
+	priority_queue<int, vector<int>, greater<int>> minHeap;
+	unordered_map<int, int> note;
+	double getMedian(int& k) {
+		if (k % 2)
+			return (double)maxHeap.top();
+		else
+			return (long long)(maxHeap.top() + minHeap.top()) / (double)2;
+	}
+
 public:
-    vector<double> medianSlidingWindow(vector<int>& nums, int k) {
-        for (int i = 0; i < k; i++)
-            maxHeap.emplace(nums[i]);
-        for (int i = 0; i < k / 2; i++) {
-            minHeap.emplace(maxHeap.top());
-            maxHeap.pop();
-        }
-        vector<double> res{getMedian(k)};
-        for (int i = k; i < nums.size(); i++) {
-            int balance = 0;
-            int left = i - k;
-            note[nums[left]]++;
+	vector<double> medianSlidingWindow(vector<int>& nums, int k) {
+		for (int i = 0; i < k; i++)
+			maxHeap.emplace(nums[i]);
+		for (int i = 0; i < k / 2; i++) {
+			minHeap.emplace(maxHeap.top());
+			maxHeap.pop();
+		}
+		vector<double> res{getMedian(k)};
+		for (int i = k; i < nums.size(); i++) {
+			int balance = 0;
+			int left = i - k;
+			note[nums[left]]++;
 
-            if (!maxHeap.empty() && nums[left] <= maxHeap.top())
-                balance--;
-            else 
-                balance++;
+			if (!maxHeap.empty() && nums[left] <= maxHeap.top())
+				balance--;
+			else
+				balance++;
 
-            if (nums[i] <= maxHeap.top()) {
-                maxHeap.emplace(nums[i]);
-                balance++;
-            }
-            else {
-                minHeap.emplace(nums[i]);
-                balance--;
-            }
+			if (nums[i] <= maxHeap.top()) {
+				maxHeap.emplace(nums[i]);
+				balance++;
+			} else {
+				minHeap.emplace(nums[i]);
+				balance--;
+			}
 
-            if (balance > 0) {
-                minHeap.emplace(maxHeap.top());
-                maxHeap.pop();
-            }
-            else if (balance < 0) {
-                maxHeap.emplace(minHeap.top());
-                minHeap.pop();
-            }
+			if (balance > 0) {
+				minHeap.emplace(maxHeap.top());
+				maxHeap.pop();
+			} else if (balance < 0) {
+				maxHeap.emplace(minHeap.top());
+				minHeap.pop();
+			}
 
-            while (!maxHeap.empty() && note[maxHeap.top()] > 0) {
-                note[maxHeap.top()]--;
-                maxHeap.pop();
-            }
-            while (!minHeap.empty() && note[minHeap.top()] > 0) {
-                note[minHeap.top()]--;
-                minHeap.pop();
-            }
+			while (!maxHeap.empty() && note[maxHeap.top()] > 0) {
+				note[maxHeap.top()]--;
+				maxHeap.pop();
+			}
+			while (!minHeap.empty() && note[minHeap.top()] > 0) {
+				note[minHeap.top()]--;
+				minHeap.pop();
+			}
 
-            res.emplace_back(getMedian(k));
-        }
-        return res;
-    }
-
+			res.emplace_back(getMedian(k));
+		}
+		return res;
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

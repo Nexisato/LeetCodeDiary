@@ -2,13 +2,13 @@
  * @Date: 2024-03-06 21:52:30
  * @Author: nexisato
  * @FilePath: /LeetCodeDiary/Multi-Threads/1114-Print-in-Order/1114-mutex.cpp
- * @Description: 
+ * @Description:
  */
-#include <iostream>
-#include <vector>
-#include <thread>
 #include <functional>
+#include <iostream>
 #include <mutex>
+#include <thread>
+#include <vector>
 using namespace std;
 
 /**
@@ -17,35 +17,30 @@ using namespace std;
 */
 class Foo {
 private:
-    std::mutex mtx_1, mtx_2;
-    std::unique_lock<std::mutex> locker1, locker2;
+	std::mutex mtx_1, mtx_2;
+	std::unique_lock<std::mutex> locker1, locker2;
+
 public:
-    Foo() : locker1(mtx_1, try_to_lock), locker2(mtx_2, try_to_lock) {
-        
-    }
+	Foo() : locker1(mtx_1, try_to_lock), locker2(mtx_2, try_to_lock) {}
 
-    void first(function<void()> printFirst) {
-        
-        // printFirst() outputs "first". Do not change or remove this line.
-        printFirst();
-        locker1.unlock();
-    }
+	void first(function<void()> printFirst) {
 
-    void second(function<void()> printSecond) {
-        std::lock_guard<std::mutex> guard1(mtx_1);
-        // printSecond() outputs "second". Do not change or remove this line.
-        printSecond();
-        locker2.unlock();
-    }
+		// printFirst() outputs "first". Do not change or remove this line.
+		printFirst();
+		locker1.unlock();
+	}
 
-    void third(function<void()> printThird) {
-        std::lock_guard<std::mutex> guard2(mtx_2);
-        // printThird() outputs "third". Do not change or remove this line.
-        printThird();
-    }
+	void second(function<void()> printSecond) {
+		std::lock_guard<std::mutex> guard1(mtx_1);
+		// printSecond() outputs "second". Do not change or remove this line.
+		printSecond();
+		locker2.unlock();
+	}
+
+	void third(function<void()> printThird) {
+		std::lock_guard<std::mutex> guard2(mtx_2);
+		// printThird() outputs "third". Do not change or remove this line.
+		printThird();
+	}
 };
-int main() {
-
-
-    return 0;
-}
+int main() { return 0; }

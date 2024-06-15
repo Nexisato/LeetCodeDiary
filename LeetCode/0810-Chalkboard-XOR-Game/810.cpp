@@ -2,19 +2,19 @@
 LeetCode: Chalkboard XOR Game
 @Description:
 
-We are given non-negative integers nums[i] which are written on a chalkboard.  
-Alice and Bob take turns erasing exactly one number from the chalkboard, with Alice starting first.  
-If erasing a number causes the bitwise XOR of all the elements of the chalkboard to become 0, 
-then that player loses.  (Also, we'll say the bitwise XOR of one element is that element itself, 
+We are given non-negative integers nums[i] which are written on a chalkboard. 
+Alice and Bob take turns erasing exactly one number from the chalkboard, with Alice starting first. 
+If erasing a number causes the bitwise XOR of all the elements of the chalkboard to become 0,
+then that player loses.  (Also, we'll say the bitwise XOR of one element is that element itself,
 and the bitwise XOR of no elements is 0.)
 
-Also, if any player starts their turn with the bitwise XOR of all the elements of the 
+Also, if any player starts their turn with the bitwise XOR of all the elements of the
 chalkboard equal to 0, then that player wins.
 
 Return True if and only if Alice wins the game, assuming both players play optimally.
 
 Notes:
-1 <= N <= 1000. 
+1 <= N <= 1000.
 0 <= nums[i] <= 2^16.
 */
 #include <bits/stdc++.h>
@@ -34,16 +34,12 @@ n为偶数，可以合并为 S ^ 0 = 0，这样Alice开头即可获胜，矛盾
 */
 class Solution {
 public:
-    bool xorGame(vector<int>& nums) {
-        int n = nums.size();
-        int tot = 0;
-        for (auto& num : nums)
-            tot ^= num;
-        return n % 2 == 0 || tot == 0;
-    }
+	bool xorGame(vector<int>& nums) {
+		int n = nums.size();
+		int tot = 0;
+		for (auto& num : nums)
+			tot ^= num;
+		return n % 2 == 0 || tot == 0;
+	}
 };
-int main() {
-
-
-    return 0;
-}
+int main() { return 0; }

@@ -15,34 +15,31 @@ using namespace std;
 */
 class Solution {
 private:
-    using L = long;
+	using L = long;
+
 public:
-    int nthUglyNumber(int n) {
-        if (n <= 6)
-            return n;
-        vector<int> multis = {2, 3, 5};
-        priority_queue<L, vector<L>, greater<L>> minHeap;
-        unordered_set<L> marked;
-        marked.insert(1L);
-        minHeap.push(1L);
-        int res = 0;
-        for (int i = 0; i < n; ++i) {
-            L elem = minHeap.top();
-            res = (int)elem;
-            minHeap.pop();
-            for (const auto& multi : multis) {
-                L tmp = elem * multi;
-                if (!marked.count(tmp)) {
-                    marked.insert(tmp);
-                    minHeap.push(tmp);
-                }
-            }
-        }
-        return res;
-    }
+	int nthUglyNumber(int n) {
+		if (n <= 6)
+			return n;
+		vector<int> multis = {2, 3, 5};
+		priority_queue<L, vector<L>, greater<L>> minHeap;
+		unordered_set<L> marked;
+		marked.insert(1L);
+		minHeap.push(1L);
+		int res = 0;
+		for (int i = 0; i < n; ++i) {
+			L elem = minHeap.top();
+			res = (int)elem;
+			minHeap.pop();
+			for (const auto& multi : multis) {
+				L tmp = elem * multi;
+				if (!marked.count(tmp)) {
+					marked.insert(tmp);
+					minHeap.push(tmp);
+				}
+			}
+		}
+		return res;
+	}
 };
-int main() {
-
-
-    return 0;
-}
+int main() { return 0; }

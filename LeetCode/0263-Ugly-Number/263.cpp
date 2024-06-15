@@ -14,17 +14,14 @@ using namespace std;
 */
 class Solution {
 public:
-    bool isUgly(int n) {
-        while (n > 1 && n % 5 == 0)
-            n /= 5;
-        while (n > 1 && n % 2 == 0)
-            n /= 2;
-        while (n > 1 && n % 3 == 0)
-            n /= 3;
-        return (n == 1);
-    }
+	bool isUgly(int n) {
+		while (n > 1 && n % 5 == 0)
+			n /= 5;
+		while (n > 1 && n % 2 == 0)
+			n /= 2;
+		while (n > 1 && n % 3 == 0)
+			n /= 3;
+		return (n == 1);
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

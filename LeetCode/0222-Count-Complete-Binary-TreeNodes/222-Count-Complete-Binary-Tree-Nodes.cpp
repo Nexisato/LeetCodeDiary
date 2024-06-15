@@ -2,16 +2,16 @@
  * @Date: 2023-12-10 01:13:31
  * @Author: nexisato
  * @FilePath: /LeetCodeDiary/LeetCode/0222_Count_Complete_Binary_TreeNodes/222_Count_Complete_Binary_Tree_Nodes.cpp
- * @Description: 
+ * @Description:
  */
 /*
 LeetCode: 222 Count Complete Binary Tree Nodes
 Description:
 Given the root of a complete binary tree, return the number of the nodes in the tree.
 
-According to Wikipedia, every level, except possibly the last, 
-is completely filled in a complete binary tree, 
-and all nodes in the last level are as far left as possible. 
+According to Wikipedia, every level, except possibly the last,
+is completely filled in a complete binary tree,
+and all nodes in the last level are as far left as possible.
 It can have between 1 and 2h nodes inclusive at the last level h.
 
 Constraints:
@@ -31,39 +31,38 @@ using namespace std;
 
 //  Definition for a binary tree node.
 struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+	int val;
+	TreeNode* left;
+	TreeNode* right;
+	TreeNode() : val(0), left(nullptr), right(nullptr) {}
+	TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+	TreeNode(int x, TreeNode* left, TreeNode* right) : val(x), left(left), right(right) {}
 };
 
 class Solution {
 public:
-    int countNodes(TreeNode* root) {
-        if (!root) return 0;
-        return 1 + countNodes(root->left) + countNodes(root->right);
-    }
-    int countNodes_opt(TreeNode* root) {
-        if (!root) return 0;
-        TreeNode *lnode = root, *rnode = root;
-        int hl = 0, hr = 0;
-        while (lnode) {
-            lnode = lnode->left;
-            hl++;
-        }
-        while (rnode) {
-            rnode = rnode->right;
-            hr++;
-        }
-        if (hl == hr)
-            return (int)pow(2,hl) - 1; // (2 << h1) - 1
-        else
-            return 1 + countNodes(root->left) + countNodes(root->right);
-    }
+	int countNodes(TreeNode* root) {
+		if (!root)
+			return 0;
+		return 1 + countNodes(root->left) + countNodes(root->right);
+	}
+	int countNodes_opt(TreeNode* root) {
+		if (!root)
+			return 0;
+		TreeNode *lnode = root, *rnode = root;
+		int hl = 0, hr = 0;
+		while (lnode) {
+			lnode = lnode->left;
+			hl++;
+		}
+		while (rnode) {
+			rnode = rnode->right;
+			hr++;
+		}
+		if (hl == hr)
+			return (int)pow(2, hl) - 1; // (2 << h1) - 1
+		else
+			return 1 + countNodes(root->left) + countNodes(root->right);
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

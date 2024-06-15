@@ -5,15 +5,15 @@ Given a singly linked list, determine if it is a palindrome.
 Follow up:
 Could you do it in O(n) time and O(1) space?
 */
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 // Definition for singly-linked list.
 struct ListNode {
-    int val;
-    ListNode *next;
-   ListNode(int x) : val(x), next(NULL) {}
- };
+	int val;
+	ListNode* next;
+	ListNode(int x) : val(x), next(NULL) {}
+};
 
 /*
 思路：双指针法
@@ -25,57 +25,58 @@ struct ListNode {
 */
 class Solution {
 public:
-    bool isPalindrome(ListNode* head) {
-        if (!head || !head -> next) return true;
-        ListNode *slowPtr = head, *fastPtr = head, *prePtr = head;
-        while (fastPtr && fastPtr -> next) {
-            prePtr = slowPtr;
-            slowPtr = slowPtr->next;
-            fastPtr = fastPtr->next->next;
-        }
-        prePtr->next = nullptr;
-        ListNode *cur1 = head;
-        ListNode *cur2 = reverseList(slowPtr);
-        while (cur1) {
-            if (cur1->val != cur2->val) return false;
-            cur1 = cur1->next;
-            cur2 = cur2->next;
-        }
-        return true;
-    }
-    ListNode* reverseList(ListNode* head) {
-        //if (!head) return nullptr;
-        ListNode *node = head , *prenode = nullptr , *postnode = head;
-        while (node) {
-            postnode = node->next;
-            node->next = prenode;
-            prenode = node;
-            node = postnode;
-        }
-        return prenode;
-    }
+	bool isPalindrome(ListNode* head) {
+		if (!head || !head->next)
+			return true;
+		ListNode *slowPtr = head, *fastPtr = head, *prePtr = head;
+		while (fastPtr && fastPtr->next) {
+			prePtr = slowPtr;
+			slowPtr = slowPtr->next;
+			fastPtr = fastPtr->next->next;
+		}
+		prePtr->next = nullptr;
+		ListNode* cur1 = head;
+		ListNode* cur2 = reverseList(slowPtr);
+		while (cur1) {
+			if (cur1->val != cur2->val)
+				return false;
+			cur1 = cur1->next;
+			cur2 = cur2->next;
+		}
+		return true;
+	}
+	ListNode* reverseList(ListNode* head) {
+		// if (!head) return nullptr;
+		ListNode *node = head, *prenode = nullptr, *postnode = head;
+		while (node) {
+			postnode = node->next;
+			node->next = prenode;
+			prenode = node;
+			node = postnode;
+		}
+		return prenode;
+	}
 };
 /*
 思路：递归/后序遍历
 核心逻辑：将链表节点入栈，再拿出来，此时元素顺序就是反的
 */
 class Solution_dong {
-    ListNode *left;
+	ListNode* left;
+
 public:
-    bool isPalindrome(ListNode* head) {
-        left = head;
-        return traverse(head);
-    }
-    bool traverse(ListNode* right) {
-        if (right == nullptr) return true;
-        bool res = traverse(right->next);
-        res = res && (right->val == left->val);
-        left = left->next;
-        return res;
-    }
+	bool isPalindrome(ListNode* head) {
+		left = head;
+		return traverse(head);
+	}
+	bool traverse(ListNode* right) {
+		if (right == nullptr)
+			return true;
+		bool res = traverse(right->next);
+		res = res && (right->val == left->val);
+		left = left->next;
+		return res;
+	}
 };
 
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

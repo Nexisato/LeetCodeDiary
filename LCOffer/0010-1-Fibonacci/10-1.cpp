@@ -7,21 +7,18 @@
 using namespace std;
 class Solution {
 public:
-    int fib(int n) {
-        const int MODE = 1e9+7;
-        if (n < 2)
-            return n;
-        int a = 0,b = 0,c = 1;
-        int sum = 0;
-        for(int i = 2; i <= n; ++i){
-            a = b;
-            b = c;
-            c = (a + b) % MODE;
-        }
-        return c;
-    }
+	int fib(int n) {
+		const int MODE = 1e9 + 7;
+		if (n < 2)
+			return n;
+		int a = 0, b = 0, c = 1;
+		int sum = 0;
+		for (int i = 2; i <= n; ++i) {
+			a = b;
+			b = c;
+			c = (a + b) % MODE;
+		}
+		return c;
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

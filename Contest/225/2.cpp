@@ -1,5 +1,5 @@
 /*
-5662. 满足三条件之一需改变的最少字符数 
+5662. 满足三条件之一需改变的最少字符数
 给你两个字符串 a 和 b ，二者均由小写字母组成。一步操作中，你可以将 a 或 b 中的 任一字符 改变为 任一小写字母 。
 
 操作的最终目标是满足下列三个条件 之一 ：
@@ -15,7 +15,6 @@ a 和 b 只由小写字母组成
 #include <bits/stdc++.h>
 using namespace std;
 
-
 /*
 思路：
 1. 条件一与条件二等价，交换数组即可
@@ -24,39 +23,39 @@ using namespace std;
 */
 class Solution {
 public:
-    int minCharacters(string a, string b) {
-        int m = a.length(), n = b.length();
-        vector<int> ca(26), cb(26);
-        for (char c : a)
-            ca[c - 'a']++;
-        for (char c : b)
-            cb[c - 'a']++;
-        int ans = n + m;
-        
-        for (int i = 0; i < 26; ++i)
-            ans = min(ans, n + m - ca[i] - cb[i]);
+	int minCharacters(string a, string b) {
+		int m = a.length(), n = b.length();
+		vector<int> ca(26), cb(26);
+		for (char c : a)
+			ca[c - 'a']++;
+		for (char c : b)
+			cb[c - 'a']++;
+		int ans = n + m;
 
-        auto make_smaller = [&](vector<int> &a, vector<int> &b) {
-            for (int i = 1; i < 26; ++i) {
-                int tmp = 0;
-                for (int j = i; j < 26 ; ++j) 
-                    tmp += a[j];
-                for (int j = 0; j < i; ++j) 
-                    tmp += b[j];
-                ans = min(ans, tmp);
-            }
-        };
+		for (int i = 0; i < 26; ++i)
+			ans = min(ans, n + m - ca[i] - cb[i]);
 
-        make_smaller(ca, cb);
-        make_smaller(cb, ca);
+		auto make_smaller = [&](vector<int>& a, vector<int>& b) {
+			for (int i = 1; i < 26; ++i) {
+				int tmp = 0;
+				for (int j = i; j < 26; ++j)
+					tmp += a[j];
+				for (int j = 0; j < i; ++j)
+					tmp += b[j];
+				ans = min(ans, tmp);
+			}
+		};
 
-        return ans;
-    }
+		make_smaller(ca, cb);
+		make_smaller(cb, ca);
+
+		return ans;
+	}
 };
 int main() {
-    string a = "aba";
-    string b = "caa";
-    Solution ss;
-    cout << ss.minCharacters(a, b) << endl;
-    return 0;
+	string a = "aba";
+	string b = "caa";
+	Solution ss;
+	cout << ss.minCharacters(a, b) << endl;
+	return 0;
 }

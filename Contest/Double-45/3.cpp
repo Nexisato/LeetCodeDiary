@@ -1,7 +1,7 @@
 /*
 LeetCode 5659: Minimum Length of String After Deleting Similar Ends
-@Description: 
-Given a string s consisting only of characters 'a', 'b', and 'c'. 
+@Description:
+Given a string s consisting only of characters 'a', 'b', and 'c'.
 You are asked to apply the following algorithm on the string any number of times:
 -Pick a non-empty prefix from the string s where all the characters in the prefix are equal.
 -Pick a non-empty suffix from the string s where all the characters in this suffix are equal.
@@ -9,7 +9,7 @@ You are asked to apply the following algorithm on the string any number of times
 -The characters from the prefix and suffix must be the same.
 -Delete both the prefix and the suffix.
 
-Return the minimum length of s after performing the above operation any number of times 
+Return the minimum length of s after performing the above operation any number of times
 (possibly zero times).
 
 Constraints:
@@ -26,31 +26,28 @@ using namespace std;
 */
 class Solution {
 public:
-    int minimumLength(string s) {
-        int left = 0, right = s.length() - 1;
-        while (true) {
-            if (s[left] != s[right]) break;
-            while (left < right && s[left] == s[left + 1])
-                left++;
-            while (left < right && s[right] == s[right - 1])
-                right--;
-            if (left < right) {
-               left++;
-               right--; 
-            }
-            else { 
-                if (left > 0 && s[left] == s[left - 1])
-                    return 0;
-                else if (right < s.length() - 1 && s[right] == s[right] + 1)
-                    return 0;
-                else
-                    return 1;
-            } 
-        }
-        return right - left + 1;
-    }
+	int minimumLength(string s) {
+		int left = 0, right = s.length() - 1;
+		while (true) {
+			if (s[left] != s[right])
+				break;
+			while (left < right && s[left] == s[left + 1])
+				left++;
+			while (left < right && s[right] == s[right - 1])
+				right--;
+			if (left < right) {
+				left++;
+				right--;
+			} else {
+				if (left > 0 && s[left] == s[left - 1])
+					return 0;
+				else if (right < s.length() - 1 && s[right] == s[right] + 1)
+					return 0;
+				else
+					return 1;
+			}
+		}
+		return right - left + 1;
+	}
 };
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

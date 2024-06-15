@@ -13,22 +13,22 @@ using namespace std;
 */
 class Solution {
 public:
-    bool judgeSquareSum(int c) {
-        int maxSqrt = (int)sqrt(c);
-        int a = 0;
-        for (;a <= maxSqrt; ++a) {
-            double b = sqrt(c - a * a);
-            if (b == (int)b)
-                return true;
-        }
-        return false;
-    }
+	bool judgeSquareSum(int c) {
+		int maxSqrt = (int)sqrt(c);
+		int a = 0;
+		for (; a <= maxSqrt; ++a) {
+			double b = sqrt(c - a * a);
+			if (b == (int)b)
+				return true;
+		}
+		return false;
+	}
 };
 int main() {
-    int c = 100000;
-    Solution ss;
-    bool tmp = ss.judgeSquareSum(c);
-    cout << tmp << endl;
+	int c = 100000;
+	Solution ss;
+	bool tmp = ss.judgeSquareSum(c);
+	cout << tmp << endl;
 
-    return 0;
+	return 0;
 }

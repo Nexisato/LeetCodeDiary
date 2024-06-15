@@ -2,13 +2,12 @@
  * @Date: 2024-03-01 22:49:19
  * @Author: nexisato
  * @FilePath: /LeetCodeDiary/LeetCode/0442-Find-All-Duplicates-in-Array/442.cpp
- * @Description: 
+ * @Description:
  */
+#include <cmath>
 #include <iostream>
 #include <vector>
-#include <cmath>
 using namespace std;
-
 
 /**
 桶排序思维
@@ -19,41 +18,37 @@ using namespace std;
 */
 class Solution {
 public:
-    vector<int> findDuplicates(vector<int>& nums) {
-        int n = nums.size();
-        vector<int> res;
-        for (int i = 0; i < n; ++i) {
-            while (nums[i] != 0 && nums[i] != i + 1) {
-                if (nums[i] == nums[nums[i] - 1]) {
-                    res.push_back(nums[i]);
-                    nums[i] = 0;
-                    break;
-                }
-                swap(nums[i], nums[nums[i] - 1]);
-            }
-        }
-        return res;
-    }
+	vector<int> findDuplicates(vector<int>& nums) {
+		int n = nums.size();
+		vector<int> res;
+		for (int i = 0; i < n; ++i) {
+			while (nums[i] != 0 && nums[i] != i + 1) {
+				if (nums[i] == nums[nums[i] - 1]) {
+					res.push_back(nums[i]);
+					nums[i] = 0;
+					break;
+				}
+				swap(nums[i], nums[nums[i] - 1]);
+			}
+		}
+		return res;
+	}
 
-    vector<int> findDuplicates_neg(vector<int>& nums) {
-        int n = nums.size();
-        vector<int> res;
-        for (int i = 0; i < n; ++i) {
-            int num = nums[i];
-            int idx = abs(nums[i]) - 1;
-            if (nums[idx] > 0) {
-                nums[idx] = -nums[idx];
-            } else {
-                res.push_back(idx + 1);
-            }
-        }
+	vector<int> findDuplicates_neg(vector<int>& nums) {
+		int n = nums.size();
+		vector<int> res;
+		for (int i = 0; i < n; ++i) {
+			int num = nums[i];
+			int idx = abs(nums[i]) - 1;
+			if (nums[idx] > 0) {
+				nums[idx] = -nums[idx];
+			} else {
+				res.push_back(idx + 1);
+			}
+		}
 
-        return res;
-    }
+		return res;
+	}
 };
 
-
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

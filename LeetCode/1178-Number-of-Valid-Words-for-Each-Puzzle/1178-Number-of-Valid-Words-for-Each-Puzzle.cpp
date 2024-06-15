@@ -5,9 +5,9 @@ With respect to a given puzzle string, a word is valid if both the following co
 · word contains the first letter of puzzle.
 · For each letter in word, that letter is in puzzle.
 
-For example, if the puzzle is "abcdefg", then valid words are "faced", "cabbage", and "baggage"; 
+For example, if the puzzle is "abcdefg", then valid words are "faced", "cabbage", and "baggage";
 while invalid words are "beefed" (doesn't include "a") and "based" (includes "s" which isn't in the puzzle).
-Return an array answer, where answer[i] is the number of words 
+Return an array answer, where answer[i] is the number of words
 in the given word list words that are valid with respect to the puzzle puzzles[i].
 
 Constraints:
@@ -44,7 +44,7 @@ public:
             vector<bool> table(26, false);
             for (auto& c : puzzle)
                 table[c - 'a'] = true;
-            for (auto& word : words) 
+            for (auto& word : words)
                 res[i] = (isValidWord(word, start, table)) ? (res[i] + 1) : res[i];
             table.clear();
             ++i;
@@ -65,51 +65,47 @@ public:
 */
 class Solution {
 private:
-    inline int BitCount(int x) {
-        int res = 0;
-        while (x > 0) {
-            res += (x & 1);
-            x >>= 1;
-        }
-        return res;
-    }
+	inline int BitCount(int x) {
+		int res = 0;
+		while (x > 0) {
+			res += (x & 1);
+			x >>= 1;
+		}
+		return res;
+	}
+
 public:
-    vector<int> findNumOfValidWords(vector<string>& words, vector<string>& puzzles) {
-        unordered_map<int, int> table;
-        for (const string& word : words) {
-            int mask = 0;
-            for (char& c : word) 
-                mask |= (1 << (c - 'a'));
-            // puzzle.length() = 7，且各字符不同，因此字符不同数目大于7时即可跳过
-            if (BitCount(mask) <= 7)
-                table[mask]++;
-        }
-        vector<int> res;
-        for (auto& puzzle : puzzles) {
-            int mask = 0;
-            //忽略puzzle[0]
-            for (int i = 1; i < 7; ++i) 
-                mask |= (1 << (puzzle[i] - 'a'));
-            int start = 1 << (puzzle[0] - 'a');
-            int currMask = mask, total = 0, curr = 0;
-            do {
-                curr = currMask | start;
-                if (table.count(curr))
-                    total += table[curr];
-                currMask = (currMask - 1) & mask;
-            } while (currMask != mask);
-            res.emplace_back(total);
-        }
-        return res;
-    }
-        
+	vector<int> findNumOfValidWords(vector<string>& words, vector<string>& puzzles) {
+		unordered_map<int, int> table;
+		for (const string& word : words) {
+			int mask = 0;
+			for (char& c : word)
+				mask |= (1 << (c - 'a'));
+			// puzzle.length() = 7，且各字符不同，因此字符不同数目大于7时即可跳过
+			if (BitCount(mask) <= 7)
+				table[mask]++;
+		}
+		vector<int> res;
+		for (auto& puzzle : puzzles) {
+			int mask = 0;
+			//忽略puzzle[0]
+			for (int i = 1; i < 7; ++i)
+				mask |= (1 << (puzzle[i] - 'a'));
+			int start = 1 << (puzzle[0] - 'a');
+			int currMask = mask, total = 0, curr = 0;
+			do {
+				curr = currMask | start;
+				if (table.count(curr))
+					total += table[curr];
+				currMask = (currMask - 1) & mask;
+			} while (currMask != mask);
+			res.emplace_back(total);
+		}
+		return res;
+	}
 };
 /*
 思路：字典树
 */
 
-
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

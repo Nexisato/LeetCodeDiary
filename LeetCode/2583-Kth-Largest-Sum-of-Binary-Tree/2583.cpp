@@ -5,8 +5,8 @@
  * @Description:
  */
 #include <iostream>
-#include <vector>
 #include <queue>
+#include <vector>
 using namespace std;
 
 // Definition for a binary tree node.
@@ -22,32 +22,32 @@ struct TreeNode {
 class Solution {
 public:
 	long long kthLargestLevelSum(TreeNode* root, int k) {
-        if (!root) return -1;
-        priority_queue<long long, vector<long long>, greater<long long>> minHeap;
-        queue<TreeNode*> q;
-        q.push(root);
-        while (!q.empty()) {
-            long long sum = 0;
-            int size = q.size();
-            for (int i = 0; i < size; ++i) {
-                TreeNode* node = q.front();
-                q.pop();
-                sum += node->val;
-                if (node->left) q.push(node->left);
-                if (node->right) q.push(node->right);
-            }
-            if (minHeap.size() < k) {
-                minHeap.push(sum);
-            } else if (sum > minHeap.top()) {
-                minHeap.pop();
-                minHeap.push(sum);
-            }
-        }
-        return minHeap.size() == k ? minHeap.top() : -1;
-    }
+		if (!root)
+			return -1;
+		priority_queue<long long, vector<long long>, greater<long long>> minHeap;
+		queue<TreeNode*> q;
+		q.push(root);
+		while (!q.empty()) {
+			long long sum = 0;
+			int size = q.size();
+			for (int i = 0; i < size; ++i) {
+				TreeNode* node = q.front();
+				q.pop();
+				sum += node->val;
+				if (node->left)
+					q.push(node->left);
+				if (node->right)
+					q.push(node->right);
+			}
+			if (minHeap.size() < k) {
+				minHeap.push(sum);
+			} else if (sum > minHeap.top()) {
+				minHeap.pop();
+				minHeap.push(sum);
+			}
+		}
+		return minHeap.size() == k ? minHeap.top() : -1;
+	}
 };
 
-int main() {
-
-    return 0;
-}
+int main() { return 0; }

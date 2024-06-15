@@ -1,16 +1,16 @@
 /*
 LeetCode 1052: Grumpy Bookstore Owner
 @Description:
-Today, the bookstore owner has a store open for customers.length minutes.  
-Every minute, some number of customers (customers[i]) enter the store, 
+Today, the bookstore owner has a store open for customers.length minutes. 
+Every minute, some number of customers (customers[i]) enter the store,
 and all those customers leave after the end of that minute.
 
-On some minutes, the bookstore owner is grumpy.  
-If the bookstore owner is grumpy on the i-th minute, grumpy[i] = 1, otherwise grumpy[i] = 0.  
-When the bookstore owner is grumpy, the customers of that minute are not satisfied, 
+On some minutes, the bookstore owner is grumpy. 
+If the bookstore owner is grumpy on the i-th minute, grumpy[i] = 1, otherwise grumpy[i] = 0. 
+When the bookstore owner is grumpy, the customers of that minute are not satisfied,
 otherwise they are satisfied.
 
-The bookstore owner knows a secret technique to keep themselves not grumpy for X minutes straight, 
+The bookstore owner knows a secret technique to keep themselves not grumpy for X minutes straight,
 but can only use it once.
 
 Return the maximum number of customers that can be satisfied throughout the day.
@@ -31,30 +31,31 @@ using namespace std;
 */
 class Solution {
 public:
-    int maxSatisfied(vector<int>& customers, vector<int>& grumpy, int X) {
-        int res = 0;
-        for (int i = 0; i < customers.size(); ++i) {
-            if (grumpy[i] == 0)
-                res += customers[i];
-        }
-        int left = 0, right = 0;
-        int tmpSum = 0, maxSum = 0;
-        while (right < customers.size()) {
-            tmpSum += (grumpy[right] == 1) ? customers[right] : 0;
-            if (++right < X) continue;
-            maxSum = max(maxSum, tmpSum);
-            if (grumpy[left] == 1)
-                tmpSum -= customers[left];
-            ++left;
-        }
-        return res + maxSum;
-    }
+	int maxSatisfied(vector<int>& customers, vector<int>& grumpy, int X) {
+		int res = 0;
+		for (int i = 0; i < customers.size(); ++i) {
+			if (grumpy[i] == 0)
+				res += customers[i];
+		}
+		int left = 0, right = 0;
+		int tmpSum = 0, maxSum = 0;
+		while (right < customers.size()) {
+			tmpSum += (grumpy[right] == 1) ? customers[right] : 0;
+			if (++right < X)
+				continue;
+			maxSum = max(maxSum, tmpSum);
+			if (grumpy[left] == 1)
+				tmpSum -= customers[left];
+			++left;
+		}
+		return res + maxSum;
+	}
 };
 int main() {
-    Solution ss;
-    vector<int> customers = {1, 0, 1, 2, 1, 1, 7, 5};
-    vector<int> grumpy = {0, 1, 0, 1, 0, 1, 0, 1};
-    int X = 3;
-    int res = ss.maxSatisfied(customers, grumpy, X);
-    return 0;
+	Solution ss;
+	vector<int> customers = {1, 0, 1, 2, 1, 1, 7, 5};
+	vector<int> grumpy = {0, 1, 0, 1, 0, 1, 0, 1};
+	int X = 3;
+	int res = ss.maxSatisfied(customers, grumpy, X);
+	return 0;
 }
