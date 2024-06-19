@@ -1,7 +1,8 @@
 /*
  * @Date: 2023-12-10 01:13:31
  * @Author: nexisato
- * @FilePath: /LeetCodeDiary/LeetCode/0019-Remove-the-Nth-Node-from-end-of-list/19-Remove-Nth-node-from-end-of-list.cpp
+ * @FilePath:
+ * /LeetCodeDiary/LeetCode/0019-Remove-the-Nth-Node-from-end-of-list/19-Remove-Nth-node-from-end-of-list.cpp
  * @Description:
  */
 /*
@@ -49,8 +50,9 @@ public:
 			slowNode = slowNode->next;
 		}
 		slowNode->next = slowNode->next->next;
-		return virnode->next; // 此处很关键，若只有一个节点，删除1个节点后链表为空，因此不能return
-		                      // head
+		return virnode
+		    ->next; // 此处很关键，若只有一个节点，删除1个节点后链表为空，因此不能return
+		            // head
 	}
 	ListNode* removeNthFromEnd_cur(ListNode* head, int n) {
 		ListNode* virHead = new ListNode(-1, head);

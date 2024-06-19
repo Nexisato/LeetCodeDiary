@@ -6,7 +6,8 @@ Note:
 You may assume the string contains only lowercase alphabets.
 
 Follow up:
-What if the inputs contain unicode characters? How would you adapt your solution to such case?
+What if the inputs contain unicode characters? How would you adapt your solution to such
+case?
 
 */
 #include <algorithm>

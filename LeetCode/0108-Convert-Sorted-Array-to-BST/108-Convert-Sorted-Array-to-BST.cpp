@@ -1,15 +1,16 @@
 /*
  * @Date: 2023-12-10 01:13:31
  * @Author: nexisato
- * @FilePath: /LeetCodeDiary/LeetCode/0108-Convert-Sorted-Array-to-BST/108-Convert-Sorted-Array-to-BST.cpp
+ * @FilePath:
+ * /LeetCodeDiary/LeetCode/0108-Convert-Sorted-Array-to-BST/108-Convert-Sorted-Array-to-BST.cpp
  * @Description:
  */
 /*
 LeetCode: 108
 Description:
-Given an array where elements are sorted in ascending order, convert it to a height balanced BST.
-For this problem, a height-balanced binary tree is defined as a binary tree in which
-the depth of the two subtrees of every node never differ by more than 1.
+Given an array where elements are sorted in ascending order, convert it to a height
+balanced BST. For this problem, a height-balanced binary tree is defined as a binary
+tree in which the depth of the two subtrees of every node never differ by more than 1.
 */
 #include <iostream>
 #include <vector>

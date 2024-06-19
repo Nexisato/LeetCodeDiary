@@ -1,7 +1,8 @@
 /*
  * @Date: 2024-03-01 20:07:46
  * @Author: nexisato
- * @FilePath: /LeetCodeDiary/LeetCode/2369-Check-if-Theres-is-a-valid-partition-for-the-array/2369.cpp
+ * @FilePath:
+ * /LeetCodeDiary/LeetCode/2369-Check-if-Theres-is-a-valid-partition-for-the-array/2369.cpp
  * @Description:
  */
 #include <functional>
@@ -34,7 +35,8 @@ public:
 		dp[2] = isValid(nums, 0, 2);
 		// dp[i] 以 nums[i] 结尾的数组能否构成划分
 		for (int i = 3; i < n; ++i) {
-			dp[i] = (dp[i - 3] && isValid(nums, i - 2, i)) || (dp[i - 2] && isValid(nums, i - 1, i));
+			dp[i] = (dp[i - 3] && isValid(nums, i - 2, i)) ||
+			        (dp[i - 2] && isValid(nums, i - 1, i));
 		}
 		return dp[n - 1];
 	}

@@ -1,8 +1,8 @@
 /*
 LeetCode 84: Largest Rectangle in Histogram
 @Description:
-Given n non-negative integers representing the histogram's bar height where the width of each bar is 1,
-find the area of largest rectangle in the histogram.
+Given n non-negative integers representing the histogram's bar height where the width of
+each bar is 1, find the area of largest rectangle in the histogram.
 
 Constraints:
 1 <= heights.length <= 10^5

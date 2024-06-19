@@ -1,7 +1,8 @@
 /*
  * @Date: 2024-01-10 12:36:32
  * @Author: nexisato
- * @FilePath: /LeetCodeDiary/LeetCode/2696_Minimum_String_Length_After_Removing_Substrings/2696.cpp
+ * @FilePath:
+ * /LeetCodeDiary/LeetCode/2696_Minimum_String_Length_After_Removing_Substrings/2696.cpp
  * @Description:
  */
 #include <iostream>

@@ -22,8 +22,9 @@ public:
 		vector<int> idx(n);
 		iota(idx.begin(), idx.end(), 0);
 		// 按照 aliceValues[i] + bobValues[i] 从大到小排序 降序
-		sort(idx.begin(), idx.end(),
-		     [&](int i, int j) { return aliceValues[i] + bobValues[i] > aliceValues[j] + bobValues[j]; });
+		sort(idx.begin(), idx.end(), [&](int i, int j) {
+			return aliceValues[i] + bobValues[i] > aliceValues[j] + bobValues[j];
+		});
 		int res = 0;
 		for (int i = 0; i < n; ++i) {
 			if (i % 2 == 0) {

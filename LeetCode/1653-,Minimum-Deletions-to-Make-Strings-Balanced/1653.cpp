@@ -26,8 +26,8 @@ public:
 		return res;
 	}
 	/*
-	DP: 找"aaabbb"的最大长度，若当前字符以 a 结尾，则 res++；若当前字符为 b ，则考虑上一个字符为 a 或 b
-	结尾长度的最大长度加1
+	DP: 找"aaabbb"的最大长度，若当前字符以 a 结尾，则 res++；若当前字符为 b
+	，则考虑上一个字符为 a 或 b 结尾长度的最大长度加1
 	*/
 	int minimumDeletions_dp(string s) {
 		int a = 0, b = 0, n = s.length();

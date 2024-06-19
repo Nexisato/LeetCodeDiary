@@ -16,8 +16,9 @@ public:
 		int res = -1;
 		// 包含 firstLen 和 secondLen 分别在左右两边的情况
 		for (int i = firstLen, t = 0; i + secondLen - 1 < n; ++i) {
-			t = max(t, prefixSum[i] - prefixSum[i - firstLen]);          //左边不包含 nums[i]
-			res = max(res, t + prefixSum[i + secondLen] - prefixSum[i]); //右边包含 nums[i]
+			t = max(t, prefixSum[i] - prefixSum[i - firstLen]); //左边不包含 nums[i]
+			res = max(res,
+			          t + prefixSum[i + secondLen] - prefixSum[i]); //右边包含 nums[i]
 		}
 
 		for (int i = secondLen, t = 0; i + firstLen - 1 < n; ++i) {

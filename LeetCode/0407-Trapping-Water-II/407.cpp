@@ -22,7 +22,8 @@ public:
 		int res = 0;
 		unordered_set<int> visited; // i * n + j
 		// 高度，坐标
-		priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, greater<pair<int, pair<int, int>>>>
+		priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>,
+		               greater<pair<int, pair<int, int>>>>
 		    minHeap;
 		// 将四周的点加入堆
 		for (int i = 0; i < m; ++i)

@@ -1,8 +1,8 @@
 /*
 LeetCode 225: Implementing Stack Using Queues
 @Description:
-Implement a last in first out (LIFO) stack using only two queues. The implemented stack should support all
-the functions of a normal queue (push, top, pop, and empty).
+Implement a last in first out (LIFO) stack using only two queues. The implemented stack
+should support all the functions of a normal queue (push, top, pop, and empty).
 
 Implement the MyStack class:
 - void push(int x) Pushes element x to the top of the stack.
@@ -11,14 +11,14 @@ Implement the MyStack class:
 - boolean empty() Returns true if the stack is empty, false otherwise.
 
 Notes:
-You must use only standard operations of a queue, which means only push to back, peek/pop from front, size, and
-is empty operations are valid.
-Depending on your language, the queue may not be supported natively. You may simulate a queue using a list
+You must use only standard operations of a queue, which means only push to back,
+peek/pop from front, size, and is empty operations are valid. Depending on your
+language, the queue may not be supported natively. You may simulate a queue using a list
 or deque (double-ended queue), as long as you use only a queue's standard operations.
 
-Follow-up: Can you implement the stack such that each operation is amortized O(1) time complexity?
-In other words, performing n operations will take overall O(n) time even if one of those operations may take longer.
-You can use more than two queues.
+Follow-up: Can you implement the stack such that each operation is amortized O(1) time
+complexity? In other words, performing n operations will take overall O(n) time even if
+one of those operations may take longer. You can use more than two queues.
 */
 #include <bits/stdc++.h>
 using namespace std;

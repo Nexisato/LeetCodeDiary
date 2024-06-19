@@ -1,8 +1,8 @@
 /*
 5664. 放置盒子
-You have a cubic storeroom where the width, length, and height of the room are all equal to n units.
-You are asked to place n boxes in this room where each box is a cube of unit side length.
-There are however some rules to placing the boxes:
+You have a cubic storeroom where the width, length, and height of the room are all equal
+to n units. You are asked to place n boxes in this room where each box is a cube of unit
+side length. There are however some rules to placing the boxes:
 
 You can place the boxes anywhere on the floor.
 If box x is placed on top of the box y, then each side of the four vertical sides of
@@ -16,8 +16,9 @@ Constraints:
 using namespace std;
 /*
 思路：
-假设地面上的盒子为 k ，从 k = 1 开始，每多一个盒子，可以放置的总盒子数为  1 2 1 2 3 1 2 3 4 1...
-k = n * (n + 1) / 2 时，需要可以放置的盒子数置为1，直到下一次 (n + 1) * (n + 2) / 2 出现，则
+假设地面上的盒子为 k ，从 k = 1 开始，每多一个盒子，可以放置的总盒子数为  1 2 1 2 3 1 2
+3 4 1... k = n * (n + 1) / 2 时，需要可以放置的盒子数置为1，直到下一次 (n + 1) * (n + 2)
+/ 2 出现，则
 */
 class Solution {
 public:

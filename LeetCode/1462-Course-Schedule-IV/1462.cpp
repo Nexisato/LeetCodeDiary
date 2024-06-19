@@ -4,7 +4,8 @@ using namespace std;
 
 class Solution {
 private:
-	void dfs(int cur, vector<bool>& visited, vector<vector<int>>& edges, vector<vector<bool>>& isPre) {
+	void dfs(int cur, vector<bool>& visited, vector<vector<int>>& edges,
+	         vector<vector<bool>>& isPre) {
 		if (visited[cur]) {
 			return;
 		}
@@ -21,7 +22,8 @@ private:
 	}
 
 public:
-	vector<bool> checkIfPrerequisite(int numCourses, vector<vector<int>>& prerequisites, vector<vector<int>>& queries) {
+	vector<bool> checkIfPrerequisite(int numCourses, vector<vector<int>>& prerequisites,
+	                                 vector<vector<int>>& queries) {
 		vector<vector<int>> edges(numCourses);
 		for (int i = 0; i < prerequisites.size(); ++i) {
 			int src = prerequisites[i][0], dst = prerequisites[i][1];

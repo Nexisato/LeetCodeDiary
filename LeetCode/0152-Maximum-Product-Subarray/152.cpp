@@ -17,7 +17,8 @@ The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit int
 using namespace std;
 /*
 思路：根据正负性进行划分
-1. 维护两个dp数组，dp_min[i]和dp_max[i]，分别表示以nums[i]结尾的子数组乘积的最小值和最大值
+1.
+维护两个dp数组，dp_min[i]和dp_max[i]，分别表示以nums[i]结尾的子数组乘积的最小值和最大值
 2.  dp_max[i] = max(dp_max[i - 1] * nums[i], dp_min[i - 1] * nums[i], nums[i])
     dp_min[i] = min(dp_max[i - 1] * nums[i], dp_min[i - 1] * nums[i], nums[i])
 */

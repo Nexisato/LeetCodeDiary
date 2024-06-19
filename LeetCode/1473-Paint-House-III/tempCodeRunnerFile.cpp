@@ -17,10 +17,12 @@ for (int i = 1; i < m; ++i) {
 				for (int j = 1; j <= target; ++j) {
 					if (cur_color == prev_color)
 						dp[i][j][cur_color] =
-						    min(dp[i][j][cur_color], cost[i][cur_color - 1] + dp[i - 1][j][cur_color]);
+						    min(dp[i][j][cur_color],
+						        cost[i][cur_color - 1] + dp[i - 1][j][cur_color]);
 					else
 						dp[i][j][cur_color] =
-						    min(dp[i][j][cur_color], cost[i][cur_color - 1] + dp[i - 1][j - 1][prev_color]);
+						    min(dp[i][j][cur_color],
+						        cost[i][cur_color - 1] + dp[i - 1][j - 1][prev_color]);
 				}
 	}
 	//当前房子有颜色
@@ -29,9 +31,11 @@ for (int i = 1; i < m; ++i) {
 		for (int prev_color = 1; prev_color <= n; ++prev_color)
 			for (int j = 1; j <= target; ++j) {
 				if (cur_color == prev_color)
-					dp[i][j][cur_color] = min(dp[i][j][cur_color], dp[i - 1][j][cur_color]);
+					dp[i][j][cur_color] =
+					    min(dp[i][j][cur_color], dp[i - 1][j][cur_color]);
 				else
-					dp[i][j][cur_color] = min(dp[i][j][cur_color], dp[i - 1][j - 1][prev_color]);
+					dp[i][j][cur_color] =
+					    min(dp[i][j][cur_color], dp[i - 1][j - 1][prev_color]);
 			}
 	}
 }

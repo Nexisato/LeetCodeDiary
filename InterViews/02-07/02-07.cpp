@@ -16,7 +16,9 @@ public:
 	ListNode* getIntersectionNode(ListNode* headA, ListNode* headB) {
 		ListNode *node1 = headA, *node2 = headB;
 		while (node1 != node2) {
-			node1 = (node1 != nullptr) ? (node1->next) : headB; //相当于走到头，补足差距，换路，最多走 len1 + len2 次
+			node1 = (node1 != nullptr)
+			            ? (node1->next)
+			            : headB; //相当于走到头，补足差距，换路，最多走 len1 + len2 次
 			node2 = (node2 != nullptr) ? (node2->next) : headA;
 		}
 		return node1;

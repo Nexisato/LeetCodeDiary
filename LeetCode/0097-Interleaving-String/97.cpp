@@ -28,8 +28,8 @@ public:
 		for (int i = 1; i <= n1; ++i)
 			for (int j = 1; j <= n2; ++j) {
 				// s1 的前 i 个字符和 s2 的前 j 个字符能否构成 s3 的前 i + j 个字符
-				dp[i][j] =
-				    (dp[i - 1][j] && (s1[i - 1] == s3[i + j - 1])) || (dp[i][j - 1] && (s2[j - 1] == s3[i + j - 1]));
+				dp[i][j] = (dp[i - 1][j] && (s1[i - 1] == s3[i + j - 1])) ||
+				           (dp[i][j - 1] && (s2[j - 1] == s3[i + j - 1]));
 			}
 
 		return dp[n1][n2];

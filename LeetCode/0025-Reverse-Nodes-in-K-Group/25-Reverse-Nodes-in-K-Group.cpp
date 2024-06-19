@@ -1,16 +1,19 @@
 /*
  * @Date: 2023-12-10 01:13:31
  * @Author: nexisato
- * @FilePath: /LeetCodeDiary/LeetCode/0025-Reverse-Nodes-in-K-Group/25-Reverse-Nodes-in-K-Group.cpp
+ * @FilePath:
+ * /LeetCodeDiary/LeetCode/0025-Reverse-Nodes-in-K-Group/25-Reverse-Nodes-in-K-Group.cpp
  * @Description:
  */
 /*
 LeetCode: 25 Reverse Nodes in K Group
 Description:
-Given a linked list, reverse the nodes of a linked list k at a time and return its modified list.
+Given a linked list, reverse the nodes of a linked list k at a time and return its
+modified list.
 
 k is a positive integer and is less than or equal to the length of the linked list.
-If the number of nodes is not a multiple of k then left-out nodes, in the end, should remain as it is.
+If the number of nodes is not a multiple of k then left-out nodes, in the end, should
+remain as it is.
 
 Follow up:
 Could you solve the problem in O(1) extra memory space?

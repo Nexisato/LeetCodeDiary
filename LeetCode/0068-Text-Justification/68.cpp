@@ -63,7 +63,8 @@ public:
 	}
 };
 int main() {
-	vector<string> words = {"This", "is", "an", "example", "of", "text", "justification."};
+	vector<string> words = {"This",          "is", "an", "example", "of", "text",
+	                        "justification."};
 	int maxWidth = 16;
 	Solution ss;
 	vector<string> res = ss.fullJustify(words, maxWidth);

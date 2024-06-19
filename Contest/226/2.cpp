@@ -2,10 +2,12 @@
 LeetCode 5665: Restore the Array From Adjacent Pairs
 Description:
 There is an integer array nums that consists of n UNIQUE elements,
-but you have forgotten it. However, you do remember every pair of adjacent elements in nums.
+but you have forgotten it. However, you do remember every pair of adjacent elements in
+nums.
 
 You are given a 2D integer array adjacentPairs of size n - 1
-where each adjacentPairs[i] = [ui, vi] indicates that the elements ui and vi are adjacent in nums.
+where each adjacentPairs[i] = [ui, vi] indicates that the elements ui and vi are
+adjacent in nums.
 
 It is guaranteed that every adjacent pair of elements nums[i] and nums[i+1] will
 exist in adjacentPairs, either as [nums[i], nums[i+1]] or [nums[i+1], nums[i]].

@@ -17,7 +17,8 @@ public:
 
 		int next = 0, msk = 0, maxDepth = 0;
 		function<void(int, int)> dfs = [&](int u, int d) {
-			msk ^= 1 << u; // 这里 异或 后 对应第 u 位 msk 为0，代表节点 u 访问过，否则 1 表示未访问过
+			msk ^= 1 << u; // 这里 异或 后 对应第 u 位 msk 为0，代表节点 u 访问过，否则
+			               // 1 表示未访问过
 			if (maxDepth < d) {
 				maxDepth = d;
 				next = u;
@@ -28,11 +29,14 @@ public:
 		};
 
 		for (int mask = 1; mask < 1 << n; mask++) {
-			if ((mask & (mask - 1)) == 0) //判断是否为 2 的幂次，即若只有 1 个节点的子树，跳过，注意运算优先级
+			if ((mask & (mask - 1)) ==
+			    0) //判断是否为 2 的幂次，即若只有 1 个节点的子树，跳过，注意运算优先级
 				continue;
 			msk = mask;
 			maxDepth = 0;
-			int cur = 31 - __builtin_clz(msk); //计算前面有多少个0，也即 cur 代表 msk 最高位所在的位置
+			int cur =
+			    31 - __builtin_clz(
+			             msk); //计算前面有多少个0，也即 cur 代表 msk 最高位所在的位置
 			dfs(cur, 0);
 			if (msk == 0) {
 				msk = mask;

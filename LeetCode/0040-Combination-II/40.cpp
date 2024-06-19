@@ -8,14 +8,16 @@ class Solution {
 private:
 	vector<vector<int>> res;
 	vector<int> path;
-	void backtracking(const vector<int>& candidates, int target, int sum, int startIndex) {
+	void backtracking(const vector<int>& candidates, int target, int sum,
+	                  int startIndex) {
 		if (sum > target)
 			return;
 		if (sum == target) {
 			res.push_back(path);
 			return;
 		}
-		for (int i = startIndex; i < candidates.size() && sum + candidates[i] <= target; ++i) {
+		for (int i = startIndex; i < candidates.size() && sum + candidates[i] <= target;
+		     ++i) {
 			if (i > startIndex && candidates[i] == candidates[i - 1]) //数层跳过
 				continue;
 			sum += candidates[i];

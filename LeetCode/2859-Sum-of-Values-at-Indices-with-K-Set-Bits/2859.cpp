@@ -1,7 +1,8 @@
 /*
  * @Date: 2024-01-25 08:56:58
  * @Author: nexisato
- * @FilePath: /LeetCodeDiary/LeetCode/2859-Sum-of-Values-at-Indices-with-K-Set-Bits/2859.cpp
+ * @FilePath:
+ * /LeetCodeDiary/LeetCode/2859-Sum-of-Values-at-Indices-with-K-Set-Bits/2859.cpp
  * @Description:
  */
 #include <iostream>

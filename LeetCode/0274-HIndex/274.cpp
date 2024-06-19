@@ -11,7 +11,8 @@ using namespace std;
 // 二分查找 h-index
 // 1. 首先对数组进行排序
 // 2. 二分查找
-// 3. 如果当前的值大于等于 n - mid，那么 h = n - mid，即不少于 n - mid 个值大于等于 n - mid
+// 3. 如果当前的值大于等于 n - mid，那么 h = n - mid，即不少于 n - mid 个值大于等于 n -
+// mid
 class Solution {
 public:
 	int hIndex(vector<int>& citations) {

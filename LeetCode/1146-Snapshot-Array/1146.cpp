@@ -13,7 +13,9 @@ public:
 		_data.resize(length);
 	}
 
-	void set(int index, int val) { this->_data[index].push_back({this->cur_snap_id, val}); }
+	void set(int index, int val) {
+		this->_data[index].push_back({this->cur_snap_id, val});
+	}
 
 	int snap() { return this->cur_snap_id++; }
 

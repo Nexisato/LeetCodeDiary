@@ -71,7 +71,8 @@ public:
 };
 /*
 思路：滑动窗口
-1. 一开始的时候left和right重合，left不动，right向右扩张，直到[left, right]中恰有一个重复元素
+1. 一开始的时候left和right重合，left不动，right向右扩张，直到[left,
+right]中恰有一个重复元素
 2. 若子区间内[left, right]中有重复元素，则[left, right + 1]直到最后都有重复元素
 3. left不断右移，直到刚好越过right指向的重复元素，更新最大长度
 4. 重复上述过程，直到right到达字符串末尾

@@ -17,7 +17,9 @@ public:
 			}
 		}
 
-		for (int i = 0, j = 0, isSwapped = false, dist = countSpace / max(countWord - 1, 1); i < n; ++i) {
+		for (int i = 0, j = 0, isSwapped = false,
+		         dist = countSpace / max(countWord - 1, 1);
+		     i < n; ++i) {
 			if (text[i] != ' ') {
 				swap(text[i], text[j++]);
 				isSwapped = true;

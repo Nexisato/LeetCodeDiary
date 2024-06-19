@@ -23,7 +23,8 @@ public:
 					for (auto& right : st[r])
 						tmp.insert(left + right);
 				st[l] = move(tmp);
-				// move函数可以将 tmp 中的所有元素转移到 st[l]中，避免产生不必要的元素复制和内存开销，
+				// move函数可以将 tmp 中的所有元素转移到
+				// st[l]中，避免产生不必要的元素复制和内存开销，
 				//减少资源的重复占用，tmp中的元素不再需要时，可以清空以释放内存空间
 			}
 			op.pop_back();

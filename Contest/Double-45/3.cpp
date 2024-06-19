@@ -3,11 +3,11 @@ LeetCode 5659: Minimum Length of String After Deleting Similar Ends
 @Description:
 Given a string s consisting only of characters 'a', 'b', and 'c'.
 You are asked to apply the following algorithm on the string any number of times:
--Pick a non-empty prefix from the string s where all the characters in the prefix are equal.
--Pick a non-empty suffix from the string s where all the characters in this suffix are equal.
--The prefix and the suffix should not intersect at any index.
--The characters from the prefix and suffix must be the same.
--Delete both the prefix and the suffix.
+-Pick a non-empty prefix from the string s where all the characters in the prefix are
+equal. -Pick a non-empty suffix from the string s where all the characters in this
+suffix are equal. -The prefix and the suffix should not intersect at any index. -The
+characters from the prefix and suffix must be the same. -Delete both the prefix and the
+suffix.
 
 Return the minimum length of s after performing the above operation any number of times
 (possibly zero times).
@@ -22,7 +22,8 @@ using namespace std;
 思路：双指针
 1. left < right，首尾字符不相等，直接返回长度
 2. left >= right，考虑全字符相等和中间有1个其他字符的情况
-    - 若全字符相等，从left处检查或从right处检查相邻元素是否相等，相等返回0即可，否则直接返回1
+    -
+若全字符相等，从left处检查或从right处检查相邻元素是否相等，相等返回0即可，否则直接返回1
 */
 class Solution {
 public:

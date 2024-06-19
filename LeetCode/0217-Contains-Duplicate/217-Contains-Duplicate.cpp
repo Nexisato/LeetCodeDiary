@@ -18,7 +18,9 @@ public:
 				}
 		return flag;
 	}
-	bool containsDuplicate_2(vector<int>& nums) { return nums.size() > set<int>(nums.begin(), nums.end()).size(); }
+	bool containsDuplicate_2(vector<int>& nums) {
+		return nums.size() > set<int>(nums.begin(), nums.end()).size();
+	}
 	/*bool containsDuplicate(vector<int>& nums){
 
 	}*/
@@ -46,7 +48,8 @@ int main() {
 
 	// insert是否可以覆盖关键字所在位置的值
 	pair<map<int, string>::iterator, bool> Insert_pair;
-	Insert_pair = mapStudent.insert(map<int, string>::value_type(1, "Student_one_changed_flag"));
+	Insert_pair =
+	    mapStudent.insert(map<int, string>::value_type(1, "Student_one_changed_flag"));
 
 	/*if(!Insert_pair.second)
 	    cout<<"Inserting Failed"<<endl;*/

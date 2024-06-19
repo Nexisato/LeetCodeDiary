@@ -1,7 +1,8 @@
 /*
  * @Date: 2023-12-10 01:13:31
  * @Author: nexisato
- * @FilePath: /LeetCodeDiary/LeetCode/0026-Remove-Duplicates-from-Sorted-Array/26-删除数组中的重复项.cpp
+ * @FilePath:
+ * /LeetCodeDiary/LeetCode/0026-Remove-Duplicates-from-Sorted-Array/26-删除数组中的重复项.cpp
  * @Description:
  */
 #include <iostream>

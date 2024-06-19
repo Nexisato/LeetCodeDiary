@@ -11,7 +11,8 @@ class Solution {
 public:
 	int longestStrChain(vector<string>& words) {
 		const int n = words.size();
-		sort(words.begin(), words.end(), [](const string& a, const string& b) { return a.length() < b.length(); });
+		sort(words.begin(), words.end(),
+		     [](const string& a, const string& b) { return a.length() < b.length(); });
 		int res = -1;
 		unordered_map<string, int> table;
 		for (auto word : words) {

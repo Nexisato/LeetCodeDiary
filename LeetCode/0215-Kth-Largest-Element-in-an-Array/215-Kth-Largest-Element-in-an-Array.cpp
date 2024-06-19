@@ -1,13 +1,15 @@
 /*
  * @Date: 2023-12-10 01:13:31
  * @Author: nexisato
- * @FilePath: /LeetCodeDiary/LeetCode/0215-Kth-Largest-Element-in-an-Array/215-Kth-Largest-Element-in-an-Array.cpp
+ * @FilePath:
+ * /LeetCodeDiary/LeetCode/0215-Kth-Largest-Element-in-an-Array/215-Kth-Largest-Element-in-an-Array.cpp
  * @Description:
  */
 /*
 Description:
 Find the kth largest element in an unsorted array.
-Note that it is the kth largest element in the sorted order, not the kth distinct element.
+Note that it is the kth largest element in the sorted order, not the kth distinct
+element.
 
 Note:
 You may assume k is always valid, 1 ≤ k ≤ array's length.
@@ -25,7 +27,9 @@ using namespace std;
 */
 class Solution {
 public:
-	int findKthLargest(vector<int>& nums, int k) { return sort(nums.begin(), nums.end(), greater<int>()), nums[k - 1]; }
+	int findKthLargest(vector<int>& nums, int k) {
+		return sort(nums.begin(), nums.end(), greater<int>()), nums[k - 1];
+	}
 };
 /*
 思路：创建一个容量为K的最小堆，遇到数组中有大于堆顶的元素，则出堆入堆一次

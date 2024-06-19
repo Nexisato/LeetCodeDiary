@@ -33,4 +33,6 @@ coff getVertical(const Point& p, double a, double b, double c) {
 	return coff(a_ver, b_ver, c_ver);
 }
 
-double dist(const Point& p, double a, double b, double c) { return abs(a * p.x + b * p.y + c) / sqrt(a * a + b * b); }
+double dist(const Point& p, double a, double b, double c) {
+	return abs(a * p.x + b * p.y + c) / sqrt(a * a + b * b);
+}

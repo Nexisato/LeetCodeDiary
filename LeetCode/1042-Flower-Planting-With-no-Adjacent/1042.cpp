@@ -5,7 +5,8 @@ using namespace std;
  */
 class Solution {
 	// private:
-	//     void dfs(const int& node, const vector<vector<int>>& gardens, vector<int>& visited) {
+	//     void dfs(const int& node, const vector<vector<int>>& gardens, vector<int>&
+	//     visited) {
 	//         if (visited[node] == 0) {
 	//             set<int> flower({1, 2, 3, 4});
 	//             vector<int> links;
@@ -17,7 +18,8 @@ class Solution {
 	//                     links.push_back(j);
 	//                 }
 	//             }
-	//             for (set<int>::iterator it = flower.begin(); it != flower.end(); ++it) {
+	//             for (set<int>::iterator it = flower.begin(); it != flower.end();
+	//             ++it) {
 	//                 visited[node] = *it;
 	//                 break;
 	//             }
@@ -52,7 +54,8 @@ public:
 		for (int i = 0; i < n; ++i) {
 			vector<bool> colored(5, false);
 			for (auto& vertex : gardens[i]) {
-				colored[flower[vertex]] = true; //先标记 gardens[i] 的邻接点 vertex 用flower[vertex]标记为 colored
+				colored[flower[vertex]] = true; //先标记 gardens[i] 的邻接点 vertex
+				                                //用flower[vertex]标记为 colored
 			}
 			for (int j = 1; j <= 4; ++j) {
 				if (colored[j] == 0) {

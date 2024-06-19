@@ -16,8 +16,9 @@ public:
 		vector<vector<int>> diff(m + 2, vector<int>(n + 2, 0));
 		for (int row = 0; row < m; ++row) {
 			for (int col = 0; col < n; ++col) {
-				prefixSum[row + 1][col + 1] =
-				    prefixSum[row][col + 1] + prefixSum[row + 1][col] - prefixSum[row][col] + grid[row][col];
+				prefixSum[row + 1][col + 1] = prefixSum[row][col + 1] +
+				                              prefixSum[row + 1][col] -
+				                              prefixSum[row][col] + grid[row][col];
 			}
 		}
 		// 贴邮票
@@ -25,7 +26,8 @@ public:
 		for (int x1 = 1; x1 + stampHeight - 1 <= m; ++x1) {
 			for (int y1 = 1; y1 + stampWidth - 1 <= n; ++y1) {
 				int x2 = x1 + stampHeight - 1, y2 = y1 + stampWidth - 1;
-				int sum = prefixSum[x2][y2] - prefixSum[x1 - 1][y2] - prefixSum[x2][y1 - 1] + prefixSum[x1 - 1][y1 - 1];
+				int sum = prefixSum[x2][y2] - prefixSum[x1 - 1][y2] -
+				          prefixSum[x2][y1 - 1] + prefixSum[x1 - 1][y1 - 1];
 				// diff 记录的是每个位置被覆盖的次数
 				if (sum == 0) {
 					++diff[x1][y1];

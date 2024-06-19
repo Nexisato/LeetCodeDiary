@@ -15,23 +15,23 @@ class Solution {
 public:
 	vector<string> generateParenthesis(int n) {
 		vector<string> res;
-		function<void(int, int, string&, vector<string>&)> dfs = [&](int left, int right, string& path,
-		                                                             vector<string>& res) {
-			if (left == 0 && right == 0) {
-				res.emplace_back(path);
-				return;
-			}
-			if (left > 0) {
-				path.push_back('(');
-				dfs(left - 1, right, path, res);
-				path.pop_back();
-			}
-			if (right > left) {
-				path.push_back(')');
-				dfs(left, right - 1, path, res);
-				path.pop_back();
-			}
-		};
+		function<void(int, int, string&, vector<string>&)> dfs =
+		    [&](int left, int right, string& path, vector<string>& res) {
+			    if (left == 0 && right == 0) {
+				    res.emplace_back(path);
+				    return;
+			    }
+			    if (left > 0) {
+				    path.push_back('(');
+				    dfs(left - 1, right, path, res);
+				    path.pop_back();
+			    }
+			    if (right > left) {
+				    path.push_back(')');
+				    dfs(left, right - 1, path, res);
+				    path.pop_back();
+			    }
+		    };
 		string path;
 		dfs(n, n, path, res);
 

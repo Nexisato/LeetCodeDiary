@@ -7,11 +7,10 @@
 /*
 LeetCode: 155 MinStack
 Description:
-Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
--push(x) -- Push element x onto stack.
--pop() -- Removes the element on top of the stack.
--top() -- Get the top element.
--getMin() -- Retrieve the minimum element in the stack.
+Design a stack that supports push, pop, top, and retrieving the minimum element in
+constant time. -push(x) -- Push element x onto stack. -pop() -- Removes the element on
+top of the stack. -top() -- Get the top element. -getMin() -- Retrieve the minimum
+element in the stack.
 
 Constraints:
 Methods pop, top and getMin operations will always be called on non-empty stacks.

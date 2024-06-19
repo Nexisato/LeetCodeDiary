@@ -3,13 +3,14 @@ LeetCode 1482: Minimum Number of Days to Make m Bonquets
 @Description:
 Given an integer array bloomDay, an integer m and an integer k.
 
-We need to make m bouquets. To make a bouquet, you need to use k adjacent flowers from the garden.
+We need to make m bouquets. To make a bouquet, you need to use k adjacent flowers from
+the garden.
 
-The garden consists of n flowers, the ith flower will bloom in the bloomDay[i] and then can be used in exactly one
-bouquet.
+The garden consists of n flowers, the ith flower will bloom in the bloomDay[i] and then
+can be used in exactly one bouquet.
 
-Return the minimum number of days you need to wait to be able to make m bouquets from the garden.
-If it is impossible to make m bouquets return -1.
+Return the minimum number of days you need to wait to be able to make m bouquets from
+the garden. If it is impossible to make m bouquets return -1.
 
 Constraints:
 bloomDay.length == n
@@ -22,9 +23,10 @@ bloomDay.length == n
 using namespace std;
 /*
 思路：m * k <= n
-1. 增加一个check函数，用于计算 长度为k 且 最大元素不超过days 的 不重合的 连续子数组的 数量
-    辅助参数除了bloomDay、m、k之外，还有一个参数days指定天数，
-2. days很小的时候，辅助函数总是返回false；很大的时候，总是返回true，因此可以认为辅助函数关于days递增
+1. 增加一个check函数，用于计算 长度为k 且 最大元素不超过days 的 不重合的 连续子数组的
+数量 辅助参数除了bloomDay、m、k之外，还有一个参数days指定天数，
+2.
+days很小的时候，辅助函数总是返回false；很大的时候，总是返回true，因此可以认为辅助函数关于days递增
 因此，我们可以通过二分查找确认这个days的最小值
 */
 class Solution {

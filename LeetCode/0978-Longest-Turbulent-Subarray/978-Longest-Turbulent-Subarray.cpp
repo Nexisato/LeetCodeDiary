@@ -1,11 +1,14 @@
 /*
 LeetCode 978: Longest Turbulent Subarray
 @Description:
-Given an integer array arr, return the length of a maximum size turbulent subarray of arr.
+Given an integer array arr, return the length of a maximum size turbulent subarray of
+arr.
 
-A subarray is turbulent if the comparison sign flips between each adjacent pair of elements in the subarray.
+A subarray is turbulent if the comparison sign flips between each adjacent pair of
+elements in the subarray.
 
-More formally, a subarray [arr[i], arr[i + 1], ..., arr[j]] of arr is said to be turbulent if and only if:
+More formally, a subarray [arr[i], arr[i + 1], ..., arr[j]] of arr is said to be
+turbulent if and only if:
 
 For i <= k < j:
 arr[k] > arr[k + 1] when k is odd, and

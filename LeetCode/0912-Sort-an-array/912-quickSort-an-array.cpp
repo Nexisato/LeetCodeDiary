@@ -12,7 +12,8 @@ Constraints:
 #include <vector>
 using namespace std;
 
-//思路：快速排序yyds: 选择一个pivot，前一部分都比它小，后一部分都比它大，再递归排序两部分子数组
+//思路：快速排序yyds:
+//选择一个pivot，前一部分都比它小，后一部分都比它大，再递归排序两部分子数组
 //时间复杂度:O(nlogn) 空间复杂度:O(n)~O(logn)
 class Solution {
 	int partition(vector<int>& nums, int l, int r) {

@@ -2,9 +2,8 @@
 using namespace std;
 /**
  * @brief
- * 对于 matrix 每一个位置 matrix[i][j]，0 <= i < m, 0 <= j < n，matrix[i][j] = min(rowSum[i], colSum[j])
- * 遍历完成后即为答案.
- * 贪心解法
+ * 对于 matrix 每一个位置 matrix[i][j]，0 <= i < m, 0 <= j < n，matrix[i][j] =
+ * min(rowSum[i], colSum[j]) 遍历完成后即为答案. 贪心解法
  */
 class Solution {
 

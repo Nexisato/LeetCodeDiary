@@ -41,7 +41,8 @@ vector<int> dijkstra_opt(vector<vector<int>>& graph, int start) {
 	vector<int> dist(n, INT_MAX);
 	vector<bool> visited(n, false);
 	dist[start] = 0;
-	priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> minHeap;
+	priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>>
+	    minHeap;
 	minHeap.push({0, start});
 	while (!minHeap.empty()) {
 		auto [d, u] = minHeap.top();
@@ -50,7 +51,8 @@ vector<int> dijkstra_opt(vector<vector<int>>& graph, int start) {
 			continue;
 		visited[u] = true;
 		for (int v = 0; v < n; v++) {
-			if (!visited[v] && graph[u][v] != INT_MAX && dist[v] > dist[u] + graph[u][v]) {
+			if (!visited[v] && graph[u][v] != INT_MAX &&
+			    dist[v] > dist[u] + graph[u][v]) {
 				dist[v] = dist[u] + graph[u][v];
 				minHeap.push({dist[v], v});
 			}
@@ -61,8 +63,10 @@ vector<int> dijkstra_opt(vector<vector<int>>& graph, int start) {
 
 int main() {
 	vector<int> dist;
-	vector<vector<int>> graph = {
-	    {0, 5, INT_MAX, 10}, {INT_MAX, 0, 3, INT_MAX}, {INT_MAX, INT_MAX, 0, 1}, {INT_MAX, INT_MAX, INT_MAX, 0}};
+	vector<vector<int>> graph = {{0, 5, INT_MAX, 10},
+	                             {INT_MAX, 0, 3, INT_MAX},
+	                             {INT_MAX, INT_MAX, 0, 1},
+	                             {INT_MAX, INT_MAX, INT_MAX, 0}};
 	dist = dijkstra_opt(graph, 0);
 	for (int i = 0; i < dist.size(); i++)
 		cout << dist[i] << " ";

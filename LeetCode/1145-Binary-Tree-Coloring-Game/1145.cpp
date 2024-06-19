@@ -30,7 +30,8 @@ public:
 			return 1 + getCount(node->left) + getCount(node->right);
 		};
 
-		function<TreeNode*(TreeNode*, int)> getNode = [&](TreeNode* node, int val) -> TreeNode* {
+		function<TreeNode*(TreeNode*, int)> getNode = [&](TreeNode* node,
+		                                                  int val) -> TreeNode* {
 			if (!node)
 				return nullptr;
 			if (node->val == val)
@@ -45,7 +46,8 @@ public:
 		int r_count = getCount(node->right);
 		int threshold = n / 2;
 
-		return l_count > threshold || r_count > threshold || l_count + r_count < threshold;
+		return l_count > threshold || r_count > threshold ||
+		       l_count + r_count < threshold;
 	}
 };
 int main() { return 0; }

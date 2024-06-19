@@ -30,7 +30,8 @@ public:
 		vector<int> res;
 		for (int i = 1; i <= m; ++i)
 			for (int j = 1; j <= n; ++j) {
-				xorSum[i][j] = matrix[i - 1][j - 1] ^ xorSum[i][j - 1] ^ xorSum[i - 1][j] ^ xorSum[i - 1][j - 1];
+				xorSum[i][j] = matrix[i - 1][j - 1] ^ xorSum[i][j - 1] ^
+				               xorSum[i - 1][j] ^ xorSum[i - 1][j - 1];
 				res.emplace_back(xorSum[i][j]);
 			}
 		priority_queue<int, vector<int>, less<int>> minHeap;

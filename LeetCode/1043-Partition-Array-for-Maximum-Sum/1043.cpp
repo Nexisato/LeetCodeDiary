@@ -3,7 +3,8 @@ using namespace std;
 /**
  * @brief
  * DP 求解，dp[i] 作为 arr[0]~arr[i-1] 分为 k 份的分割和。
- * 新加入 arr[i]，包含 arr[i] 在内的 j (j=1~k) 长度的子数组，得到的和为 dp[i] = dp[i - j] + max(arr[i - 1], arr[i - 2],
+ * 新加入 arr[i]，包含 arr[i] 在内的 j (j=1~k) 长度的子数组，得到的和为 dp[i] = dp[i -
+ * j] + max(arr[i - 1], arr[i - 2],
  * ..., arr[i - j]) * j
  */
 class Solution {

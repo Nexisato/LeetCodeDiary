@@ -13,7 +13,8 @@ class Solution {
 public:
 	void gameOfLife(vector<vector<int>>& board) {
 		const int m = board.size(), n = board[0].size();
-		vector<vector<int>> dirs = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
+		vector<vector<int>> dirs = {{1, 0}, {-1, 0}, {0, 1},  {0, -1},
+		                            {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
 		auto inBound = [&](int x, int y) { return x >= 0 && y >= 0 && x < m && y < n; };
 		auto countLive = [&](int x, int y) {
 			int cnt = 0;

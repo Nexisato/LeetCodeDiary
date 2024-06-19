@@ -1,8 +1,9 @@
 /*
 Description:
-Write a function that reverses a string. The input string is given as an array of characters char[].
-Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra
-memory. You may assume all the characters consist of printable ascii characters.
+Write a function that reverses a string. The input string is given as an array of
+characters char[]. Do not allocate extra space for another array, you must do this by
+modifying the input array in-place with O(1) extra memory. You may assume all the
+characters consist of printable ascii characters.
 */
 #include <algorithm>
 #include <iostream>
@@ -16,7 +17,8 @@ public:
 	// slowPtr<s.size()/2，彳亍；
 	// fastPtr>=s.size()/2, 不彳亍;
 	void reverseString(vector<char>& s) {
-		for (int fastPtr = s.size() - 1, slowPtr = 0; slowPtr < s.size() / 2; slowPtr++, fastPtr--)
+		for (int fastPtr = s.size() - 1, slowPtr = 0; slowPtr < s.size() / 2;
+		     slowPtr++, fastPtr--)
 			swap(s[slowPtr], s[fastPtr]);
 	}
 	void Print(vector<char>& nums) {

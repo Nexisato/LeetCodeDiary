@@ -15,7 +15,8 @@ using namespace std;
 class Solution {
 public:
 	int minExtraChar(string s, vector<string>& dictionary) {
-		unordered_set<string> appear(dictionary.begin(), dictionary.end()); // 记录出现过的单词
+		unordered_set<string> appear(dictionary.begin(),
+		                             dictionary.end()); // 记录出现过的单词
 		const int n = s.length();
 		int dp[n + 1]; // DP 记录前 i 个字符最少需要添加几个字符
 		memset(dp, 0, sizeof(dp));

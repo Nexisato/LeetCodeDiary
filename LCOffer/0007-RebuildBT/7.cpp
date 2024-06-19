@@ -13,7 +13,8 @@ struct TreeNode {
 };
 class Solution {
 private:
-	TreeNode* traversal(vector<int>& pre, vector<int>& in, int preL, int preR, int inL, int inR) {
+	TreeNode* traversal(vector<int>& pre, vector<int>& in, int preL, int preR, int inL,
+	                    int inR) {
 		if (preL > preR || inL > inR)
 			return nullptr;
 		int n = pre.size();

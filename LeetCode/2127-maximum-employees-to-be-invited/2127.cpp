@@ -12,7 +12,9 @@ using namespace std;
  */
 class Solution {
 public:
-	int maximumInvitations(vector<int>& favorite) { return max(maxCycle(favorite), topoSortCycle(favorite)); }
+	int maximumInvitations(vector<int>& favorite) {
+		return max(maxCycle(favorite), topoSortCycle(favorite));
+	}
 	// DFS 寻找最长环
 	int maxCycle(const vector<int>& favorite) {
 		int res = 0;

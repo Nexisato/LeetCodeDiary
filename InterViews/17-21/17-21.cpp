@@ -2,7 +2,8 @@
 LeetCode Interview: 17.21
 @Description:
 Imagine a histogram (bar graph). Design an algorithm to compute the volume of water it
-could hold if someone poured water across the top. You can assume that each histogram bar has width 1.
+could hold if someone poured water across the top. You can assume that each histogram
+bar has width 1.
 
 The above elevation map is represented by array [0,1,0,2,1,0,1,3,2,1,2,1].
 In this case, 6 units of water (blue section) are being trapped. Thanks Marcos for

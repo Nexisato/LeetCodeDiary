@@ -19,7 +19,8 @@ using namespace std;
 int prim(vector<vector<int>>& graph, int start) {
 	int n = graph.size();
 	int min_cost = 0;
-	priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> minHeap;
+	priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>>
+	    minHeap;
 	vector<bool> visited(n, false);
 	minHeap.push({0, start});
 	while (!minHeap.empty()) {

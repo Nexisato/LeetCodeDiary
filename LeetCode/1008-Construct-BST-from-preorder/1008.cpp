@@ -8,8 +8,8 @@ It is guaranteed that there is always possible to find a binary search tree with
 given requirements for the given test cases.
 
 A binary search tree is a binary tree where for every node, any descendant of Node.left
-has a value strictly less than Node.val, and any descendant of Node.right has a value strictly
-greater than Node.val.
+has a value strictly less than Node.val, and any descendant of Node.right has a value
+strictly greater than Node.val.
 
 A preorder traversal of a binary tree displays the value of the node first,
 then traverses Node.left, then traverses Node.right.

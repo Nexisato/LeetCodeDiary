@@ -55,7 +55,8 @@ private:
 	int n;
 
 public:
-	UnionFind(int _n) : parent(vector<int>(_n)), rank(vector<int>(_n, 1)), count(_n), n(_n) {
+	UnionFind(int _n)
+	    : parent(vector<int>(_n)), rank(vector<int>(_n, 1)), count(_n), n(_n) {
 		iota(parent.begin(), parent.end(), 0);
 	}
 

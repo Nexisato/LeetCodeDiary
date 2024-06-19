@@ -13,7 +13,8 @@ find two numbers such that they add up to a specific target number.
 Return the indices of the two numbers (1-indexed) as an integer array answer of size 2,
 where 1 <= answer[0] < answer[1] <= numbers.length.
 
-You may assume that each input would have exactly one solution and you may not use the same element twice.
+You may assume that each input would have exactly one solution and you may not use the
+same element twice.
 
 Constraints:
 2 <= numbers.length <= 3 * 10^4

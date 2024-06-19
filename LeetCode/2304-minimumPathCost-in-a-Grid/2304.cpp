@@ -16,7 +16,9 @@ public:
 				int minVal = INT32_MAX;
 				for (int k = 0; k < n; ++k) {
 					int tmpValue = grid[i - 1][k];
-					minVal = min(minVal, dp[i - 1][k] + moveCost[tmpValue][j]); // note dp value range
+					minVal =
+					    min(minVal,
+					        dp[i - 1][k] + moveCost[tmpValue][j]); // note dp value range
 				}
 				dp[i][j] = grid[i][j] + minVal;
 			}

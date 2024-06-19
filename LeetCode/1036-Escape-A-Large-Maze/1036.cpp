@@ -17,7 +17,8 @@ private:
 	pair<int, int> unhash(long long h) { return make_pair(h / N, h % N); }
 
 public:
-	bool isEscapePossible(vector<vector<int>>& blocked, vector<int>& source, vector<int>& target) {
+	bool isEscapePossible(vector<vector<int>>& blocked, vector<int>& source,
+	                      vector<int>& target) {
 		const int N = 1e6;
 		if (blocked.size() < 2)
 			return true;
@@ -38,7 +39,8 @@ public:
 				for (int i = 0; i < 4; ++i) {
 					int nx = x + dir[i][0];
 					int ny = y + dir[i][1];
-					if (nx < 0 || nx >= N || ny < 0 || ny >= N || st.count(hash(nx, ny)) || visited.count(hash(nx, ny)))
+					if (nx < 0 || nx >= N || ny < 0 || ny >= N ||
+					    st.count(hash(nx, ny)) || visited.count(hash(nx, ny)))
 						continue;
 					if (nx == dst[0] && ny == dst[1])
 						return true;

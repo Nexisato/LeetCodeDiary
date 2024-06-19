@@ -13,7 +13,8 @@ Constraints:
 using namespace std;
 /*
 思路：动态规划
-1. 定义两个dp数组，dp[i]用于表示nums[i]结尾的LIS，counts[i]表示nums[i]结尾的最长递增子序列个数
+1.
+定义两个dp数组，dp[i]用于表示nums[i]结尾的LIS，counts[i]表示nums[i]结尾的最长递增子序列个数
 2. 对于nums[i]，若在[0..i-1]中找到j,nums[i]>nums[j]，分为如下两种情况
     - dp[j] + 1 > dp[i]，则count[i] = count[j]
     - dp[j] + 1 == dp[i]，则count[i] += count[j]

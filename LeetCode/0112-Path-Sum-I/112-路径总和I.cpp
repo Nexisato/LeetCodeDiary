@@ -14,7 +14,8 @@ public:
 			return false;
 		if (root->left == NULL && root->right == NULL)
 			return (sum == root->val) ? true : false;
-		return hasPathSum(root->left, sum - root->val) || hasPathSum(root->right, sum - root->val);
+		return hasPathSum(root->left, sum - root->val) ||
+		       hasPathSum(root->right, sum - root->val);
 	}
 	bool hasPathSum_full(TreeNode* root, int targetSum) {
 		if (!root)

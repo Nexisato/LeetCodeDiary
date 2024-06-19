@@ -18,7 +18,9 @@ int main() {
 			g_foo = false;
 			// 延时
 			std::this_thread::sleep_for(std::chrono::milliseconds(200));
-			g_cv.notify_one(); // 不用 all 是因为只有一个线程在等待，如果有多个线程在等待，就要用 all
+			g_cv.notify_one(); // 不用 all
+			                   // 是因为只有一个线程在等待，如果有多个线程在等待，就要用
+			                   // all
 		}
 	});
 

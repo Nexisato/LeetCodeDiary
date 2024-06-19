@@ -1,8 +1,8 @@
 /*
 LeetCode 938: Range Sum of BST
 @Description:
-Given the root node of a binary search tree, return the sum of values of all nodes with a value in the range [low,
-high].
+Given the root node of a binary search tree, return the sum of values of all nodes with
+a value in the range [low, high].
 
 Constraints:
 The number of nodes in the tree is in the range [1, 2 * 10^4].

@@ -14,8 +14,8 @@ Initially, all next pointers are set to NULL.
 
 Follow up:
 You may only use constant extra space.
-Recursive approach is fine, you may assume implicit stack space does not count as extra space for this problem.
- 
+Recursive approach is fine, you may assume implicit stack space does not count as extra
+space for this problem.  
 */
 #include <algorithm>
 #include <iostream>
@@ -35,7 +35,8 @@ public:
 
 	Node(int _val) : val(_val), left(NULL), right(NULL), next(NULL) {}
 
-	Node(int _val, Node* _left, Node* _right, Node* _next) : val(_val), left(_left), right(_right), next(_next) {}
+	Node(int _val, Node* _left, Node* _right, Node* _next)
+	    : val(_val), left(_left), right(_right), next(_next) {}
 };
 
 class Solution {

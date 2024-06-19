@@ -1,14 +1,14 @@
 /*
 LeetCode 1178: Number of Valid Words for Each Puzzle
 @Description:
-With respect to a given puzzle string, a word is valid if both the following conditions are satisfied:
-· word contains the first letter of puzzle.
-· For each letter in word, that letter is in puzzle.
+With respect to a given puzzle string, a word is valid if both the following conditions
+are satisfied: · word contains the first letter of puzzle. · For each letter in word,
+that letter is in puzzle.
 
-For example, if the puzzle is "abcdefg", then valid words are "faced", "cabbage", and "baggage";
-while invalid words are "beefed" (doesn't include "a") and "based" (includes "s" which isn't in the puzzle).
-Return an array answer, where answer[i] is the number of words
-in the given word list words that are valid with respect to the puzzle puzzles[i].
+For example, if the puzzle is "abcdefg", then valid words are "faced", "cabbage", and
+"baggage"; while invalid words are "beefed" (doesn't include "a") and "based" (includes
+"s" which isn't in the puzzle). Return an array answer, where answer[i] is the number of
+words in the given word list words that are valid with respect to the puzzle puzzles[i].
 
 Constraints:
 1 <= words.length <= 10^5
@@ -55,8 +55,10 @@ public:
 */
 /*
 思路：二进制状态压缩
-1. 使用一个hash映射表示需要的[数据结构]，key表示一个bit长度为26的二进制数，value表示出现次数
-2. 将word做转换方便查找，由于只有小写字母，所以可以用位操作来实现，a - z 对应 0 - 25 bit，转化为mask_word整数
+1.
+使用一个hash映射表示需要的[数据结构]，key表示一个bit长度为26的二进制数，value表示出现次数
+2. 将word做转换方便查找，由于只有小写字母，所以可以用位操作来实现，a - z 对应 0 - 25
+bit，转化为mask_word整数
 3. 对于puzzle做同样的操作
 4. 基于每个puzzle找对应word的转换
     · 首先保证puzzle[0]在对应的bit在mask_word中也同样为1

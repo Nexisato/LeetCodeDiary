@@ -47,7 +47,8 @@ public:
 			}
 			// 本层当前子节点之外其他子节点的值相加
 			for (auto& node : q) {
-				int other = (node->left ? node->left->val : 0) + (node->right ? node->right->val : 0);
+				int other = (node->left ? node->left->val : 0) +
+				            (node->right ? node->right->val : 0);
 				if (node->left)
 					node->left->val = sum - other;
 				if (node->right)

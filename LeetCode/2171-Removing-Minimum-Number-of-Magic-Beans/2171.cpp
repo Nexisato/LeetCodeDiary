@@ -1,7 +1,8 @@
 /*
  * @Date: 2024-01-18 14:52:28
  * @Author: nexisato
- * @FilePath: /LeetCodeDiary/LeetCode/2171_Removing_Minimum_Number_of_Magic_Beans/2171.cpp
+ * @FilePath:
+ * /LeetCodeDiary/LeetCode/2171_Removing_Minimum_Number_of_Magic_Beans/2171.cpp
  * @Description:
  */
 #include <algorithm>

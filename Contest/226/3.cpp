@@ -1,18 +1,18 @@
 /*
 LeetCode 5667: Can you Eat Your Favorite Candy on Your Favorite Day?
 Description:
-You are given a (0-indexed) array of positive integers candiesCount where candiesCount[i]
-represents the number of candies of the ith type you have.
-You are also given a 2D array queries where queries[i] = [favoriteTypei, favoriteDayi, dailyCapi].
+You are given a (0-indexed) array of positive integers candiesCount where
+candiesCount[i] represents the number of candies of the ith type you have. You are also
+given a 2D array queries where queries[i] = [favoriteTypei, favoriteDayi, dailyCapi].
 
 You play a game with the following rules:
 -You start eating candies on day 0.
 -You cannot eat any candy of type i unless you have eaten all candies of type i - 1.
 -You must eat at least one candy per day until you have eaten all the candies.
-Construct a boolean array answer such that answer.length == queries.length and answer[i] is true
-if you can eat a candy of type favoriteTypei on day favoriteDayi without eating more than dailyCapi
-candies on any day, and false otherwise. Note that you can eat different types of candy on the same day,
-provided that you follow rule 2.
+Construct a boolean array answer such that answer.length == queries.length and answer[i]
+is true if you can eat a candy of type favoriteTypei on day favoriteDayi without eating
+more than dailyCapi candies on any day, and false otherwise. Note that you can eat
+different types of candy on the same day, provided that you follow rule 2.
 
 Return the constructed array answer.
 
@@ -41,7 +41,8 @@ public:
 		int N = candiesCount.size();
 		vector<long long> Sum(N + 1);
 		for (int i = 1; i <= N; ++i)
-			Sum[i] = Sum[i - 1] + candiesCount[i - 1]; // Sum[i]表示Typei以前的所有糖果总和
+			Sum[i] =
+			    Sum[i - 1] + candiesCount[i - 1]; // Sum[i]表示Typei以前的所有糖果总和
 		for (vector<int>& query : queries) {
 			bool flag = true;
 			int favType = query[0], favDay = query[1], dailyCap = query[2];
@@ -56,10 +57,11 @@ public:
 };
 
 int main() {
-	vector<int> candiesCount = {16, 38, 8,  41, 30, 31, 14, 45, 3,  2,  24, 23, 38, 30, 31, 17, 35, 4,  9,
-	                            42, 28, 18, 37, 18, 14, 46, 11, 13, 19, 3,  5,  39, 24, 48, 20, 29, 4,  19,
-	                            36, 11, 28, 49, 38, 16, 23, 24, 4,  22, 29, 35, 45, 38, 37, 40, 2,  37, 8,
-	                            41, 33, 8,  40, 27, 13, 4,  33, 5,  8,  14, 19, 35, 31, 8,  8};
+	vector<int> candiesCount = {
+	    16, 38, 8,  41, 30, 31, 14, 45, 3,  2,  24, 23, 38, 30, 31, 17, 35, 4,  9,
+	    42, 28, 18, 37, 18, 14, 46, 11, 13, 19, 3,  5,  39, 24, 48, 20, 29, 4,  19,
+	    36, 11, 28, 49, 38, 16, 23, 24, 4,  22, 29, 35, 45, 38, 37, 40, 2,  37, 8,
+	    41, 33, 8,  40, 27, 13, 4,  33, 5,  8,  14, 19, 35, 31, 8,  8};
 	vector<int> query = {43, 1054, 49};
 	vector<vector<int>> queries;
 	queries.push_back(query);

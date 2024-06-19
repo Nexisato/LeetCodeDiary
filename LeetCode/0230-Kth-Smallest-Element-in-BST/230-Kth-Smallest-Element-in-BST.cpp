@@ -1,11 +1,13 @@
 /*
 LeetCode: 230 Kth Smallest Element in BST
 Description:
-Given a binary search tree, write a function kthSmallest to find the kth smallest element in it.
+Given a binary search tree, write a function kthSmallest to find the kth smallest
+element in it.
 
 Follow up:
 What if the BST is modified (insert/delete operations) often and
-you need to find the kth smallest frequently? How would you optimize the kthSmallest routine?
+you need to find the kth smallest frequently? How would you optimize the kthSmallest
+routine?
 
 Constraints:
 The number of elements of the BST is between 1 to 10^4.

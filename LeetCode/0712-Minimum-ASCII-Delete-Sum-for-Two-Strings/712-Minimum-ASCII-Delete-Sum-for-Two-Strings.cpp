@@ -1,7 +1,8 @@
 /*
 LeetCode 712: Minimum ASCII Delete Sum for Two Strings
 Description:
-Given two strings s1, s2, find the lowest ASCII sum of deleted characters to make two strings equal.
+Given two strings s1, s2, find the lowest ASCII sum of deleted characters to make two
+strings equal.
 
 Note:
 0 < s1.length, s2.length <= 1000.

@@ -23,7 +23,8 @@ public:
 			if (!memo.count(key)) {
 				int product = INT32_MAX;
 				for (int k = i + 1; k < j; ++k)
-					product = min(product, values[i] * values[k] * values[j] + dp(i, k) + dp(k, j));
+					product = min(product, values[i] * values[k] * values[j] + dp(i, k) +
+					                           dp(k, j));
 				memo[key] = product;
 			}
 			return memo[key];

@@ -27,8 +27,8 @@ The graph is represented in the test case using an adjacency list.
 An adjacency list is a collection of unordered lists used to represent a finite graph.
 Each list describes the set of neighbors of a node in the graph.
 
-The given node will always be the first node with val = 1. You must return the copy of the given node as a reference
-to the cloned graph.
+The given node will always be the first node with val = 1. You must return the copy of
+the given node as a reference to the cloned graph.
 
 Constraints:
 The number of nodes in the graph is in the range [0, 100].

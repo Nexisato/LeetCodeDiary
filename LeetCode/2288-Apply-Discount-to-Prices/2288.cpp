@@ -14,8 +14,10 @@ public:
 
 		string word;
 		while (sin >> word) {
-			if (word[0] == '$' && word.size() > 1 && all_of(word.begin() + 1, word.end(), ::isdigit)) {
-				double price = stoll(word.substr(1, word.size() - 1)) * (1.0 - discount / 100.0);
+			if (word[0] == '$' && word.size() > 1 &&
+			    all_of(word.begin() + 1, word.end(), ::isdigit)) {
+				double price =
+				    stoll(word.substr(1, word.size() - 1)) * (1.0 - discount / 100.0);
 				sout << "$" << price;
 			} else {
 				sout << word;

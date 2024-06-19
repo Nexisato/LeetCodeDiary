@@ -3,11 +3,14 @@ LeetCode 5683: Count Pairs of Nodes
 @Description:
 You are given an undirected graph represented by an integer n,
 which is the number of nodes, and edges, where edges[i] = [ui, vi] which indicates
-that there is an undirected edge between ui and vi. You are also given an integer array queries.
+that there is an undirected edge between ui and vi. You are also given an integer array
+queries.
 
-The answer to the jth query is the number of pairs of nodes (a, b) that satisfy the following conditions:
+The answer to the jth query is the number of pairs of nodes (a, b) that satisfy the
+following conditions:
 - a < b
-- cnt is strictly greater than queries[j], where cnt is the number of edges incident to a or b.
+- cnt is strictly greater than queries[j], where cnt is the number of edges incident to
+a or b.
 
 Return an array answers such that answers.length == queries.length and answers[j]
 is the answer of the jth query.
@@ -38,7 +41,9 @@ public:
 	vector<int> countPairs(int n, vector<vector<int>>& edges, vector<int>& queries) {
 		vector<int> deg(n + 1, 0);
 		int n_edges = edges.size();
-		auto encode = [n](int a, int b) -> int { return max(a, b) * (n + 1) + min(a, b); };
+		auto encode = [n](int a, int b) -> int {
+			return max(a, b) * (n + 1) + min(a, b);
+		};
 		unordered_map<int, int> overlap;
 		vector<vector<int>> graph; //不记录重边
 		for (int i = 0; i < n_edges; ++i) {

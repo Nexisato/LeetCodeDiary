@@ -15,7 +15,8 @@ public:
 		vector<int> res(n, -1);
 		stack<int> st;
 		// 优先队列，存储的是 值 和 下标
-		priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+		priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>>
+		    pq;
 
 		for (int i = 0; i < n; ++i) {
 			// 到这里，栈顶元素的下一个更大元素

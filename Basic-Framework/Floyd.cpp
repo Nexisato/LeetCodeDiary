@@ -24,8 +24,10 @@ public:
 };
 
 int main() {
-	vector<vector<int>> graph = {
-	    {0, 5, INT_MAX, 10}, {INT_MAX, 0, 3, INT_MAX}, {INT_MAX, INT_MAX, 0, 1}, {INT_MAX, INT_MAX, INT_MAX, 0}};
+	vector<vector<int>> graph = {{0, 5, INT_MAX, 10},
+	                             {INT_MAX, 0, 3, INT_MAX},
+	                             {INT_MAX, INT_MAX, 0, 1},
+	                             {INT_MAX, INT_MAX, INT_MAX, 0}};
 	Floyd floyd;
 	vector<vector<int>> res = floyd.floyd(graph);
 	for (int i = 0; i < res.size(); i++) {

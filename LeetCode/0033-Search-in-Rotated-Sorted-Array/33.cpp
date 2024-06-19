@@ -11,9 +11,9 @@ LeetCode 33: Search in Rotated Sorted Array
 There is an integer array nums sorted in ascending order (with distinct values).
 
 Prior to being passed to your function, nums is rotated at an unknown pivot
-index k (0 <= k < nums.length) such that the resulting array is [nums[k], nums[k+1], ...,
-nums[n-1], nums[0], nums[1], ..., nums[k-1]] (0-indexed). For example, [0,1,2,4,5,6,7]
-might be rotated at pivot index 3 and become [4,5,6,7,0,1,2].
+index k (0 <= k < nums.length) such that the resulting array is [nums[k], nums[k+1],
+..., nums[n-1], nums[0], nums[1], ..., nums[k-1]] (0-indexed). For example,
+[0,1,2,4,5,6,7] might be rotated at pivot index 3 and become [4,5,6,7,0,1,2].
 
 Given the array nums after the rotation and an integer target,
 return the index of target if it is in nums, or -1 if it is not in nums.
@@ -32,9 +32,10 @@ Follow up: Can you achieve this in O(log n) time complexity?
 using namespace std;
 /*
 思路：二分查找
-1. 由于该数组是局部有序的，可以发现：将数组从中间分开成左右两部分的时候，一定有一部分数组有序
-2. 若[low, mid]是有序数组，且targe在[nums[low], nums[mid]]区间内，则搜索范围缩小到[l, mid - 1]
-否则搜索[mid + 1, high]
+1.
+由于该数组是局部有序的，可以发现：将数组从中间分开成左右两部分的时候，一定有一部分数组有序
+2. 若[low, mid]是有序数组，且targe在[nums[low], nums[mid]]区间内，则搜索范围缩小到[l,
+mid - 1] 否则搜索[mid + 1, high]
 
 */
 class Solution {

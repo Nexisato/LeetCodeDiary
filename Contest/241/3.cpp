@@ -1,7 +1,7 @@
 /*
 @Description:
-You are given two integer arrays nums1 and nums2. You are tasked to implement a data structure
-that supports queries of two types:
+You are given two integer arrays nums1 and nums2. You are tasked to implement a data
+structure that supports queries of two types:
 - Add a positive integer to an element of a given index in the array nums2.
 - Count the number of pairs (i, j) such that nums1[i] + nums2[j] equals a given value
 (0 <= i < nums1.length and 0 <= j < nums2.length).
@@ -9,8 +9,10 @@ that supports queries of two types:
 Implement the FindSumPairs class:
 - FindSumPairs(int[] nums1, int[] nums2) Initializes the FindSumPairs object with two
 - integer arrays nums1 and nums2.
-- void add(int index, int val) Adds val to nums2[index], i.e., apply nums2[index] += val.
-- int count(int tot) Returns the number of pairs (i, j) such that nums1[i] + nums2[j] == tot.
+- void add(int index, int val) Adds val to nums2[index], i.e., apply nums2[index] +=
+val.
+- int count(int tot) Returns the number of pairs (i, j) such that nums1[i] + nums2[j] ==
+tot.
 
 Constraints:
 1 <= nums1.length <= 1000

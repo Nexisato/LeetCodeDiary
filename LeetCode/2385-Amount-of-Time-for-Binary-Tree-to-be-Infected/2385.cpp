@@ -32,7 +32,8 @@ public:
 		};
 		dfs(root, nullptr);
 
-		function<int(TreeNode*, TreeNode*)> maxDistance = [&](TreeNode* node, TreeNode* from) -> int {
+		function<int(TreeNode*, TreeNode*)> maxDistance = [&](TreeNode* node,
+		                                                      TreeNode* from) -> int {
 			if (!node)
 				return -1;
 			int res = -1;

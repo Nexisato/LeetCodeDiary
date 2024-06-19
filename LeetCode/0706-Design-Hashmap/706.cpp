@@ -9,7 +9,8 @@ void put(int key, int value) inserts a (key, value) pair into the HashMap.
 If the key already exists in the map, update the corresponding value.
 int get(int key) returns the value to which the specified key is mapped,
 or -1 if this map contains no mapping for the key.
-void remove(key) removes the key and its corresponding value if the map contains the mapping for the key.
+void remove(key) removes the key and its corresponding value if the map contains the
+mapping for the key.
 
 Constraints:
 0 <= key, value <= 10^6
@@ -35,10 +36,12 @@ public:
 		table[k] = value;
 	}
 
-	/** Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key */
+	/** Returns the value to which the specified key is mapped, or -1 if this map
+	 * contains no mapping for the key */
 	int get(int key) { return table[key % MAX]; }
 
-	/** Removes the mapping of the specified value key if this map contains a mapping for the key */
+	/** Removes the mapping of the specified value key if this map contains a mapping
+	 * for the key */
 	void remove(int key) { table[key % MAX] = -1; }
 };
 /*
@@ -66,7 +69,8 @@ public:
 		table[k].push_back(make_pair(key, value));
 	}
 
-	/** Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key */
+	/** Returns the value to which the specified key is mapped, or -1 if this map
+	 * contains no mapping for the key */
 	int get(int key) {
 		int k = hash(key);
 		for (auto it = table[k].begin(); it != table[k].end(); ++it)
@@ -75,7 +79,8 @@ public:
 		return -1;
 	}
 
-	/** Removes the mapping of the specified value key if this map contains a mapping for the key */
+	/** Removes the mapping of the specified value key if this map contains a mapping
+	 * for the key */
 	void remove(int key) {
 		int k = hash(key);
 		for (auto it = table[k].begin(); it != table[k].end(); ++it)

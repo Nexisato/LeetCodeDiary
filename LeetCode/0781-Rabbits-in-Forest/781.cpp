@@ -2,7 +2,8 @@
 LeetCode 781: Rabbits in Forest
 @Description:
 In a forest, each rabbit has some color. Some subset of rabbits (possibly all of them)
-tell you how many other rabbits have the same color as them. Those answers are placed in an array.
+tell you how many other rabbits have the same color as them. Those answers are placed in
+an array.
 
 Return the minimum number of rabbits that could be in the forest.
 

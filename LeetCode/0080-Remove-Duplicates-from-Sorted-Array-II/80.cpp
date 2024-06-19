@@ -10,14 +10,14 @@ LeetCode 80: Remove Duplicates from Sorted Array
 Given a sorted array nums, remove the duplicates in-place such that duplicates appeared
 at most twice and return the new length.
 
-Do not allocate extra space for another array; you must do this by modifying the input array in-place
-with O(1) extra memory.
+Do not allocate extra space for another array; you must do this by modifying the input
+array in-place with O(1) extra memory.
 
 Clarification:
 Confused why the returned value is an integer, but your answer is an array?
 
-Note that the input array is passed in by reference, which means a modification to the input array
-will be known to the caller.
+Note that the input array is passed in by reference, which means a modification to the
+input array will be known to the caller.
 
 Constraints:
 1 <= nums.length <= 3 * 10^4

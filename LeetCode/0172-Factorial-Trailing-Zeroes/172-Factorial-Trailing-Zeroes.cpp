@@ -1,7 +1,8 @@
 /*
  * @Date: 2023-12-10 01:13:31
  * @Author: nexisato
- * @FilePath: /LeetCodeDiary/LeetCode/0172-Factorial-Trailing-Zeroes/172-Factorial-Trailing-Zeroes.cpp
+ * @FilePath:
+ * /LeetCodeDiary/LeetCode/0172-Factorial-Trailing-Zeroes/172-Factorial-Trailing-Zeroes.cpp
  * @Description:
  */
 /*

@@ -9,7 +9,8 @@ Constraints:
 k is in the range [1, the number of unique elements in the array].
 It is guaranteed that the answer is unique.
 
-Follow up: Your algorithm's time complexity must be better than O(n log n), where n is the array's size.
+Follow up: Your algorithm's time complexity must be better than O(n log n), where n is
+the array's size.
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -26,7 +27,8 @@ public:
 		for (auto& num : nums)
 			table[num]++;
 		// decltype()：类型自动推导
-		priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(&cmp)> minHeap(cmp);
+		priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(&cmp)> minHeap(
+		    cmp);
 		for (auto it = table.begin(); it != table.end(); ++it) {
 			if (minHeap.size() < k) {
 				minHeap.push({it->first, it->second});

@@ -1,7 +1,8 @@
 /*
  * @Date: 2024-03-07 07:59:19
  * @Author: nexisato
- * @FilePath: /LeetCodeDiary/LeetCode/2575-Find-the-Divisibility-Array-of-a-String/2575.cpp
+ * @FilePath:
+ * /LeetCodeDiary/LeetCode/2575-Find-the-Divisibility-Array-of-a-String/2575.cpp
  * @Description:
  */
 #include <cstdlib>

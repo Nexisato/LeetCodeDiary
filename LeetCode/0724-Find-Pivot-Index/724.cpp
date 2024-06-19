@@ -3,11 +3,11 @@ LeetCode 724: Find Pivot Index
 @Description:
 Given an array of integers nums, calculate the pivot index of this array.
 
-The pivot index is the index where the sum of all the numbers strictly to the left of the index is equal
-to the sum of all the numbers strictly to the index's right.
+The pivot index is the index where the sum of all the numbers strictly to the left of
+the index is equal to the sum of all the numbers strictly to the index's right.
 
-If the index is on the left edge of the array, then the left sum is 0 because there are no elements to the left.
-This also applies to the right edge of the array.
+If the index is on the left edge of the array, then the left sum is 0 because there are
+no elements to the left. This also applies to the right edge of the array.
 
 Return the leftmost pivot index. If no such index exists, return -1.
 
@@ -35,7 +35,8 @@ public:
 		}
 		return (leftSum == rightSum) ? (pivot) : -1;
 	}
-	// SumLeft = totalSum - nums[i] - SumRight, SumLeft = SumRight ==> 2 * Sum + nums[i] = totalSum
+	// SumLeft = totalSum - nums[i] - SumRight, SumLeft = SumRight ==> 2 * Sum + nums[i]
+	// = totalSum
 	int pivotIndex_opt(vector<int>& nums) {
 		int n = nums.size();
 		int totalSum = accumulate(nums.begin(), nums.end(), 0);

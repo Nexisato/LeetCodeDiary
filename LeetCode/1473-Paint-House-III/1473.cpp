@@ -2,16 +2,18 @@
 LeetCode 1473: Paint House III
 @Description:
 There is a row of m houses in a small city, each house must be painted with
-one of the n colors (labeled from 1 to n), some houses that have been painted last summer should not be painted again.
+one of the n colors (labeled from 1 to n), some houses that have been painted last
+summer should not be painted again.
 
-A neighborhood is a maximal group of continuous houses that are painted with the same color.
+A neighborhood is a maximal group of continuous houses that are painted with the same
+color.
 
-For example: houses = [1,2,2,3,3,2,1,1] contains 5 neighborhoods [{1}, {2,2}, {3,3}, {2}, {1,1}].
-Given an array houses, an m x n matrix cost and an integer target where:
+For example: houses = [1,2,2,3,3,2,1,1] contains 5 neighborhoods [{1}, {2,2}, {3,3},
+{2}, {1,1}]. Given an array houses, an m x n matrix cost and an integer target where:
 - houses[i]: is the color of the house i, and 0 if the house is not painted yet.
 - cost[i][j]: is the cost of paint the house i with the color j + 1.
-Return the minimum cost of painting all the remaining houses in such a way that there are exactly target neighborhoods.
-If it is not possible, return -1.
+Return the minimum cost of painting all the remaining houses in such a way that there
+are exactly target neighborhoods. If it is not possible, return -1.
 
 Constraints:
 m == houses.length == cost.length
@@ -32,8 +34,8 @@ dp[i][j][k]：表示前i个房子组成的j个街区，且第i个房子颜色为
         第i - 1个房子和第i个房子颜色不相同，形成新的街区
         第i - 1个房子和第i个房子颜色相同，街区数量不变
         cur_color = , prev_color[1...n]
-            dp[i][j][cur_color] = min(dp[i - 1][j - 1][prev_color], prev_color != cur_color
-                                      dp[i - 1][j][cur_color]       prev_color == cur_color
+            dp[i][j][cur_color] = min(dp[i - 1][j - 1][prev_color], prev_color !=
+cur_color dp[i - 1][j][cur_color]       prev_color == cur_color
                                       )
     - 当前房子无颜色：
         dp[i][j][cur_color] = costs[i][cur_color] + min(dp[i - 1][j - 1][prev_color]
@@ -41,7 +43,8 @@ dp[i][j][k]：表示前i个房子组成的j个街区，且第i个房子颜色为
 */
 class Solution {
 public:
-	int minCost(vector<int>& houses, vector<vector<int>>& cost, int m, int n, int target) {
+	int minCost(vector<int>& houses, vector<vector<int>>& cost, int m, int n,
+	            int target) {
 		int dp[m][target + 1][n + 1];
 		memset(dp, 0x3f3f3f3f, sizeof(dp));
 
@@ -61,10 +64,13 @@ public:
 						for (int j = 1; j <= target; ++j) {
 							if (cur_color == prev_color)
 								dp[i][j][cur_color] =
-								    min(dp[i][j][cur_color], cost[i][cur_color - 1] + dp[i - 1][j][cur_color]);
+								    min(dp[i][j][cur_color],
+								        cost[i][cur_color - 1] + dp[i - 1][j][cur_color]);
 							else
 								dp[i][j][cur_color] =
-								    min(dp[i][j][cur_color], cost[i][cur_color - 1] + dp[i - 1][j - 1][prev_color]);
+								    min(dp[i][j][cur_color],
+								        cost[i][cur_color - 1] +
+								            dp[i - 1][j - 1][prev_color]);
 						}
 			}
 			//当前房子有颜色
@@ -73,9 +79,11 @@ public:
 				for (int prev_color = 1; prev_color <= n; ++prev_color)
 					for (int j = 1; j <= target; ++j) {
 						if (cur_color == prev_color)
-							dp[i][j][cur_color] = min(dp[i][j][cur_color], dp[i - 1][j][cur_color]);
+							dp[i][j][cur_color] =
+							    min(dp[i][j][cur_color], dp[i - 1][j][cur_color]);
 						else
-							dp[i][j][cur_color] = min(dp[i][j][cur_color], dp[i - 1][j - 1][prev_color]);
+							dp[i][j][cur_color] =
+							    min(dp[i][j][cur_color], dp[i - 1][j - 1][prev_color]);
 					}
 			}
 		}

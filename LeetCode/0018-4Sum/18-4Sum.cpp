@@ -90,7 +90,8 @@ public:
 					else if ((long)nums[k] + nums[i] + nums[left] + nums[right] < target)
 						left++;
 					else {
-						res.push_back(vector<int>{nums[k], nums[i], nums[left], nums[right]});
+						res.push_back(
+						    vector<int>{nums[k], nums[i], nums[left], nums[right]});
 						while (left < right && nums[right] == nums[right - 1])
 							right--;
 						while (left < right && nums[left] == nums[left + 1])

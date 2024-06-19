@@ -21,7 +21,8 @@ public:
 	//     }
 	//     vector<int> prefix(n + 1, 0);
 	//     for (int i = 1; i <= n; ++i)
-	//         prefix[i] = prefix[i - 1] + nums[i - 1]; // sum(i, j) prefix[j + 1] - prefix[i]
+	//         prefix[i] = prefix[i - 1] + nums[i - 1]; // sum(i, j) prefix[j + 1] -
+	//         prefix[i]
 
 	//     for (int r = kIdx; r < n; ++r)
 	//         for (int l = kIdx; l >= 0; --l) {
@@ -34,7 +35,9 @@ public:
 	int countSubarrays(vector<int>& nums, int k) {
 		const int n = nums.size();
 		int res = 1, kIdx = find(nums.begin(), nums.end(), k) - nums.begin();
-		int cnt[n << 1 | 1]; // 开一个 2n + 1 大的数组，用于记录当前数组中，右侧比k大与比k小的元素个数的差值
+		int cnt[n << 1 |
+		        1]; // 开一个 2n + 1
+		            // 大的数组，用于记录当前数组中，右侧比k大与比k小的元素个数的差值
 		memset(cnt, 0, sizeof(cnt));
 		int x = 0;
 		for (int i = kIdx + 1; i < n; ++i) {

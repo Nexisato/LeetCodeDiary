@@ -16,14 +16,16 @@ class Solution {
 private:
 	vector<vector<int>> res;
 	vector<int> path;
-	void backtracking(const vector<int>& candidates, int target, int sum, int startIndex) {
+	void backtracking(const vector<int>& candidates, int target, int sum,
+	                  int startIndex) {
 		if (sum > target)
 			return;
 		if (sum == target) {
 			res.push_back(path);
 			return;
 		}
-		for (int i = startIndex; i < candidates.size() && sum + candidates[i] <= target; ++i) {
+		for (int i = startIndex; i < candidates.size() && sum + candidates[i] <= target;
+		     ++i) {
 			sum += candidates[i];
 			path.push_back(candidates[i]);
 			backtracking(candidates, target, sum, i);

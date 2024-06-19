@@ -1,7 +1,8 @@
 /*
  * @Date: 2024-02-13 09:26:02
  * @Author: nexisato
- * @FilePath: /LeetCodeDiary/LeetCode/0987-Vertical-Order-Traversal-of-Binary-Tree/987.cpp
+ * @FilePath:
+ * /LeetCodeDiary/LeetCode/0987-Vertical-Order-Traversal-of-Binary-Tree/987.cpp
  * @Description:
  */
 #include <functional>
@@ -36,9 +37,10 @@ public:
 		};
 		dfs(root, 0, 0);
 		for (int i = minCol; i <= maxCol; ++i) {
-			sort(table[i].begin(), table[i].end(), [](const pair<int, int>& a, const pair<int, int>& b) {
-				return a.first == b.first ? a.second < b.second : a.first < b.first;
-			});
+			sort(table[i].begin(), table[i].end(),
+			     [](const pair<int, int>& a, const pair<int, int>& b) {
+				     return a.first == b.first ? a.second < b.second : a.first < b.first;
+			     });
 
 			vector<int> col;
 			for (auto& [_, val] : table[i]) {

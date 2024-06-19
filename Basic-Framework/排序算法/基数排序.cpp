@@ -29,8 +29,9 @@ void countingSort(vector<int>& arr, int exp) {
 
 	for (int i = n - 1; i >= 0; i--) {
 		// 用于找到当前数字在输出数组中的正确位置。
-		// count 数组存储了每个数字出现的次数，因此 (arr[i] / exp) % 10 就是当前数字在 count 数组中的索引，
-		// 而 count[(arr[i] / exp) % 10] - 1 则是该数字在输出数组中的索引。减去1是因为数组索引从0开始。
+		// count 数组存储了每个数字出现的次数，因此 (arr[i] / exp) % 10 就是当前数字在
+		// count 数组中的索引， 而 count[(arr[i] / exp) % 10] - 1
+		// 则是该数字在输出数组中的索引。减去1是因为数组索引从0开始。
 		output[count[(arr[i] / exp) % 10] - 1] = arr[i];
 		count[(arr[i] / exp) % 10]--;
 	}

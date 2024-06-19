@@ -9,7 +9,8 @@ LeetCode 150: Evaluate Reverse Polish Notation
 
 Evaluate the value of an arithmetic expression in Reverse Polish Notation.
 
-Valid operators are +, -, *, and /. Each operand may be an integer or another expression.
+Valid operators are +, -, *, and /. Each operand may be an integer or another
+expression.
 
 Note that division between two integers should truncate toward zero.
 
@@ -19,7 +20,8 @@ and there will not be any division by zero operation.
 
 Constraints:
 1 <= tokens.length <= 10^4
-tokens[i] is either an operator: "+", "-", "*", or "/", or an integer in the range [-200, 200].
+tokens[i] is either an operator: "+", "-", "*", or "/", or an integer in the range
+[-200, 200].
 */
 #include <iostream>
 #include <stack>

@@ -2,7 +2,8 @@
 LeetCode: 341 Flateen Nested List Iterator
 Description:
 Given a nested list of integers, implement an iterator to flatten it.
-Each element is either an integer, or a list -- whose elements may also be integers or other lists.
+Each element is either an integer, or a list -- whose elements may also be integers or
+other lists.
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -10,15 +11,17 @@ using namespace std;
 // You should not implement it, or speculate about its implementation
 class NestedInteger {
 public:
-	// Return true if this NestedInteger holds a single integer, rather than a nested list.
+	// Return true if this NestedInteger holds a single integer, rather than a nested
+	// list.
 	bool isInteger() const;
-	// Return the single integer that this NestedInteger holds, if it holds a single integer
-	// The result is undefined if this NestedInteger holds a nested list
+	// Return the single integer that this NestedInteger holds, if it holds a single
+	// integer The result is undefined if this NestedInteger holds a nested list
 	int getInteger() const;
 	// Return the nested list that this NestedInteger holds, if it holds a nested list
 	// The result is undefined if this NestedInteger holds a single integer
 	const vector<NestedInteger>& getList() const;
-	// const 放在函数前，表示返回值不可修改；放在函数后，表示该函数不可修改成员变量，不可调用非const成员函数
+	// const
+	// 放在函数前，表示返回值不可修改；放在函数后，表示该函数不可修改成员变量，不可调用非const成员函数
 	// const修饰的对象只能调用const（放在后面的）成员函数
 };
 /*

@@ -8,7 +8,8 @@ using namespace std;
  */
 class Solution {
 public:
-	vector<int> smallestSufficientTeam(vector<string>& req_skills, vector<vector<string>>& people) {
+	vector<int> smallestSufficientTeam(vector<string>& req_skills,
+	                                   vector<vector<string>>& people) {
 		int n = people.size();
 		vector<int> res;
 
@@ -23,7 +24,8 @@ public:
 			for (const auto& skill : person)
 				personBit[i] |= (1 << table[skill]);
 		}
-		vector<int> dp(1 << numSkill, n); // dp[i] represents the least number of persons to construct status i (binary)
+		vector<int> dp(1 << numSkill, n); // dp[i] represents the least number of
+		                                  // persons to construct status i (binary)
 		vector<int> prev_skill(1 << numSkill, 0), prev_people(1 << numSkill, 0);
 		dp[0] = 0;
 		for (int i = 0; i < n; ++i) {

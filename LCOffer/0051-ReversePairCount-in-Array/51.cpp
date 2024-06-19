@@ -20,7 +20,8 @@ private:
 				nums[k] = tmp[i++];
 			else {
 				nums[k] = tmp[j++];
-				res += mid - i + 1; // 左边的数组已经排序好了，因此从 nums[i-m] 都是大于 nums[j] 的
+				res += mid - i +
+				       1; // 左边的数组已经排序好了，因此从 nums[i-m] 都是大于 nums[j] 的
 			}
 		}
 		return res;

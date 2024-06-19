@@ -1,6 +1,7 @@
 /*
 面试题01.08: Zero Matrix LCCI
-Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column are set to 0.
+Write an algorithm such that if an element in an MxN matrix is 0, its entire row and
+column are set to 0.
 */
 #include <bits/stdc++.h>
 using namespace std;

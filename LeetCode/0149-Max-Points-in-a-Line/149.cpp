@@ -26,7 +26,8 @@ public:
 			for (int j = i + 1; j < n; ++j) {
 				double dx = points[j][0] - points[i][0];
 				double dy = points[j][1] - points[i][1];
-				double k = (dx == 0) ? numeric_limits<double>::max() : static_cast<double>(dy / dx);
+				double k = (dx == 0) ? numeric_limits<double>::max()
+				                     : static_cast<double>(dy / dx);
 				++record[k];
 			}
 			for (auto& [_, count] : record) {

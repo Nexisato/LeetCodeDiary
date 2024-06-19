@@ -1,16 +1,19 @@
 /*
 LeetCode 789: Escape The Ghosts
 @Description:
-You are playing a simplified PAC-MAN game on an infinite 2-D grid. You start at the point [0, 0],
-and you are given a destination point target = [xtarget, ytarget], which you are trying to get to.
-There are several ghosts on the map with their starting positions given as an array ghosts,
-where ghosts[i] = [xi, yi] represents the starting position of the ith ghost. All inputs are integral coordinates.
+You are playing a simplified PAC-MAN game on an infinite 2-D grid. You start at the
+point [0, 0], and you are given a destination point target = [xtarget, ytarget], which
+you are trying to get to. There are several ghosts on the map with their starting
+positions given as an array ghosts, where ghosts[i] = [xi, yi] represents the starting
+position of the ith ghost. All inputs are integral coordinates.
 
-Each turn, you and all the ghosts may independently choose to either move 1 unit in any of the four cardinal directions:
-north, east, south, or west or stay still. All actions happen simultaneously.
+Each turn, you and all the ghosts may independently choose to either move 1 unit in any
+of the four cardinal directions: north, east, south, or west or stay still. All actions
+happen simultaneously.
 
 You escape if and only if you can reach the target before any ghost reaches you.
-If you reach any square (including the target) at the same time as a ghost, it does not count as an escape.
+If you reach any square (including the target) at the same time as a ghost, it does not
+count as an escape.
 
 Return true if it is possible to escape, otherwise return false.
 
@@ -31,7 +34,8 @@ using namespace std;
 2. 每个人到达 target 都是按照曼哈顿距离的走法到达
 3. 无需考虑各自按照怎样的路线走
     - 当有阻碍者可以先于或同时与玩家到达目的地，则逃跑失败
-    - 当玩家先于所有阻碍者到达目的地时，则一定可以逃跑成功，可以利用反证法证明一定不会在路中间遇到
+    -
+当玩家先于所有阻碍者到达目的地时，则一定可以逃跑成功，可以利用反证法证明一定不会在路中间遇到
 */
 class Solution {
 public:

@@ -1,14 +1,15 @@
 /*
  * @Date: 2023-12-10 01:13:31
  * @Author: nexisato
- * @FilePath: /LeetCodeDiary/LeetCode/0083_Remove_Duplicates_from_Sorted_List/83_Remove_Duplicates_from_Sorted_List.cpp
+ * @FilePath:
+ * /LeetCodeDiary/LeetCode/0083_Remove_Duplicates_from_Sorted_List/83_Remove_Duplicates_from_Sorted_List.cpp
  * @Description:
  */
 /*
 LeetCode 83: Remove Duplicates from Sorted List
 @Description:
-Given the head of a sorted linked list, delete all duplicates such that each element appears only once.
-Return the linked list sorted as well.
+Given the head of a sorted linked list, delete all duplicates such that each element
+appears only once. Return the linked list sorted as well.
 
 Constraints:
 The number of nodes in the list is in the range [0, 300].

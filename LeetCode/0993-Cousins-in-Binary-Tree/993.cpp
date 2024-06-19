@@ -7,9 +7,11 @@
 /*
 LeetCode 993: Cousins in Binary Tree
 @Description:
-In a binary tree, the root node is at depth 0, and children of each depth k node are at depth k+1.
+In a binary tree, the root node is at depth 0, and children of each depth k node are at
+depth k+1.
 
-Two nodes of a binary tree are cousins if they have the same depth, but have different parents.
+Two nodes of a binary tree are cousins if they have the same depth, but have different
+parents.
 
 We are given the root of a binary tree with unique values,
 and the values x and y of two different nodes in the tree.
@@ -53,9 +55,11 @@ private:
 
 	void update(TreeNode* node, TreeNode* parent, int depth) {
 		if (node->val == x) {
-			std::tie(parent_x, x_depth, x_found) = std::tuple<TreeNode*, int, bool>(parent, depth, true);
+			std::tie(parent_x, x_depth, x_found) =
+			    std::tuple<TreeNode*, int, bool>(parent, depth, true);
 		} else if (node->val == y) {
-			std::tie(parent_y, y_depth, y_found) = std::tuple<TreeNode*, int, bool>(parent, depth, true);
+			std::tie(parent_y, y_depth, y_found) =
+			    std::tuple<TreeNode*, int, bool>(parent, depth, true);
 		}
 	}
 

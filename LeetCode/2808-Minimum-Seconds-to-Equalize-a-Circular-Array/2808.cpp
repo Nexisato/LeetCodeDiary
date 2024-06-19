@@ -1,7 +1,8 @@
 /*
  * @Date: 2024-01-30 09:45:33
  * @Author: nexisato
- * @FilePath: /LeetCodeDiary/LeetCode/2808-Minimum-Seconds-to-Equalize-a-Circular-Array/2808.cpp
+ * @FilePath:
+ * /LeetCodeDiary/LeetCode/2808-Minimum-Seconds-to-Equalize-a-Circular-Array/2808.cpp
  * @Description:
  */
 #include <iostream>

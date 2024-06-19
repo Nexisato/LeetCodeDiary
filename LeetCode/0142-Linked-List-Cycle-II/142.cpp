@@ -21,7 +21,8 @@ class Solution {
 public:
 	ListNode* detectCycle(ListNode* head) {
 		ListNode *fastNode = head, *slowNode = head;
-		while (fastNode != nullptr && fastNode->next != nullptr) { //这里的 && 条件不可改为 ||，移动用而非判断用
+		while (fastNode != nullptr &&
+		       fastNode->next != nullptr) { //这里的 && 条件不可改为 ||，移动用而非判断用
 			fastNode = fastNode->next->next;
 			slowNode = slowNode->next;
 

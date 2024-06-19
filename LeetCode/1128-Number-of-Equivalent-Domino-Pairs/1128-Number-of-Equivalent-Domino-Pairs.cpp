@@ -30,7 +30,8 @@ public:
 		int count = 0;
 		int N = dominoes.size();
 		for (auto& arr : dominoes) {
-			int val = (arr[0] <= arr[1]) ? (arr[0] * 10 + arr[1]) : (arr[0] + arr[1] * 10);
+			int val =
+			    (arr[0] <= arr[1]) ? (arr[0] * 10 + arr[1]) : (arr[0] + arr[1] * 10);
 			count += sum[val]; //顺序不可替换，即 val 第二次出现时才开始计数
 			sum[val]++;
 		}

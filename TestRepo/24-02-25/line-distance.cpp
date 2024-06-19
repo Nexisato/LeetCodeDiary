@@ -21,7 +21,9 @@ void getCoefficients(const Point& p1, const Point& p2, double& a, double& b, dou
 	c = p2.x * p1.y - p1.x * p2.y;
 }
 
-double dist(const Point& p, double a, double b, double c) { return abs(a * p.x + b * p.y + c) / sqrt(a * a + b * b); }
+double dist(const Point& p, double a, double b, double c) {
+	return abs(a * p.x + b * p.y + c) / sqrt(a * a + b * b);
+}
 
 int main() {
 	Point P1(1, 1);
@@ -30,8 +32,9 @@ int main() {
 	getCoefficients(P1, P2, a, b, c);
 	// define a group of points
 	vector<Point> points = {{3, 2}, {3, 3}, {5, 7}, {2, 1}, {3, 2}};
-	sort(points.begin(), points.end(),
-	     [&](const Point& p1, const Point& p2) { return dist(p1, a, b, c) < dist(p2, a, b, c); });
+	sort(points.begin(), points.end(), [&](const Point& p1, const Point& p2) {
+		return dist(p1, a, b, c) < dist(p2, a, b, c);
+	});
 	for (auto&& p : points) {
 		cout << p.x << " " << p.y << endl;
 	}

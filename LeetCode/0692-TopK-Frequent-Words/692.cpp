@@ -3,8 +3,8 @@ LeetCode 692: Top K Frequent Words
 @Description:
 Given a non-empty list of words, return the k most frequent elements.
 
-Your answer should be sorted by frequency from highest to lowest. If two words have the same frequency,
-then the word with the lower alphabetical order comes first.
+Your answer should be sorted by frequency from highest to lowest. If two words have the
+same frequency, then the word with the lower alphabetical order comes first.
 
 Note:
 You may assume k is always valid, 1 ≤ k ≤ number of unique elements.
@@ -27,7 +27,8 @@ public:
 		auto cmp = [](const pair<string, int>& a, const pair<string, int>& b) {
 			return a.second == b.second ? a.first < b.first : a.second > b.second;
 		};
-		priority_queue<pair<string, int>, vector<pair<string, int>>, decltype(cmp)> minHeap(cmp);
+		priority_queue<pair<string, int>, vector<pair<string, int>>, decltype(cmp)>
+		    minHeap(cmp);
 		for (auto& it : table) {
 			if (minHeap.size() < k) {
 				minHeap.push(it);
@@ -46,7 +47,8 @@ public:
 	}
 };
 int main() {
-	vector<string> words{"the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"};
+	vector<string> words{"the", "day", "is",    "sunny", "the",
+	                     "the", "the", "sunny", "is",    "is"};
 	int k = 4;
 	Solution ss;
 	vector<string> res = ss.topKFrequent(words, k);

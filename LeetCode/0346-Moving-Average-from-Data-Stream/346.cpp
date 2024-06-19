@@ -1,7 +1,8 @@
 /*
 LeetCode 346: Moving Average from Data Stream
 @Description:
-Given a stream of integers and a window size, calculate the moving average of all integers in the sliding window.
+Given a stream of integers and a window size, calculate the moving average of all
+integers in the sliding window.
 
 Implement the MovingAverage class:
 - MovingAverage(int size) Initializes the object with the size of the window size.

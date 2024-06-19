@@ -1,7 +1,8 @@
 /*
  * @Date: 2024-01-26 11:58:20
  * @Author: nexisato
- * @FilePath: /LeetCodeDiary/LeetCode/1786-Number-of-Restricted-Paths-From-First-to-Last-Node/1786.cpp
+ * @FilePath:
+ * /LeetCodeDiary/LeetCode/1786-Number-of-Restricted-Paths-From-First-to-Last-Node/1786.cpp
  * @Description:
  */
 #include <algorithm>
@@ -38,7 +39,8 @@ public:
 		// 记录已经找到的最短路径的点
 		unordered_set<int> visited;
 		// 为了避免超时，可以用堆优化
-		priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> minHeap;
+		priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>>
+		    minHeap;
 		minHeap.emplace(0, n);
 		while (!minHeap.empty()) {
 			auto [min_dist, u] = minHeap.top();

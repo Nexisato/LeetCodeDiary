@@ -7,10 +7,11 @@
 /*
 LeetCode 200: Number of Islands
 @Description:
-Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands.
+Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's
+(water), return the number of islands.
 
-An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.
-You may assume all four edges of the grid are all surrounded by water.
+An island is surrounded by water and is formed by connecting adjacent lands horizontally
+or vertically. You may assume all four edges of the grid are all surrounded by water.
 
 Constraints:
 m == grid.length
@@ -45,7 +46,8 @@ public:
 						for (int k = 0; k < 4; ++k) {
 							int nx = x + d[k][0];
 							int ny = y + d[k][1];
-							if (nx >= 0 && nx < m && ny >= 0 && ny < n && grid[nx][ny] == '1') {
+							if (nx >= 0 && nx < m && ny >= 0 && ny < n &&
+							    grid[nx][ny] == '1') {
 								neighbours.emplace(nx, ny);
 								grid[nx][ny] = '0';
 							}

@@ -6,7 +6,8 @@ using namespace std;
 */
 class Solution {
 public:
-	vector<vector<int>> mergeSimilarItems(vector<vector<int>>& items1, vector<vector<int>>& items2) {
+	vector<vector<int>> mergeSimilarItems(vector<vector<int>>& items1,
+	                                      vector<vector<int>>& items2) {
 		vector<vector<int>> ret = items1;
 		for (int i = 0; i < items2.size(); ++i) {
 			vector<int> item_i = items2[i];
@@ -21,7 +22,8 @@ public:
 			if (!isAdded)
 				ret.emplace_back(item_i);
 		}
-		sort(ret.begin(), ret.end(), [](vector<int> item1, vector<int> item2) { return item1[0] < item2[0]; });
+		sort(ret.begin(), ret.end(),
+		     [](vector<int> item1, vector<int> item2) { return item1[0] < item2[0]; });
 		return ret;
 	}
 };
@@ -30,7 +32,8 @@ public:
 */
 class Solution_2 {
 public:
-	vector<vector<int>> mergeSimilarItems(vector<vector<int>>& items1, vector<vector<int>>& items2) {
+	vector<vector<int>> mergeSimilarItems(vector<vector<int>>& items1,
+	                                      vector<vector<int>>& items2) {
 		map<int, int> table;
 		for (auto& item : items1)
 			table[item[0]] += item[1];

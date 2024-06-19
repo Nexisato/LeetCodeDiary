@@ -1,14 +1,16 @@
 /*
  * @Date: 2023-12-10 01:13:31
  * @Author: nexisato
- * @FilePath: /LeetCodeDiary/LeetCode/0076-Minimum-Windows-String/76-Minimum-Window-String.cpp
+ * @FilePath:
+ * /LeetCodeDiary/LeetCode/0076-Minimum-Windows-String/76-Minimum-Window-String.cpp
  * @Description:
  */
 /*
 LeetCode 76: Minimum Window String
 @Description:
-Given two strings s and t, return the minimum window in s which will contain all the characters in t.
-If there is no such window in s that covers all characters in t, return the empty string "".
+Given two strings s and t, return the minimum window in s which will contain all the
+characters in t. If there is no such window in s that covers all characters in t, return
+the empty string "".
 
 Note that If there is such a window, it is guaranteed that there will always be
 only one unique minimum window in s.

@@ -1,8 +1,8 @@
 /* TODO
 LeetCode 131: Palindrome Partitioning
 @Description:
-Given a string s, partition s such that every substring of the partition is a palindrome.
-Return all possible palindrome partitioning of s.
+Given a string s, partition s such that every substring of the partition is a
+palindrome. Return all possible palindrome partitioning of s.
 
 A palindrome string is a string that reads the same backward as forward.
 
@@ -14,7 +14,8 @@ s contains only lowercase English letters.
 using namespace std;
 /*
 思路：回溯+动态规划
-1. 假设当前搜索到字符串的第i个字符，且s[0, .., i-1]位置的所有字符已经被分割成若干个回文串
+1. 假设当前搜索到字符串的第i个字符，且s[0, ..,
+i-1]位置的所有字符已经被分割成若干个回文串
 */
 class Solution {
 private:

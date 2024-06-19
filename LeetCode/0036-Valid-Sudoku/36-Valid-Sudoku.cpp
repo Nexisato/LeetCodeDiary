@@ -10,7 +10,8 @@ Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be 
 according to the following rules:
 Each row must contain the digits 1-9 without repetition.
 Each column must contain the digits 1-9 without repetition.
-Each of the nine 3 x 3 sub-boxes of the grid must contain the digits 1-9 without repetition.
+Each of the nine 3 x 3 sub-boxes of the grid must contain the digits 1-9 without
+repetition.
 
 Note:
 A Sudoku board (partially filled) could be valid but is not necessarily solvable.
@@ -39,7 +40,8 @@ public:
 					row[i][num]++;
 					col[num][j]++;
 					Matrix[j / 3 + (i / 3) * 3][num]++;
-					if (row[i][num] == 2 || col[num][j] == 2 || Matrix[j / 3 + (i / 3) * 3][num] == 2)
+					if (row[i][num] == 2 || col[num][j] == 2 ||
+					    Matrix[j / 3 + (i / 3) * 3][num] == 2)
 						return false;
 				}
 			}
@@ -49,12 +51,15 @@ public:
 };
 
 int main() {
-	vector<vector<char>> board = {
-	    {'8', '3', '.', '.', '7', '.', '.', '.', '.'}, {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
-	    {'.', '9', '8', '.', '.', '.', '.', '6', '.'}, {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
-	    {'4', '.', '.', '8', '.', '3', '.', '.', '1'}, {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
-	    {'.', '6', '.', '.', '.', '.', '2', '8', '.'}, {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
-	    {'.', '.', '.', '.', '8', '.', '.', '7', '9'}};
+	vector<vector<char>> board = {{'8', '3', '.', '.', '7', '.', '.', '.', '.'},
+	                              {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
+	                              {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
+	                              {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
+	                              {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
+	                              {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+	                              {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
+	                              {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
+	                              {'.', '.', '.', '.', '8', '.', '.', '7', '9'}};
 
 	Solution ss;
 	cout << ss.isValidSudoku(board) << endl;

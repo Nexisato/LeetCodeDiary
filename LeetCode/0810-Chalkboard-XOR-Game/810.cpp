@@ -3,10 +3,10 @@ LeetCode: Chalkboard XOR Game
 @Description:
 
 We are given non-negative integers nums[i] which are written on a chalkboard. 
-Alice and Bob take turns erasing exactly one number from the chalkboard, with Alice starting first. 
-If erasing a number causes the bitwise XOR of all the elements of the chalkboard to become 0,
-then that player loses.  (Also, we'll say the bitwise XOR of one element is that element itself,
-and the bitwise XOR of no elements is 0.)
+Alice and Bob take turns erasing exactly one number from the chalkboard, with Alice
+starting first.  If erasing a number causes the bitwise XOR of all the elements of the
+chalkboard to become 0, then that player loses.  (Also, we'll say the bitwise XOR of one
+element is that element itself, and the bitwise XOR of no elements is 0.)
 
 Also, if any player starts their turn with the bitwise XOR of all the elements of the
 chalkboard equal to 0, then that player wins.
@@ -26,8 +26,8 @@ using namespace std;
 即，Alice先手擦掉数字后，删掉任何一个数，剩余数异或结果都是0，即S[i] = 0
 考虑S != 0的情况
 S[i] ^ nums[i] = S
-0 = s[0] ^ ... ^ S[n - 1] = 0 <=> (S ^ nums[0]) ^ (S ^ nums[1]) ^ ...^ (S ^ nums[n - 1]) = 0
-n为偶数，可以合并为 S ^ 0 = 0，这样Alice开头即可获胜，矛盾
+0 = s[0] ^ ... ^ S[n - 1] = 0 <=> (S ^ nums[0]) ^ (S ^ nums[1]) ^ ...^ (S ^ nums[n - 1])
+= 0 n为偶数，可以合并为 S ^ 0 = 0，这样Alice开头即可获胜，矛盾
 
 因此，Alice获胜仅有两种条件
 - n % 2 == 0

@@ -13,7 +13,8 @@ All the elements of nums are unique.
 1 <= target <= 1000
  
 Follow up: What if negative numbers are allowed in the given array?
-How does it change the problem? What limitation we need to add to the question to allow negative numbers?
+How does it change the problem? What limitation we need to add to the question to allow
+negative numbers?
 */
 #include <bits/stdc++.h>
 using namespace std;

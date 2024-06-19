@@ -18,10 +18,12 @@ public:
 		function<bool(int, int, int)> dfs = [&](int x, int y, int idx) {
 			if (idx == word.size())
 				return true;
-			if (x < 0 || y < 0 || x >= m || y >= n || visited[x][y] || board[x][y] != word[idx])
+			if (x < 0 || y < 0 || x >= m || y >= n || visited[x][y] ||
+			    board[x][y] != word[idx])
 				return false;
 			visited[x][y] = true;
-			if (dfs(x + 1, y, idx + 1) || dfs(x - 1, y, idx + 1) || dfs(x, y + 1, idx + 1) || dfs(x, y - 1, idx + 1))
+			if (dfs(x + 1, y, idx + 1) || dfs(x - 1, y, idx + 1) ||
+			    dfs(x, y + 1, idx + 1) || dfs(x, y - 1, idx + 1))
 				return true;
 			visited[x][y] = false;
 			return false;

@@ -14,7 +14,9 @@ using namespace std;
  */
 class Solution {
 private:
-	int indexOfMaxElement(const vector<int>& arr) { return max_element(arr.begin(), arr.end()) - arr.begin(); }
+	int indexOfMaxElement(const vector<int>& arr) {
+		return max_element(arr.begin(), arr.end()) - arr.begin();
+	}
 
 public:
 	vector<int> findPeakGrid(vector<vector<int>>& mat) {

@@ -9,9 +9,9 @@ Examples:
 [2,3], the median is (2 + 3) / 2 = 2.5
 
 Given an array nums, there is a sliding window of size k which is moving from
-the very left of the array to the very right. You can only see the k numbers in the window.
-Each time the sliding window moves right by one position.
-Your job is to output the median array for each window in the original array.
+the very left of the array to the very right. You can only see the k numbers in the
+window. Each time the sliding window moves right by one position. Your job is to output
+the median array for each window in the original array.
 
 For example,
 Given nums = [1,3,-1,-3,5,3,6,7], and k = 3.
@@ -19,8 +19,8 @@ Given nums = [1,3,-1,-3,5,3,6,7], and k = 3.
 Therefore, return the median sliding window as [1,-1,-1,3,5,6].
 
 Note:
-You may assume k is always valid, ie: k is always smaller than input array's size for non-empty array.
-Answers within 10^-5 of the actual value will be accepted as correct.
+You may assume k is always valid, ie: k is always smaller than input array's size for
+non-empty array. Answers within 10^-5 of the actual value will be accepted as correct.
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -81,24 +81,29 @@ public:
 };
 /*
 思路：对顶堆
-1. 考察中位数的性质：若一个数组中的中位数，大于中位数的数目和小于中位数的数目，要么相等，要么相差1
+1.
+考察中位数的性质：若一个数组中的中位数，大于中位数的数目和小于中位数的数目，要么相等，要么相差1
 2. 将数组中前 k 个元素放入大顶堆，在从大顶堆中弹出 k / 2 个元素放入小顶堆中
         -k 为奇数，大顶堆元素数目比小顶堆多 1；k 为偶数，大顶堆数目与小顶堆数目相等
-        -k 为奇数，大顶堆top元素为(k个元素的)中位数；k为偶数，两个堆顶元素的平均值即为中位数
+        -k
+为奇数，大顶堆top元素为(k个元素的)中位数；k为偶数，两个堆顶元素的平均值即为中位数
 3. 滑动窗口时的操作
     - 定义balance表示大顶堆maxHeap与小顶堆minHeap的元素数目之差
     - 设置当前滑动时balance = 0
     - 删除窗口左侧元素
         · 由于堆无法删除指定元素，因此先标记这个元素，note[left]++
         · 假设左侧元素已经删除掉（实际未删），堆的平衡下发生变化，因而
-            若nums[left] <= maxHeap.top()，说明删掉的元素在 maxHeap，balance--；从minHeap删除，否则balance++
+            若nums[left] <= maxHeap.top()，说明删掉的元素在
+maxHeap，balance--；从minHeap删除，否则balance++
     - 添加窗口右侧元素
-        · 若 nums[right] <= maxHeap.top()，放入maxHeap，balance++；否则放入minHeap，balance--
+        · 若 nums[right] <=
+maxHeap.top()，放入maxHeap，balance++；否则放入minHeap，balance--
     - 增删操作后，balance有如下情况
         · balance == 0，跳过
         · balance == 2，则取出maxHeap元素放入minHeap
         · balance == -2，则取出minHeap元素放入maxHeap
-    - 检查两边堆顶元素是否被标记，若标记则弹出，直到堆顶元素不被标记为止（中位数运算只与堆顶元素有关）
+    -
+检查两边堆顶元素是否被标记，若标记则弹出，直到堆顶元素不被标记为止（中位数运算只与堆顶元素有关）
 */
 class Solution {
 private:

@@ -7,8 +7,9 @@
 /*
 LeetCode 56: Merge Intervals
 @Description:
-Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals,
-and return an array of the non-overlapping intervals that cover all the intervals in the input.
+Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping
+intervals, and return an array of the non-overlapping intervals that cover all the
+intervals in the input.
 
 Constraints:
 1 <= intervals.length <= 10^4
@@ -29,9 +30,11 @@ using namespace std;
 class Solution {
 public:
 	vector<vector<int>> merge(vector<vector<int>>& intervals) {
-		sort(intervals.begin(), intervals.end(), [](const vector<int>& nums1, const vector<int>& nums2) {
-			return (nums1[0] < nums2[0]) || ((nums1[0] == nums2[0]) && (nums1[1] < nums2[1]));
-		});
+		sort(intervals.begin(), intervals.end(),
+		     [](const vector<int>& nums1, const vector<int>& nums2) {
+			     return (nums1[0] < nums2[0]) ||
+			            ((nums1[0] == nums2[0]) && (nums1[1] < nums2[1]));
+		     });
 		vector<vector<int>> res;
 		int n = intervals.size();
 		for (int i = 0; i < n; ++i) {

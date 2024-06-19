@@ -1,7 +1,8 @@
 /*
  * @Date: 2024-01-11 10:40:05
  * @Author: nexisato
- * @FilePath: /LeetCodeDiary/LeetCode/2645_Minimum_Addition_to_Make_Valid_String/2645.cpp
+ * @FilePath:
+ * /LeetCodeDiary/LeetCode/2645_Minimum_Addition_to_Make_Valid_String/2645.cpp
  * @Description:
  *
  *
@@ -22,8 +23,8 @@ public:
 			dp[i] = dp[i - 1] + 2; // i 个字符单独在一个 valid 串中
 			if (i > 1 && word[i - 1] > word[i - 2]) {
 				dp[i] = dp[i - 1] - 1;
-				// i - 1 个字符构成的 valid 串中，最后一个字符可以和第 i 个字符构成 valid 串
-				// 这种情况下相当于少插入一次
+				// i - 1 个字符构成的 valid 串中，最后一个字符可以和第 i 个字符构成
+				// valid 串 这种情况下相当于少插入一次
 			}
 		}
 		return dp[n];

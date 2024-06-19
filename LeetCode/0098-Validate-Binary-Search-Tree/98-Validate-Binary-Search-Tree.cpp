@@ -1,7 +1,8 @@
 /*
  * @Date: 2023-12-10 01:13:31
  * @Author: nexisato
- * @FilePath: /LeetCodeDiary/LeetCode/0098-Validate-Binary-Search-Tree/98-Validate-Binary-Search-Tree.cpp
+ * @FilePath:
+ * /LeetCodeDiary/LeetCode/0098-Validate-Binary-Search-Tree/98-Validate-Binary-Search-Tree.cpp
  * @Description:
  */
 /*
@@ -44,14 +45,16 @@ struct TreeNode {
 class Solution {
 public:
 	bool isValidBST(TreeNode* root) { return isValidBST(root, nullptr, nullptr); }
-	bool isValidBST(TreeNode* node, TreeNode* lower, TreeNode* upper) { // max->val > root->val > min->val
+	bool isValidBST(TreeNode* node, TreeNode* lower,
+	                TreeNode* upper) { // max->val > root->val > min->val
 		if (!node)
 			return true;
 		if (lower != nullptr && node->val <= lower->val)
 			return false;
 		if (upper != nullptr && node->val >= upper->val)
 			return false;
-		return isValidBST(node->left, lower, node) && isValidBST(node->right, node, upper);
+		return isValidBST(node->left, lower, node) &&
+		       isValidBST(node->right, node, upper);
 	}
 };
 /*

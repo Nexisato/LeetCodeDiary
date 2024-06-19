@@ -1,7 +1,8 @@
 /*
  * @Date: 2024-01-12 11:19:17
  * @Author: nexisato
- * @FilePath: /LeetCodeDiary/LeetCode/2085_Count_Common_Words_with_One_Occurence/2085.cpp
+ * @FilePath:
+ * /LeetCodeDiary/LeetCode/2085_Count_Common_Words_with_One_Occurence/2085.cpp
  * @Description:
  */
 #include <iostream>
@@ -24,7 +25,8 @@ public:
 			table2[word]++;
 		}
 		for (auto it = table1.begin(); it != table1.end(); ++it) {
-			if (table2.find(it->first) != table2.end() && it->second == 1 && table2[it->first] == 1) {
+			if (table2.find(it->first) != table2.end() && it->second == 1 &&
+			    table2[it->first] == 1) {
 				++res;
 			}
 		}

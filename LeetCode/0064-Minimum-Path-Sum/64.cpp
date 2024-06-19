@@ -23,7 +23,8 @@ public:
 
 		for (int i = 2; i <= m; ++i)
 			for (int j = 2; j <= n; ++j) {
-				dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + grid[i - 1][j - 1]; // 注意这里的grid下标
+				dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) +
+				           grid[i - 1][j - 1]; // 注意这里的grid下标
 			}
 
 		return dp[m][n];

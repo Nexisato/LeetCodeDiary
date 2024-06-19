@@ -21,7 +21,8 @@ private:
 	int n;
 
 public:
-	UnionFind(int _n) : parent(vector<int>(_n)), rank(vector<int>(_n, 1)), count(_n), n(_n) {
+	UnionFind(int _n)
+	    : parent(vector<int>(_n)), rank(vector<int>(_n, 1)), count(_n), n(_n) {
 		iota(parent.begin(), parent.end(), 0);
 	}
 
@@ -61,11 +62,13 @@ public:
 				int idx = i * cols + j;
 				// 水平方向的边
 				if (j > 0) {
-					edges.emplace_back(idx - 1, idx, abs(heights[i][j] - heights[i][j - 1]));
+					edges.emplace_back(idx - 1, idx,
+					                   abs(heights[i][j] - heights[i][j - 1]));
 				}
 				// 垂直方向的边
 				if (i > 0) {
-					edges.emplace_back(idx - cols, idx, abs(heights[i][j] - heights[i - 1][j]));
+					edges.emplace_back(idx - cols, idx,
+					                   abs(heights[i][j] - heights[i - 1][j]));
 				}
 			}
 		}

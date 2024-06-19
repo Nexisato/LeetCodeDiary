@@ -53,7 +53,8 @@ public:
 1. 寻找第K小的元素
     - 比较  pivot1 = nums1[k/2-1] 和   pivot2 = nums2[k/2-1]
     - 两数组中小于 pivot1(2) 的元素各自共计 k/2 - 1个
-    - pivot = min(pivot1, pivot2)，则两数组中小于等于pivot的元素共计不会超过(k/2-1)+(k/2-1) <= k-2个
+    - pivot = min(pivot1,
+pivot2)，则两数组中小于等于pivot的元素共计不会超过(k/2-1)+(k/2-1) <= k-2个
     - 因而pivot在合并数组中最大为第k-1小的元素
     - 若pivot == pivot1，则移除nums1数组中前[0...k/2-1]个元素；
     - 若pivot==pivot2，则移除nums2数组中前[0...k/2-1]个元素。删除后对k值进行更新
@@ -89,7 +90,9 @@ public:
 		if (N % 2)
 			return (double)getKthElement(nums1, nums2, (N + 1) / 2);
 		else {
-			return double(getKthElement(nums1, nums2, N / 2) + getKthElement(nums1, nums2, N / 2 + 1)) / 2;
+			return double(getKthElement(nums1, nums2, N / 2) +
+			              getKthElement(nums1, nums2, N / 2 + 1)) /
+			       2;
 		}
 	}
 };

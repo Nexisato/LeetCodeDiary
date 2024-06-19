@@ -1,7 +1,8 @@
 /*
  * @Date: 2024-01-26 16:36:48
  * @Author: nexisato
- * @FilePath: /LeetCodeDiary/LeetCode/2846-Minimum-Edge-Weight-Equillibrium-Queries-in-a-Tree/2846.cpp
+ * @FilePath:
+ * /LeetCodeDiary/LeetCode/2846-Minimum-Edge-Weight-Equillibrium-Queries-in-a-Tree/2846.cpp
  * @Description:
  */
 #include <algorithm>
@@ -16,11 +17,12 @@ using namespace std;
 // 【LCA】倍增，看不懂，明天看
 // 实际上等于这两点之间的边长度，减去这两点之间的出现最多的边的次数
 // 求两点间的路径长度，可以通过倍增法求 LCA 来实现。
-// 记两点分别为 u, v，最近的公共祖先为 x，u 到 v 长度就是 depth[u] + depth[v] - 2 * depth[x]
-// 额外引入一个数组 count[n][26]，用于记录根节点 到 各点 之间每种边出现的次数
+// 记两点分别为 u, v，最近的公共祖先为 x，u 到 v 长度就是 depth[u] + depth[v] - 2 *
+// depth[x] 额外引入一个数组 count[n][26]，用于记录根节点 到 各点 之间每种边出现的次数
 class Solution {
 public:
-	vector<int> minOperationsQueries(int n, vector<vector<int>>& edges, vector<vector<int>>& queries) {
+	vector<int> minOperationsQueries(int n, vector<vector<int>>& edges,
+	                                 vector<vector<int>>& queries) {
 		unordered_map<int, unordered_map<int, int>> graph;
 		for (auto& edge : edges) {
 			int u = edge[0], v = edge[1], w = edge[2] - 1;

@@ -18,7 +18,9 @@ private:
 public:
 	int capacity;
 	int count;
-	UF(int cap) : parent(cap), rank(cap, 0), capacity(cap), count(0) { iota(parent.begin(), parent.end(), 0); }
+	UF(int cap) : parent(cap), rank(cap, 0), capacity(cap), count(0) {
+		iota(parent.begin(), parent.end(), 0);
+	}
 	int find(int x) {
 		while (x != parent[x]) {
 			parent[x] = parent[parent[x]];

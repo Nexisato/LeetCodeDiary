@@ -12,20 +12,20 @@ Reverse bits of a given 32 bits unsigned integer.
 Note:
 Note that in some languages such as Java, there is no unsigned integer type.
 In this case, both input and output will be given as a signed integer type.
-They should not affect your implementation, as the integer's internal binary representation is the same,
-whether it is signed or unsigned.
-In Java, the compiler represents the signed integers using 2's complement notation.
-Therefore, in Example 2 above, the input represents the signed integer -3 and the output represents
-the signed integer -1073741825.
-Follow up:
-If this function is called many times, how would you optimize it?
+They should not affect your implementation, as the integer's internal binary
+representation is the same, whether it is signed or unsigned. In Java, the compiler
+represents the signed integers using 2's complement notation. Therefore, in Example
+2 above, the input represents the signed integer -3 and the output represents the signed
+integer -1073741825. Follow up: If this function is called many times, how would you
+optimize it?
 */
 #include <iostream>
 using namespace std;
 /*
 思路：
 1. 设定一个[31]次循环，原序列与 1 相与后，送入新建序列；然后令原序列右移，新建序列左移
-2. 无循环，使用掩码将32位整数划分为具有较少位的块，分别将每个块反转，最后再合并，得到最终结果
+2.
+无循环，使用掩码将32位整数划分为具有较少位的块，分别将每个块反转，最后再合并，得到最终结果
 */
 class Solution {
 public:

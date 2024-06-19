@@ -1,8 +1,8 @@
 /*
 LeetCode 697: Degree of Array
 @Description:
-Given a non-empty array of non-negative integers nums, the degree of this array is defined
-as the maximum frequency of any one of its elements.
+Given a non-empty array of non-negative integers nums, the degree of this array is
+defined as the maximum frequency of any one of its elements.
 
 Your task is to find the smallest possible length of a (contiguous) subarray of nums,
 that has the same degree as nums.
@@ -15,8 +15,9 @@ nums[i] will be an integer between 0 and 49,999.
 using namespace std;
 /*
 思路：记录最大频元素出现的首末位置
-1.设 x 为出现次数最多的元素，和原数组度相同的最短连续子数组，必然包含了nums中的全部x，且两端恰为 x 出现的首末位置
-2.符合条件的 x 可能有多个，因此需要统计每一个数出现的次数及首末位置
+1.设 x
+为出现次数最多的元素，和原数组度相同的最短连续子数组，必然包含了nums中的全部x，且两端恰为
+x 出现的首末位置 2.符合条件的 x 可能有多个，因此需要统计每一个数出现的次数及首末位置
 3.记录完信息后，找到出现次数最多且首末位置差最小的元素
 */
 class Solution {

@@ -54,7 +54,8 @@ public:
 			return accumulate(count.begin(), count.end(), 0u,
 			                  [&](size_t acc, int num) { return (acc << 1) ^ fn(num); });
 		};
-		unordered_map<array<int, 26>, vector<string>, decltype(arrHash)> table(0, arrHash);
+		unordered_map<array<int, 26>, vector<string>, decltype(arrHash)> table(0,
+		                                                                       arrHash);
 		for (auto& str : strs) {
 			array<int, 26> count{};
 			for (auto& c : str)

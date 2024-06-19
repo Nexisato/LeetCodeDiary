@@ -29,8 +29,8 @@ public:
 		//     if (++nameTable[pureName] > 1) {
 		//         int count = nameTable[pureName] - 1;
 		//         if (folderName[folderName.length() - 1] == ')') {
-		//             int originNum = atoi(folderName.substr(nameL + 1, folderName.length() - 1).c_str());
-		//             count = max(count, originNum);
+		//             int originNum = atoi(folderName.substr(nameL + 1,
+		//             folderName.length() - 1).c_str()); count = max(count, originNum);
 		//         }
 		//         res[i] += '(' + to_string(count) + ')';
 		//     }
@@ -57,7 +57,8 @@ public:
 int main() {
 	Solution ss;
 	// vector<string> names({"pes","fifa","gta","pes(2019)"});
-	vector<string> names({"onepiece", "onepiece(1)", "onepiece(2)", "onepiece(3)", "onepiece", "onepiece"});
+	vector<string> names({"onepiece", "onepiece(1)", "onepiece(2)", "onepiece(3)",
+	                      "onepiece", "onepiece"});
 	vector<string> res = ss.getFolderNames(names);
 	for (const auto& s : res)
 		cout << s << endl;

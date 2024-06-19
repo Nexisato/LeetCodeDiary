@@ -19,7 +19,9 @@ const long long N = 1e6;
 long long ord_hash(int x, int y) { return (long long)x * N + y; }
 pair<int, int> ord_unhash(long long h) { return make_pair(h / N, h % N); }
 
-int heuristic(pair<int, int> a, pair<int, int> b) { return abs(a.first - b.first) + abs(a.second - b.second); }
+int heuristic(pair<int, int> a, pair<int, int> b) {
+	return abs(a.first - b.first) + abs(a.second - b.second);
+}
 
 const int dir[4][2] = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
 
@@ -28,7 +30,9 @@ int aStarSearch(vector<vector<int>>& graph, pair<int, int> start, pair<int, int>
 	int n = graph[0].size();
 	set<long long> visited;
 	// f = g + h
-	priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, greater<pair<int, pair<int, int>>>> pq;
+	priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>,
+	               greater<pair<int, pair<int, int>>>>
+	    pq;
 	pq.push({0, start});
 	while (!pq.empty()) {
 		auto [f, cur] = pq.top();
@@ -44,7 +48,8 @@ int aStarSearch(vector<vector<int>>& graph, pair<int, int> start, pair<int, int>
 			int nx = cur.first + dir[i][0];
 			int ny = cur.second + dir[i][1];
 			long long nxy = ord_hash(nx, ny);
-			if (nx < 0 || nx >= m || ny < 0 || ny >= n || graph[nx][ny] == 1 || visited.count(nxy))
+			if (nx < 0 || nx >= m || ny < 0 || ny >= n || graph[nx][ny] == 1 ||
+			    visited.count(nxy))
 				continue;
 			int g = f + 1;
 			int h = heuristic({nx, ny}, end);

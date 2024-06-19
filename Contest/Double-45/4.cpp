@@ -8,7 +8,8 @@ the maximum number of events you can attend.
 
 You can only attend one event at a time. If you choose to attend an event,
 you must attend the entire event. Note that the end day is inclusive:
-that is, you cannot attend two events where one of them starts and the other ends on the same day.
+that is, you cannot attend two events where one of them starts and the other ends on the
+same day.
 
 Return the maximum sum of values that you can receive by attending events.
 
@@ -26,9 +27,10 @@ using namespace std;
 2. 假设dp[i][k]为参加前i个会议中恰好k个时，所能获得的最大价值
 3. 对于dp[i][k]而言，有如下两种情况：
     · 不参加第i个会议，此时需要在前i-1个会议中参加k个，能够获得价值dp[i - 1][k]
-    · 参加第i个会议，此时对于任何会议j，若满足startDayj >= endDayi，则都会因时间冲突无法参加
-        · 设 l 为满足 l < i 且 endDayl < startDayi的最后一个会议，则dp[i][k] = dp[l][k - 1] + value[i](二分)
-        · 若 l 不存在时，即参加第i个会议则此前所有会议都无法参加
+    · 参加第i个会议，此时对于任何会议j，若满足startDayj >=
+endDayi，则都会因时间冲突无法参加 · 设 l 为满足 l < i 且 endDayl <
+startDayi的最后一个会议，则dp[i][k] = dp[l][k - 1] + value[i](二分) · 若 l
+不存在时，即参加第i个会议则此前所有会议都无法参加
 */
 class Solution {
 private:

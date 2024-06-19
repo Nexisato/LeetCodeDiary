@@ -1,7 +1,8 @@
 /*
  * @Date: 2023-12-10 01:13:31
  * @Author: nexisato
- * @FilePath: /LeetCodeDiary/LeetCode/0105_前序遍历和中序遍历恢复二叉树/105_pre_and_in.cpp
+ * @FilePath:
+ * /LeetCodeDiary/LeetCode/0105_前序遍历和中序遍历恢复二叉树/105_pre_and_in.cpp
  * @Description:
  */
 #include <iostream>
@@ -18,26 +19,31 @@ struct TreeNode {
 
 /*
 思路：使用hashtable快速定位根节点
-1. 对于hash映射中的每一个键值对，键表示一个元素节点值，值表示该元素在中序遍历中的出现位置
+1.
+对于hash映射中的每一个键值对，键表示一个元素节点值，值表示该元素在中序遍历中的出现位置
 */
 class Solution {
 private:
 	unordered_map<int, int> table;
-	TreeNode* traversal(vector<int>& preorder, vector<int>& inorder, int preL, int preR, int inL, int inR) {
+	TreeNode* traversal(vector<int>& preorder, vector<int>& inorder, int preL, int preR,
+	                    int inL, int inR) {
 		if (preL > preR)
 			return nullptr;
 		int inroot = table[preorder[preL]];
 
 		TreeNode* node = new TreeNode(preorder[preL]);
 		int left_len = inroot - inL;
-		node->left = traversal(preorder, inorder, preL + 1, preL + left_len, inL, inroot - 1);
-		node->right = traversal(preorder, inorder, preL + left_len + 1, preR, inroot + 1, inR);
+		node->left =
+		    traversal(preorder, inorder, preL + 1, preL + left_len, inL, inroot - 1);
+		node->right =
+		    traversal(preorder, inorder, preL + left_len + 1, preR, inroot + 1, inR);
 		return node;
 	}
 
 public:
 	TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-		return traversal(preorder, inorder, 0, preorder.size() - 1, 0, inorder.size() - 1);
+		return traversal(preorder, inorder, 0, preorder.size() - 1, 0,
+		                 inorder.size() - 1);
 	}
 };
 /*
@@ -45,14 +51,17 @@ public:
 */
 class Solution_traversal {
 private:
-	TreeNode* traversal(vector<int>& preorder, vector<int>& inorder, int preL, int preR, int inL, int inR) {
+	TreeNode* traversal(vector<int>& preorder, vector<int>& inorder, int preL, int preR,
+	                    int inL, int inR) {
 		if (preL > preR)
 			return nullptr;
 		TreeNode* node = new TreeNode(preorder[preL]);
 		for (int i = inL; i <= inR; ++i)
 			if (inorder[i] == preorder[preL]) {
-				node->left = traversal(preorder, inorder, preL + 1, preL + i - inL, inL, i - 1);
-				node->right = traversal(preorder, inorder, preL + i - inL + 1, preR, i + 1, inR);
+				node->left =
+				    traversal(preorder, inorder, preL + 1, preL + i - inL, inL, i - 1);
+				node->right =
+				    traversal(preorder, inorder, preL + i - inL + 1, preR, i + 1, inR);
 				break;
 			}
 		return node;
@@ -60,7 +69,8 @@ private:
 
 public:
 	TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-		return traversal(preorder, inorder, 0, preorder.size() - 1, 0, inorder.size() - 1);
+		return traversal(preorder, inorder, 0, preorder.size() - 1, 0,
+		                 inorder.size() - 1);
 	}
 };
 int main() { return 0; }

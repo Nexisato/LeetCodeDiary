@@ -37,7 +37,8 @@ public:
 		bottomRight = NULL;
 	}
 
-	Node(bool _val, bool _isLeaf, Node* _topLeft, Node* _topRight, Node* _bottomLeft, Node* _bottomRight) {
+	Node(bool _val, bool _isLeaf, Node* _topLeft, Node* _topRight, Node* _bottomLeft,
+	     Node* _bottomRight) {
 		val = _val;
 		isLeaf = _isLeaf;
 		topLeft = _topLeft;

@@ -126,7 +126,9 @@ public:
 		}
 	}
 	int getHeight(nodeptr_t root) { return root ? root->height : 0; }
-	int getBalance(nodeptr_t root) { return root ? getHeight(root->left) - getHeight(root->right) : 0; }
+	int getBalance(nodeptr_t root) {
+		return root ? getHeight(root->left) - getHeight(root->right) : 0;
+	}
 	void insert(int data) { root = insert(root, data); }
 	void remove(int data) { root = remove(root, data); }
 	nodeptr_t search(int data) {

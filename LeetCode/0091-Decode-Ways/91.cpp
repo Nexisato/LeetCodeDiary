@@ -1,14 +1,15 @@
 /*
 LeetCode 91: Decode Ways
 @Description:
-A message containing letters from A-Z can be encoded into numbers using the following mapping:
+A message containing letters from A-Z can be encoded into numbers using the following
+mapping:
 - "A" -> "1"
 - "B" -> "2"
 ..
 - "Z" - > "26"
-To decode an encoded message, all the digits must be grouped then mapped back into letters
-using the reverse of the mapping above (there may be multiple ways).
-For example, "11106" can be mapped into:
+To decode an encoded message, all the digits must be grouped then mapped back into
+letters using the reverse of the mapping above (there may be multiple ways). For
+example, "11106" can be mapped into:
 - "1 1 10 6" -> "AAJF"
 - "11 10 6" -> "KJF"
 Note that the grouping (1 11 06) is invalid because "06" cannot be mapped into
@@ -32,8 +33,8 @@ using namespace std;
     使用一个字符s[i]进行解码，那么只要s[i]不为0，即可被解码成A~I某个字母 （个位数编码）
     - dp[i] = dp[i - 1] (s[i] != 0)
 第二种情况
-    使用两个字符s[i - 1]和s[i]进行编码，s[i - 1]不为0，且s[i - 1]和s[i]组成的整数小于等于26，
-可以被解码成 J - Z中某个字母
+    使用两个字符s[i - 1]和s[i]进行编码，s[i - 1]不为0，且s[i -
+1]和s[i]组成的整数小于等于26， 可以被解码成 J - Z中某个字母
     - dp[i] = dp[i - 2] (s[i - 1] != 0 且 10 * s[i - 1] + s[i] <= 26)
 dp[0] = 1，表示空字符串只有一种解码方式
 */

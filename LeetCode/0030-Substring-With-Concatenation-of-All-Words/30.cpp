@@ -1,7 +1,8 @@
 /*
  * @Date: 2024-02-03 10:00:25
  * @Author: nexisato
- * @FilePath: /LeetCodeDiary/LeetCode/0030-Substring-With-Concatenation-of-All-Words/30.cpp
+ * @FilePath:
+ * /LeetCodeDiary/LeetCode/0030-Substring-With-Concatenation-of-All-Words/30.cpp
  * @Description:
  */
 #include <iostream>

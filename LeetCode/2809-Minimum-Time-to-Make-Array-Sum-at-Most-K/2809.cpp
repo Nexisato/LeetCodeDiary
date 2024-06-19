@@ -1,7 +1,8 @@
 /*
  * @Date: 2024-01-19 23:27:46
  * @Author: nexisato
- * @FilePath: /LeetCodeDiary/LeetCode/2809-Minimum-Time-to-Make-Array-Sum-at-Most-K/2809.cpp
+ * @FilePath:
+ * /LeetCodeDiary/LeetCode/2809-Minimum-Time-to-Make-Array-Sum-at-Most-K/2809.cpp
  * @Description:
  */
 #include <algorithm>
@@ -26,7 +27,8 @@ public:
 		iota(idx.begin(), idx.end(), 0); // 生成 0 ~ n-1 的序列
 		// 按照 nums2[i] 从小到大排序，记录下标
 		sort(idx.begin(), idx.end(), [&](int i, int j) { return nums2[i] < nums2[j]; });
-		// 核心在于排序不等式，nums1[i] + nums2[i] * k , 为第 k 个下标的数对减小量的最大贡献
+		// 核心在于排序不等式，nums1[i] + nums2[i] * k , 为第 k
+		// 个下标的数对减小量的最大贡献
 
 		// 下面的 dp 为 0-1 背包问题的降维版
 		// dp[i] 表示前 i 个数中，减小值能得到的最大值

@@ -1,8 +1,8 @@
 /*
 LeetCode: 130 Surrounded Regions
 Description:
-Given a 2D board containing 'X' and 'O' (the letter O), capture all regions surrounded by 'X'.
-A region is captured by flipping all 'O's into 'X's in that surrounded region.
+Given a 2D board containing 'X' and 'O' (the letter O), capture all regions surrounded
+by 'X'. A region is captured by flipping all 'O's into 'X's in that surrounded region.
 
 Explanation:
 Surrounded regions shouldn’t be on the border, which means that any 'O' on the border
@@ -110,7 +110,10 @@ void Print(vector<vector<char>> board) {
 	}
 }
 int main() {
-	vector<vector<char>> board{{'X', 'X', 'X', 'X'}, {'X', 'O', 'O', 'X'}, {'X', 'X', 'O', 'X'}, {'X', 'O', 'X', 'X'}};
+	vector<vector<char>> board{{'X', 'X', 'X', 'X'},
+	                           {'X', 'O', 'O', 'X'},
+	                           {'X', 'X', 'O', 'X'},
+	                           {'X', 'O', 'X', 'X'}};
 	Print(board);
 	Solution ss;
 	ss.solve(board);

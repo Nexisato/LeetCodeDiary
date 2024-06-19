@@ -5,14 +5,17 @@ using namespace std;
 */
 class Solution {
 public:
-	int minOperationsMaxProfit(vector<int>& customers, int boardingCost, int runningCost) {
+	int minOperationsMaxProfit(vector<int>& customers, int boardingCost,
+	                           int runningCost) {
 		int n = customers.size(), res = -1;
 		if (boardingCost * 4 - runningCost < 0)
 			return -1;
-		auto calcProfit = [&boardingCost, &runningCost](int customerNum, int rotateNum) -> int {
+		auto calcProfit = [&boardingCost, &runningCost](int customerNum,
+		                                                int rotateNum) -> int {
 			return customerNum * boardingCost - runningCost;
 		};
-		int sum = accumulate(customers.begin(), customers.end(), 0), maxProfit = 0, customerPool = 0, sumProfit = 0;
+		int sum = accumulate(customers.begin(), customers.end(), 0), maxProfit = 0,
+		    customerPool = 0, sumProfit = 0;
 		int index = 0, round = 1;
 		while (index < n || sum != 0) {
 			if (index < n)

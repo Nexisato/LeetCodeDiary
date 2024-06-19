@@ -42,7 +42,9 @@ private:
 
 public:
 	int count(string num1, string num2, int min_sum, int max_sum) {
-		int res = (range_count(num2, min_sum, max_sum) - range_count(num1, min_sum, max_sum)) % modulo;
+		int res =
+		    (range_count(num2, min_sum, max_sum) - range_count(num1, min_sum, max_sum)) %
+		    modulo;
 		int tmp = 0;
 		for (const auto& c : num1)
 			tmp += c - '0';

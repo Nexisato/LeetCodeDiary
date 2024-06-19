@@ -3,7 +3,8 @@ using namespace std;
 
 class Solution {
 public:
-	int minNumberOfHours(int initialEnergy, int initialExperience, vector<int>& energy, vector<int>& experience) {
+	int minNumberOfHours(int initialEnergy, int initialExperience, vector<int>& energy,
+	                     vector<int>& experience) {
 		int n = energy.size();
 		int res = 0;
 		int curEnergy = initialEnergy, curExp = initialExperience;
