@@ -13,8 +13,7 @@ subsequence. A subsequence is a sequence that can be derived from an array by de
 some or no elements without changing the order of the remaining elements. For example,
 [3,6,2,7] is a subsequence of the array [0,3,1,6,2,2,7].
 */
-#include <iostream>
-#include <string>
+
 #include <vector>
 using namespace std;
 /*
@@ -29,13 +28,13 @@ class Solution {
 public:
 	int lengthOfLIS(vector<int>& nums) {
 		vector<int> dp(nums.size(), 1);
+		int res = 1;
 		for (int i = 0; i < nums.size(); i++)
 			for (int j = 0; j < i; j++)
-				if (nums[j] < nums[i])
+				if (nums[j] < nums[i]) {
 					dp[i] = max(dp[i], dp[j] + 1);
-		int res = 0;
-		for (int i = 0; i < nums.size(); i++)
-			res = max(res, dp[i]);
+					res = max(res, dp[i]);
+				}
 		return res;
 	}
 };

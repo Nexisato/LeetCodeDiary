@@ -10,7 +10,9 @@ squares while 3 and 11 are not.
 Constraints:
 1 <= n <= 10^4
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <cmath>
+#include <vector>
 using namespace std;
 /*
 思路：背包DP
@@ -21,6 +23,7 @@ public:
 		vector<int> dp(n + 1, 0);
 		for (int i = 1; i <= n; ++i) {
 			dp[i] = i;
+			int up = static_cast<int>(sqrt(i));
 			for (int j = 1; j * j <= i; ++j)
 				dp[i] = min(dp[i], dp[i - j * j] + 1);
 		}

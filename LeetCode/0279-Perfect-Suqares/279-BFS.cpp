@@ -10,7 +10,9 @@ squares while 3 and 11 are not.
 Constraints:
 1 <= n <= 10^4
 */
-#include <bits/stdc++.h>
+#include <cmath>
+#include <vector>
+#include <queue>
 using namespace std;
 /*
 思路：BFS
