@@ -2,6 +2,73 @@
 #include <vector>
 using namespace std;
 
+
+template <typename T>
+class SegmentTree {
+public:
+    SegmentTree(const std::vector<T>& data) {
+        n = data.size();
+		// 为什么是 4 * n: 因为线段树是一棵满二叉树，n 个叶子节点，有 n - 1 个非叶子节点
+        tree.resize(4 * n);
+        build(data, 0, 0, n - 1);
+    }
+
+    // 区间查询 [left, right]
+    T query(int left, int right) {
+        return query(0, 0, n - 1, left, right);
+    }
+
+    // 区间修改 [left, right] 的值，加上 delta
+    void update(int left, int right, T delta) {
+        update(0, 0, n - 1, left, right, delta);
+    }
+
+private:
+    int n;
+    std::vector<T> tree;
+
+    // 构建线段树
+    void build(const std::vector<T>& data, int node, int start, int end) {
+        if (start == end) {
+            tree[node] = data[start];
+        } else {
+            int mid = (start + end) / 2;
+            build(data, 2 * node + 1, start, mid);
+            build(data, 2 * node + 2, mid + 1, end);
+            tree[node] = tree[2 * node + 1] + tree[2 * node + 2];
+        }
+    }
+
+    // 区间查询 [left, right]
+    T query(int node, int start, int end, int left, int right) {
+        if (right < start || end < left) {
+            return 0;
+        }
+        if (left <= start && end <= right) {
+            return tree[node];
+        }
+        int mid = (start + end) / 2;
+        T left_sum = query(2 * node + 1, start, mid, left, right);
+        T right_sum = query(2 * node + 2, mid + 1, end, left, right);
+        return left_sum + right_sum;
+    }
+
+    // 区间修改 [left, right] 的值，加上 delta
+    void update(int node, int start, int end, int left, int right, T delta) {
+        if (right < start || end < left) {
+            return;
+        }
+        if (start == end) {
+            tree[node] += delta;
+            return;
+        }
+        int mid = (start + end) / 2;
+        update(2 * node + 1, start, mid, left, right, delta);
+        update(2 * node + 2, mid + 1, end, left, right, delta);
+        tree[node] = tree[2 * node + 1] + tree[2 * node + 2];
+    }
+};
+
 /*
 将每个长度不为1的区间划分为左右两个区间递归求解，将整个线段划分为一个树形结构，
 通过合并左右两个区间来求得该区间的信息。通过这种数据结构可以方便进行大部分的区间操作。
