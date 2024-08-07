@@ -48,8 +48,7 @@ public:
 		if (table.find(key) == table.end())
 			return -1;
 		auto k_v = *table[key];
-		cache.erase(table[key]);
-		cache.push_front(k_v);
+		cache.splice(cache.begin(), cache, table[key]);
 		table[key] = cache.begin();
 		return k_v.second;
 	}

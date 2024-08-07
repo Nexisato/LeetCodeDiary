@@ -66,29 +66,29 @@ public:
 		return newHead;
 	}
 	ListNode* reverseKGroup_iter(ListNode* head, int k) {
-		int length = 0;
-		ListNode* node = head;
-		while (node) {
-			++length;
-			node = node->next;
-		}
-		ListNode *cur = head, *prev = nullptr, *post = nullptr;
-		ListNode* virNode = new ListNode(-1, head);
-		prev = virNode;
-		ListNode *tail = cur, *concat = prev;
-		for (; length >= k; length -= k) {
-			for (int i = 0; i < k; ++i) {
-				post = cur->next;
-				cur->next = prev;
-				prev = cur;
-				cur = post;
-			}
-			concat->next = prev;
-			tail->next = cur;
-			concat = tail;
-			tail = cur;
-		}
-		return virNode->next;
+        ListNode *node = head;
+        int length = 0;
+        while (node) {
+            ++length;
+            node = node->next;
+        }
+        ListNode *virNode = new ListNode(-1, head);
+        ListNode *prev = virNode, *cur = head, *post = nullptr;
+        ListNode *begin = prev, *end = cur;
+        for (;length >= k; length -= k) {
+            for (int i = 0; i < k; ++i) {
+                post = cur->next;
+                cur->next = prev;
+                prev = cur;
+                cur = post;
+            }
+            begin->next = prev;
+            end->next = cur;
+            begin = end;
+            end = cur;
+            
+        }
+        return virNode->next;
 	}
 };
 int main() { return 0; }

@@ -5,7 +5,8 @@ Given a singly linked list, determine if it is a palindrome.
 Follow up:
 Could you do it in O(n) time and O(1) space?
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <functional>
 using namespace std;
 
 // Definition for singly-linked list.
@@ -23,6 +24,37 @@ struct ListNode {
 4. prePtr 将链表分割为两个部分，后一部分的长度大于等于前一部分（长为奇数）
 5. 反转后半部分的链表，并按照前半部分的链表长度进行比较
 */
+class Solution_lambda {
+public:
+    bool isPalindrome(ListNode* head) {
+        ListNode *slowPtr = head, *fastPtr = head;
+        while (fastPtr && fastPtr->next) {
+            slowPtr = slowPtr->next;
+            fastPtr = fastPtr->next->next;
+        }
+        ListNode* middlePtr = slowPtr;
+        function<ListNode*(ListNode*)> reverse = [](ListNode* node) -> ListNode* {
+            if (!node) return nullptr;
+            ListNode *pre = nullptr, *cur = node, *post = nullptr;
+            while (cur) {
+                post = cur->next;
+                cur->next = pre;
+                pre = cur;
+                cur = post;
+            }
+            return pre;
+        };
+        ListNode *midHead = reverse(middlePtr);
+        while (head && midHead) {
+            if (head->val != midHead->val)
+                return false;
+            head = head->next;
+            midHead = midHead->next;
+        }
+        return true;
+    }
+};
+
 class Solution {
 public:
 	bool isPalindrome(ListNode* head) {
@@ -57,9 +89,11 @@ public:
 		return prenode;
 	}
 };
+
 /*
 思路：递归/后序遍历
 核心逻辑：将链表节点入栈，再拿出来，此时元素顺序就是反的
+容易超时
 */
 class Solution_dong {
 	ListNode* left;
