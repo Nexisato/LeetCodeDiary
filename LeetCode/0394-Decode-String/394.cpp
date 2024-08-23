@@ -20,13 +20,51 @@ s consists of lowercase English letters, digits, and square brackets '[]'.
 s is guaranteed to be a valid input.
 All the integers in s are in the range [1, 300].
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <string>
 using namespace std;
 /*
 思路：
 */
 class Solution {
 public:
+    string decodeString_fmt(string s) {
+        string res;
+		vector<char> st;
+		const int n = s.length();
+		for (int i = 0; i < n; ++i) {
+			if (s[i] != ']') {
+				st.emplace_back(s[i]);
+			} else {
+				string token = "";
+				while (st.back() != '[') {
+					token += st.back();
+					st.pop_back();
+				}
+				st.pop_back();
+				string num_str = "";
+				while (!st.empty() && isdigit(st.back())) {
+					num_str += st.back();
+					st.pop_back();
+				}
+				reverse(num_str.begin(), num_str.end());
+				int rep = stoi(num_str);
+				reverse(token.begin(), token.end());
+				string cur = "";
+				for (int j = 0; j < rep; ++j)
+					cur += token;
+				for (auto c : cur)
+					st.emplace_back(c);
+			}
+		}
+        for (auto&& c : st)
+            res += c;
+               
+
+        return res;
+            
+    }
 	string decodeString(string s) {
 		string res = "";
 		vector<char> st;
@@ -61,9 +99,9 @@ public:
 	}
 };
 int main() {
-	string s = "3[a2[c]]";
+	string s = "3[z]2[2[y]pq4[2[jk]e1[f]]]ef";
 	Solution ss;
-	string res = ss.decodeString(s);
+	string res = ss.decodeString_fmt(s);
 	cout << res << endl;
 	return 0;
 }
