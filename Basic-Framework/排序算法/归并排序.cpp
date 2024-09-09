@@ -42,4 +42,34 @@ void mergeSort(vector<int>& nums) {
     mergeSort(nums, 0, n - 1, res);
 }
 
+
+// 分离版
+void merge(vector<int>& arr, int l, int r, vector<int>& tmp) {
+        if (l >= r) return;
+        int mid = l + (r - l) / 2;
+
+        merge(arr, l, mid, tmp);
+        merge(arr, mid + 1, r, tmp);
+        int i = l, j = mid + 1, pos = l;
+        while (i <= mid && j <= r) {
+            if (arr[i] <= arr[j]) {
+                tmp[pos] = arr[i];
+                ++i;
+            } else {
+                tmp[pos] = arr[j];
+                ++j;
+            }
+            ++pos;
+        }
+        for (int k = i; k <= mid; ++k) {
+            tmp[pos] = arr[k];
+            ++pos;
+        }
+        for (int k = j; k <= r; ++k) {
+            tmp[pos] = arr[k];
+            ++pos;
+        }
+        copy(tmp.begin() + l, tmp.begin() + r + 1, arr.begin() + l);
+    }
+
 int main() { return 0; }
