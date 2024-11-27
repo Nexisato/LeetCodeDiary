@@ -1,6 +1,7 @@
 import java.util.Comparator;
 import java.util.Map;
 import java.util.PriorityQueue;
+import java.util.HashMap;
 
 public class Solution347 {
     public static void main(String[] args) {
